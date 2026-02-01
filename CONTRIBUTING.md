@@ -6,7 +6,7 @@ Thank you for your interest in contributing to presets.dev! We welcome contribut
 
 We welcome contributions directly to this repository!
 
-> **Note:** You can also contribute to the official [awesome-copilot](https://github.com/microsoft/awesome-copilot) repository. We periodically sync content from there. If you want your changes to appear faster or if they are specific to presets.dev, please contribute directly here.
+> **Note:** You can also contribute to the official [awesome-copilot](https://github.com/github/awesome-copilot) repository. We periodically sync content from there. If you want your changes to appear faster or if they are specific to presets.dev, please contribute directly here.
 
 ### Adding Agents
 
