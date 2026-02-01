@@ -4,7 +4,7 @@ description: Debug your application to find and fix a bug
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Debug Mode Instructions

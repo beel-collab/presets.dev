@@ -12,7 +12,7 @@ tags:
   - javadoc
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Java Documentation (Javadoc) Best Practices

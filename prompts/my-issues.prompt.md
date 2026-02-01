@@ -4,7 +4,7 @@ description: List my issues in the current repository
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 Search the current repo (using #githubRepo for the repo info) and list any issues you find (using #list_issues) that are assigned to me.

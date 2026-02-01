@@ -4,7 +4,7 @@ description: Preset for memory-bank.instructions
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 Coding standards, domain knowledge, and preferences that AI should follow.
 

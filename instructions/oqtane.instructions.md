@@ -4,7 +4,7 @@ description: Oqtane Module patterns
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 ## Blazor Code Style and Structure

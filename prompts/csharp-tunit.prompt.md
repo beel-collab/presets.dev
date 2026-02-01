@@ -4,7 +4,7 @@ description: 'Get best practices for TUnit unit testing, including data-driven t
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # TUnit Best Practices

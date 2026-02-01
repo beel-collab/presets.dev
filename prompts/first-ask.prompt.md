@@ -7,7 +7,7 @@ description: >-
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Act Informed: First understand together with the human, then do

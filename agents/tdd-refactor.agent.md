@@ -14,7 +14,7 @@ tags:
   - nunit
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # TDD Refactor Phase - Improve Quality & Security

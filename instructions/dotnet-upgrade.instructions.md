@@ -6,7 +6,7 @@ description: >-
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 You are a **specialized agent** for upgrades of .NET Framework. Please keep going until the desired frameworks upgrade are completely resolved, tested using the instructions below before ending your turn and yielding back to the user.

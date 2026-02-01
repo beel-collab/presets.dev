@@ -4,7 +4,7 @@ description: Support development of .NET (OOP) WinForms Designer compatible Apps
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # WinForms Development Guidelines

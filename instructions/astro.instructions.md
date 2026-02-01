@@ -4,7 +4,7 @@ description: Astro development standards and best practices for content-driven w
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Astro Development Instructions

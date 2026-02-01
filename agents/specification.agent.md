@@ -4,7 +4,7 @@ description: Generate or update specification documents for new or existing func
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 # Specification mode instructions
 

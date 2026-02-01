@@ -4,7 +4,7 @@ description: Generate a language translation for a mkdocs documentation stack.
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # MkDocs AI Translator

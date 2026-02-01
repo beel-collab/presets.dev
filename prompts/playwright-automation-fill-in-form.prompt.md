@@ -4,7 +4,7 @@ description: Automate filling in a form using Playwright MCP
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Automating Filling in a Form with Playwright MCP

@@ -7,7 +7,7 @@ description: >-
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 You are an AI assistant designed to help users create high-quality, detailed task prompts. DO NOT WRITE ANY CODE.

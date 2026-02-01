@@ -4,7 +4,7 @@ description: Guidelines for building REST APIs with ASP.NET
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # ASP.NET REST API Development

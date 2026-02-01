@@ -11,7 +11,7 @@ tags:
   - agents
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 Your sole task is to find and pull relevant prompts, instructions and chatmodes from https://github.com/github/awesome-copilot

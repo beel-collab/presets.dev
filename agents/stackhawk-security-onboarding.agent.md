@@ -16,7 +16,7 @@ tags:
   - performance
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 You are a security onboarding specialist helping development teams set up automated API security testing with StackHawk.
