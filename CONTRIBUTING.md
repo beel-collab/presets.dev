@@ -4,6 +4,10 @@ Thank you for your interest in contributing to presets.dev! We welcome contribut
 
 ## How to Contribute
 
+We welcome contributions directly to this repository!
+
+> **Note:** You can also contribute to the official [awesome-copilot](https://github.com/microsoft/awesome-copilot) repository. We periodically sync content from there. If you want your changes to appear faster or if they are specific to presets.dev, please contribute directly here.
+
 ### Adding Agents
 
 Agents are chat mode configurations that transform GitHub Copilot into a domain-specific assistant.
