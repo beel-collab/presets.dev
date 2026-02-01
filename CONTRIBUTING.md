@@ -155,27 +155,6 @@ Detailed description of the skill.
 | `tool_name` | What it does |
 ```
 
-### Adding Collections
-
-Collections group related prompts, instructions, agents, and skills around specific themes or workflows.
-
-1. **Create your collection manifest**: Add a new `.collection.yml` file in the `src/data/copilot/collections/` directory.
-2. **Follow the naming convention**: Use descriptive, lowercase filenames with hyphens (e.g., `python-web-development.collection.yml`).
-3. **Reference existing items**: Collections should only reference files that already exist in the repository.
-
-#### Example collection format
-
-```yaml
-id: my-collection-id
-name: My Collection Name
-description: A brief description of what this collection provides.
-tags: [tag1, tag2]
-items:
-  - path: prompts/my-prompt.prompt.md
-    kind: prompt
-  - path: instructions/my-instructions.instructions.md
-    kind: instruction
-```
 
 ## Submitting Your Contribution
 
