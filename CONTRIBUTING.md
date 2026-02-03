@@ -26,7 +26,6 @@ tags: ["React", "TypeScript", "Performance"]
 author:
   name: "Your Name"
   url: "https://github.com/yourusername"
-  avatar: "https://github.com/yourusername.png"
 ---
 
 # Agent Title
@@ -188,7 +187,6 @@ All contributions must include YAML frontmatter at the top of the file:
 | `tags` | ✅ Yes | Array of relevant tags for filtering |
 | `author.name` | ❌ Optional | Your name or username |
 | `author.url` | ❌ Optional | Link to your profile |
-| `author.avatar` | ❌ Optional | URL to your avatar image |
 | `libs` | ❌ Optional | Array of related libraries |
 
 ## What We Accept
