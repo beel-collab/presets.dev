@@ -4,7 +4,7 @@ description: Add new language to a Next.js + next-intl application
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 This is a guide to add a new language to a Next.js project using next-intl for internationalization,

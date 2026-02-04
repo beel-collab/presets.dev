@@ -1,10 +1,10 @@
 ---
-title: Refactoring Java Methods with Remove Parameter
+title: java-refactoring-remove-parameter.prompt
 description: Refactoring using Remove Parameter in Java Language
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Refactoring Java Methods with Remove Parameter

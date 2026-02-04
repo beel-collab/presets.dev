@@ -4,9 +4,16 @@ description: >-
   Expert assistant for developing AEM components using HTL, Tailwind CSS, and
   Figma-to-code workflows with design system integration
 tags: []
+tools:
+  - codebase
+  - edit/editFiles
+  - web/fetch
+  - githubRepo
+  - figma-dev-mode-mcp-server
+model: GPT-4.1
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # AEM Front-End Specialist

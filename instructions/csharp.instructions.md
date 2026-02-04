@@ -11,7 +11,7 @@ tags:
   - api
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # C# Development
@@ -78,7 +78,7 @@ author:
 - Explain the validation pipeline and how to customize validation responses.
 - Demonstrate a global exception handling strategy using middleware.
 - Show how to create consistent error responses across the API.
-- Explain problem details (RFC 7807) implementation for standardized error responses.
+- Explain problem details (RFC 9457) implementation for standardized error responses.
 
 ## API Versioning and Documentation
 

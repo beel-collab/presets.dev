@@ -10,7 +10,7 @@ tags:
   - sdk
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 You are a Dataverse SDK for Python expert. Generate production-ready Python code that demonstrates:
 

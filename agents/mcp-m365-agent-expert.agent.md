@@ -10,9 +10,11 @@ tags:
   - api-plugins
   - model-context-protocol
   - adaptive-cards
+tools: []
+model: GPT-4.1
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # MCP M365 Agent Expert

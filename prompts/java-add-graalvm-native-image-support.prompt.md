@@ -5,9 +5,16 @@ description: >-
   applications, builds the project, analyzes build errors, applies fixes, and
   iterates until successful compilation using Oracle best practices.
 tags: []
+tools:
+  - read_file
+  - replace_string_in_file
+  - run_in_terminal
+  - list_dir
+  - grep_search
+model: Claude Sonnet 4.5
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # GraalVM Native Image Agent

@@ -6,7 +6,7 @@ description: >-
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 The goal is for the tests to cover all lines of code.

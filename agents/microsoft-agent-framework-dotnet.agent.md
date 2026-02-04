@@ -4,9 +4,34 @@ description: >-
   Create, update, refactor, explain or work with code using the .NET version of
   Microsoft Agent Framework.
 tags: []
+tools:
+  - changes
+  - codebase
+  - edit/editFiles
+  - extensions
+  - fetch
+  - findTestFiles
+  - githubRepo
+  - new
+  - openSimpleBrowser
+  - problems
+  - runCommands
+  - runNotebooks
+  - runTasks
+  - runTests
+  - search
+  - searchResults
+  - terminalLastCommand
+  - terminalSelection
+  - testFailure
+  - usages
+  - vscodeAPI
+  - microsoft.docs.mcp
+  - github
+model: claude-sonnet-4
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Microsoft Agent Framework .NET mode instructions

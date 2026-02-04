@@ -12,9 +12,12 @@ tags:
   - security
   - devops
   - business-intelligence
+tools:
+  - microsoft.docs.mcp
+model: gpt-4.1
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Power BI DAX Formula Optimizer

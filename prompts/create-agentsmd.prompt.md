@@ -4,7 +4,7 @@ description: Prompt for generating an AGENTS.md file for a repository
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Create high‑quality AGENTS.md file

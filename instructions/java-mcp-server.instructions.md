@@ -15,7 +15,7 @@ tags:
   - reactor
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Java MCP Server Development Guidelines

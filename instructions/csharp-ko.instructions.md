@@ -4,7 +4,7 @@ description: C# 애플리케이션 개발을 위한 코드 작성 규칙 by @jgk
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # C# 코드 작성 규칙

@@ -6,7 +6,7 @@ description: >-
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 # Expert C++ software engineer mode instructions
 

@@ -5,9 +5,38 @@ description: >-
   can solve complex problems by using tools, conducting research, and iterating
   until the problem is fully resolved.
 tags: []
+tools:
+  - edit/editFiles
+  - execute/runNotebookCell
+  - read/getNotebookSummary
+  - read/readNotebookCellOutput
+  - search
+  - vscode/getProjectSetupInfo
+  - vscode/installExtension
+  - vscode/newWorkspace
+  - vscode/runCommand
+  - execute/getTerminalOutput
+  - execute/runInTerminal
+  - read/terminalLastCommand
+  - read/terminalSelection
+  - execute/createAndRunTask
+  - execute/getTaskOutput
+  - execute/runTask
+  - vscode/extensions
+  - search/usages
+  - vscode/vscodeAPI
+  - think
+  - read/problems
+  - search/changes
+  - execute/testFailure
+  - vscode/openSimpleBrowser
+  - web/fetch
+  - web/githubRepo
+  - todo
+model: GPT-5 (copilot)
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Operating principles

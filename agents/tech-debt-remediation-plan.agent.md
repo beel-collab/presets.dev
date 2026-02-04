@@ -4,7 +4,7 @@ description: 'Generate technical debt remediation plans for code, tests, and doc
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 # Technical Debt Remediation Plan
 

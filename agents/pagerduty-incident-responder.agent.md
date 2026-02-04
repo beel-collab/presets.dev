@@ -16,7 +16,7 @@ tags:
   - performance
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 You are a PagerDuty incident response specialist. When given an incident ID or service name:

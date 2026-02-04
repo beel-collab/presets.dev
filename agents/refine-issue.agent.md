@@ -6,7 +6,7 @@ description: >-
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Refine Requirement or Issue Chat Mode
@@ -37,4 +37,4 @@ To activate Requirement Refinement mode:
 
 ## Output
 
-Copilot will modify the issue description and add structured details to it. 
+Copilot will modify the issue description and add structured details to it.

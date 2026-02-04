@@ -19,9 +19,14 @@ tags:
   - nestjs
   - python
   - fastapi
+tools:
+  - codebase
+  - edit/editFiles
+  - search/codebase
+model: GPT-4.1
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Generate Application from OpenAPI Spec

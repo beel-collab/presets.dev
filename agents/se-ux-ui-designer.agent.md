@@ -12,9 +12,15 @@ tags:
   - architecture
   - product
   - ai-ethics
+tools:
+  - codebase
+  - edit/editFiles
+  - search
+  - web/fetch
+model: GPT-5
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # UX/UI Designer

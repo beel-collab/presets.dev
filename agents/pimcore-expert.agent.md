@@ -4,9 +4,18 @@ description: >-
   Expert Pimcore development assistant specializing in CMS, DAM, PIM, and
   E-Commerce solutions with Symfony integration
 tags: []
+tools:
+  - codebase
+  - terminalCommand
+  - edit/editFiles
+  - web/fetch
+  - githubRepo
+  - runTests
+  - problems
+model: GPT-4.1 | 'gpt-5' | 'Claude Sonnet 4.5'
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Pimcore Expert

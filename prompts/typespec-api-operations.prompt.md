@@ -10,9 +10,15 @@ tags:
   - api-plugins
   - agent-development
   - microsoft-365
+tools:
+  - changes
+  - search/codebase
+  - edit/editFiles
+  - problems
+model: gpt-4.1
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Add TypeSpec API Operations

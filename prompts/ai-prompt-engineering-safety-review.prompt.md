@@ -24,7 +24,7 @@ tags:
   - nunit
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # AI Prompt Engineering Safety Review & Improvement

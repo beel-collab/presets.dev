@@ -4,7 +4,7 @@ description: 'Coding, security, and testing rules for WordPress plugins and them
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # WordPress Development — Copilot Instructions

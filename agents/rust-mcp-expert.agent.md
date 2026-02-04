@@ -13,9 +13,11 @@ tags:
   - async
   - macros
   - rmcp
+tools: []
+model: GPT-4.1
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Rust MCP Expert

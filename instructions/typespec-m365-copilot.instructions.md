@@ -12,7 +12,7 @@ tags:
   - microsoft-365
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # TypeSpec for Microsoft 365 Copilot Development Guidelines

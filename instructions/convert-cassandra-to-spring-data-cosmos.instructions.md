@@ -6,7 +6,7 @@ description: >-
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Comprehensive Guide: Converting Spring Boot Cassandra Applications to use Azure Cosmos DB with Spring Data Cosmos (spring-data-cosmos)

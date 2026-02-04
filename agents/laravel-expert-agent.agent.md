@@ -4,9 +4,19 @@ description: >-
   Expert Laravel development assistant specializing in modern Laravel 12+
   applications with Eloquent, Artisan, testing, and best practices
 tags: []
+tools:
+  - codebase
+  - terminalCommand
+  - edit/editFiles
+  - web/fetch
+  - githubRepo
+  - runTests
+  - problems
+  - search
+model: GPT-4.1 | 'gpt-5' | 'Claude Sonnet 4.5'
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Laravel Expert Agent

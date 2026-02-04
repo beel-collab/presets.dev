@@ -15,7 +15,7 @@ tags:
   - business-intelligence
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Power BI DevOps and Application Lifecycle Management Best Practices

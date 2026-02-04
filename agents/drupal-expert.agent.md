@@ -4,9 +4,18 @@ description: >-
   Expert assistant for Drupal development, architecture, and best practices
   using PHP 8.3+ and modern Drupal patterns
 tags: []
+tools:
+  - codebase
+  - terminalCommand
+  - edit/editFiles
+  - web/fetch
+  - githubRepo
+  - runTests
+  - problems
+model: GPT-4.1
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Drupal Expert

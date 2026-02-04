@@ -5,9 +5,11 @@ description: >-
   Enforces a minimal tool usage policy, never assumes facts, prioritizes
   reproducible solutions, self-correction, and edge-case handling.
 tags: []
+tools: []
+model: GPT-5-Codex (Preview) (copilot)
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Blueprint Mode Codex v1

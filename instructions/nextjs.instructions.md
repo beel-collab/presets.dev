@@ -15,7 +15,7 @@ tags:
   - vue
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Next.js Best Practices for LLMs (2026)

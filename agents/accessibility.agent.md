@@ -4,9 +4,31 @@ description: >-
   Expert assistant for web accessibility (WCAG 2.1/2.2), inclusive UX, and a11y
   testing
 tags: []
+tools:
+  - changes
+  - codebase
+  - edit/editFiles
+  - extensions
+  - web/fetch
+  - findTestFiles
+  - githubRepo
+  - new
+  - openSimpleBrowser
+  - problems
+  - runCommands
+  - runTasks
+  - runTests
+  - search
+  - searchResults
+  - terminalLastCommand
+  - terminalSelection
+  - testFailure
+  - usages
+  - vscodeAPI
+model: GPT-4.1
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Accessibility Expert

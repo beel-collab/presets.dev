@@ -4,7 +4,7 @@ description: Rust programming language coding conventions and best practices
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Rust Coding Conventions and Best Practices

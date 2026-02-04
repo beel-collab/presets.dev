@@ -2,9 +2,12 @@
 title: playwright-automation-fill-in-form.prompt
 description: Automate filling in a form using Playwright MCP
 tags: []
+tools:
+  - playwright
+model: Claude Sonnet 4
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Automating Filling in a Form with Playwright MCP

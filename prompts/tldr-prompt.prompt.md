@@ -4,9 +4,15 @@ description: >-
   Create tldr summaries for GitHub Copilot files (prompts, agents, instructions,
   collections), MCP servers, or documentation from URLs and queries.
 tags: []
+tools:
+  - web/fetch
+  - search/readFile
+  - search
+  - search/textSearch
+model: claude-sonnet-4
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # TLDR Prompt

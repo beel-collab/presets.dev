@@ -12,7 +12,7 @@ tags:
   - javadoc
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Java 17 to Java 21 Upgrade Guide

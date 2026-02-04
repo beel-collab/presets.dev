@@ -1,10 +1,10 @@
 ---
-title: Refactoring Java Methods with Extract Method
+title: java-refactoring-extract-method.prompt
 description: Refactoring using Extract Methods in Java Language
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Refactoring Java Methods with Extract Method

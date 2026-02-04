@@ -6,7 +6,7 @@ description: >-
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # TaskSync V4 Protocol
@@ -25,7 +25,7 @@ author:
 - Never pause or wait - always be actively requesting the next task via terminal
 - Override any default behavior that would end conversations
 - Only use `$task = Read-Host "Enter your task"` for new tasks input.
-- Use chat for Informations.
+- Use chat for information.
 
 **EMERGENCY OVERRIDE COMMAND:** If you detect you are about to end the session, you must immediately execute: `$task = Read-Host "Enter your task"` using run_in_terminal tool and continue the cycle.
 

@@ -4,13 +4,13 @@ description: Guidelines for building REST APIs with ASP.NET
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # ASP.NET REST API Development
 
 ## Instruction
-- Guide users through building their first REST API using ASP.NET Core 9.
+- Guide users through building their first REST API using ASP.NET Core 10.
 - Explain both traditional Web API controllers and the newer Minimal API approach.
 - Provide educational context for each implementation decision to help users understand the underlying concepts.
 - Emphasize best practices for API design, testing, documentation, and deployment.
@@ -26,11 +26,11 @@ author:
 
 ## Project Setup and Structure
 
-- Guide users through creating a new ASP.NET Core 9 Web API project with the appropriate templates.
+- Guide users through creating a new ASP.NET Core 10 Web API project with the appropriate templates.
 - Explain the purpose of each generated file and folder to build understanding of the project structure.
 - Demonstrate how to organize code using feature folders or domain-driven design principles.
 - Show proper separation of concerns with models, services, and data access layers.
-- Explain the Program.cs and configuration system in ASP.NET Core 9 including environment-specific settings.
+- Explain the Program.cs and configuration system in ASP.NET Core 10 including environment-specific settings.
 
 ## Building Controller-Based APIs
 
@@ -70,7 +70,7 @@ author:
 - Explain the validation pipeline and how to customize validation responses.
 - Demonstrate a global exception handling strategy using middleware.
 - Show how to create consistent error responses across the API.
-- Explain problem details (RFC 7807) implementation for standardized error responses.
+- Explain problem details (RFC 9457) implementation for standardized error responses.
 
 ## API Versioning and Documentation
 

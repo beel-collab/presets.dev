@@ -4,7 +4,7 @@ description: Ruby on Rails coding conventions and guidelines
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Ruby on Rails

@@ -4,9 +4,38 @@ description: >-
   Create, update, refactor, explain or work with code using the Python version
   of Microsoft Agent Framework.
 tags: []
+tools:
+  - changes
+  - search/codebase
+  - edit/editFiles
+  - extensions
+  - fetch
+  - findTestFiles
+  - githubRepo
+  - new
+  - openSimpleBrowser
+  - problems
+  - runCommands
+  - runNotebooks
+  - runTasks
+  - runTests
+  - search
+  - search/searchResults
+  - runCommands/terminalLastCommand
+  - runCommands/terminalSelection
+  - testFailure
+  - usages
+  - vscodeAPI
+  - microsoft.docs.mcp
+  - github
+  - configurePythonEnvironment
+  - getPythonEnvironmentInfo
+  - getPythonExecutableCommand
+  - installPythonPackage
+model: claude-sonnet-4
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Microsoft Agent Framework Python mode instructions

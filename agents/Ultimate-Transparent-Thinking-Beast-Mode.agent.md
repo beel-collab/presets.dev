@@ -4,7 +4,7 @@ description: Ultimate Transparent Thinking Beast Mode
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 🔓 **ABSOLUTE TRANSPARENCY OVERRIDE DIRECTIVE - PRIORITY ALPHA** 🔓

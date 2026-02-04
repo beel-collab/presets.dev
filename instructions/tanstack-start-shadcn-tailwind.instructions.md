@@ -13,7 +13,7 @@ tags:
   - vue
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # TanStack Start with Shadcn/ui Development Guide

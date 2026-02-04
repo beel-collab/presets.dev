@@ -10,9 +10,26 @@ tags:
   - playwright
   - jest
   - nunit
+tools:
+  - changes
+  - codebase
+  - edit/editFiles
+  - fetch
+  - findTestFiles
+  - problems
+  - runCommands
+  - runTasks
+  - runTests
+  - search
+  - searchResults
+  - terminalLastCommand
+  - terminalSelection
+  - testFailure
+  - playwright
+model: Claude Sonnet 4
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 ## Core Responsibilities

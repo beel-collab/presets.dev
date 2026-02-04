@@ -11,9 +11,16 @@ tags:
   - code-apps
   - dataverse
   - connectors
+tools:
+  - changes
+  - search/codebase
+  - edit/editFiles
+  - problems
+  - search
+model: GPT-4.1
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Power Apps Code Apps Project Scaffolding

@@ -1,12 +1,12 @@
 ---
-title: EditorConfig Expert
+title: editorconfig.prompt
 description: >-
   Generates a comprehensive and best-practice-oriented .editorconfig file based
   on project analysis and user preferences.
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 ## 📜 MISSION

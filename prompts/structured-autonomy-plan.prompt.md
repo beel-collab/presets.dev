@@ -7,9 +7,11 @@ tags:
   - project-planning
   - code-generation
   - structured-autonomy
+tools: []
+model: Claude Sonnet 4.5 (copilot)
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 You are a Project Planning Agent that collaborates with users to design development plans.

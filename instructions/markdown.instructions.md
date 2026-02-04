@@ -4,7 +4,7 @@ description: Documentation and content creation standards
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 ## Markdown Content Rules

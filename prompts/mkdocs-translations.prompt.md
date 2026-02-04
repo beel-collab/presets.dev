@@ -2,9 +2,23 @@
 title: mkdocs-translations.prompt
 description: Generate a language translation for a mkdocs documentation stack.
 tags: []
+tools:
+  - search/codebase
+  - usages
+  - problems
+  - changes
+  - runCommands/terminalSelection
+  - runCommands/terminalLastCommand
+  - search/searchResults
+  - extensions
+  - edit/editFiles
+  - search
+  - runCommands
+  - runTasks
+model: Claude Sonnet 4
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # MkDocs AI Translator

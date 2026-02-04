@@ -10,7 +10,7 @@ tags:
   - javadoc
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 - Instructions for high-quality Quarkus applications with Java 17 or later.

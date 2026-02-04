@@ -12,7 +12,7 @@ tags:
   - adaptive-cards
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # MCP-based M365 Copilot Development Guidelines

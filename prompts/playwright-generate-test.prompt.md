@@ -19,9 +19,25 @@ tags:
   - playwright
   - jest
   - nunit
+tools:
+  - changes
+  - search/codebase
+  - edit/editFiles
+  - web/fetch
+  - problems
+  - runCommands
+  - runTasks
+  - runTests
+  - search
+  - search/searchResults
+  - runCommands/terminalLastCommand
+  - runCommands/terminalSelection
+  - testFailure
+  - playwright/*
+model: Claude Sonnet 4.5
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Test Generation with Playwright MCP

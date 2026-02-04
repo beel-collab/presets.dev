@@ -4,7 +4,7 @@ description: Guidelines for creating high-quality prompt files for GitHub Copilo
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Copilot Prompt Files Guidelines

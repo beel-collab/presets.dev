@@ -4,9 +4,20 @@ description: >-
   Expert at designing and creating VS Code custom agents with optimal
   configurations
 tags: []
+tools:
+  - vscode
+  - execute
+  - read
+  - edit
+  - search
+  - web
+  - agent
+  - github/*
+  - todo
+model: Claude Sonnet 4.5
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Custom Agent Foundry - Expert Agent Designer

@@ -15,7 +15,7 @@ tags:
   - github-copilot
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 ## Core Principles
@@ -32,11 +32,11 @@ author:
 Always install via pip:
 
 ```bash
-pip install copilot-sdk
+pip install github-copilot-sdk
 # or with poetry
-poetry add copilot-sdk
+poetry add github-copilot-sdk
 # or with uv
-uv add copilot-sdk
+uv add github-copilot-sdk
 ```
 
 ## Client Initialization

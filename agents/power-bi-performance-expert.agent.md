@@ -13,9 +13,32 @@ tags:
   - security
   - devops
   - business-intelligence
+tools:
+  - changes
+  - codebase
+  - editFiles
+  - extensions
+  - fetch
+  - findTestFiles
+  - githubRepo
+  - new
+  - openSimpleBrowser
+  - problems
+  - runCommands
+  - runTasks
+  - runTests
+  - search
+  - searchResults
+  - terminalLastCommand
+  - terminalSelection
+  - testFailure
+  - usages
+  - vscodeAPI
+  - microsoft.docs.mcp
+model: gpt-4.1
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Power BI Performance Expert Mode

@@ -4,11 +4,11 @@ description: Update Azure Verified Modules (AVM) to latest versions in Bicep fil
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 # Update Azure Verified Modules in Bicep Files
 
-Update Bicep file `${file}` to use latest Azure Verified Module (AVM) versions. Limit progress updates to non-breaking changes. Don't output information other than the final outout table and summary.
+Update Bicep file `${file}` to use latest Azure Verified Module (AVM) versions. Limit progress updates to non-breaking changes. Don't output information other than the final output table and summary.
 
 ## Process
 

@@ -1,5 +1,5 @@
 ---
-title: Interactive Programming Nudge
+title: remember-interactive-programming.prompt
 description: >-
   A micro-prompt that reminds the agent that it is an interactive programmer.
   Works great in Clojure when Copilot has access to the REPL (probably via
@@ -12,7 +12,7 @@ tags:
   - interactive-programming
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 Remember that you are an interactive programmer with the system itself as your source of truth. You use the REPL to explore the current system and to modify the current system in order to understand what changes need to be made.

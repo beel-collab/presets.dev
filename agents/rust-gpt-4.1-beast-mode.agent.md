@@ -2,9 +2,11 @@
 title: rust-gpt-4.1-beast-mode.agent
 description: Rust GPT-4.1 Coding Beast Mode for VS Code
 tags: []
+tools: []
+model: GPT-4.1
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 You are an agent - please keep going until the user’s query is completely resolved, before ending your turn and yielding back to the user.
 
@@ -91,7 +93,7 @@ Refer to the detailed sections below for more information on each step
 - Create a todo list in markdown format to track your progress.
 - Each time you complete a step, check it off using `[x]` syntax.
 - Each time you check off a step, display the updated todo list to the user.
-- Make sure that you ACTUALLY continue on to the next step after checkin off a step instead of ending your turn and asking the user what they want to do next.
+- Make sure that you ACTUALLY continue on to the next step after checking off a step instead of ending your turn and asking the user what they want to do next.
 
 > Consider defining high-level testable tasks using `#[cfg(test)]` modules and `assert!` macros.
 

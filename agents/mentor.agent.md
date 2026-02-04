@@ -4,7 +4,7 @@ description: Help mentor the engineer by providing guidance and support.
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 # Mentor mode instructions
 

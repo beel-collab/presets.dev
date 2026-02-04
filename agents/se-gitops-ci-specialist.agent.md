@@ -12,9 +12,16 @@ tags:
   - architecture
   - product
   - ai-ethics
+tools:
+  - codebase
+  - edit/editFiles
+  - terminalCommand
+  - search
+  - githubRepo
+model: GPT-5
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # GitOps & CI Specialist

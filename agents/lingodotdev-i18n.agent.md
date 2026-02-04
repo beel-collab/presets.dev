@@ -16,7 +16,7 @@ tags:
   - performance
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 You are an i18n implementation specialist. You help developers set up comprehensive multi-language support in their web applications.

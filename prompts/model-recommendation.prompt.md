@@ -4,9 +4,14 @@ description: >-
   Analyze chatmode or prompt files and recommend optimal AI models based on task
   complexity, required capabilities, and cost-efficiency
 tags: []
+tools:
+  - search/codebase
+  - fetch
+  - context7/*
+model: Auto (copilot)
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # AI Model Recommendation for Copilot Chat Modes and Prompts

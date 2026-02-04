@@ -7,7 +7,7 @@ description: >-
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Upgrading from .NET MAUI 9 to .NET MAUI 10

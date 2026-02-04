@@ -4,9 +4,18 @@ description: >-
   Expert Shopify development assistant specializing in theme development, Liquid
   templating, app development, and Shopify APIs
 tags: []
+tools:
+  - codebase
+  - terminalCommand
+  - edit/editFiles
+  - web/fetch
+  - githubRepo
+  - runTests
+  - problems
+model: GPT-4.1
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Shopify Expert

@@ -5,9 +5,25 @@ description: >-
   review. Perfect for targeted updates after a story or researching that legacy
   system when nobody remembers what it's supposed to be doing.
 tags: []
+tools:
+  - search/codebase
+  - changes
+  - edit/editFiles
+  - web/fetch
+  - findTestFiles
+  - githubRepo
+  - runCommands
+  - runTests
+  - search
+  - search/searchResults
+  - testFailure
+  - usages
+  - activePullRequest
+  - copilotCodingAgent
+model: claude-sonnet-4
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # High-Level Big Picture Architect (HLBPA)

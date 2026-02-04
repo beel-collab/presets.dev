@@ -12,9 +12,17 @@ tags:
   - architecture
   - product
   - ai-ethics
+tools:
+  - codebase
+  - githubRepo
+  - create_issue
+  - update_issue
+  - list_issues
+  - search_issues
+model: GPT-5
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Product Manager Advisor

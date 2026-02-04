@@ -10,9 +10,11 @@ tags:
   - model-context-protocol
   - server-development
   - sdk
+tools: []
+model: GPT-4.1
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Go MCP Server Development Expert

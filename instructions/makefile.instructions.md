@@ -4,7 +4,7 @@ description: Best practices for authoring GNU Make Makefiles
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Makefile Development Instructions

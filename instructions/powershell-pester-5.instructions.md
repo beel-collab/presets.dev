@@ -4,7 +4,7 @@ description: PowerShell Pester testing best practices based on Pester v5 convent
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # PowerShell Pester v5 Testing Guidelines

@@ -7,9 +7,23 @@ description: >-
   deployment code, or IaC templates in any format (Bicep, ARM Templates,
   Terraform, Pulumi).
 tags: []
+tools:
+  - vscode
+  - execute
+  - read
+  - edit
+  - search
+  - web
+  - agent
+  - azure-mcp/azureterraformbestpractices
+  - azure-mcp/bicepschema
+  - azure-mcp/search
+  - pulumi-mcp/get-type
+  - runSubagent
+model: Claude Sonnet 4.5
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Azure IaC Code Generation Hub - Central Code Generation Engine

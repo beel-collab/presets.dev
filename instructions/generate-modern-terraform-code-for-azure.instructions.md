@@ -4,7 +4,7 @@ description: Guidelines for generating modern Terraform code for Azure
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 ## 1. Use Latest Terraform and Providers

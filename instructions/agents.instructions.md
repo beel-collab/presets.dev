@@ -4,7 +4,7 @@ description: Guidelines for creating custom agent files for GitHub Copilot
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Custom Agent File Guidelines

@@ -12,9 +12,19 @@ tags:
   - serverless
   - architecture
   - devops
+tools:
+  - codebase
+  - changes
+  - edit/editFiles
+  - search
+  - runCommands
+  - microsoft.docs.mcp
+  - azure_get_code_gen_best_practices
+  - azure_query_learn
+model: gpt-4
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # Azure Logic Apps Expert Mode

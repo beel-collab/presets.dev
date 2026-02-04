@@ -4,7 +4,7 @@ description: C# アプリケーション構築指針 by @tsubakimoto
 tags: []
 author:
   name: Community
-  url: 'https://github.com/github/awesome-copilot'
+  url: 'https://github.com/microsoft/awesome-copilot'
 ---
 
 # C# アプリケーション開発
@@ -71,7 +71,7 @@ author:
 - 検証パイプラインと、検証応答のカスタマイズ方法を説明します。
 - ミドルウェアを用いたグローバル例外処理戦略を示します。
 - API 全体で一貫したエラー応答を作成する方法を示します。
-- 標準化されたエラー応答のための Problem Details（RFC 7807）の実装を説明します。
+- 標準化されたエラー応答のための Problem Details（RFC 9457）の実装を説明します。
 
 ## API のバージョニングとドキュメント
 
