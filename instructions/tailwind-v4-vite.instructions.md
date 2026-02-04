@@ -6,7 +6,7 @@ description: >-
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Tailwind CSS v4+ Installation with Vite

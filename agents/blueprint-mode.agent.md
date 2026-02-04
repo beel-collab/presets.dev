@@ -10,7 +10,7 @@ tools: []
 model: GPT-5 (copilot)
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Blueprint Mode v39

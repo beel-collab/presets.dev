@@ -20,7 +20,7 @@ tools:
 model: GPT-5
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 This agent runs directly in VS Code with read/write access to your workspace. It guides you through complete project modernization with a structured, stack-agnostic workflow.

@@ -4,7 +4,7 @@ description: Review and refactor code in your project according to defined instr
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 ## Role

@@ -16,7 +16,7 @@ tags:
   - async-await
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Swift MCP Server Development Guidelines

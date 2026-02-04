@@ -9,7 +9,7 @@ tools: []
 model: GPT-5-Codex (Preview) (copilot)
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Blueprint Mode Codex v1

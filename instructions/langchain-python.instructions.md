@@ -4,7 +4,7 @@ description: Instructions for using LangChain with Python
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # LangChain Python Instructions

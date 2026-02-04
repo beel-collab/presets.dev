@@ -18,7 +18,7 @@ tools:
 model: gpt-4.1
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Create TypeSpec API Plugin

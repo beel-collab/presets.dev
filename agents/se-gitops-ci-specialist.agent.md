@@ -21,7 +21,7 @@ tools:
 model: GPT-5
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # GitOps & CI Specialist

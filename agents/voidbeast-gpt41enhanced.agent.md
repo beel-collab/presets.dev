@@ -9,7 +9,7 @@ description: >-
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # voidBeast_GPT41Enhanced 1.0 - Elite Developer AI Assistant

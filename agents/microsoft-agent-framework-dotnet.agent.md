@@ -31,7 +31,7 @@ tools:
 model: claude-sonnet-4
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Microsoft Agent Framework .NET mode instructions

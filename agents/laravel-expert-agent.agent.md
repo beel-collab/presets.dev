@@ -16,7 +16,7 @@ tools:
 model: GPT-4.1 | 'gpt-5' | 'Claude Sonnet 4.5'
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Laravel Expert Agent

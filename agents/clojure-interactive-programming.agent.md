@@ -11,7 +11,7 @@ tags:
   - interactive-programming
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 You are a Clojure interactive programmer with Clojure REPL access. **MANDATORY BEHAVIOR**:

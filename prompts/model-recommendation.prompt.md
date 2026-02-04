@@ -11,7 +11,7 @@ tools:
 model: Auto (copilot)
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # AI Model Recommendation for Copilot Chat Modes and Prompts

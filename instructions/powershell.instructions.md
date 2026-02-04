@@ -4,7 +4,7 @@ description: PowerShell cmdlet and scripting best practices based on Microsoft g
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # PowerShell Cmdlet Development Guidelines

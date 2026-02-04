@@ -24,7 +24,7 @@ tools:
 model: gpt-4
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Azure Logic Apps Expert Mode

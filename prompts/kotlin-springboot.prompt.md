@@ -4,7 +4,7 @@ description: Get best practices for developing applications with Spring Boot and
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Spring Boot with Kotlin Best Practices

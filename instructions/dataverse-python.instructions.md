@@ -4,7 +4,7 @@ description: Preset for dataverse-python.instructions
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 # Dataverse SDK for Python — Getting Started
 

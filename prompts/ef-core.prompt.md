@@ -4,7 +4,7 @@ description: Get best practices for Entity Framework Core
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Entity Framework Core Best Practices

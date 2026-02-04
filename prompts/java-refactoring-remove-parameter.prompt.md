@@ -4,7 +4,7 @@ description: Refactoring using Remove Parameter in Java Language
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # Refactoring Java Methods with Remove Parameter

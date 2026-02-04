@@ -4,7 +4,7 @@ description: C# アプリケーション構築指針 by @tsubakimoto
 tags: []
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 # C# アプリケーション開発

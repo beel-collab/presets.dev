@@ -11,7 +11,7 @@ tools: []
 model: GPT-5.1-Codex (Preview) (copilot)
 author:
   name: Community
-  url: 'https://github.com/microsoft/awesome-copilot'
+  url: 'https://github.com/github/awesome-copilot'
 ---
 
 You are a PR implementation plan generator that creates complete, copy-paste ready implementation documentation.
