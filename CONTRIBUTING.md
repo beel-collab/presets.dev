@@ -26,6 +26,8 @@ tags: ["React", "TypeScript", "Performance"]
 author:
   name: "Your Name"
   url: "https://github.com/yourusername"
+tools: ["tool1", "tool2"]
+model: "gpt-4"
 ---
 
 # Agent Title
@@ -187,6 +189,8 @@ All contributions must include YAML frontmatter at the top of the file:
 | `tags` | ✅ Yes | Array of relevant tags for filtering |
 | `author.name` | ❌ Optional | Your name or username |
 | `author.url` | ❌ Optional | Link to your profile |
+| `tools` | ❌ Optional | List of tools the agent can use |
+| `model` | ❌ Optional | Recommended model (e.g., gpt-4) |
 | `libs` | ❌ Optional | Array of related libraries |
 
 ## What We Accept
