@@ -4,6 +4,7 @@ description: >-
   A transcendent coding agent with quantum cognitive architecture, adversarial
   intelligence, and unrestricted creative freedom.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -4,6 +4,9 @@ description: >-
   Create a tldr page from documentation URLs and command examples, requiring
   both URL and command name.
 tags: []
+tools:
+  - edit/createFile
+  - web/fetch
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

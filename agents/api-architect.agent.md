@@ -4,6 +4,7 @@ description: >-
   Your role is that of an API architect. Help mentor the engineer by providing
   guidance, support, and working code.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

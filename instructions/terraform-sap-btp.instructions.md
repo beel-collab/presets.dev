@@ -4,6 +4,7 @@ description: >-
   Terraform conventions and guidelines for SAP Business Technology Platform (SAP
   BTP).
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

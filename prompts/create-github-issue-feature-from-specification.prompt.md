@@ -4,6 +4,13 @@ description: >-
   Create GitHub Issue for feature request from specification file using
   feature_request.yml template.
 tags: []
+tools:
+  - search/codebase
+  - search
+  - github
+  - create_issue
+  - search_issues
+  - update_issue
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

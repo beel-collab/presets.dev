@@ -2,6 +2,7 @@
 title: agent-skills.instructions
 description: Guidelines for creating high-quality Agent Skills for GitHub Copilot
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

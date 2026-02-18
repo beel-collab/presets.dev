@@ -11,6 +11,7 @@ tags:
   - code-apps
   - dataverse
   - connectors
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -2,6 +2,7 @@
 title: rust.instructions
 description: Rust programming language coding conventions and best practices
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

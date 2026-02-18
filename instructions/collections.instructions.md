@@ -2,6 +2,7 @@
 title: collections.instructions
 description: Guidelines for creating and managing awesome-copilot collections
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

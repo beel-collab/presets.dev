@@ -4,6 +4,7 @@ description: >-
   Instructions for customizing GitHub Copilot behavior for MONGODB DBA chat
   mode.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

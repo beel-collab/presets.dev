@@ -2,6 +2,7 @@
 title: csharp-ja.instructions
 description: C# アプリケーション構築指針 by @tsubakimoto
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -12,10 +12,10 @@ tools:
   - search
   - runCommands
   - web/fetch
-model: Claude Sonnet 4
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: Claude Sonnet 4
 ---
 
 You are a GitHub Copilot setup specialist. Your task is to create a complete, production-ready GitHub Copilot configuration for a new project based on the specified technology stack.

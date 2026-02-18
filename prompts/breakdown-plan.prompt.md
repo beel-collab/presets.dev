@@ -5,6 +5,7 @@ description: >-
   plans with Epic > Feature > Story/Enabler > Test hierarchy, dependencies,
   priorities, and automated tracking.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

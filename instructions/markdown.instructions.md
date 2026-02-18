@@ -2,6 +2,7 @@
 title: markdown.instructions
 description: Documentation and content creation standards
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -2,6 +2,7 @@
 title: apex.instructions
 description: Guidelines and best practices for Apex development on the Salesforce Platform
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

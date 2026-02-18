@@ -7,6 +7,30 @@ description: >-
   comprehensive research capabilities, and never-ending problem resolution.
   Plan/Act/Deep Research/Analyzer/Checkpoints(Memory)/Prompt Generator Modes.
 tags: []
+tools:
+  - changes
+  - codebase
+  - edit/editFiles
+  - extensions
+  - web/fetch
+  - findTestFiles
+  - githubRepo
+  - new
+  - openSimpleBrowser
+  - problems
+  - readCellOutput
+  - runCommands
+  - runNotebooks
+  - runTasks
+  - runTests
+  - search
+  - searchResults
+  - terminalLastCommand
+  - terminalSelection
+  - testFailure
+  - updateUserPreferences
+  - usages
+  - vscodeAPI
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

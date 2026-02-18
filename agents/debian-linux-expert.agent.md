@@ -10,10 +10,10 @@ tools:
   - terminalCommand
   - runCommands
   - edit/editFiles
-model: Claude Sonnet 4
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: Claude Sonnet 4
 ---
 
 # Debian Linux Expert

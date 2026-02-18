@@ -13,6 +13,16 @@ tags:
   - task
   - architecture
   - technical-spike
+tools:
+  - search/codebase
+  - vscode/extensions
+  - web/fetch
+  - web/githubRepo
+  - read/problems
+  - azure-mcp/search
+  - search/searchResults
+  - search/usages
+  - vscode/vscodeAPI
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

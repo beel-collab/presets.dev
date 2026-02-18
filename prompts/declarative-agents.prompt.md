@@ -5,6 +5,7 @@ description: >-
   three comprehensive workflows (basic, advanced, validation), TypeSpec support,
   and Microsoft 365 Agents Toolkit integration
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -9,10 +9,10 @@ tools:
   - search/readFile
   - search
   - search/textSearch
-model: claude-sonnet-4
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: claude-sonnet-4
 ---
 
 # TLDR Prompt

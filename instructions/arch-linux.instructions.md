@@ -4,6 +4,7 @@ description: >-
   Guidance for Arch Linux administration, pacman workflows, and rolling-release
   best practices.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -5,6 +5,7 @@ description: >-
   based on Microsoft Power Apps YAML schema v3.0. Covers Power Fx formulas,
   control structures, data types, and source control best practices.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

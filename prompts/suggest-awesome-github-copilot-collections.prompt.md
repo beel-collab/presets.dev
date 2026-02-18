@@ -11,6 +11,19 @@ tags:
   - meta
   - prompt-engineering
   - agents
+tools:
+  - edit
+  - search
+  - runCommands
+  - runTasks
+  - think
+  - changes
+  - testFailure
+  - openSimpleBrowser
+  - web/fetch
+  - githubRepo
+  - todos
+  - search
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

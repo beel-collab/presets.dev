@@ -2,6 +2,7 @@
 title: langchain-python.instructions
 description: Instructions for using LangChain with Python
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

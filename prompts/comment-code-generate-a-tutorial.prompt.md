@@ -5,6 +5,7 @@ description: >-
   refactoring the code, adding clear instructional comments, and generating a
   complete markdown tutorial.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

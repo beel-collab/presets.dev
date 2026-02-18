@@ -11,6 +11,7 @@ tags:
   - html
   - angular
   - vue
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -2,6 +2,7 @@
 title: CSharpExpert.agent
 description: An agent designed to assist with software development tasks for .NET projects.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

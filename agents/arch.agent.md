@@ -4,6 +4,7 @@ description: >-
   Expert in modern architecture design patterns, NFR requirements, and creating
   comprehensive architectural diagrams and documentation
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

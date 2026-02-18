@@ -10,6 +10,7 @@ tags:
   - api-plugins
   - model-context-protocol
   - adaptive-cards
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

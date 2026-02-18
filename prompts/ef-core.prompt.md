@@ -2,6 +2,12 @@
 title: ef-core.prompt
 description: Get best practices for Entity Framework Core
 tags: []
+tools:
+  - changes
+  - search/codebase
+  - edit/editFiles
+  - problems
+  - runCommands
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

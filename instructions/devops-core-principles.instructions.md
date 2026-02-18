@@ -9,6 +9,7 @@ tags:
   - incident-response
   - oncall
   - azure
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

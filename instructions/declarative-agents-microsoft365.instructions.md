@@ -5,6 +5,7 @@ description: >-
   agents with schema v1.5, TypeSpec integration, and Microsoft 365 Agents
   Toolkit workflows
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

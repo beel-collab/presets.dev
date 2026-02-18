@@ -20,10 +20,10 @@ tools:
   - usages
   - activePullRequest
   - copilotCodingAgent
-model: claude-sonnet-4
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: claude-sonnet-4
 ---
 
 # High-Level Big Picture Architect (HLBPA)

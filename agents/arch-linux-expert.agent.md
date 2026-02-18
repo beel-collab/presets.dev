@@ -10,10 +10,10 @@ tools:
   - terminalCommand
   - runCommands
   - edit/editFiles
-model: GPT-5
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: GPT-5
 ---
 
 # Arch Linux Expert

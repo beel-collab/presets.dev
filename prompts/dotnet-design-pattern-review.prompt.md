@@ -4,6 +4,7 @@ description: >-
   Review the C#/.NET code for design pattern implementation and suggest
   improvements.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

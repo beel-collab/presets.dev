@@ -4,6 +4,7 @@ description: >-
   Expert agent for creating and maintaining VSCode CodeTour files with
   comprehensive schema support and best practices
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

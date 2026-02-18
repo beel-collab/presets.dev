@@ -15,6 +15,7 @@ tags:
   - devops
   - incident-response
   - oncall
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

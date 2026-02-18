@@ -9,6 +9,7 @@ tags:
   - model-context-protocol
   - dotnet
   - server-development
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

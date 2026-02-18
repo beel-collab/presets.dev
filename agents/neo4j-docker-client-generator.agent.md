@@ -14,6 +14,14 @@ tags:
   - cicd
   - migration
   - performance
+tools:
+  - read
+  - edit
+  - search
+  - shell
+  - neo4j-local/neo4j-local-get_neo4j_schema
+  - neo4j-local/neo4j-local-read_neo4j_cypher
+  - neo4j-local/neo4j-local-write_neo4j_cypher
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

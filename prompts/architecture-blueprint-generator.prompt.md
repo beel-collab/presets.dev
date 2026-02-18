@@ -7,6 +7,7 @@ description: >-
   documents implementation patterns, and provides extensible blueprints for
   maintaining architectural consistency and guiding new development.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

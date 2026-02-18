@@ -33,10 +33,10 @@ tools:
   - web/fetch
   - web/githubRepo
   - todo
-model: GPT-5 (copilot)
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: GPT-5 (copilot)
 ---
 
 # Operating principles

@@ -5,6 +5,10 @@ description: >-
   creating high-quality software documentation, guided by the principles and
   structure of the Diátaxis technical documentation authoring framework.
 tags: []
+tools:
+  - edit/editFiles
+  - search
+  - web/fetch
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

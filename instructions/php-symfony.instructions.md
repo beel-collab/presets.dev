@@ -2,6 +2,7 @@
 title: php-symfony.instructions
 description: Symfony development standards aligned with official Symfony Best Practices
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

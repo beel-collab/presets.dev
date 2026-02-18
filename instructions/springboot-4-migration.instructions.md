@@ -4,6 +4,7 @@ description: >-
   Comprehensive guide for migrating Spring Boot applications from 3.x to 4.0,
   focusing on Gradle Kotlin DSL and version catalogs
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

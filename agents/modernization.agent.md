@@ -17,10 +17,10 @@ tools:
   - execute/createAndRunTask
   - execute/getTaskOutput
   - web/fetch
-model: GPT-5
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: GPT-5
 ---
 
 This agent runs directly in VS Code with read/write access to your workspace. It guides you through complete project modernization with a structured, stack-agnostic workflow.

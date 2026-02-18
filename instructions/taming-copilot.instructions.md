@@ -4,6 +4,7 @@ description: >-
   Prevent Copilot from wreaking havoc across your codebase, keeping it under
   control.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

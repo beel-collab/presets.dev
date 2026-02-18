@@ -5,6 +5,12 @@ description: >-
   rollouts/rollbacks, security defaults, and operational verification for
   production-grade deployments
 tags: []
+tools:
+  - codebase
+  - edit/editFiles
+  - terminalCommand
+  - search
+  - githubRepo
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

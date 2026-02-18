@@ -4,6 +4,26 @@ description: >-
   Update a markdown file section with an index/table of files from a specified
   folder.
 tags: []
+tools:
+  - changes
+  - search/codebase
+  - edit/editFiles
+  - extensions
+  - web/fetch
+  - findTestFiles
+  - githubRepo
+  - openSimpleBrowser
+  - problems
+  - runCommands
+  - runTasks
+  - runTests
+  - search
+  - search/searchResults
+  - runCommands/terminalLastCommand
+  - runCommands/terminalSelection
+  - testFailure
+  - usages
+  - vscodeAPI
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

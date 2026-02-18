@@ -14,6 +14,31 @@ tags:
   - feature
   - task
   - technical-spike
+tools:
+  - changes
+  - codebase
+  - edit/editFiles
+  - extensions
+  - fetch
+  - findTestFiles
+  - githubRepo
+  - new
+  - openSimpleBrowser
+  - problems
+  - runCommands
+  - runNotebooks
+  - runTests
+  - search
+  - searchResults
+  - terminalLastCommand
+  - terminalSelection
+  - testFailure
+  - usages
+  - vscodeAPI
+  - terraform
+  - Microsoft Docs
+  - azure_get_schema_for_Bicep
+  - context7
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

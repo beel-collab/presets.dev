@@ -12,6 +12,15 @@ tags:
   - serverless
   - architecture
   - devops
+tools:
+  - edit/editFiles
+  - fetch
+  - todos
+  - azureterraformbestpractices
+  - cloudarchitect
+  - documentation
+  - get_bestpractices
+  - microsoft-docs
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

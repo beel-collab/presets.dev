@@ -4,6 +4,13 @@ description: >-
   Create GitHub Pull Request for feature request from specification file using
   pull_request_template.md template.
 tags: []
+tools:
+  - search/codebase
+  - search
+  - github
+  - create_pull_request
+  - update_pull_request
+  - get_pull_request_diff
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

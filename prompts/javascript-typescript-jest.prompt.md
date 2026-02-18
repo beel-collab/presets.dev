@@ -4,6 +4,7 @@ description: >-
   Best practices for writing JavaScript/TypeScript tests using Jest, including
   mocking strategies, test structure, and common patterns.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

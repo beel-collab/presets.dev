@@ -2,6 +2,13 @@
 title: mentor.agent
 description: Help mentor the engineer by providing guidance and support.
 tags: []
+tools:
+  - codebase
+  - web/fetch
+  - findTestFiles
+  - githubRepo
+  - search
+  - usages
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

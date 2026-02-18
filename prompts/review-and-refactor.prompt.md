@@ -2,6 +2,7 @@
 title: review-and-refactor.prompt
 description: Review and refactor code in your project according to defined instructions
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

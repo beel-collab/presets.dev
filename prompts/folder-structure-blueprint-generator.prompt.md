@@ -7,6 +7,7 @@ description: >-
   options, naming conventions, file placement patterns, and extension templates
   for maintaining consistent code organization across diverse technology stacks.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

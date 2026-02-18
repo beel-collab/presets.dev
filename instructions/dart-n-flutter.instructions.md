@@ -4,6 +4,7 @@ description: >-
   Instructions for writing Dart and Flutter code following the official
   recommendations.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

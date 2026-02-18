@@ -2,6 +2,12 @@
 title: csharp-tunit.prompt
 description: 'Get best practices for TUnit unit testing, including data-driven tests'
 tags: []
+tools:
+  - changes
+  - search/codebase
+  - edit/editFiles
+  - problems
+  - search
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

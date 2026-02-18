@@ -4,6 +4,18 @@ description: >-
   Brainstorm and develop new application ideas through fun, interactive
   questioning until ready for specification creation.
 tags: []
+tools:
+  - changes
+  - codebase
+  - web/fetch
+  - githubRepo
+  - openSimpleBrowser
+  - problems
+  - search
+  - searchResults
+  - usages
+  - microsoft.docs.mcp
+  - websearch
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

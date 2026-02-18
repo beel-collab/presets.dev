@@ -4,6 +4,12 @@ description: >-
   Expert in latest library versions, best practices, and correct syntax using
   up-to-date documentation
 tags: []
+tools:
+  - read
+  - search
+  - web
+  - context7/*
+  - agent/runSubagent
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

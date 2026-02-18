@@ -28,10 +28,10 @@ tools:
   - vscodeAPI
   - microsoft.docs.mcp
   - github
-model: claude-sonnet-4
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: claude-sonnet-4
 ---
 
 # Microsoft Agent Framework .NET mode instructions

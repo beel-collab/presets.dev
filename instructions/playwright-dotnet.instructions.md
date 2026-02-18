@@ -2,6 +2,7 @@
 title: playwright-dotnet.instructions
 description: Playwright .NET test generation instructions
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

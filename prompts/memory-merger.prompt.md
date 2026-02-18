@@ -5,6 +5,7 @@ description: >-
   Syntax: `/memory-merger >domain [scope]` where scope is `global` (default),
   `user`, `workspace`, or `ws`.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

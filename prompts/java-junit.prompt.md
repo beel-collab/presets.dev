@@ -16,6 +16,12 @@ tags:
   - playwright
   - jest
   - nunit
+tools:
+  - changes
+  - search/codebase
+  - edit/editFiles
+  - problems
+  - search
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

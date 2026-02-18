@@ -14,10 +14,10 @@ tools:
   - agent
   - github/*
   - todo
-model: Claude Sonnet 4.5
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: Claude Sonnet 4.5
 ---
 
 # Custom Agent Foundry - Expert Agent Designer

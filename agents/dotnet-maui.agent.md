@@ -4,6 +4,7 @@ description: >-
   Support development of .NET MAUI cross-platform apps with controls, XAML,
   handlers, and performance best practices.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

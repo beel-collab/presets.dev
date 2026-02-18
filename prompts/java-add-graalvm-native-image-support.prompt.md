@@ -11,10 +11,10 @@ tools:
   - run_in_terminal
   - list_dir
   - grep_search
-model: Claude Sonnet 4.5
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: Claude Sonnet 4.5
 ---
 
 # GraalVM Native Image Agent

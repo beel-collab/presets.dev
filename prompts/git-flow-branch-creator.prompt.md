@@ -4,6 +4,9 @@ description: >-
   Intelligent Git Flow branch creator that analyzes git status/diff and creates
   appropriate branches following the nvie Git Flow branching model.
 tags: []
+tools:
+  - runCommands/runInTerminal
+  - runCommands/getTerminalOutput
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

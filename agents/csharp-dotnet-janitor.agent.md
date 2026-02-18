@@ -4,6 +4,29 @@ description: >-
   Perform janitorial tasks on C#/.NET code including cleanup, modernization, and
   tech debt remediation.
 tags: []
+tools:
+  - changes
+  - codebase
+  - edit/editFiles
+  - extensions
+  - web/fetch
+  - findTestFiles
+  - githubRepo
+  - new
+  - openSimpleBrowser
+  - problems
+  - runCommands
+  - runTasks
+  - runTests
+  - search
+  - searchResults
+  - terminalLastCommand
+  - terminalSelection
+  - testFailure
+  - usages
+  - vscodeAPI
+  - microsoft.docs.mcp
+  - github
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

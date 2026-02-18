@@ -5,6 +5,8 @@ description: >-
   with intelligent duplicate detection, change management, and user-approved
   creation workflow.
 tags: []
+tools:
+  - atlassian
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

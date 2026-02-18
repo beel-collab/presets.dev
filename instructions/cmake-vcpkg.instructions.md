@@ -2,6 +2,7 @@
 title: cmake-vcpkg.instructions
 description: C++ project configuration and package management
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

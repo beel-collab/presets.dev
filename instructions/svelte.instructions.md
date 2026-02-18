@@ -4,6 +4,7 @@ description: >-
   Svelte 5 and SvelteKit development standards and best practices for
   component-based user interfaces and full-stack applications
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -4,6 +4,11 @@ description: >-
   Ensure that C# types are documented with XML comments and follow best
   practices for documentation.
 tags: []
+tools:
+  - changes
+  - search/codebase
+  - edit/editFiles
+  - problems
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

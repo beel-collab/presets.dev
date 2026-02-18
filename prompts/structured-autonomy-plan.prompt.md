@@ -8,10 +8,10 @@ tags:
   - code-generation
   - structured-autonomy
 tools: []
-model: Claude Sonnet 4.5 (copilot)
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: Claude Sonnet 4.5 (copilot)
 ---
 
 You are a Project Planning Agent that collaborates with users to design development plans.

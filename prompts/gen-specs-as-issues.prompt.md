@@ -5,6 +5,7 @@ description: >-
   features, prioritize them, and create detailed specifications for
   implementation.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -2,6 +2,7 @@
 title: blazor.instructions
 description: Blazor component and application patterns
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

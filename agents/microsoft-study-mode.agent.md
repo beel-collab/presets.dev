@@ -4,6 +4,9 @@ description: >-
   Activate your personal Microsoft/Azure tutor - learn through guided discovery,
   not just answers.
 tags: []
+tools:
+  - microsoft_docs_search
+  - microsoft_docs_fetch
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

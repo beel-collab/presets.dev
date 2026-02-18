@@ -4,6 +4,13 @@ description: >-
   Write a coding standards document for a project using the coding styles from
   the file(s) and/or folder(s) passed as arguments in the prompt.
 tags: []
+tools:
+  - createFile
+  - editFiles
+  - web/fetch
+  - githubRepo
+  - search
+  - testFailure
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

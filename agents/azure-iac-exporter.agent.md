@@ -17,10 +17,10 @@ tools:
   - runSubagent
   - azure-mcp/*
   - ms-azuretools.vscode-azure-github-copilot/azure_query_azure_resource_graph
-model: Claude Sonnet 4.5
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: Claude Sonnet 4.5
 ---
 
 # Azure IaC Exporter - Enhanced Azure Resources to azure-iac-generator

@@ -8,6 +8,7 @@ description: >-
   and testing approaches across multiple technologies including .NET,
   Java/Spring, React, and microservices architectures.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

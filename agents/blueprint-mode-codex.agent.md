@@ -6,10 +6,10 @@ description: >-
   reproducible solutions, self-correction, and edge-case handling.
 tags: []
 tools: []
-model: GPT-5-Codex (Preview) (copilot)
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: GPT-5-Codex (Preview) (copilot)
 ---
 
 # Blueprint Mode Codex v1

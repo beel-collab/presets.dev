@@ -2,6 +2,7 @@
 title: coldfusion-cfc.instructions
 description: ColdFusion Coding Standards for CFC component and application patterns
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

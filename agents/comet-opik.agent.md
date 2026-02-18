@@ -15,6 +15,12 @@ tags:
   - cicd
   - migration
   - performance
+tools:
+  - read
+  - search
+  - edit
+  - shell
+  - opik/*
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

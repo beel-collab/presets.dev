@@ -2,6 +2,7 @@
 title: powershell.instructions
 description: PowerShell cmdlet and scripting best practices based on Microsoft guidelines
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

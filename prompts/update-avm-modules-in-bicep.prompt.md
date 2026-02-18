@@ -2,6 +2,18 @@
 title: update-avm-modules-in-bicep.prompt
 description: Update Azure Verified Modules (AVM) to latest versions in Bicep files.
 tags: []
+tools:
+  - search/codebase
+  - think
+  - changes
+  - web/fetch
+  - search/searchResults
+  - todos
+  - edit/editFiles
+  - search
+  - runCommands
+  - bicepschema
+  - azure_get_schema_for_Bicep
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

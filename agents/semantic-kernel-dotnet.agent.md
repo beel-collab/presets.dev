@@ -4,6 +4,30 @@ description: >-
   Create, update, refactor, explain or work with code using the .NET version of
   Semantic Kernel.
 tags: []
+tools:
+  - changes
+  - codebase
+  - edit/editFiles
+  - extensions
+  - web/fetch
+  - findTestFiles
+  - githubRepo
+  - new
+  - openSimpleBrowser
+  - problems
+  - runCommands
+  - runNotebooks
+  - runTasks
+  - runTests
+  - search
+  - searchResults
+  - terminalLastCommand
+  - terminalSelection
+  - testFailure
+  - usages
+  - vscodeAPI
+  - microsoft.docs.mcp
+  - github
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

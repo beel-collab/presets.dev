@@ -5,6 +5,7 @@ description: >-
   security contexts, pod security, resource management, probes, and validation
   commands
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

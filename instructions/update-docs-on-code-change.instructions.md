@@ -4,6 +4,7 @@ description: >-
   Automatically update README.md and documentation files when application code
   changes require documentation updates
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

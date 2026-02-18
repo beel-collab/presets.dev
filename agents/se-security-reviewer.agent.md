@@ -17,10 +17,10 @@ tools:
   - edit/editFiles
   - search
   - problems
-model: GPT-5
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: GPT-5
 ---
 
 # Security Reviewer

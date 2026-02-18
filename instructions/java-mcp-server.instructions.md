@@ -13,6 +13,7 @@ tags:
   - reactive-streams
   - spring-boot
   - reactor
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

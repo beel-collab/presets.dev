@@ -5,6 +5,11 @@ description: >-
   deployment, verification signals, rollback procedures, and communication plans
   for infrastructure and application changes
 tags: []
+tools:
+  - codebase
+  - terminalCommand
+  - search
+  - githubRepo
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

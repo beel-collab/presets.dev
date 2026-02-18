@@ -6,6 +6,7 @@ description: >-
   variables, secret management, caching, matrix strategies, testing, and
   deployment strategies.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -6,6 +6,7 @@ description: >-
   consistent with project standards, architecture patterns, and exact technology
   versions by analyzing existing codebase patterns and avoiding assumptions.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

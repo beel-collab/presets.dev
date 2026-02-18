@@ -2,6 +2,7 @@
 title: create-spring-boot-kotlin-project.prompt
 description: Create Spring Boot Kotlin Project Skeleton
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -17,10 +17,10 @@ tools:
   - edit/editFiles
   - problems
   - search
-model: GPT-4.1
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: GPT-4.1
 ---
 
 # Power Apps Code Apps Project Scaffolding

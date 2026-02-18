@@ -15,6 +15,24 @@ tags:
   - assumption-testing
   - validation
   - research
+tools:
+  - runCommands
+  - runTasks
+  - edit
+  - search
+  - extensions
+  - usages
+  - vscodeAPI
+  - think
+  - problems
+  - changes
+  - testFailure
+  - openSimpleBrowser
+  - web/fetch
+  - githubRepo
+  - todos
+  - Microsoft Docs
+  - search
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

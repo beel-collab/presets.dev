@@ -4,6 +4,7 @@ description: >-
   Guidance for CentOS administration, RHEL-compatible tooling, and SELinux-aware
   operations.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

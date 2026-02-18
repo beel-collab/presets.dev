@@ -5,6 +5,7 @@ description: >-
   prompt, and will be used to update the code file when the prompt has the text
   `UPDATE CODE FROM SHORTHAND`.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

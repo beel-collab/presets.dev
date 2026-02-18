@@ -4,6 +4,7 @@ description: >-
   Generic code review instructions that can be customized for any project using
   GitHub Copilot
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

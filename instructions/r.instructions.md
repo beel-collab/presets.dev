@@ -4,6 +4,7 @@ description: >-
   R language and document formats (R, Rmd, Quarto): coding standards and Copilot
   guidance for idiomatic, safe, and consistent code generation.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

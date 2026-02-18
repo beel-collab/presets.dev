@@ -2,6 +2,7 @@
 title: csharp-ko.instructions
 description: C# 애플리케이션 개발을 위한 코드 작성 규칙 by @jgkim999
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -12,6 +12,7 @@ tags:
   - code-generation
   - api
   - spring-boot
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

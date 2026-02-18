@@ -4,6 +4,7 @@ description: >-
   Guidance for Debian-based Linux administration, apt workflows, and Debian
   policy conventions.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

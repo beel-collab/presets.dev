@@ -4,6 +4,13 @@ description: >-
   Validate user understanding of code, design patterns, and implementation
   details through guided questioning.
 tags: []
+tools:
+  - codebase
+  - web/fetch
+  - findTestFiles
+  - githubRepo
+  - search
+  - usages
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

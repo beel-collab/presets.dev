@@ -2,6 +2,7 @@
 title: WinFormsExpert.agent
 description: Support development of .NET (OOP) WinForms Designer compatible Apps.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

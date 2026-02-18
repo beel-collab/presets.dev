@@ -2,6 +2,7 @@
 title: create-agentsmd.prompt
 description: Prompt for generating an AGENTS.md file for a repository
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

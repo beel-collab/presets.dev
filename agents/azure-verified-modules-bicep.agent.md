@@ -12,6 +12,30 @@ tags:
   - serverless
   - architecture
   - devops
+tools:
+  - changes
+  - codebase
+  - edit/editFiles
+  - extensions
+  - fetch
+  - findTestFiles
+  - githubRepo
+  - new
+  - openSimpleBrowser
+  - problems
+  - runCommands
+  - runTasks
+  - runTests
+  - search
+  - searchResults
+  - terminalLastCommand
+  - terminalSelection
+  - testFailure
+  - usages
+  - vscodeAPI
+  - microsoft.docs.mcp
+  - azure_get_deployment_best_practices
+  - azure_get_schema_for_Bicep
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -6,6 +6,9 @@ description: >-
   messages in line with the Conventional Commits specification, including
   instructions, examples, and validation.
 tags: []
+tools:
+  - execute/runInTerminal
+  - execute/getTerminalOutput
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

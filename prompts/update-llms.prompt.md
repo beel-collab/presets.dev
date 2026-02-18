@@ -5,6 +5,23 @@ description: >-
   documentation or specifications following the llms.txt specification at
   https://llmstxt.org/
 tags: []
+tools:
+  - changes
+  - search/codebase
+  - edit/editFiles
+  - extensions
+  - web/fetch
+  - githubRepo
+  - openSimpleBrowser
+  - problems
+  - runTasks
+  - search
+  - search/searchResults
+  - runCommands/terminalLastCommand
+  - runCommands/terminalSelection
+  - testFailure
+  - usages
+  - vscodeAPI
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -4,6 +4,7 @@ description: >-
   Guidelines for creating high-quality custom instruction files for GitHub
   Copilot
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

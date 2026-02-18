@@ -10,6 +10,23 @@ tags:
   - optimization
   - queries
   - data-management
+tools:
+  - codebase
+  - edit/editFiles
+  - githubRepo
+  - extensions
+  - runCommands
+  - database
+  - pgsql_bulkLoadCsv
+  - pgsql_connect
+  - pgsql_describeCsv
+  - pgsql_disconnect
+  - pgsql_listDatabases
+  - pgsql_listServers
+  - pgsql_modifyDatabase
+  - pgsql_open_script
+  - pgsql_query
+  - pgsql_visualizeSchema
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -8,6 +8,7 @@ description: >-
   documentation formats to establish coding standards and maintain consistency
   across development teams.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

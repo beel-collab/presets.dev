@@ -5,6 +5,7 @@ description: >-
   deliverables, constraints before carrying out the task; Requires the Joyride
   extension.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -5,6 +5,20 @@ description: >-
   Bertram Gilfoyle from Silicon Valley. Prepare for brutal honesty about your
   code.
 tags: []
+tools:
+  - changes
+  - codebase
+  - web/fetch
+  - findTestFiles
+  - githubRepo
+  - openSimpleBrowser
+  - problems
+  - search
+  - searchResults
+  - terminalLastCommand
+  - terminalSelection
+  - usages
+  - vscodeAPI
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

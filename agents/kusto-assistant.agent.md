@@ -4,6 +4,27 @@ description: >-
   Expert KQL assistant for live Azure Data Explorer analysis via Azure MCP
   server
 tags: []
+tools:
+  - changes
+  - codebase
+  - editFiles
+  - extensions
+  - fetch
+  - findTestFiles
+  - githubRepo
+  - new
+  - openSimpleBrowser
+  - problems
+  - runCommands
+  - runTasks
+  - runTests
+  - search
+  - searchResults
+  - terminalLastCommand
+  - terminalSelection
+  - testFailure
+  - usages
+  - vscodeAPI
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

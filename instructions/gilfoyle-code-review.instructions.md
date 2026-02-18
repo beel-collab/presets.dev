@@ -4,6 +4,7 @@ description: >-
   Gilfoyle-style code review instructions that channel the sardonic technical
   supremacy of Silicon Valley's most arrogant systems architect.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

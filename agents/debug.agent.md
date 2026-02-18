@@ -2,6 +2,19 @@
 title: debug.agent
 description: Debug your application to find and fix a bug
 tags: []
+tools:
+  - edit/editFiles
+  - search
+  - execute/getTerminalOutput
+  - execute/runInTerminal
+  - read/terminalLastCommand
+  - read/terminalSelection
+  - search/usages
+  - read/problems
+  - execute/testFailure
+  - web/fetch
+  - web/githubRepo
+  - execute/runTests
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

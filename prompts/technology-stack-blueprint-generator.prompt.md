@@ -9,6 +9,7 @@ description: >-
   conventions, and visual diagrams. Provides implementation-ready templates and
   maintains architectural consistency for guided development.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -14,6 +14,20 @@ tags:
   - html
   - angular
   - vue
+tools:
+  - codebase
+  - editFiles
+  - fetch
+  - problems
+  - runCommands
+  - search
+  - searchResults
+  - terminalLastCommand
+  - git
+  - git_diff
+  - git_log
+  - git_show
+  - git_status
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

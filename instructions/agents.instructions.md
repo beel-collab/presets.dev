@@ -2,6 +2,7 @@
 title: agents.instructions
 description: Guidelines for creating custom agent files for GitHub Copilot
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

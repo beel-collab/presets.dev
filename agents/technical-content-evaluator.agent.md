@@ -15,10 +15,10 @@ tools:
   - githubRepo
   - todos
   - runSubagent
-model: Claude Sonnet 4.5 (copilot)
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: Claude Sonnet 4.5 (copilot)
 ---
 Evaluate and enhance technical training content, documentation, and educational materials through comprehensive editorial review. Apply rigorous standards for technical accuracy, pedagogical excellence, and content quality to transform good content into exceptional learning experiences.
 

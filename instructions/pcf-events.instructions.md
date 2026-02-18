@@ -7,6 +7,7 @@ tags:
   - component-framework
   - typescript
   - power-platform
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

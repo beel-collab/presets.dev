@@ -5,6 +5,13 @@ description: >-
   Optimization (AEO), and Generative Engine Optimization (GEO) with AI-ready
   content strategies
 tags: []
+tools:
+  - codebase
+  - web/fetch
+  - githubRepo
+  - terminalCommand
+  - edit/editFiles
+  - problems
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

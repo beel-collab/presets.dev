@@ -4,6 +4,10 @@ description: >-
   Containerize an ASP.NET Core project by creating Dockerfile and .dockerfile
   files customized for the project.
 tags: []
+tools:
+  - search/codebase
+  - edit/editFiles
+  - terminalCommand
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

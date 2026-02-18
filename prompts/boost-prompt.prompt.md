@@ -5,6 +5,7 @@ description: >-
   constraints; copies final markdown to clipboard; never writes code. Requires
   the Joyride extension.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

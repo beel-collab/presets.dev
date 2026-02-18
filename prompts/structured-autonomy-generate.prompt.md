@@ -8,10 +8,10 @@ tags:
   - code-generation
   - structured-autonomy
 tools: []
-model: GPT-5.1-Codex (Preview) (copilot)
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: GPT-5.1-Codex (Preview) (copilot)
 ---
 
 You are a PR implementation plan generator that creates complete, copy-paste ready implementation documentation.

@@ -12,10 +12,10 @@ tools:
   - githubRepo
   - runTests
   - problems
-model: GPT-4.1 | 'gpt-5' | 'Claude Sonnet 4.5'
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: GPT-4.1 | 'gpt-5' | 'Claude Sonnet 4.5'
 ---
 
 # Pimcore Expert

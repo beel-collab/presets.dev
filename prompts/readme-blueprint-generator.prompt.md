@@ -9,6 +9,7 @@ description: >-
   documentation with proper formatting, cross-references, and developer-focused
   content.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

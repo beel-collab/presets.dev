@@ -13,6 +13,7 @@ tags:
   - python
   - ai
   - github-copilot
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

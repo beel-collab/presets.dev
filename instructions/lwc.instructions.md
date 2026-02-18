@@ -4,6 +4,7 @@ description: >-
   Guidelines and best practices for developing Lightning Web Components (LWC) on
   Salesforce Platform.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

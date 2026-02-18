@@ -4,6 +4,16 @@ description: >-
   Challenge assumptions and encourage critical thinking to ensure the best
   possible solution and outcomes.
 tags: []
+tools:
+  - codebase
+  - extensions
+  - web/fetch
+  - findTestFiles
+  - githubRepo
+  - problems
+  - search
+  - searchResults
+  - usages
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

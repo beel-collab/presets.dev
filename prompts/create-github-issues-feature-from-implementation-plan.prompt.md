@@ -12,6 +12,13 @@ tags:
   - task
   - architecture
   - technical-spike
+tools:
+  - search/codebase
+  - search
+  - github
+  - create_issue
+  - search_issues
+  - update_issue
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -10,6 +10,7 @@ tags:
   - nodejs
   - typescript
   - nestjs
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

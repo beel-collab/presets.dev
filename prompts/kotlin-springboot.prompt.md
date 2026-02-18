@@ -2,6 +2,12 @@
 title: kotlin-springboot.prompt
 description: Get best practices for developing applications with Spring Boot and Kotlin.
 tags: []
+tools:
+  - changes
+  - search/codebase
+  - edit/editFiles
+  - problems
+  - search
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

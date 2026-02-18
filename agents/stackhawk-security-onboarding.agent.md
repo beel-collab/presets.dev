@@ -14,6 +14,12 @@ tags:
   - cicd
   - migration
   - performance
+tools:
+  - read
+  - edit
+  - search
+  - shell
+  - stackhawk-mcp/*
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

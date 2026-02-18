@@ -9,6 +9,7 @@ tags:
   - copilot-studio
   - custom-connector
   - json-rpc
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

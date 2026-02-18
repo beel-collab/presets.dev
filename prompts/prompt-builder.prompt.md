@@ -4,6 +4,10 @@ description: >-
   Guide users through creating high-quality GitHub Copilot prompts with proper
   structure, tools, and best practices.
 tags: []
+tools:
+  - search/codebase
+  - edit/editFiles
+  - search
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

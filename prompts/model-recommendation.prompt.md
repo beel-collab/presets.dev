@@ -8,10 +8,10 @@ tools:
   - search/codebase
   - fetch
   - context7/*
-model: Auto (copilot)
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: Auto (copilot)
 ---
 
 # AI Model Recommendation for Copilot Chat Modes and Prompts

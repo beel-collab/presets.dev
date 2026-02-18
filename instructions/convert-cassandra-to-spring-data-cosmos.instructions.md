@@ -4,6 +4,7 @@ description: >-
   Step-by-step guide for converting Spring Boot Cassandra applications to use
   Azure Cosmos DB with Spring Data Cosmos
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

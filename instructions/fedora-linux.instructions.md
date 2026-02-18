@@ -4,6 +4,7 @@ description: >-
   Guidance for Fedora (Red Hat family) systems, dnf workflows, SELinux, and
   modern systemd practices.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

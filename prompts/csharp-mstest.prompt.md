@@ -4,6 +4,12 @@ description: >-
   Get best practices for MSTest 3.x/4.x unit testing, including modern assertion
   APIs and data-driven tests
 tags: []
+tools:
+  - changes
+  - search/codebase
+  - edit/editFiles
+  - problems
+  - search
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -4,6 +4,7 @@ description: >-
   Tailwind CSS v4+ installation and configuration for Vite projects using the
   official @tailwindcss/vite plugin
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

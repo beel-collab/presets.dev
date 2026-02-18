@@ -2,6 +2,28 @@
 title: tech-debt-remediation-plan.agent
 description: 'Generate technical debt remediation plans for code, tests, and documentation.'
 tags: []
+tools:
+  - changes
+  - codebase
+  - edit/editFiles
+  - extensions
+  - web/fetch
+  - findTestFiles
+  - githubRepo
+  - new
+  - openSimpleBrowser
+  - problems
+  - runCommands
+  - runTasks
+  - runTests
+  - search
+  - searchResults
+  - terminalLastCommand
+  - terminalSelection
+  - testFailure
+  - usages
+  - vscodeAPI
+  - github
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

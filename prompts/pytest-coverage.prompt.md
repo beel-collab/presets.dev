@@ -4,6 +4,7 @@ description: >-
   Run pytest tests with coverage, discover lines missing coverage, and increase
   coverage to 100%.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

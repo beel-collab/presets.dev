@@ -2,6 +2,7 @@
 title: powershell-pester-5.instructions
 description: PowerShell Pester testing best practices based on Pester v5 conventions
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

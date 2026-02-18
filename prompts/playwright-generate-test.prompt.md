@@ -34,10 +34,10 @@ tools:
   - runCommands/terminalSelection
   - testFailure
   - playwright/*
-model: Claude Sonnet 4.5
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: Claude Sonnet 4.5
 ---
 
 # Test Generation with Playwright MCP

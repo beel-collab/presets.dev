@@ -4,6 +4,7 @@ description: >-
   Specialized agent for comprehensive .NET framework upgrades with progressive
   tracking and validation
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

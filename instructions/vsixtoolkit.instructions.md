@@ -4,6 +4,7 @@ description: >-
   Guidelines for Visual Studio extension (VSIX) development using
   Community.VisualStudio.Toolkit
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

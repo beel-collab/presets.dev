@@ -20,10 +20,10 @@ tools:
   - azure-mcp/search
   - pulumi-mcp/get-type
   - runSubagent
-model: Claude Sonnet 4.5
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: Claude Sonnet 4.5
 ---
 
 # Azure IaC Code Generation Hub - Central Code Generation Engine

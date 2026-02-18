@@ -7,10 +7,10 @@ description: >-
   file and "cosmosdb_data_model.md" file
 tags: []
 tools: []
-model: Claude Sonnet 4
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: Claude Sonnet 4
 ---
 # Azure Cosmos DB NoSQL Data Modeling Expert System Prompt
 

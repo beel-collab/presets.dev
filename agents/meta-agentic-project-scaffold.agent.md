@@ -35,10 +35,10 @@ tools:
   - vscodeAPI
   - activePullRequest
   - copilotCodingAgent
-model: GPT-4.1
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: GPT-4.1
 ---
 
 Your sole task is to find and pull relevant prompts, instructions and chatmodes from https://github.com/github/awesome-copilot

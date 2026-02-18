@@ -4,6 +4,7 @@ description: >-
   See process Copilot is following where you can edit this to reshape the
   interaction or save when follow up may be needed
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

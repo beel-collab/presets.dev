@@ -2,6 +2,7 @@
 title: dataverse-python.instructions
 description: Preset for dataverse-python.instructions
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

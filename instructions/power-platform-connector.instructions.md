@@ -5,6 +5,7 @@ description: >-
   using JSON Schema definitions. Covers API definitions (Swagger 2.0), API
   properties, and settings configuration with Microsoft extensions.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -2,6 +2,7 @@
 title: aspnet-rest-apis.instructions
 description: Guidelines for building REST APIs with ASP.NET
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

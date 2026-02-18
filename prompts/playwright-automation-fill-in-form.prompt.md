@@ -4,10 +4,10 @@ description: Automate filling in a form using Playwright MCP
 tags: []
 tools:
   - playwright
-model: Claude Sonnet 4
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: Claude Sonnet 4
 ---
 
 # Automating Filling in a Form with Playwright MCP

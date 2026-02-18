@@ -5,6 +5,14 @@ description: >-
   Test → Release → Deploy → Operate → Monitor) with focus on automation,
   collaboration, and continuous improvement
 tags: []
+tools:
+  - codebase
+  - edit/editFiles
+  - terminalCommand
+  - search
+  - githubRepo
+  - runCommands
+  - runTasks
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

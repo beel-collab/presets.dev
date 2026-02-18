@@ -4,6 +4,7 @@ description: >-
   Expert agent for creating comprehensive Architectural Decision Records (ADRs)
   with structured formatting optimized for AI consumption and human readability.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

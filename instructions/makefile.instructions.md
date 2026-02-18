@@ -2,6 +2,7 @@
 title: makefile.instructions
 description: Best practices for authoring GNU Make Makefiles
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -2,6 +2,13 @@
 title: my-issues.prompt
 description: List my issues in the current repository
 tags: []
+tools:
+  - githubRepo
+  - github
+  - get_issue
+  - get_issue_comments
+  - get_me
+  - list_issues
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

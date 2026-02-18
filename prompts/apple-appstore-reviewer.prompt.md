@@ -4,6 +4,15 @@ description: >-
   Serves as a reviewer of the codebase with instructions on looking for Apple
   App Store optimizations or rejection reasons.
 tags: []
+tools:
+  - vscode
+  - execute
+  - read
+  - search
+  - web
+  - upstash/context7/*
+  - agent
+  - todo
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

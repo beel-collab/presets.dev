@@ -2,6 +2,7 @@
 title: ansible.instructions
 description: Ansible conventions and best practices
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

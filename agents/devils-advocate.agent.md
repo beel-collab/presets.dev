@@ -4,6 +4,10 @@ description: >-
   I play the devil's advocate to challenge and stress-test your ideas by finding
   flaws, risks, and edge cases
 tags: []
+tools:
+  - read
+  - search
+  - web
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

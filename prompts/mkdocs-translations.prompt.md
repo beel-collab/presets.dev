@@ -15,10 +15,10 @@ tools:
   - search
   - runCommands
   - runTasks
-model: Claude Sonnet 4
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: Claude Sonnet 4
 ---
 
 # MkDocs AI Translator

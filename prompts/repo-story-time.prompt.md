@@ -4,6 +4,17 @@ description: >-
   Generate a comprehensive repository summary and narrative story from commit
   history
 tags: []
+tools:
+  - changes
+  - search/codebase
+  - edit/editFiles
+  - githubRepo
+  - runCommands
+  - runTasks
+  - search
+  - search/searchResults
+  - runCommands/terminalLastCommand
+  - runCommands/terminalSelection
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

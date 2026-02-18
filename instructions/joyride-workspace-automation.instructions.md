@@ -4,6 +4,7 @@ description: >-
   Expert assistance for Joyride Workspace automation - REPL-driven and user
   space ClojureScript automation within specific VS Code workspaces
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

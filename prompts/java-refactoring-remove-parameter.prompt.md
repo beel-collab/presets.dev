@@ -2,6 +2,7 @@
 title: java-refactoring-remove-parameter.prompt
 description: Refactoring using Remove Parameter in Java Language
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -5,6 +5,16 @@ description: >-
   documentation following Microsoft Writing Style Guide and authoring best
   practices.
 tags: []
+tools:
+  - changes
+  - search/codebase
+  - edit/editFiles
+  - new
+  - openSimpleBrowser
+  - problems
+  - search
+  - search/searchResults
+  - microsoft.docs.mcp
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

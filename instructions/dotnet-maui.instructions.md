@@ -2,6 +2,7 @@
 title: dotnet-maui.instructions
 description: .NET MAUI component and application patterns
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

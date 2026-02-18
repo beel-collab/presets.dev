@@ -4,6 +4,28 @@ description: >-
   Provide principal-level software engineering guidance with focus on
   engineering excellence, technical leadership, and pragmatic implementation.
 tags: []
+tools:
+  - changes
+  - search/codebase
+  - edit/editFiles
+  - extensions
+  - web/fetch
+  - findTestFiles
+  - githubRepo
+  - new
+  - openSimpleBrowser
+  - problems
+  - runCommands
+  - runTasks
+  - runTests
+  - search
+  - search/searchResults
+  - runCommands/terminalLastCommand
+  - runCommands/terminalSelection
+  - testFailure
+  - usages
+  - vscodeAPI
+  - github
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

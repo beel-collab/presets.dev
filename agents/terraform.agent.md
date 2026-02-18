@@ -18,6 +18,12 @@ tags:
   - cicd
   - migration
   - performance
+tools:
+  - read
+  - edit
+  - search
+  - shell
+  - terraform/*
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

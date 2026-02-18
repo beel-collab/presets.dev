@@ -11,6 +11,7 @@ tags:
   - sdk
   - attributes
   - composer
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

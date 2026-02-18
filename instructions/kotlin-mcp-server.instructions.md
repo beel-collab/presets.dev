@@ -10,6 +10,7 @@ tags:
   - kotlin-multiplatform
   - server-development
   - ktor
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

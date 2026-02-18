@@ -2,6 +2,7 @@
 title: Ultimate-Transparent-Thinking-Beast-Mode.agent
 description: Ultimate Transparent Thinking Beast Mode
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

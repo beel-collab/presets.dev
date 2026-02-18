@@ -34,10 +34,10 @@ tools:
   - usages
   - vscodeAPI
   - microsoft.docs.mcp
-model: gpt-4.1
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: gpt-4.1
 ---
 
 # Power BI DAX Expert Mode

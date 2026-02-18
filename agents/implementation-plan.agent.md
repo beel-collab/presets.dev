@@ -10,6 +10,36 @@ tags:
   - task
   - architecture
   - technical-spike
+tools:
+  - search/codebase
+  - search/usages
+  - vscode/vscodeAPI
+  - think
+  - read/problems
+  - search/changes
+  - execute/testFailure
+  - read/terminalSelection
+  - read/terminalLastCommand
+  - vscode/openSimpleBrowser
+  - web/fetch
+  - findTestFiles
+  - search/searchResults
+  - web/githubRepo
+  - vscode/extensions
+  - edit/editFiles
+  - execute/runNotebookCell
+  - read/getNotebookSummary
+  - read/readNotebookCellOutput
+  - search
+  - vscode/getProjectSetupInfo
+  - vscode/installExtension
+  - vscode/newWorkspace
+  - vscode/runCommand
+  - execute/getTerminalOutput
+  - execute/runInTerminal
+  - execute/createAndRunTask
+  - execute/getTaskOutput
+  - execute/runTask
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

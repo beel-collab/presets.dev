@@ -2,6 +2,7 @@
 title: ruby-on-rails.instructions
 description: Ruby on Rails coding conventions and guidelines
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

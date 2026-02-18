@@ -2,6 +2,7 @@
 title: wordpress.instructions
 description: 'Coding, security, and testing rules for WordPress plugins and themes'
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -4,6 +4,10 @@ description: >-
   Shuffle repetitive JSON objects safely by validating schema consistency before
   randomising entries.
 tags: []
+tools:
+  - edit/editFiles
+  - runInTerminal
+  - pylanceRunCodeSnippet
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

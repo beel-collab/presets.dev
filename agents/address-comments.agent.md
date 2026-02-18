@@ -2,6 +2,29 @@
 title: address-comments.agent
 description: Address PR comments
 tags: []
+tools:
+  - changes
+  - codebase
+  - editFiles
+  - extensions
+  - fetch
+  - findTestFiles
+  - githubRepo
+  - new
+  - openSimpleBrowser
+  - problems
+  - runCommands
+  - runTasks
+  - runTests
+  - search
+  - searchResults
+  - terminalLastCommand
+  - terminalSelection
+  - testFailure
+  - usages
+  - vscodeAPI
+  - microsoft.docs.mcp
+  - github
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

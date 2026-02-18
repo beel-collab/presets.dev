@@ -9,10 +9,10 @@ tools:
   - runCommands
   - terminalCommand
   - edit/editFiles
-model: gpt-4.1
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: gpt-4.1
 ---
 
 # Arch Linux Triage

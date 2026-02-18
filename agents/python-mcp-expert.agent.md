@@ -8,10 +8,10 @@ tags:
   - fastmcp
   - server-development
 tools: []
-model: GPT-4.1
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: GPT-4.1
 ---
 
 # Python MCP Server Expert

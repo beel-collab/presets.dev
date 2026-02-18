@@ -4,6 +4,7 @@ description: >-
   Authoring recommendations for creating YAML based image definition files for
   use with Microsoft Dev Box Team Customizations
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

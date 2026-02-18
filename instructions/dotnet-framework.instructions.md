@@ -4,6 +4,7 @@ description: >-
   Guidance for working with .NET Framework projects. Includes project structure,
   C# language version, NuGet management, and best practices.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

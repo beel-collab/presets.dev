@@ -2,6 +2,7 @@
 title: azure-verified-modules-bicep.instructions
 description: Azure Verified Modules (AVM) and Bicep
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

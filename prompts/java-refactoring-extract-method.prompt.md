@@ -2,6 +2,7 @@
 title: java-refactoring-extract-method.prompt
 description: Refactoring using Extract Methods in Java Language
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

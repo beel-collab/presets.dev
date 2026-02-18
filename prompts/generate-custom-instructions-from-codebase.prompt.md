@@ -7,6 +7,7 @@ description: >-
   consistency during technology migrations, major refactoring, or framework
   version upgrades.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

@@ -4,6 +4,10 @@ description: >-
   Add educational comments to the file specified, or prompt asking for file to
   comment if one is not provided.
 tags: []
+tools:
+  - edit/editFiles
+  - web/fetch
+  - todos
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

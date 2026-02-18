@@ -23,10 +23,10 @@ tools:
   - codebase
   - edit/editFiles
   - search/codebase
-model: GPT-4.1
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: GPT-4.1
 ---
 
 # Generate Application from OpenAPI Spec

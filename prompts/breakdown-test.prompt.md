@@ -4,6 +4,7 @@ description: >-
   Test Planning and Quality Assurance prompt that generates comprehensive test
   strategies, task breakdowns, and quality validation plans for GitHub projects.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

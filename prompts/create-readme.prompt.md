@@ -2,6 +2,7 @@
 title: create-readme.prompt
 description: Create a README.md file for the project
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

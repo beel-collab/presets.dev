@@ -7,6 +7,7 @@ description: >-
   systematic framework based on OpenAI's prompt engineering best practices.
   Following the analysis, it generates a new, improved prompt.
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

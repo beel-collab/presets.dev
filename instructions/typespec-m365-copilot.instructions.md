@@ -10,6 +10,7 @@ tags:
   - api-plugins
   - agent-development
   - microsoft-365
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'

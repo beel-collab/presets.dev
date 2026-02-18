@@ -7,10 +7,10 @@ description: >-
   edge-case handling.
 tags: []
 tools: []
-model: GPT-5 (copilot)
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
+model: GPT-5 (copilot)
 ---
 
 # Blueprint Mode v39

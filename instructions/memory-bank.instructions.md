@@ -2,6 +2,7 @@
 title: memory-bank.instructions
 description: Preset for memory-bank.instructions
 tags: []
+tools: []
 author:
   name: Community
   url: 'https://github.com/github/awesome-copilot'
