@@ -5,6 +5,7 @@ description: >-
   insights and provide actionable recommendations to improve overall usage of
   the database.
 tags:
+  - partners
   - devops
   - security
   - database

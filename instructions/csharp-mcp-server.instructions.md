@@ -3,12 +3,7 @@ title: csharp-mcp-server.instructions
 description: >-
   Instructions for building Model Context Protocol (MCP) servers using the C#
   SDK
-tags:
-  - csharp
-  - mcp
-  - model-context-protocol
-  - dotnet
-  - server-development
+tags: []
 tools: []
 author:
   name: Community

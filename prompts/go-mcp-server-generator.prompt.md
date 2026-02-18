@@ -4,6 +4,7 @@ description: >-
   Generate a complete Go MCP server project with proper structure, dependencies,
   and implementation using the official github.com/modelcontextprotocol/go-sdk.
 tags:
+  - go-mcp-development
   - go
   - golang
   - mcp

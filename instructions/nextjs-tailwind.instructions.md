@@ -1,16 +1,7 @@
 ---
 title: nextjs-tailwind.instructions
 description: Next.js + Tailwind development standards and instructions
-tags:
-  - frontend
-  - web
-  - react
-  - typescript
-  - javascript
-  - css
-  - html
-  - angular
-  - vue
+tags: []
 tools: []
 author:
   name: Community

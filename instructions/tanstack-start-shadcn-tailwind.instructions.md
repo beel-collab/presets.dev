@@ -1,16 +1,7 @@
 ---
 title: tanstack-start-shadcn-tailwind.instructions
 description: Guidelines for building TanStack Start applications
-tags:
-  - frontend
-  - web
-  - react
-  - typescript
-  - javascript
-  - css
-  - html
-  - angular
-  - vue
+tags: []
 tools: []
 author:
   name: Community

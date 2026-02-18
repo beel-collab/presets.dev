@@ -4,11 +4,7 @@ description: >-
   Foundational instructions covering core DevOps principles, culture (CALMS),
   and key metrics (DORA) to guide GitHub Copilot in understanding and promoting
   effective software delivery.
-tags:
-  - devops
-  - incident-response
-  - oncall
-  - azure
+tags: []
 tools: []
 author:
   name: Community

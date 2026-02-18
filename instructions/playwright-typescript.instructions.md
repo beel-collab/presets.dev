@@ -1,15 +1,7 @@
 ---
 title: playwright-typescript.instructions
 description: Playwright test generation instructions
-tags:
-  - testing
-  - tdd
-  - automation
-  - unit-tests
-  - integration
-  - playwright
-  - jest
-  - nunit
+tags: []
 tools: []
 author:
   name: Community

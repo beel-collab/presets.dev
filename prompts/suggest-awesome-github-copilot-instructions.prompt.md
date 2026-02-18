@@ -6,6 +6,7 @@ description: >-
   duplicates with existing instructions in this repository, and identifying
   outdated instructions that need updates.
 tags:
+  - awesome-copilot
   - github-copilot
   - discovery
   - meta

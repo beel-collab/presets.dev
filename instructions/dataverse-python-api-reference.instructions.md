@@ -1,11 +1,7 @@
 ---
 title: dataverse-python-api-reference.instructions
 description: Preset for dataverse-python-api-reference.instructions
-tags:
-  - dataverse
-  - python
-  - integration
-  - sdk
+tags: []
 tools: []
 author:
   name: Community

@@ -4,15 +4,7 @@ description: >-
   Guidelines for developing Azure Logic Apps and Power Automate workflows with
   best practices for Workflow Definition Language (WDL), integration patterns,
   and enterprise automation
-tags:
-  - azure
-  - cloud
-  - infrastructure
-  - bicep
-  - terraform
-  - serverless
-  - architecture
-  - devops
+tags: []
 tools: []
 author:
   name: Community

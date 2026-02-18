@@ -2,10 +2,6 @@
 title: structured-autonomy-plan.prompt
 description: Structured Autonomy Planning Prompt
 tags:
-  - github-copilot
-  - autonomous-workflows
-  - project-planning
-  - code-generation
   - structured-autonomy
 tools: []
 author:

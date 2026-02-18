@@ -2,6 +2,7 @@
 title: python-mcp-expert.agent
 description: Expert assistant for developing Model Context Protocol (MCP) servers in Python
 tags:
+  - python-mcp-development
   - python
   - mcp
   - model-context-protocol

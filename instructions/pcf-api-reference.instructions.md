@@ -3,12 +3,7 @@ title: pcf-api-reference.instructions
 description: >-
   Complete PCF API reference with all interfaces and their availability in
   model-driven and canvas apps
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

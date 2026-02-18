@@ -5,6 +5,7 @@ description: >-
   data. Gathers related items, docs, comments, epics, and requirements to
   deliver production-quality fixes with comprehensive PRs.
 tags:
+  - partners
   - devops
   - security
   - database

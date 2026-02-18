@@ -4,6 +4,7 @@ description: >-
   Improve code quality, apply security best practices, and enhance design whilst
   maintaining green tests and GitHub issue compliance.
 tags:
+  - testing-automation
   - testing
   - tdd
   - automation

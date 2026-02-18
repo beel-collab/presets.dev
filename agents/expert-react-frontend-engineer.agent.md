@@ -4,6 +4,7 @@ description: >-
   Expert React 19.2 frontend engineer specializing in modern hooks, Server
   Components, Actions, TypeScript, and performance optimization
 tags:
+  - frontend-web-dev
   - frontend
   - web
   - react

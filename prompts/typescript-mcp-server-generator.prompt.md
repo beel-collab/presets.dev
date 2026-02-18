@@ -4,6 +4,7 @@ description: >-
   Generate a complete MCP server project in TypeScript with tools, resources,
   and proper configuration
 tags:
+  - typescript-mcp-development
   - typescript
   - mcp
   - model-context-protocol

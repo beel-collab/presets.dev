@@ -1,12 +1,7 @@
 ---
 title: pcf-tooling.instructions
 description: Get Microsoft Power Platform CLI tooling for Power Apps Component Framework
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

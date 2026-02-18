@@ -3,12 +3,7 @@ title: pcf-manifest-schema.instructions
 description: >-
   Complete manifest schema reference for PCF components with all available XML
   elements
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

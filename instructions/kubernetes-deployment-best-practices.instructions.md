@@ -4,15 +4,7 @@ description: >-
   Comprehensive best practices for deploying and managing applications on
   Kubernetes. Covers Pods, Deployments, Services, Ingress, ConfigMaps, Secrets,
   health checks, resource limits, scaling, and security contexts.
-tags:
-  - azure
-  - cloud
-  - infrastructure
-  - bicep
-  - terraform
-  - serverless
-  - architecture
-  - devops
+tags: []
 tools: []
 author:
   name: Community

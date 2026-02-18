@@ -3,17 +3,7 @@ title: swift-mcp-server.instructions
 description: >-
   Best practices and patterns for building Model Context Protocol (MCP) servers
   in Swift using the official MCP Swift SDK package.
-tags:
-  - swift
-  - mcp
-  - model-context-protocol
-  - server-development
-  - sdk
-  - ios
-  - macos
-  - concurrency
-  - actor
-  - async-await
+tags: []
 tools: []
 author:
   name: Community

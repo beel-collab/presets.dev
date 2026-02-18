@@ -4,6 +4,7 @@ description: >-
   Create, update, or review Azure IaC in Terraform using Azure Verified Modules
   (AVM).
 tags:
+  - azure-cloud-development
   - azure
   - cloud
   - infrastructure

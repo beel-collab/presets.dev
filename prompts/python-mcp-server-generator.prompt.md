@@ -4,6 +4,7 @@ description: >-
   Generate a complete MCP server project in Python with tools, resources, and
   proper configuration
 tags:
+  - python-mcp-development
   - python
   - mcp
   - model-context-protocol

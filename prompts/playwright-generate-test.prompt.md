@@ -2,6 +2,7 @@
 title: playwright-generate-test.prompt
 description: Generate a Playwright test based on a scenario using Playwright MCP
 tags:
+  - frontend-web-dev
   - frontend
   - web
   - react
@@ -11,6 +12,7 @@ tags:
   - html
   - angular
   - vue
+  - testing-automation
   - testing
   - tdd
   - automation

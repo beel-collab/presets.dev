@@ -5,6 +5,7 @@ description: >-
   Angular frontend (render), and native integration layer (e.g., AppleScript,
   shell, or native tooling). Services in other repos are not reviewed here.
 tags:
+  - frontend-web-dev
   - frontend
   - web
   - react

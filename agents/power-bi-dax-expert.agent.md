@@ -4,6 +4,7 @@ description: >-
   Expert Power BI DAX guidance using Microsoft best practices for performance,
   readability, and maintainability of DAX formulas and calculations.
 tags:
+  - power-bi-development
   - power-bi
   - dax
   - data-modeling

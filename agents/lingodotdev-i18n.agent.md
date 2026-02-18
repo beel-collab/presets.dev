@@ -4,6 +4,7 @@ description: >-
   Expert at implementing internationalization (i18n) in web applications using a
   systematic, checklist-driven approach.
 tags:
+  - partners
   - devops
   - security
   - database

@@ -4,15 +4,7 @@ description: >-
   Comprehensive Power BI Row-Level Security (RLS) and advanced security patterns
   implementation guide with dynamic security, best practices, and governance
   strategies.
-tags:
-  - power-bi
-  - dax
-  - data-modeling
-  - performance
-  - visualization
-  - security
-  - devops
-  - business-intelligence
+tags: []
 tools: []
 author:
   name: Community

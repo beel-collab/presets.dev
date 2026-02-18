@@ -5,15 +5,7 @@ description: >-
   development, ensuring that requirements are clearly defined, designs are
   meticulously planned, and implementations are thoroughly documented and
   validated.
-tags:
-  - planning
-  - project-management
-  - epic
-  - feature
-  - implementation
-  - task
-  - architecture
-  - technical-spike
+tags: []
 tools: []
 author:
   name: Community

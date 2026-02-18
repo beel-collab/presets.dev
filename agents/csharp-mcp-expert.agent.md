@@ -2,6 +2,7 @@
 title: csharp-mcp-expert.agent
 description: Expert assistant for developing Model Context Protocol (MCP) servers in C#
 tags:
+  - csharp-mcp-development
   - csharp
   - mcp
   - model-context-protocol

@@ -9,6 +9,7 @@ description: >-
   targeted and precise remediation of identified issues directly within the
   repository.
 tags:
+  - partners
   - devops
   - security
   - database

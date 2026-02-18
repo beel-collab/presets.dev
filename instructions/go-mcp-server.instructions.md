@@ -3,13 +3,7 @@ title: go-mcp-server.instructions
 description: >-
   Best practices and patterns for building Model Context Protocol (MCP) servers
   in Go using the official github.com/modelcontextprotocol/go-sdk package.
-tags:
-  - go
-  - golang
-  - mcp
-  - model-context-protocol
-  - server-development
-  - sdk
+tags: []
 tools: []
 author:
   name: Community

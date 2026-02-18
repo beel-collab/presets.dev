@@ -6,6 +6,7 @@ description: >-
   JSONB operations, array types, custom types, range/geometric types, full-text
   search, window functions, and PostgreSQL extensions ecosystem.
 tags:
+  - database-data-management
   - database
   - sql
   - postgresql

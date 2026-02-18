@@ -4,6 +4,7 @@ description: >-
   Provide expert .NET software engineering guidance using modern software design
   patterns.
 tags:
+  - csharp-dotnet-development
   - csharp
   - dotnet
   - aspnet

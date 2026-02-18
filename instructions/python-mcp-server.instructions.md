@@ -3,12 +3,7 @@ title: python-mcp-server.instructions
 description: >-
   Instructions for building Model Context Protocol (MCP) servers using the
   Python SDK
-tags:
-  - python
-  - mcp
-  - model-context-protocol
-  - fastmcp
-  - server-development
+tags: []
 tools: []
 author:
   name: Community

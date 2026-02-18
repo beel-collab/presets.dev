@@ -4,6 +4,7 @@ description: >-
   Comprehensive Power BI DAX formula optimization prompt for improving
   performance, readability, and maintainability of DAX calculations.
 tags:
+  - power-bi-development
   - power-bi
   - dax
   - data-modeling

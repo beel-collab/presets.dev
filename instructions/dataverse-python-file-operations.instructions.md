@@ -3,11 +3,7 @@ title: Dataverse SDK for Python - File Operations & Practical Examples
 description: >-
   Complete guide to file upload operations, chunking strategies, and practical
   real-world examples using the PowerPlatform-DataverseClient-Python SDK.
-tags:
-  - dataverse
-  - python
-  - integration
-  - sdk
+tags: []
 tools: []
 author:
   name: Community

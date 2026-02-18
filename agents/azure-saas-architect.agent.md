@@ -5,6 +5,7 @@ description: >-
   applications using Azure Well-Architected SaaS principles and Microsoft best
   practices.
 tags:
+  - azure-cloud-development
   - azure
   - cloud
   - infrastructure

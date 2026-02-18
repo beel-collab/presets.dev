@@ -4,6 +4,7 @@ description: >-
   Generate a complete Model Context Protocol server project in Swift using the
   official MCP Swift SDK package.
 tags:
+  - swift-mcp-development
   - swift
   - mcp
   - model-context-protocol

@@ -3,15 +3,7 @@ title: power-bi-dax-best-practices.instructions
 description: >-
   Comprehensive Power BI DAX best practices and patterns based on Microsoft
   guidance for creating efficient, maintainable, and performant DAX formulas.
-tags:
-  - power-bi
-  - dax
-  - data-modeling
-  - performance
-  - visualization
-  - security
-  - devops
-  - business-intelligence
+tags: []
 tools: []
 author:
   name: Community

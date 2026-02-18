@@ -3,16 +3,7 @@ title: rust-mcp-server.instructions
 description: >-
   Best practices for building Model Context Protocol servers in Rust using the
   official rmcp SDK with async/await patterns
-tags:
-  - rust
-  - mcp
-  - model-context-protocol
-  - server-development
-  - sdk
-  - tokio
-  - async
-  - macros
-  - rmcp
+tags: []
 tools: []
 author:
   name: Community

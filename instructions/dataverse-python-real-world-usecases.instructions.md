@@ -1,11 +1,7 @@
 ---
 title: dataverse-python-real-world-usecases.instructions
 description: Preset for dataverse-python-real-world-usecases.instructions
-tags:
-  - dataverse
-  - python
-  - integration
-  - sdk
+tags: []
 tools: []
 author:
   name: Community

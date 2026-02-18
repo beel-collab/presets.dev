@@ -1,12 +1,7 @@
 ---
 title: python.instructions
 description: Python coding conventions and guidelines
-tags:
-  - openapi
-  - code-generation
-  - api
-  - python
-  - fastapi
+tags: []
 tools: []
 author:
   name: Community

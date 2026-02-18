@@ -4,15 +4,7 @@ description: >-
   Comprehensive guide for Power BI DevOps, Application Lifecycle Management
   (ALM), CI/CD pipelines, deployment automation, and version control best
   practices.
-tags:
-  - power-bi
-  - dax
-  - data-modeling
-  - performance
-  - visualization
-  - security
-  - devops
-  - business-intelligence
+tags: []
 tools: []
 author:
   name: Community

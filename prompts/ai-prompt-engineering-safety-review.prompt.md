@@ -6,6 +6,7 @@ description: >-
   while providing detailed improvement recommendations with extensive
   frameworks, testing methodologies, and educational content.
 tags:
+  - security-best-practices
   - security
   - accessibility
   - performance
@@ -14,6 +15,7 @@ tags:
   - a11y
   - optimization
   - best-practices
+  - testing-automation
   - testing
   - tdd
   - automation

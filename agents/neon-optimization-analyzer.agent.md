@@ -6,6 +6,7 @@ description: >-
   branches, and provides clear before/after performance metrics with actionable
   code fixes.
 tags:
+  - partners
   - devops
   - security
   - database

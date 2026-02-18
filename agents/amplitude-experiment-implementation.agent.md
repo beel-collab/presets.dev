@@ -2,6 +2,7 @@
 title: amplitude-experiment-implementation.agent
 description: "This custom agent uses Amplitude's\_MCP tools to deploy new experiments inside of Amplitude, enabling seamless variant testing capabilities and rollout of product features."
 tags:
+  - partners
   - devops
   - security
   - database

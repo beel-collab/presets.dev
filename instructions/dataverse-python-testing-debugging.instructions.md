@@ -1,11 +1,7 @@
 ---
 title: dataverse-python-testing-debugging.instructions
 description: Preset for dataverse-python-testing-debugging.instructions
-tags:
-  - dataverse
-  - python
-  - integration
-  - sdk
+tags: []
 tools: []
 author:
   name: Community

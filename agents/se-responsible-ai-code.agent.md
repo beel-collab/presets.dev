@@ -5,6 +5,7 @@ description: >-
   prevention, accessibility compliance, ethical development, and inclusive
   design
 tags:
+  - software-engineering-team
   - team
   - enterprise
   - security

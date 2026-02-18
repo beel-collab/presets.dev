@@ -4,6 +4,7 @@ description: >-
   Our expert AI assistant for debugging code (O11y), optimizing vector search
   (RAG), and remediating security threats using live Elastic data.
 tags:
+  - partners
   - devops
   - security
   - database

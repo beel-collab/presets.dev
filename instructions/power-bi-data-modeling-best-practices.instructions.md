@@ -4,15 +4,7 @@ description: >-
   Comprehensive Power BI data modeling best practices based on Microsoft
   guidance for creating efficient, scalable, and maintainable semantic models
   using star schema principles.
-tags:
-  - power-bi
-  - dax
-  - data-modeling
-  - performance
-  - visualization
-  - security
-  - devops
-  - business-intelligence
+tags: []
 tools: []
 author:
   name: Community

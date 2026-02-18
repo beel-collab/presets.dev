@@ -1,15 +1,7 @@
 ---
 title: ms-sql-dba.instructions
 description: Instructions for customizing GitHub Copilot behavior for MS-SQL DBA chat mode.
-tags:
-  - database
-  - sql
-  - postgresql
-  - sql-server
-  - dba
-  - optimization
-  - queries
-  - data-management
+tags: []
 tools: []
 author:
   name: Community

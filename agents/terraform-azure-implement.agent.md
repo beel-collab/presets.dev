@@ -4,6 +4,7 @@ description: >-
   Act as an Azure Terraform Infrastructure as Code coding specialist that
   creates and reviews Terraform for Azure resources.
 tags:
+  - azure-cloud-development
   - azure
   - cloud
   - infrastructure

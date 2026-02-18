@@ -4,6 +4,7 @@ description: >-
   Provide expert Azure Principal Architect guidance using Azure Well-Architected
   Framework principles and Microsoft best practices.
 tags:
+  - azure-cloud-development
   - azure
   - cloud
   - infrastructure
@@ -12,6 +13,7 @@ tags:
   - serverless
   - architecture
   - devops
+  - devops-oncall
   - incident-response
   - oncall
 tools:

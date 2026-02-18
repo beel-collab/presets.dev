@@ -4,6 +4,7 @@ description: >-
   Generate complete Power Platform custom connector with MCP integration for
   Copilot Studio - includes schema generation, troubleshooting, and validation
 tags:
+  - power-platform-mcp-connector-development
   - power-platform
   - mcp
   - copilot-studio

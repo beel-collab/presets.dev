@@ -4,6 +4,7 @@ description: >-
   Generate Python SDK setup + CRUD + bulk + paging snippets using official
   patterns.
 tags:
+  - dataverse-sdk-for-python
   - dataverse
   - python
   - integration

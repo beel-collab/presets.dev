@@ -3,13 +3,7 @@ title: mcp-m365-copilot.instructions
 description: >-
   Best practices for building MCP-based declarative agents and API plugins for
   Microsoft 365 Copilot with Model Context Protocol integration
-tags:
-  - mcp
-  - m365-copilot
-  - declarative-agents
-  - api-plugins
-  - model-context-protocol
-  - adaptive-cards
+tags: []
 tools: []
 author:
   name: Community

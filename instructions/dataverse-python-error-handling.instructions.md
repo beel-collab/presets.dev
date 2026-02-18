@@ -1,11 +1,7 @@
 ---
 title: dataverse-python-error-handling.instructions
 description: Preset for dataverse-python-error-handling.instructions
-tags:
-  - dataverse
-  - python
-  - integration
-  - sdk
+tags: []
 tools: []
 author:
   name: Community

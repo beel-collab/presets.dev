@@ -4,6 +4,7 @@ description: >-
   Scaffold a complete Power Apps Code App project with PAC CLI setup, SDK
   integration, and connector configuration
 tags:
+  - power-apps-code-apps
   - power-apps
   - power-platform
   - typescript

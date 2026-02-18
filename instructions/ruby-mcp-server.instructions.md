@@ -3,14 +3,7 @@ title: ruby-mcp-server.instructions
 description: >-
   Best practices and patterns for building Model Context Protocol (MCP) servers
   in Ruby using the official MCP Ruby SDK gem.
-tags:
-  - ruby
-  - mcp
-  - model-context-protocol
-  - server-development
-  - sdk
-  - rails
-  - gem
+tags: []
 tools: []
 author:
   name: Community

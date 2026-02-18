@@ -5,6 +5,7 @@ description: >-
   selection, workflow design, implementation across JavaScript/TypeScript and
   Python, testing, and production-ready deployment.
 tags:
+  - partners
   - devops
   - security
   - database

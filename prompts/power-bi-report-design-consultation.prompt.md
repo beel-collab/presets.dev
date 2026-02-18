@@ -5,6 +5,7 @@ description: >-
   user-friendly, and accessible reports with optimal chart selection and layout
   design.
 tags:
+  - power-bi-development
   - power-bi
   - dax
   - data-modeling

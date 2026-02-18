@@ -3,15 +3,7 @@ title: playwright-python.instructions
 description: >-
   Playwright Python AI test generation instructions based on official
   documentation.
-tags:
-  - testing
-  - tdd
-  - automation
-  - unit-tests
-  - integration
-  - playwright
-  - jest
-  - nunit
+tags: []
 tools: []
 author:
   name: Community

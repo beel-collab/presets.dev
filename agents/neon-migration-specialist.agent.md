@@ -6,6 +6,7 @@ description: >-
   apply to production—all automated with support for Prisma, Drizzle, or your
   favorite ORM.
 tags:
+  - partners
   - devops
   - security
   - database

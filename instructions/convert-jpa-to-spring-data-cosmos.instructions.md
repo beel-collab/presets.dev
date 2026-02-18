@@ -3,13 +3,7 @@ title: convert-jpa-to-spring-data-cosmos.instructions
 description: >-
   Step-by-step guide for converting Spring Boot JPA applications to use Azure
   Cosmos DB with Spring Data Cosmos
-tags:
-  - java
-  - springboot
-  - quarkus
-  - jpa
-  - junit
-  - javadoc
+tags: []
 tools: []
 author:
   name: Community

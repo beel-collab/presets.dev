@@ -5,6 +5,7 @@ description: >-
   dependencies, and implementation using the official
   io.modelcontextprotocol:kotlin-sdk library.
 tags:
+  - kotlin-mcp-development
   - kotlin
   - mcp
   - model-context-protocol

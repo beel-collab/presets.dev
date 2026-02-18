@@ -3,14 +3,7 @@ title: php-mcp-server.instructions
 description: >-
   Best practices for building Model Context Protocol servers in PHP using the
   official PHP SDK with attribute-based discovery and multiple transport options
-tags:
-  - php
-  - mcp
-  - model-context-protocol
-  - server-development
-  - sdk
-  - attributes
-  - composer
+tags: []
 tools: []
 author:
   name: Community

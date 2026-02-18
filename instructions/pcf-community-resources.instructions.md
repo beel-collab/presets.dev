@@ -3,12 +3,7 @@ title: pcf-community-resources.instructions
 description: >-
   PCF community resources including gallery, videos, blogs, and development
   tools
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

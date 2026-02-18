@@ -1,13 +1,7 @@
 ---
 title: java.instructions
 description: Guidelines for building Java base applications
-tags:
-  - java
-  - springboot
-  - quarkus
-  - jpa
-  - junit
-  - javadoc
+tags: []
 tools: []
 author:
   name: Community

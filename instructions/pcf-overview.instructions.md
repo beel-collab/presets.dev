@@ -1,12 +1,7 @@
 ---
 title: pcf-overview.instructions
 description: Power Apps Component Framework overview and fundamentals
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

@@ -2,6 +2,7 @@
 title: dotnet-best-practices.prompt
 description: Ensure .NET/C# code meets best practices for the solution/project.
 tags:
+  - csharp-dotnet-development
   - csharp
   - dotnet
   - aspnet

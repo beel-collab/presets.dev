@@ -1,11 +1,7 @@
 ---
 title: dotnet-architecture-good-practices.instructions
 description: DDD and .NET architecture guidelines
-tags:
-  - csharp
-  - dotnet
-  - aspnet
-  - testing
+tags: []
 tools: []
 author:
   name: Community

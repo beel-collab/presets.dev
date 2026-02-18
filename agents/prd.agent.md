@@ -5,6 +5,7 @@ description: >-
   detailing user stories, acceptance criteria, technical considerations, and
   metrics. Optionally create GitHub issues upon user confirmation.
 tags:
+  - project-planning
   - planning
   - project-management
   - epic

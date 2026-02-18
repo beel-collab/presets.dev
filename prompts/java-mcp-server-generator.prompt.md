@@ -5,6 +5,7 @@ description: >-
   official MCP Java SDK with reactive streams and optional Spring Boot
   integration.
 tags:
+  - java-mcp-development
   - java
   - mcp
   - model-context-protocol

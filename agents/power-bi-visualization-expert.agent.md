@@ -5,6 +5,7 @@ description: >-
   practices for creating effective, performant, and user-friendly reports and
   dashboards.
 tags:
+  - power-bi-development
   - power-bi
   - dax
   - data-modeling

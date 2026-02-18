@@ -3,13 +3,7 @@ title: nestjs.instructions
 description: >-
   NestJS development standards and best practices for building scalable Node.js
   server-side applications
-tags:
-  - openapi
-  - code-generation
-  - api
-  - nodejs
-  - typescript
-  - nestjs
+tags: []
 tools: []
 author:
   name: Community

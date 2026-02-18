@@ -4,6 +4,7 @@ description: >-
   Analyze Azure resource health, diagnose issues from logs and telemetry, and
   create a remediation plan for identified problems.
 tags:
+  - azure-cloud-development
   - azure
   - cloud
   - infrastructure
@@ -12,6 +13,7 @@ tags:
   - serverless
   - architecture
   - devops
+  - devops-oncall
   - incident-response
   - oncall
 tools: []

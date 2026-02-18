@@ -7,6 +7,7 @@ description: >-
   control, code standards, and anti-pattern detection. Complements SQL
   optimization prompt for complete development coverage.
 tags:
+  - database-data-management
   - database
   - sql
   - postgresql

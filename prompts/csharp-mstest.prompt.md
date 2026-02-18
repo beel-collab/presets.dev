@@ -3,7 +3,12 @@ title: csharp-mstest.prompt
 description: >-
   Get best practices for MSTest 3.x/4.x unit testing, including modern assertion
   APIs and data-driven tests
-tags: []
+tags:
+  - csharp-dotnet-development
+  - csharp
+  - dotnet
+  - aspnet
+  - testing
 tools:
   - changes
   - search/codebase

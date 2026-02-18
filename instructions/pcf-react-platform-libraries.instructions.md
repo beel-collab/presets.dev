@@ -1,12 +1,7 @@
 ---
 title: pcf-react-platform-libraries.instructions
 description: React controls and platform libraries for PCF components
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

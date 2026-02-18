@@ -1,17 +1,7 @@
 ---
 title: springboot.instructions
 description: Guidelines for building Spring Boot base applications
-tags:
-  - java
-  - springboot
-  - quarkus
-  - jpa
-  - junit
-  - javadoc
-  - openapi
-  - code-generation
-  - api
-  - spring-boot
+tags: []
 tools: []
 author:
   name: Community

@@ -3,13 +3,7 @@ title: kotlin-mcp-server.instructions
 description: >-
   Best practices and patterns for building Model Context Protocol (MCP) servers
   in Kotlin using the official io.modelcontextprotocol:kotlin-sdk library.
-tags:
-  - kotlin
-  - mcp
-  - model-context-protocol
-  - kotlin-multiplatform
-  - server-development
-  - ktor
+tags: []
 tools: []
 author:
   name: Community

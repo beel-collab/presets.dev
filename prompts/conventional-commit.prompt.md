@@ -18,7 +18,6 @@ author:
 
 ```xml
 	<description>This file contains a prompt template for generating conventional commit messages. It provides instructions, examples, and formatting guidelines to help users write standardized, descriptive commit messages in accordance with the Conventional Commits specification.</description>
-	<note>
 ```
 
 ### Workflow

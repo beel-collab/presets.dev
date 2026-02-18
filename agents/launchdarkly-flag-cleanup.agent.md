@@ -6,6 +6,7 @@ description: >
   readiness, identifies the correct forward value, and creates PRs that preserve
   production behavior while removing obsolete flags and updating stale defaults.
 tags:
+  - partners
   - devops
   - security
   - database

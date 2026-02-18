@@ -4,6 +4,7 @@ description: >-
   DevOps specialist for CI/CD pipelines, deployment debugging, and GitOps
   workflows focused on making deployments boring and reliable
 tags:
+  - software-engineering-team
   - team
   - enterprise
   - security

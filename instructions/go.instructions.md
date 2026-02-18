@@ -3,12 +3,7 @@ title: go.instructions
 description: >-
   Instructions for writing Go code following idiomatic Go practices and
   community standards
-tags:
-  - openapi
-  - code-generation
-  - api
-  - go
-  - golang
+tags: []
 tools: []
 author:
   name: Community

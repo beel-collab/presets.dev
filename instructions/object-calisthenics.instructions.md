@@ -3,15 +3,7 @@ title: object-calisthenics.instructions
 description: >-
   Enforces Object Calisthenics principles for business domain code to ensure
   clean, maintainable, and robust code
-tags:
-  - security
-  - accessibility
-  - performance
-  - code-quality
-  - owasp
-  - a11y
-  - optimization
-  - best-practices
+tags: []
 tools: []
 author:
   name: Community

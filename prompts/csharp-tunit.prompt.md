@@ -1,7 +1,12 @@
 ---
 title: csharp-tunit.prompt
 description: 'Get best practices for TUnit unit testing, including data-driven tests'
-tags: []
+tags:
+  - csharp-dotnet-development
+  - csharp
+  - dotnet
+  - aspnet
+  - testing
 tools:
   - changes
   - search/codebase

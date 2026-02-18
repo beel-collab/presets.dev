@@ -5,6 +5,7 @@ description: >-
   before implementation. Helps developers understand codebases, clarify
   requirements, and develop comprehensive implementation strategies.
 tags:
+  - project-planning
   - planning
   - project-management
   - epic

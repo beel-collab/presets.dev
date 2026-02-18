@@ -3,12 +3,7 @@ title: typescript-mcp-server.instructions
 description: >-
   Instructions for building Model Context Protocol (MCP) servers using the
   TypeScript SDK
-tags:
-  - typescript
-  - mcp
-  - model-context-protocol
-  - nodejs
-  - server-development
+tags: []
 tools: []
 author:
   name: Community

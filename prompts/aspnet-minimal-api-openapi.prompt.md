@@ -2,6 +2,7 @@
 title: aspnet-minimal-api-openapi.prompt
 description: Create ASP.NET Minimal API endpoints with proper OpenAPI documentation
 tags:
+  - csharp-dotnet-development
   - csharp
   - dotnet
   - aspnet

@@ -4,6 +4,7 @@ description: >-
   Create, update, or review Azure IaC in Bicep using Azure Verified Modules
   (AVM).
 tags:
+  - azure-cloud-development
   - azure
   - cloud
   - infrastructure

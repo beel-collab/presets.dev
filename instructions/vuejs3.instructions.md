@@ -3,16 +3,7 @@ title: vuejs3.instructions
 description: >-
   VueJS 3 development standards and best practices with Composition API and
   TypeScript
-tags:
-  - frontend
-  - web
-  - react
-  - typescript
-  - javascript
-  - css
-  - html
-  - angular
-  - vue
+tags: []
 tools: []
 author:
   name: Community

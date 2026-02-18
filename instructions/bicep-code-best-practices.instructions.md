@@ -1,15 +1,7 @@
 ---
 title: bicep-code-best-practices.instructions
 description: Infrastructure as Code with Bicep
-tags:
-  - azure
-  - cloud
-  - infrastructure
-  - bicep
-  - terraform
-  - serverless
-  - architecture
-  - devops
+tags: []
 tools: []
 author:
   name: Community

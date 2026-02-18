@@ -5,6 +5,7 @@ description: >-
   monitoring, and improving the performance of Power BI models, reports, and
   queries.
 tags:
+  - power-bi-development
   - power-bi
   - dax
   - data-modeling

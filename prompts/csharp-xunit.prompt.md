@@ -2,6 +2,7 @@
 title: csharp-xunit.prompt
 description: 'Get best practices for XUnit unit testing, including data-driven tests'
 tags:
+  - csharp-dotnet-development
   - csharp
   - dotnet
   - aspnet

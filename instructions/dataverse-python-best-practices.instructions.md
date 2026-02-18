@@ -4,11 +4,7 @@ description: >-
   Production-ready patterns and best practices extracted from Microsoft's
   official PowerPlatform-DataverseClient-Python repository, examples, and
   recommended workflows.
-tags:
-  - dataverse
-  - python
-  - integration
-  - sdk
+tags: []
 tools: []
 author:
   name: Community

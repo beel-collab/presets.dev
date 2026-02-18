@@ -2,7 +2,12 @@
 title: csharp-nunit.prompt
 description: 'Get best practices for NUnit unit testing, including data-driven tests'
 tags:
+  - csharp-dotnet-development
+  - csharp
+  - dotnet
+  - aspnet
   - testing
+  - testing-automation
   - tdd
   - automation
   - unit-tests

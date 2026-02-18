@@ -5,6 +5,7 @@ description: >-
   target rg) and optimize costs - creating GitHub issues for identified
   optimizations.
 tags:
+  - azure-cloud-development
   - azure
   - cloud
   - infrastructure

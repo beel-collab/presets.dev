@@ -3,13 +3,7 @@ title: quarkus-mcp-server-sse.instructions
 description: >-
   Quarkus and MCP Server with HTTP SSE transport development standards and
   instructions
-tags:
-  - java
-  - springboot
-  - quarkus
-  - jpa
-  - junit
-  - javadoc
+tags: []
 tools: []
 author:
   name: Community

@@ -3,13 +3,7 @@ title: java-21-to-java-25-upgrade.instructions
 description: >-
   Comprehensive best practices for adopting new Java 25 features since the
   release of Java 21.
-tags:
-  - java
-  - springboot
-  - quarkus
-  - jpa
-  - junit
-  - javadoc
+tags: []
 tools: []
 author:
   name: Community

@@ -4,11 +4,13 @@ description: >-
   Task research specialist for comprehensive project analysis - Brought to you
   by microsoft/edge-ai
 tags:
+  - edge-ai-tasks
   - architecture
   - planning
   - research
   - tasks
   - implementation
+  - project-planning
   - project-management
   - epic
   - feature

@@ -1,15 +1,7 @@
 ---
 title: azure-verified-modules-terraform.instructions
 description: ' Azure Verified Modules (AVM) and Terraform'
-tags:
-  - azure
-  - cloud
-  - infrastructure
-  - bicep
-  - terraform
-  - serverless
-  - architecture
-  - devops
+tags: []
 tools: []
 author:
   name: Community

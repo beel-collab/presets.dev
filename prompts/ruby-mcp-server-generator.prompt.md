@@ -4,6 +4,7 @@ description: >-
   Generate a complete Model Context Protocol server project in Ruby using the
   official MCP Ruby SDK gem.
 tags:
+  - ruby-mcp-development
   - ruby
   - mcp
   - model-context-protocol

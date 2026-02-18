@@ -1,12 +1,7 @@
 ---
 title: pcf-power-pages.instructions
 description: Using code components in Power Pages sites
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

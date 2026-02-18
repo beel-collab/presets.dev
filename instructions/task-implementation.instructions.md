@@ -3,17 +3,7 @@ title: task-implementation.instructions
 description: >-
   Instructions for implementing task plans with progressive tracking and change
   record - Brought to you by microsoft/edge-ai
-tags:
-  - architecture
-  - planning
-  - research
-  - tasks
-  - implementation
-  - project-management
-  - epic
-  - feature
-  - task
-  - technical-spike
+tags: []
 tools: []
 author:
   name: Community

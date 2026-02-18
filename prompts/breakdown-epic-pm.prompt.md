@@ -5,6 +5,7 @@ description: >-
   epic. This PRD will be used as input for generating a technical architecture
   specification.
 tags:
+  - project-planning
   - planning
   - project-management
   - epic

@@ -4,15 +4,7 @@ description: >-
   Comprehensive Power BI custom visuals development guide covering React, D3.js
   integration, TypeScript patterns, testing frameworks, and advanced
   visualization techniques.
-tags:
-  - power-bi
-  - dax
-  - data-modeling
-  - performance
-  - visualization
-  - security
-  - devops
-  - business-intelligence
+tags: []
 tools: []
 author:
   name: Community

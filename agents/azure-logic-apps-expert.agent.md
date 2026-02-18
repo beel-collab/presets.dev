@@ -4,6 +4,7 @@ description: >-
   Expert guidance for Azure Logic Apps development focusing on workflow design,
   integration patterns, and JSON-based Workflow Definition Language.
 tags:
+  - azure-cloud-development
   - azure
   - cloud
   - infrastructure

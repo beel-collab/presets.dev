@@ -4,6 +4,7 @@ description: >-
   Generate production-ready Python code using Dataverse SDK with error handling,
   optimization, and best practices
 tags:
+  - dataverse-sdk-for-python
   - dataverse
   - python
   - integration

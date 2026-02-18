@@ -2,6 +2,7 @@
 title: Create Adaptive Cards for MCP Plugins
 description: 'tools: [''changes'', ''search/codebase'', ''edit/editFiles'', ''problems'']'
 tags:
+  - mcp-m365-copilot
   - mcp
   - m365-copilot
   - declarative-agents

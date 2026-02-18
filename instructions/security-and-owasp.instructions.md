@@ -3,15 +3,7 @@ title: security-and-owasp.instructions
 description: >-
   Comprehensive secure coding instructions for all languages and frameworks,
   based on OWASP Top 10 and industry best practices.
-tags:
-  - security
-  - accessibility
-  - performance
-  - code-quality
-  - owasp
-  - a11y
-  - optimization
-  - best-practices
+tags: []
 tools: []
 author:
   name: Community

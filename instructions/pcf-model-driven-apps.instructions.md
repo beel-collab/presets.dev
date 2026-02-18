@@ -1,12 +1,7 @@
 ---
 title: pcf-model-driven-apps.instructions
 description: Code components for model-driven apps implementation and configuration
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

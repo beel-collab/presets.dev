@@ -3,13 +3,7 @@ title: java-11-to-java-17-upgrade.instructions
 description: >-
   Comprehensive best practices for adopting new Java 17 features since the
   release of Java 11.
-tags:
-  - java
-  - springboot
-  - quarkus
-  - jpa
-  - junit
-  - javadoc
+tags: []
 tools: []
 author:
   name: Community

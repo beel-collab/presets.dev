@@ -1,11 +1,7 @@
 ---
 title: Dataverse SDK for Python - Agentic Workflows Guide
 description: '**Status**: This feature is in **Public Preview** as of December 2025'
-tags:
-  - dataverse
-  - python
-  - integration
-  - sdk
+tags: []
 tools: []
 author:
   name: Community

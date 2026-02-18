@@ -4,6 +4,7 @@ description: >-
   Create time-boxed technical spike documents for researching and resolving
   critical development decisions before implementation.
 tags:
+  - project-planning
   - planning
   - project-management
   - epic

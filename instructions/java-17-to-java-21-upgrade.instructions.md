@@ -3,13 +3,7 @@ title: java-17-to-java-21-upgrade.instructions
 description: >-
   Comprehensive best practices for adopting new Java 21 features since the
   release of Java 17.
-tags:
-  - java
-  - springboot
-  - quarkus
-  - jpa
-  - junit
-  - javadoc
+tags: []
 tools: []
 author:
   name: Community

@@ -1,12 +1,7 @@
 ---
 title: pcf-limitations.instructions
 description: Limitations and restrictions of Power Apps Component Framework
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

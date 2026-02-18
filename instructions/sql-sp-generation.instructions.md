@@ -1,15 +1,7 @@
 ---
 title: sql-sp-generation.instructions
 description: Guidelines for generating SQL statements and stored procedures
-tags:
-  - database
-  - sql
-  - postgresql
-  - sql-server
-  - dba
-  - optimization
-  - queries
-  - data-management
+tags: []
 tools: []
 author:
   name: Community

@@ -4,6 +4,7 @@ description: >-
   Act as implementation planner for your Azure Terraform Infrastructure as Code
   task.
 tags:
+  - azure-cloud-development
   - azure
   - cloud
   - infrastructure

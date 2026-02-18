@@ -4,6 +4,7 @@ description: >-
   Generate a complete TypeSpec declarative agent with instructions,
   capabilities, and conversation starters for Microsoft 365 Copilot
 tags:
+  - typespec-m365-copilot
   - typespec
   - m365-copilot
   - declarative-agents

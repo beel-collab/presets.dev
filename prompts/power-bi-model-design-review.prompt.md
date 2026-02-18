@@ -4,6 +4,7 @@ description: >-
   Comprehensive Power BI data model design review prompt for evaluating model
   architecture, relationships, and optimization opportunities.
 tags:
+  - power-bi-development
   - power-bi
   - dax
   - data-modeling

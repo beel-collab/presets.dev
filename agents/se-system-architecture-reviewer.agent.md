@@ -4,6 +4,7 @@ description: >-
   System architecture review specialist with Well-Architected frameworks, design
   validation, and scalability analysis for AI and distributed systems
 tags:
+  - software-engineering-team
   - team
   - enterprise
   - security

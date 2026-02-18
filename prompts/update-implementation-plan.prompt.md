@@ -5,6 +5,7 @@ description: >-
   provide new features, refactoring existing code or upgrading packages, design,
   architecture or infrastructure.
 tags:
+  - project-planning
   - planning
   - project-management
   - epic

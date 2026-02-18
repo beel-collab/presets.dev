@@ -1,12 +1,7 @@
 ---
 title: pcf-sample-components.instructions
 description: How to use and run PCF sample components from the PowerApps-Samples repository
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

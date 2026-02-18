@@ -4,6 +4,7 @@ description: >-
   Responds to PagerDuty incidents by analyzing incident context, identifying
   recent code changes, and suggesting fixes via GitHub PRs.
 tags:
+  - partners
   - devops
   - security
   - database

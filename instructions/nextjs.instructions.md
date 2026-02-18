@@ -3,16 +3,7 @@ title: nextjs.instructions
 description: >-
   Best practices for building Next.js (App Router) apps with modern caching,
   tooling, and server/client boundaries (aligned with Next.js 16.1.1).
-tags:
-  - frontend
-  - web
-  - react
-  - typescript
-  - javascript
-  - css
-  - html
-  - angular
-  - vue
+tags: []
 tools: []
 author:
   name: Community

@@ -2,12 +2,14 @@
 title: java-junit.prompt
 description: 'Get best practices for JUnit 5 unit testing, including data-driven tests'
 tags:
+  - java-development
   - java
   - springboot
   - quarkus
   - jpa
   - junit
   - javadoc
+  - testing-automation
   - testing
   - tdd
   - automation

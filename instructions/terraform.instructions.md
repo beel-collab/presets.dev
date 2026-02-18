@@ -1,15 +1,7 @@
 ---
 title: terraform.instructions
 description: Terraform Conventions and Guidelines
-tags:
-  - azure
-  - cloud
-  - infrastructure
-  - bicep
-  - terraform
-  - serverless
-  - architecture
-  - devops
+tags: []
 tools: []
 author:
   name: Community

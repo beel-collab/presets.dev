@@ -4,6 +4,7 @@ description: >-
   Automatically set up StackHawk security testing for your repository with
   generated configuration and GitHub Actions workflow
 tags:
+  - partners
   - devops
   - security
   - database

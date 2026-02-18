@@ -5,6 +5,7 @@ description: >-
   Verifies package and version compliance, and suggests vulnerability fixes
   using JFrog security intelligence.
 tags:
+  - partners
   - devops
   - security
   - database

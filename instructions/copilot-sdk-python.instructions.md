@@ -3,16 +3,7 @@ title: copilot-sdk-python.instructions
 description: >-
   This file provides guidance on building Python applications using GitHub
   Copilot SDK.
-tags:
-  - copilot-sdk
-  - sdk
-  - csharp
-  - go
-  - nodejs
-  - typescript
-  - python
-  - ai
-  - github-copilot
+tags: []
 tools: []
 author:
   name: Community

@@ -3,13 +3,7 @@ title: typespec-m365-copilot.instructions
 description: >-
   Guidelines and best practices for building TypeSpec-based declarative agents
   and API plugins for Microsoft 365 Copilot
-tags:
-  - typespec
-  - m365-copilot
-  - declarative-agents
-  - api-plugins
-  - agent-development
-  - microsoft-365
+tags: []
 tools: []
 author:
   name: Community

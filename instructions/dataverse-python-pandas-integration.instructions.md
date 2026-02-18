@@ -5,11 +5,7 @@ description: >-
   data science and analysis workflows. The SDK's JSON response format maps
   seamlessly to pandas DataFrames, enabling data scientists to work with
   Dataverse data using familiar data manipulation tools.
-tags:
-  - dataverse
-  - python
-  - integration
-  - sdk
+tags: []
 tools: []
 author:
   name: Community

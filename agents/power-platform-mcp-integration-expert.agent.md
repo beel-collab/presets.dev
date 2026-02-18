@@ -5,6 +5,7 @@ description: >-
   Copilot Studio - comprehensive knowledge of schemas, protocols, and
   integration patterns
 tags:
+  - power-platform-mcp-connector-development
   - power-platform
   - mcp
   - copilot-studio

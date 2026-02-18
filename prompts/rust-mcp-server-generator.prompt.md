@@ -4,6 +4,7 @@ description: >-
   Generate a complete Rust Model Context Protocol server project with tools,
   prompts, resources, and tests using the official rmcp SDK
 tags:
+  - rust-mcp-development
   - rust
   - mcp
   - model-context-protocol

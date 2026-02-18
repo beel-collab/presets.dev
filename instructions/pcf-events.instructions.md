@@ -1,12 +1,7 @@
 ---
 title: pcf-events.instructions
 description: Define and handle custom events in PCF components
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

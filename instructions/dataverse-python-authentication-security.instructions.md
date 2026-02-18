@@ -1,11 +1,7 @@
 ---
 title: dataverse-python-authentication-security.instructions
 description: Preset for dataverse-python-authentication-security.instructions
-tags:
-  - dataverse
-  - python
-  - integration
-  - sdk
+tags: []
 tools: []
 author:
   name: Community

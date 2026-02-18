@@ -4,6 +4,7 @@ description: >-
   Ready-to-use prompts for comprehensive .NET framework upgrade analysis and
   execution
 tags:
+  - csharp-dotnet-development
   - csharp
   - dotnet
   - aspnet

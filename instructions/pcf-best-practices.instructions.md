@@ -1,12 +1,7 @@
 ---
 title: pcf-best-practices.instructions
 description: Best practices and guidance for developing PCF code components
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

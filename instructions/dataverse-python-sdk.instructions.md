@@ -1,11 +1,7 @@
 ---
 title: dataverse-python-sdk.instructions
 description: Preset for dataverse-python-sdk.instructions
-tags:
-  - dataverse
-  - python
-  - integration
-  - sdk
+tags: []
 tools: []
 author:
   name: Community

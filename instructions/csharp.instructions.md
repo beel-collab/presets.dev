@@ -1,14 +1,7 @@
 ---
 title: csharp.instructions
 description: Guidelines for building C# applications
-tags:
-  - csharp
-  - dotnet
-  - aspnet
-  - testing
-  - openapi
-  - code-generation
-  - api
+tags: []
 tools: []
 author:
   name: Community

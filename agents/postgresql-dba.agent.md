@@ -2,6 +2,7 @@
 title: postgresql-dba.agent
 description: Work with PostgreSQL databases using the PostgreSQL extension.
 tags:
+  - database-data-management
   - database
   - sql
   - postgresql

@@ -1,12 +1,7 @@
 ---
 title: pcf-alm.instructions
 description: Application lifecycle management (ALM) for PCF code components
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

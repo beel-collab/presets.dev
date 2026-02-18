@@ -2,6 +2,7 @@
 title: create-spring-boot-java-project.prompt
 description: Create Spring Boot Java Project Skeleton
 tags:
+  - java-development
   - java
   - springboot
   - quarkus

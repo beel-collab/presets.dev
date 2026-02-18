@@ -6,6 +6,7 @@ description: >-
   operations, array usage, custom types, schema design, function optimization,
   and PostgreSQL-exclusive security features like Row Level Security (RLS).
 tags:
+  - database-data-management
   - database
   - sql
   - postgresql

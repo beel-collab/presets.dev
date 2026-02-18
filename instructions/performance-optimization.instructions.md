@@ -5,15 +5,7 @@ description: >-
   optimization instructions for all languages, frameworks, and stacks. Covers
   frontend, backend, and database best practices with actionable guidance,
   scenario-based checklists, troubleshooting, and pro tips.
-tags:
-  - security
-  - accessibility
-  - performance
-  - code-quality
-  - owasp
-  - a11y
-  - optimization
-  - best-practices
+tags: []
 tools: []
 author:
   name: Community

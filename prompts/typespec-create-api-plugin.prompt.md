@@ -4,6 +4,7 @@ description: >-
   Generate a TypeSpec API plugin with REST operations, authentication, and
   Adaptive Cards for Microsoft 365 Copilot
 tags:
+  - typespec-m365-copilot
   - typespec
   - m365-copilot
   - declarative-agents

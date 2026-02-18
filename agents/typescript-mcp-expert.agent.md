@@ -4,6 +4,7 @@ description: >-
   Expert assistant for developing Model Context Protocol (MCP) servers in
   TypeScript
 tags:
+  - typescript-mcp-development
   - typescript
   - mcp
   - model-context-protocol

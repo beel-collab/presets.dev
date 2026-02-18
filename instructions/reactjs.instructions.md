@@ -1,16 +1,7 @@
 ---
 title: reactjs.instructions
 description: ReactJS development standards and best practices
-tags:
-  - frontend
-  - web
-  - react
-  - typescript
-  - javascript
-  - css
-  - html
-  - angular
-  - vue
+tags: []
 tools: []
 author:
   name: Community

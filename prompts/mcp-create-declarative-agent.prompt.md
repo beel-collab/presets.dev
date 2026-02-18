@@ -2,6 +2,7 @@
 title: Create MCP-based Declarative Agent for Microsoft 365 Copilot
 description: 'tools: [''changes'', ''search/codebase'', ''edit/editFiles'', ''problems'']'
 tags:
+  - mcp-m365-copilot
   - mcp
   - m365-copilot
   - declarative-agents

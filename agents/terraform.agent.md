@@ -8,6 +8,7 @@ description: >-
   orchestrates infrastructure deployments with proper validation and security
   practices.
 tags:
+  - partners
   - devops
   - security
   - database

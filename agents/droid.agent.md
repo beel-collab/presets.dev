@@ -5,6 +5,7 @@ description: >-
   the Droid CLI, with emphasis on droid exec for CI/CD and non-interactive
   automation
 tags:
+  - partners
   - devops
   - security
   - database

@@ -5,6 +5,7 @@ description: >-
   relationship design, and Microsoft best practices for optimal model
   performance and usability.
 tags:
+  - power-bi-development
   - power-bi
   - dax
   - data-modeling

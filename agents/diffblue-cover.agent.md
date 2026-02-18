@@ -4,6 +4,7 @@ description: >-
   Expert agent for creating unit tests for java applications using Diffblue
   Cover.
 tags:
+  - partners
   - devops
   - security
   - database

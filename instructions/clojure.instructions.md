@@ -3,10 +3,7 @@ title: clojure.instructions
 description: >-
   Clojure-specific coding patterns, inline def usage, code block templates, and
   namespace handling for Clojure development.
-tags:
-  - clojure
-  - repl
-  - interactive-programming
+tags: []
 tools: []
 author:
   name: Community

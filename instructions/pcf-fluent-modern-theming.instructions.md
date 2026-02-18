@@ -1,12 +1,7 @@
 ---
 title: pcf-fluent-modern-theming.instructions
 description: Style components with modern theming using Fluent UI
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

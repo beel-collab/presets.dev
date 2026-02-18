@@ -2,6 +2,7 @@
 title: playwright-explore-website.prompt
 description: Website exploration for testing using Playwright MCP
 tags:
+  - frontend-web-dev
   - frontend
   - web
   - react
@@ -11,6 +12,7 @@ tags:
   - html
   - angular
   - vue
+  - testing-automation
   - testing
   - tdd
   - automation

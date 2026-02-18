@@ -6,6 +6,7 @@ description: >-
   prevents workarounds, and develops solutions incrementally through live REPL
   evaluation before file modifications.
 tags:
+  - clojure-interactive-programming
   - clojure
   - repl
   - interactive-programming

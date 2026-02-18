@@ -4,6 +4,7 @@ description: >-
   Generate complete solutions for specific Dataverse SDK use cases with
   architecture recommendations
 tags:
+  - dataverse-sdk-for-python
   - dataverse
   - python
   - integration

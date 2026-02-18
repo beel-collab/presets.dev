@@ -1,12 +1,7 @@
 ---
 title: pcf-dependent-libraries.instructions
 description: Using dependent libraries in PCF components
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

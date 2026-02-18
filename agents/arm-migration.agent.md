@@ -8,6 +8,7 @@ description: >-
   validate performance, and guide optimization, enabling smooth cross-platform
   deployment directly inside GitHub.
 tags:
+  - partners
   - devops
   - security
   - database

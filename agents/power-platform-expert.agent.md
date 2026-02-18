@@ -4,6 +4,7 @@ description: >-
   Power Platform expert providing guidance on Code Apps, canvas apps, Dataverse,
   connectors, and Power Platform best practices
 tags:
+  - power-apps-code-apps
   - power-apps
   - power-platform
   - typescript

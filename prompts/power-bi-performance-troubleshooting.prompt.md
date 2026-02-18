@@ -5,6 +5,7 @@ description: >-
   diagnosing, and resolving performance issues in Power BI models, reports, and
   queries.
 tags:
+  - power-bi-development
   - power-bi
   - dax
   - data-modeling

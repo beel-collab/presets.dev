@@ -7,6 +7,7 @@ description: >-
   analysis, pagination optimization, batch operations, and performance
   monitoring guidance.
 tags:
+  - database-data-management
   - database
   - sql
   - postgresql

@@ -1,12 +1,7 @@
 ---
 title: pcf-canvas-apps.instructions
 description: 'Code components for canvas apps implementation, security, and configuration'
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

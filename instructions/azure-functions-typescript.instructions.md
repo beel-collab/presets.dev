@@ -1,15 +1,7 @@
 ---
 title: azure-functions-typescript.instructions
 description: TypeScript patterns for Azure Functions
-tags:
-  - azure
-  - cloud
-  - infrastructure
-  - bicep
-  - terraform
-  - serverless
-  - architecture
-  - devops
+tags: []
 tools: []
 author:
   name: Community

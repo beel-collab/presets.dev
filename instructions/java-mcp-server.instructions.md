@@ -4,15 +4,7 @@ description: >-
   Best practices and patterns for building Model Context Protocol (MCP) servers
   in Java using the official MCP Java SDK with reactive streams and Spring
   integration.
-tags:
-  - java
-  - mcp
-  - model-context-protocol
-  - server-development
-  - sdk
-  - reactive-streams
-  - spring-boot
-  - reactor
+tags: []
 tools: []
 author:
   name: Community

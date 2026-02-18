@@ -4,6 +4,7 @@ description: >-
   Expert assistant for PHP MCP server development using the official PHP SDK
   with attribute-based discovery
 tags:
+  - php-mcp-development
   - php
   - mcp
   - model-context-protocol

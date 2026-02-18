@@ -1,15 +1,7 @@
 ---
 title: terraform-azure.instructions
 description: Create or modify solutions built using Terraform on Azure.
-tags:
-  - azure
-  - cloud
-  - infrastructure
-  - bicep
-  - terraform
-  - serverless
-  - architecture
-  - devops
+tags: []
 tools: []
 author:
   name: Community

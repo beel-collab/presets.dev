@@ -4,6 +4,7 @@ description: >-
   Generate a complete MCP server project in C# with tools, prompts, and proper
   configuration
 tags:
+  - csharp-mcp-development
   - csharp
   - mcp
   - model-context-protocol

@@ -1,13 +1,7 @@
 ---
 title: quarkus.instructions
 description: Quarkus development standards and instructions
-tags:
-  - java
-  - springboot
-  - quarkus
-  - jpa
-  - junit
-  - javadoc
+tags: []
 tools: []
 author:
   name: Community

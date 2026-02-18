@@ -1,12 +1,7 @@
 ---
 title: pcf-code-components.instructions
 description: Understanding code components structure and implementation
-tags:
-  - power-apps
-  - pcf
-  - component-framework
-  - typescript
-  - power-platform
+tags: []
 tools: []
 author:
   name: Community

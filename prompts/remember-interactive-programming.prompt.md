@@ -7,6 +7,7 @@ description: >-
   agent can use. Adapt the prompt with any specific reminders in your workflow
   and/or workspace.
 tags:
+  - clojure-interactive-programming
   - clojure
   - repl
   - interactive-programming

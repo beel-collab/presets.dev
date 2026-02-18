@@ -4,6 +4,7 @@ description: >-
   Generate production code for Dataverse SDK using advanced patterns, error
   handling, and optimization techniques.
 tags:
+  - dataverse-sdk-for-python
   - dataverse
   - python
   - integration

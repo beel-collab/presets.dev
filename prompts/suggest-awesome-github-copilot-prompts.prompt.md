@@ -6,6 +6,7 @@ description: >-
   duplicates with existing prompts in this repository, and identifying outdated
   prompts that need updates.
 tags:
+  - awesome-copilot
   - github-copilot
   - discovery
   - meta

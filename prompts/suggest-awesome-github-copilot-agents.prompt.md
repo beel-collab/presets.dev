@@ -6,6 +6,7 @@ description: >-
   duplicates with existing custom agents in this repository, and identifying
   outdated agents that need updates.
 tags:
+  - awesome-copilot
   - github-copilot
   - discovery
   - meta

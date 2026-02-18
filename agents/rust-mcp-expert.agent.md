@@ -4,6 +4,7 @@ description: >-
   Expert assistant for Rust MCP server development using the rmcp SDK with tokio
   async runtime
 tags:
+  - rust-mcp-development
   - rust
   - mcp
   - model-context-protocol

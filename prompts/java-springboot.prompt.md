@@ -2,6 +2,7 @@
 title: java-springboot.prompt
 description: Get best practices for developing applications with Spring Boot.
 tags:
+  - java-development
   - java
   - springboot
   - quarkus

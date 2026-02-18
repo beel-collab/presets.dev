@@ -1,11 +1,7 @@
 ---
 title: dataverse-python-performance-optimization.instructions
 description: Preset for dataverse-python-performance-optimization.instructions
-tags:
-  - dataverse
-  - python
-  - integration
-  - sdk
+tags: []
 tools: []
 author:
   name: Community

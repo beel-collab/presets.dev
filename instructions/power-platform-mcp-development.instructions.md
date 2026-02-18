@@ -3,12 +3,7 @@ title: power-platform-mcp-development.instructions
 description: >-
   Instructions for developing Power Platform custom connectors with Model
   Context Protocol (MCP) integration for Microsoft Copilot Studio
-tags:
-  - power-platform
-  - mcp
-  - copilot-studio
-  - custom-connector
-  - json-rpc
+tags: []
 tools: []
 author:
   name: Community

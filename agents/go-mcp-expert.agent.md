@@ -4,6 +4,7 @@ description: >-
   Expert assistant for building Model Context Protocol (MCP) servers in Go using
   the official SDK.
 tags:
+  - go-mcp-development
   - go
   - golang
   - mcp

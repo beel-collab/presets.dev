@@ -4,6 +4,7 @@ description: >-
   Expert assistant for building MCP-based declarative agents for Microsoft 365
   Copilot with Model Context Protocol integration
 tags:
+  - mcp-m365-copilot
   - mcp
   - m365-copilot
   - declarative-agents

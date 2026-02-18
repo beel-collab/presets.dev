@@ -2,10 +2,6 @@
 title: structured-autonomy-generate.prompt
 description: Structured Autonomy Implementation Generator Prompt
 tags:
-  - github-copilot
-  - autonomous-workflows
-  - project-planning
-  - code-generation
   - structured-autonomy
 tools: []
 author:

@@ -1,16 +1,7 @@
 ---
 title: nodejs-javascript-vitest.instructions
 description: Guidelines for writing Node.js and JavaScript code with Vitest testing
-tags:
-  - frontend
-  - web
-  - react
-  - typescript
-  - javascript
-  - css
-  - html
-  - angular
-  - vue
+tags: []
 tools: []
 author:
   name: Community

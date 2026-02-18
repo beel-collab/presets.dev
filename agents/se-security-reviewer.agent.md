@@ -4,6 +4,7 @@ description: >-
   Security-focused code review specialist with OWASP Top 10, Zero Trust, LLM
   security, and enterprise security standards
 tags:
+  - software-engineering-team
   - team
   - enterprise
   - security
