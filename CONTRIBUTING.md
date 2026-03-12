@@ -1,6 +1,6 @@
-# Contributing to presets.dev
+# Contributing to Copilot Presets
 
-Thank you for your interest in contributing to presets.dev! We welcome contributions from the community to help expand our collection of GitHub Copilot agents, instructions, and prompts.
+Thank you for your interest in contributing! We welcome contributions from the community to help expand our collection of GitHub Copilot agents, instructions, and skills for [presets.dev](https://presets.dev).
 
 ## How to Contribute
 
@@ -12,10 +12,11 @@ We welcome contributions directly to this repository!
 
 Agents are chat mode configurations that transform GitHub Copilot into a domain-specific assistant.
 
-1. **Create your agent file**: Add a new `.agent.md` file in the `src/data/copilot/agents/` directory
-2. **Follow the naming convention**: Use descriptive, lowercase filenames with hyphens (e.g., `react-performance-expert.agent.md`)
-3. **Include frontmatter**: Add metadata at the top of your file
-4. **Test your agent**: Ensure the agent provides helpful, accurate responses in its domain
+1. **Find or create the technology directory**: e.g., `react/`
+2. **Create your agent file**: Add a new `.agent.md` file in the `[technology]/agents/` directory
+3. **Follow the naming convention**: Use descriptive, lowercase filenames with hyphens (e.g., `react-performance-expert.agent.md`)
+4. **Include frontmatter**: Add metadata at the top of your file
+5. **Test your agent**: Ensure the agent provides helpful, accurate responses in its domain
 
 #### Example agent format
 
@@ -57,10 +58,11 @@ You are an expert [domain/role] with deep knowledge in [specific areas].
 
 Instructions help customize GitHub Copilot's behavior for specific technologies, coding practices, or domains.
 
-1. **Create your instruction file**: Add a new `.instructions.md` file in the `src/data/copilot/instructions/` directory
-2. **Follow the naming convention**: Use descriptive, lowercase filenames with hyphens (e.g., `python-django.instructions.md`)
-3. **Structure your content**: Start with a clear heading and organize your instructions logically
-4. **Test your instructions**: Make sure your instructions work well with GitHub Copilot
+1. **Find or create the technology directory**: e.g., `python/`
+2. **Create your instruction file**: Add a new `.instructions.md` file in the `[technology]/instructions/` directory
+3. **Follow the naming convention**: Use descriptive, lowercase filenames with hyphens (e.g., `python-django.instructions.md`)
+4. **Structure your content**: Start with a clear heading and organize your instructions logically
+5. **Test your instructions**: Make sure your instructions work well with GitHub Copilot
 
 #### Example instruction format
 
@@ -92,47 +94,18 @@ author:
 Include code examples where helpful.
 ```
 
-### Adding Prompts
-
-Prompts are ready-to-use templates for specific development scenarios and tasks.
-
-1. **Create your prompt file**: Add a new `.prompt.md` file in the `src/data/copilot/prompts/` directory
-2. **Follow the naming convention**: Use descriptive, lowercase filenames with hyphens (e.g., `react-component-generator.prompt.md`)
-3. **Include frontmatter**: Add metadata at the top of your file
-4. **Structure your prompt**: Provide clear context and specific instructions
-
-#### Example prompt format
-
-```markdown
----
-description: "Brief description of what this prompt does"
-tags: ["React", "Components", "TypeScript"]
-author:
-  name: "Your Name"
-  url: "https://github.com/yourusername"
----
-
-# Prompt Title
-
-Your goal is to...
-
-## Specific Instructions
-
-- Clear, actionable instructions
-- Include examples where helpful
-- Define expected output format
-```
 
 ### Adding Skills
 
 Skills are capabilities that allow GitHub Copilot to perform specific tasks, often contacting external services or managing complex workflows.
 
-1. **Create your skill directory**: Create a new directory in `src/data/copilot/skills/` with your skill name (e.g., `github-issues`).
-2. **Add SKILL.md**: Create a `SKILL.md` file inside that directory. This is the main entry point.
-3. **Include frontmatter**: Add metadata at the top of `SKILL.md`.
-4. **Include references**: If your skill needs extra templates or scripts, put them in a `references/` subdirectory.
+1. **Find or create the technology directory**: e.g., `github-project-mgmt/`
+2. **Create your skill directory**: Create a new directory in `[technology]/skills/` with your skill name (e.g., `github-issues`).
+3. **Add SKILL.md**: Create a `SKILL.md` file inside that directory. This is the main entry point.
+4. **Include frontmatter**: Add metadata at the top of `SKILL.md`.
+5. **Include references**: If your skill needs extra templates or scripts, put them in a `references/` subdirectory.
 
-#### Example skill format (`src/data/copilot/skills/my-skill/SKILL.md`)
+#### Example skill format (`[technology]/skills/my-skill/SKILL.md`)
 
 ```markdown
 ---
@@ -159,7 +132,7 @@ Detailed description of the skill.
 
 ## Submitting Your Contribution
 
-1. **Fork this repository** at [github.com/beel-collab/presets.dev](https://github.com/beel-collab/presets.dev)
+1. **Fork this repository** on GitHub
 2. **Create a new branch** for your contribution:
    ```bash
    git checkout -b add-my-agent-name
@@ -168,7 +141,7 @@ Detailed description of the skill.
 4. **Commit your changes**:
    ```bash
    git add .
-   git commit -m "Add [agent/instruction/prompt] for [technology]"
+   git commit -m "Add [agent/instruction/skill] for [technology]"
    ```
 5. **Push to your fork**:
    ```bash
@@ -176,7 +149,7 @@ Detailed description of the skill.
    ```
 6. **Submit a pull request** with:
    - A clear title describing your contribution
-   - A brief description of what your agent/instruction/prompt does
+   - A brief description of what your agent/instruction/skill does
    - Any relevant context or usage notes
 
 ## Required Frontmatter Fields
@@ -218,7 +191,7 @@ To maintain a safe, responsible, and constructive community, we will **not accep
 ## Quality Guidelines
 
 - **Be specific**: Generic instructions are less helpful than specific, actionable guidance
-- **Test your content**: Ensure your instructions or prompts work well with GitHub Copilot
+- **Test your content**: Ensure your instructions work well with GitHub Copilot
 - **Follow conventions**: Use consistent formatting and naming
 - **Keep it focused**: Each file should address a specific technology, framework, or use case
 - **Write clearly**: Use simple, direct language
@@ -238,7 +211,7 @@ Use these common tags to help users find your contribution:
 
 ## Questions or Suggestions?
 
-If you have questions about contributing or suggestions for improving the contribution process, please [open an issue](https://github.com/beel-collab/presets.dev/issues/new).
+If you have questions about contributing or suggestions for improving the contribution process, please [open an issue](https://github.com/github/awesome-copilot/issues/new) or contact us via our main repository.
 
 ## License
 
