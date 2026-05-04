@@ -1,4 +1,4 @@
-# presets.dev — Community Preset Content
+# presets.dev — AI Coding Presets
 
 A community collection of rules, instructions, agents, and skills for AI coding tools — powering [presets.dev](https://presets.dev).
 
