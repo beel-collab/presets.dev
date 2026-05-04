@@ -18,10 +18,6 @@ This repository contains all the preset content for [presets.dev](https://preset
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to add or improve presets.
 
-## App
-
-The web app that renders this content: [beel-collab/presets-web](https://github.com/beel-collab/presets-web)
-
 ## License
 
 MIT

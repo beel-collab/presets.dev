@@ -15,7 +15,6 @@ presets.dev/          ← this repo (content only)
 └── antigravity/      Antigravity rules
 ```
 
-The app that renders this content lives at [beel-collab/presets-web](https://github.com/beel-collab/presets-web).
 
 ---
 
@@ -127,7 +126,7 @@ author:
 
 ## Questions?
 
-Open an issue at [beel-collab/presets.dev](https://github.com/beel-collab/presets.dev/issues).
+Open an issue on this repository.
 
 ## License
 
