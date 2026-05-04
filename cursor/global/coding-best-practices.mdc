@@ -1,0 +1,167 @@
+---
+description: Core development best practices and common sense patterns
+globs:
+  - "**/*"
+alwaysApply: true
+title: Coding Best Practices
+tags:
+  - global
+  - best-practices
+author:
+  name: Community
+  url: https://github.com/beel-collab/presets.dev
+---
+
+# Coding Best Practices
+
+## Code Quality
+
+### Simple Over Complex
+```javascript
+// Good: Clear intent
+const isActive = user.status === 'active';
+
+// Bad: Unnecessary complexity
+const isActive = (() => user?.status?.toLowerCase() === 'active')();
+```
+
+### Early Returns
+```javascript
+// Good: Fail fast
+function processUser(user) {
+  if (!user) return null;
+  if (!user.email) return null;
+  // Main logic here
+}
+
+// Bad: Nested conditions
+function processUser(user) {
+  if (user) {
+    if (user.email) {
+      // Main logic here
+    }
+  }
+}
+```
+
+## Error Handling
+
+Always handle errors explicitly with meaningful messages:
+```javascript
+// Good
+try {
+  const data = await fetchData();
+  return processData(data);
+} catch (error) {
+  console.error('Failed to fetch data:', error);
+  return defaultData;
+}
+
+// Good: Include context in error messages
+throw new Error(`User ${userId} not found in database`);
+```
+
+## Naming
+
+- Use descriptive names: `userAuthenticationToken` not `token`
+- Prefix booleans: `isLoading`, `hasPermission`, `canEdit`
+- Functions should read as actions: `getUser`, `validateEmail`, `formatCurrency`
+
+## Function Design
+
+### Single Responsibility
+```javascript
+// Good: One purpose each
+function calculateTax(amount, rate) { return amount * rate; }
+function formatCurrency(amount) { return `$${amount.toFixed(2)}`; }
+
+// Bad: Multiple responsibilities in one function
+function calculateAndFormat(amount, rate) { ... }
+```
+
+### Consistent Return Types
+```javascript
+// Good: Always returns User | null
+function findUser(id) {
+  return users.find(u => u.id === id) || null;
+}
+```
+
+## Performance
+
+- Profile before optimizing — never guess
+- Use the right data structure:
+```javascript
+// Good: O(1) lookup
+const userMap = new Map(users.map(u => [u.id, u]));
+const user = userMap.get(userId);
+
+// Bad for frequent lookups: O(n)
+const user = users.find(u => u.id === userId);
+```
+
+## State Management
+
+Prefer immutability — create new objects instead of mutating:
+```javascript
+// Good
+const updatedUser = { ...user, name: newName };
+const newItems = [...items, newItem];
+
+// Bad
+user.name = newName;
+items.push(newItem);
+```
+
+## Testing
+
+Write pure, testable functions:
+```javascript
+// Good: Pure, easy to test
+function calculateDiscount(price, percentage) {
+  return price * (1 - percentage / 100);
+}
+
+// Bad: Depends on DOM and globals — hard to test
+function calculateDiscount() {
+  const price = document.getElementById('price').value;
+  return price * (1 - globalDiscount / 100);
+}
+```
+
+## Documentation
+
+Comment on *why*, not *what*:
+```javascript
+// Good: Explains the reasoning
+// Exponential backoff to avoid overwhelming the server during retries
+const delay = Math.min(1000 * Math.pow(2, retryCount), 30000);
+
+// Bad: States the obvious
+// Multiply 1000 by 2 to the power of retryCount
+const delay = 1000 * Math.pow(2, retryCount);
+```
+
+## Security
+
+Never trust user input:
+```javascript
+// Good: Validate before use
+const userId = parseInt(req.params.id, 10);
+if (isNaN(userId) || userId <= 0) {
+  return res.status(400).json({ error: 'Invalid user ID' });
+}
+
+// Bad: Direct injection risk
+const query = `SELECT * FROM users WHERE id = ${req.params.id}`;
+```
+
+## Quick Decisions
+
+When in doubt, choose in this order:
+1. Readability
+2. Maintainability
+3. Simplicity
+4. Explicitness
+
+Remove dead code — delete commented-out blocks, unused imports, stray `console.log` calls.

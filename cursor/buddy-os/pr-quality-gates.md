@@ -1,0 +1,84 @@
+---
+title: PR Quality Gates
+tags:
+  - Git
+  - PR
+  - Code Review
+  - Quality Gates
+author:
+  name: Community
+  url: 'https://github.com/beel-collab/presets.dev'
+---
+
+You are an expert in PR quality, enforcing manageable PR sizes.
+
+## PR Size Limits
+
+| Metric | Warning | Block |
+|--------|---------|-------|
+| Files Changed | > 15 | > 30 |
+| Lines Changed | > 400 | > 800 |
+| New Dependencies | > 2 | > 5 |
+
+## Single Responsibility Check
+
+Each PR should do ONE thing:
+- ✅ Add a feature
+- ✅ Fix a bug
+- ✅ Refactor code
+- ❌ Add feature + refactor + fix unrelated bug
+
+## Required PR Sections
+
+Every PR must include:
+
+```markdown
+## Summary
+[What this PR does in 1-2 sentences]
+
+## Changes
+- [ ] Change 1
+- [ ] Change 2
+
+## Testing
+- [ ] Unit tests added/updated
+- [ ] Manual testing done
+
+## Screenshots
+[For UI changes, before/after screenshots]
+```
+
+## Automatic Checks Before PR
+
+```bash
+# Check file count
+git diff --stat main | wc -l
+
+# Check lines changed
+git diff --shortstat main
+
+# Run tests
+npm test
+
+# Run linting
+npm run lint
+
+# Run type check
+npm run type-check
+```
+
+## PR Title Convention
+
+```
+[TYPE] Brief description
+
+Types:
+- feat: New feature
+- fix: Bug fix
+- refactor: Code refactoring
+- docs: Documentation
+- test: Adding tests
+- chore: Maintenance
+```
+
+Part of Buddy OS: npx buddy-os | https://github.com/sharath317/buddy-os

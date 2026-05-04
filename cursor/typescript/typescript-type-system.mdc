@@ -1,0 +1,199 @@
+---
+description: TypeScript type system patterns, strict mode best practices, and common pitfalls for modern applications
+alwaysApply: false
+title: TypeScript Type System
+tags:
+  - typescript
+libs:
+  - typescript
+author:
+  name: Community
+  url: https://github.com/beel-collab/presets.dev
+---
+
+# TypeScript Type System
+
+## Type Inference
+
+Let TypeScript infer when it's obvious. Annotate when it isn't:
+
+```typescript
+// Good: inference is clear
+const numbers = [1, 2, 3]; // number[]
+const config = { host: 'localhost', port: 3000 };
+
+// Annotate when inference falls short
+const processValue = <T extends { id: string }>(value: T): T & { processed: true } => {
+  return { ...value, processed: true };
+};
+```
+
+## Discriminated Unions
+
+Use discriminated unions for state and result types instead of optional properties:
+
+```typescript
+type AsyncState<T> =
+  | { status: 'idle' }
+  | { status: 'loading' }
+  | { status: 'success'; data: T }
+  | { status: 'error'; error: Error };
+
+// Exhaustive switch — TypeScript will warn if a case is missing
+function handleState<T>(state: AsyncState<T>): string {
+  switch (state.status) {
+    case 'idle':    return 'Ready';
+    case 'loading': return 'Loading...';
+    case 'success': return `Got data`;
+    case 'error':   return `Error: ${state.error.message}`;
+    default: {
+      const _exhaustive: never = state;
+      return _exhaustive;
+    }
+  }
+}
+```
+
+## Avoid `any`
+
+Use `unknown` for untrusted data — it forces you to validate before use:
+
+```typescript
+// Good: validate before use
+function parseResponse(raw: unknown): User {
+  if (!isUser(raw)) throw new Error('Invalid response shape');
+  return raw;
+}
+
+function isUser(value: unknown): value is User {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    'id' in value &&
+    typeof (value as any).id === 'string'
+  );
+}
+
+// Bad: skips all type safety
+function parseResponse(raw: any): User {
+  return raw;
+}
+```
+
+## Null Safety
+
+Handle `null` and `undefined` explicitly in strict mode:
+
+```typescript
+// Optional chaining + nullish coalescing
+const domain = user.email?.split('@')[1];
+const displayName = user.name ?? user.email ?? 'Anonymous';
+
+// Type guard before accessing
+function processUser(user: User | null) {
+  if (!user) throw new Error('User required');
+  console.log(user.name.toUpperCase()); // TypeScript knows it's non-null
+}
+```
+
+## Result Type Pattern
+
+Return errors as values instead of throwing for expected failure cases:
+
+```typescript
+type Result<T, E = Error> =
+  | { ok: true; value: T }
+  | { ok: false; error: E };
+
+async function findUser(id: string): Promise<Result<User>> {
+  try {
+    const user = await db.users.findById(id);
+    if (!user) return { ok: false, error: new Error('Not found') };
+    return { ok: true, value: user };
+  } catch (e) {
+    return { ok: false, error: e as Error };
+  }
+}
+
+// Caller handles both cases explicitly
+const result = await findUser(id);
+if (!result.ok) {
+  console.error(result.error.message);
+  return;
+}
+console.log(result.value.name);
+```
+
+## Useful Utility Types
+
+```typescript
+// Common patterns worth knowing
+type Nullable<T> = T | null;
+type Maybe<T> = T | null | undefined;
+type ValueOf<T> = T[keyof T];
+type AsyncReturnType<T extends (...args: any) => Promise<any>> =
+  T extends (...args: any) => Promise<infer R> ? R : never;
+
+// Deep readonly
+type DeepReadonly<T> = {
+  readonly [P in keyof T]: T[P] extends object ? DeepReadonly<T[P]> : T[P];
+};
+
+// Const enum alternative (better for tree-shaking)
+const Status = {
+  PENDING: 'PENDING',
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE',
+} as const;
+type Status = typeof Status[keyof typeof Status];
+```
+
+## tsconfig Strict Settings
+
+Enable these in all projects:
+
+```json
+{
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
+  }
+}
+```
+
+## Common Pitfalls
+
+```typescript
+// Pitfall: index access is unsafe without noUncheckedIndexedAccess
+const items = ['a', 'b'];
+const first = items[0]; // string | undefined with the flag on — handle it
+
+// Pitfall: forgetting undefined in optional chaining
+const users: User[] = [];
+const user = users.find(u => u.id === '999');
+console.log(user.name); // Error: Object is possibly undefined — guard it
+
+// Pitfall: type assertions without validation
+const config = JSON.parse(raw) as Config; // Dangerous — validate first
+
+// Pitfall: index signatures conflict with known keys
+interface Bad {
+  port: number;
+  [key: string]: string; // Error: port is number, not string
+}
+interface Good {
+  port: number;
+  [key: string]: string | number; // Union resolves it
+}
+```
+
+## Rules
+
+- Prefer `interface` over `type` for object shapes — better error messages and extensibility
+- Use `satisfies` to check types without widening
+- Never suppress errors with `// @ts-ignore` — fix the type or use `// @ts-expect-error` with a comment explaining why
+- Branded types for domain IDs: `type UserId = string & { __brand: 'UserId' }`

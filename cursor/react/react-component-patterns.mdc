@@ -1,0 +1,160 @@
+---
+description: React component patterns, hooks best practices, and performance guidelines for JSX/TSX files
+globs:
+  - "**/*.jsx"
+  - "**/*.tsx"
+alwaysApply: false
+title: React Component Patterns
+tags:
+  - react
+  - typescript
+libs:
+  - react
+author:
+  name: Community
+  url: https://github.com/beel-collab/presets.dev
+---
+
+# React Component Patterns
+
+## Component Structure
+
+Use functional components with hooks. Keep components focused — one responsibility per component.
+
+```tsx
+// Good: Focused, typed component
+interface UserCardProps {
+  user: User;
+  onSelect: (id: string) => void;
+}
+
+function UserCard({ user, onSelect }: UserCardProps) {
+  return (
+    <div onClick={() => onSelect(user.id)}>
+      <h3>{user.name}</h3>
+    </div>
+  );
+}
+```
+
+## useEffect Dependencies
+
+Always specify the dependency array. Missing deps cause stale closures and subtle bugs:
+
+```tsx
+// Good: explicit deps
+useEffect(() => {
+  fetchUser(userId);
+}, [userId]);
+
+// Bad: missing deps, runs on every render
+useEffect(() => {
+  fetchUser(userId);
+});
+```
+
+## State Management
+
+Combine related state instead of multiple `useState` calls:
+
+```tsx
+// Good: grouped state
+const [form, setForm] = useState({ name: '', email: '', loading: false });
+
+// Avoid: scattered state for related values
+const [name, setName] = useState('');
+const [email, setEmail] = useState('');
+const [loading, setLoading] = useState(false);
+```
+
+## Memoization
+
+Apply memoization deliberately — only when you have a measured performance problem:
+
+```tsx
+// Memoize expensive derived values
+const sortedItems = useMemo(
+  () => items.slice().sort((a, b) => a.name.localeCompare(b.name)),
+  [items]
+);
+
+// Stabilize callbacks passed to memoized children
+const handleSubmit = useCallback((data: FormData) => {
+  onSubmit(data);
+}, [onSubmit]);
+
+// Prevent unnecessary re-renders of pure child components
+const ItemList = React.memo(function ItemList({ items }: { items: Item[] }) {
+  return <ul>{items.map(i => <li key={i.id}>{i.name}</li>)}</ul>;
+});
+```
+
+## Custom Hooks
+
+Extract reusable stateful logic into custom hooks:
+
+```tsx
+function useLocalStorage<T>(key: string, initial: T) {
+  const [value, setValue] = useState<T>(() => {
+    try {
+      const stored = localStorage.getItem(key);
+      return stored ? JSON.parse(stored) : initial;
+    } catch {
+      return initial;
+    }
+  });
+
+  const set = useCallback((next: T) => {
+    setValue(next);
+    localStorage.setItem(key, JSON.stringify(next));
+  }, [key]);
+
+  return [value, set] as const;
+}
+```
+
+## TypeScript Props
+
+Type all props explicitly. Avoid `any`:
+
+```tsx
+// Good: explicit interface
+interface ButtonProps {
+  label: string;
+  variant?: 'primary' | 'secondary' | 'ghost';
+  disabled?: boolean;
+  onClick: () => void;
+}
+
+// Bad: untyped
+function Button({ label, onClick, ...rest }: any) { ... }
+```
+
+## Lists and Keys
+
+Always use stable, unique keys — not array index when the list can reorder:
+
+```tsx
+// Good: stable identity
+{items.map(item => <Row key={item.id} item={item} />)}
+
+// Bad: index shifts on reorder/insert
+{items.map((item, i) => <Row key={i} item={item} />)}
+```
+
+## Error Boundaries
+
+Wrap async data sections in error boundaries to prevent full-page crashes:
+
+```tsx
+<ErrorBoundary fallback={<p>Failed to load users.</p>}>
+  <UserList />
+</ErrorBoundary>
+```
+
+## What to Avoid
+
+- Avoid direct DOM manipulation — use refs only when React can't do it
+- Avoid storing derived values in state — compute them from existing state
+- Avoid `useEffect` for data that can be derived synchronously
+- Never call hooks conditionally or inside loops

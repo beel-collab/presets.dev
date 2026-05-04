@@ -1,0 +1,15 @@
+---
+title: Minimal Laravel PHP Cursor Rules
+tags:
+  - Laravel
+  - PHP
+libs:
+  - laravel
+author:
+  name: Community
+  url: 'https://github.com/beel-collab/presets.dev'
+---
+
+Write code that follows Laravel & PHP guidelines from spatie.be.
+  Do not remove the PHPDoc blocks or comments from the code.
+  Use snake_case for naming regular variables. Otherwise, follow the guidelines.
