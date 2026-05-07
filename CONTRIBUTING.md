@@ -19,18 +19,20 @@ presets.dev/
 
 ## Skills (all tools)
 
-Skills are the same format for every tool — a named directory containing a `SKILL.md` file:
+A skill is a named directory containing a `SKILL.md` file. Path layout:
 
 ```
-<tool>/<technology>/<skill-name>/SKILL.md
-<tool>/<technology>/<skill-name>/references/   ← optional supporting files
+<tool>/<technology>/<skill-name>/SKILL.md           ← every tool except Claude
+claude/skills/<technology>/<skill-name>/SKILL.md     ← Claude only
+
+<tool>/.../<skill-name>/references/   ← optional supporting files (any tool)
 ```
 
 Example:
 ```
 copilot/github/create-issue/SKILL.md
 cursor/typescript/refactor-to-composable/SKILL.md
-claude/python/django-api-developer/SKILL.md
+claude/skills/python/django-api-developer/SKILL.md
 ```
 
 `SKILL.md` frontmatter:

@@ -14,7 +14,7 @@ A community collection of rules, instructions, agents, and skills for AI coding 
 | `codex/` | OpenAI Codex | `AGENTS.md`, skills (`SKILL.md`) |
 | `antigravity/` | Antigravity | `AGENTS.md`, skills (`SKILL.md`) |
 
-Skills use the same format for all tools: a named directory containing `SKILL.md`.
+Skills are a named directory containing `SKILL.md`. They live directly under the tool folder (`{tool}/{tech}/{slug}/SKILL.md`) for every tool except Claude, which groups them under a `skills/` subdirectory: `claude/skills/{tech}/{slug}/SKILL.md`.
 
 ## Contributing
 
