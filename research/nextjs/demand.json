@@ -1,0 +1,20 @@
+{
+  "checked": "2026-11-11",
+  "stack": "nextjs",
+  "note": "Phrases below are autocomplete suggestions recorded by the release research, or an explicit statement that the sample was empty. They are not search volumes.",
+  "observed": [
+    "cursor rules nextjs",
+    "cursor rules nextjs typescript",
+    "copilot instructions nextjs",
+    "codex skill nextjs",
+    "codex next js skills"
+  ],
+  "empty_samples": {
+    "cline": "No relevant suggestion for the sampled 'cline rules nextjs' style prefix.",
+    "gemini-cli": "No relevant suggestion for the sampled 'gemini cli skills nextjs' style prefix."
+  },
+  "hypothesis_only": [
+    "cline rules nextjs",
+    "gemini cli skills nextjs"
+  ]
+}

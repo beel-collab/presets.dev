@@ -40,3 +40,10 @@ jobs:
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: python scripts/check_dco.py
+
+      - name: Check original-release counts and native exports
+        run: |
+          python scripts/assemble_release.py --check
+          python scripts/check_release_counts.py
+          python scripts/check_similarity.py
+          node --test fixtures/nextjs/tenant-cache/policy.test.mjs

@@ -23,7 +23,7 @@ body:
     attributes:
       label: Tools
       description: Which products this preset is for.
-      placeholder: cursor
+      placeholder: cursor, gemini-cli
     validations:
       required: true
   - type: textarea

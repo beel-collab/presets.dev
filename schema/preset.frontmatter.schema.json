@@ -53,13 +53,26 @@
     "tools": {
       "type": "array",
       "minItems": 1,
-      "maxItems": 7,
+      "maxItems": 8,
       "uniqueItems": true,
       "items": {
         "type": "string",
-        "enum": ["copilot", "cursor", "claude", "windsurf", "cline", "codex", "antigravity"]
+        "enum": ["copilot", "cursor", "claude", "windsurf", "cline", "codex", "gemini-cli", "antigravity"]
       },
-      "description": "Tools this preset is written for. Include the directory the file lives in."
+      "description": "Tools this preset is written for. Include the directory the file lives in. gemini-cli is Gemini CLI, not Antigravity."
+    },
+    "stack": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 40,
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Catalog stack id, such as nextjs. Optional. A freshness sentence does not belong in version."
+    },
+    "updated_for": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 120,
+      "description": "Versions this preset was written against, such as Next.js 16.4.6. Optional. Not a semver substitute."
     },
     "tags": {
       "type": "array",
@@ -163,11 +176,11 @@
     },
     "also_for": {
       "type": "array",
-      "maxItems": 7,
+      "maxItems": 8,
       "uniqueItems": true,
       "items": {
         "type": "string",
-        "enum": ["copilot", "cursor", "claude", "windsurf", "cline", "codex", "antigravity"]
+        "enum": ["copilot", "cursor", "claude", "windsurf", "cline", "codex", "gemini-cli", "antigravity"]
       }
     }
   }
