@@ -1,0 +1,14 @@
+{
+  "order": 14,
+  "id": "go",
+  "product": "Go",
+  "focus": "Errors, Context and Goroutines",
+  "updated_for": "Go 1.27.4, Nov 2026",
+  "libs": ["go@1.27.4"],
+  "tags": ["go", "golang", "context"],
+  "paths": ["**/*.go", "go.mod"],
+  "skill_name": "go-code-review",
+  "skill_label": "Code Review",
+  "skill_tag": "code-review",
+  "native_skill_description": "Review a Go change for ignored errors, goroutine leaks, and context that is not canceled. Use for a Go code review. Do not use for a non-Go repository or to enable an experimental flag by default."
+}

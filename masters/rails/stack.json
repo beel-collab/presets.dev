@@ -1,0 +1,14 @@
+{
+  "order": 28,
+  "id": "rails",
+  "product": "Rails",
+  "focus": "Models, Strong Params and Jobs",
+  "updated_for": "Rails 8.1.4.1, Nov 2026",
+  "libs": ["rails@8.1.4.1"],
+  "tags": ["rails", "ruby", "jobs"],
+  "paths": ["**/*.rb"],
+  "skill_name": "rails-code-review",
+  "skill_label": "Code Review",
+  "skill_tag": "code-review",
+  "native_skill_description": "Review a Rails change for authorization, strong parameters, query counts, and job retries. Use for a Rails code review. Do not use for a non-Rails Ruby script or to migrate production."
+}

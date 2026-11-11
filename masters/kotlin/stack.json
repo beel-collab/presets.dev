@@ -1,0 +1,14 @@
+{
+  "order": 27,
+  "id": "kotlin",
+  "product": "Kotlin",
+  "focus": "Coroutines, Null Safety and Compose",
+  "updated_for": "Kotlin 2.4 stable line, Nov 2026",
+  "libs": ["kotlin@2.4"],
+  "tags": ["kotlin", "coroutines", "android"],
+  "paths": ["**/*.kt", "**/*.kts"],
+  "skill_name": "kotlin-code-review",
+  "skill_label": "Code Review",
+  "skill_tag": "code-review",
+  "native_skill_description": "Review a Kotlin change for coroutine cancellation, lifecycle-aware flows, and null assertions. Use for a Kotlin code review. Do not use for a non-Kotlin repository or to swallow CancellationException."
+}

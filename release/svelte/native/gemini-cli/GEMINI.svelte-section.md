@@ -1,0 +1,41 @@
+<!-- Append this section to GEMINI.md. Do not replace the existing file. Confirm with /memory show. -->
+
+# Svelte Gemini CLI Rules: Runes, Load Functions and SSR
+
+Section to append to `GEMINI.md` for Svelte. Confirm with `/memory show`. The review skill waits for consent before it runs.
+
+## Updated for Svelte 5.57.3 and SvelteKit 3.2.0, Nov 2026
+
+Svelte 5.57.3 and `@sveltejs/kit` 3.2.0 are the npm `latest` versions checked on 11 November 2026. Svelte 5 uses runes. SvelteKit 3 changes config and aliases compared with Kit 2. Read both majors before you edit. Do not apply a Kit 2 alias snippet to a Kit 3 app, and do not convert a Svelte 4 component to runes unless the task asks.
+
+## Project shape
+
+Routes live in the project's router directory. `+page`, `+layout`, `+page.server`, and `+server` mean different things. A load in `+page.server` runs on the server. A universal load runs on both. Do not import a database client into a universal load or a `.svelte` module that also runs in the browser.
+
+Shared UI lives in `lib` the way the repo already does. A rune component uses `$props`, `$state`, and `$derived`. Do not add a Svelte 4 `export let` next to `$props` in new code.
+
+## State
+
+`$state` is what the component owns. `$derived` computes. `$effect` is a side effect with a cleanup, not a second derived store. Do not write `$state` from an effect that reads that same state.
+
+A store at module scope in a server file is shared across requests. Do not put a user's data in a module-level variable. Request data stays in the load return value or in `event.locals`.
+
+## Load, actions, and SSR
+
+Return the data the page renders. Throw the project's `error()` or `redirect()` instead of a bare object. A form action validates with the project's schema and returns `fail()` with field errors. Do not trust a hidden user id.
+
+The HTML from the server and the first client render match. A `Date.now()` or a random id during component init will hydrate wrong. Browser-only work goes in `onMount` or a dynamic import with `browser` from the env module.
+
+## Security, performance, and tests
+
+`{@html}` is sanitized or absent. Cookies and auth secrets stay in server files. A load does not over-fetch a table to render one field.
+
+Use the project's Vitest and Playwright setup. A component test renders the rune component and updates state. An integration test posts the form action. Run the test command. Record the output.
+
+## Mistakes to avoid
+
+- Svelte 4 syntax in a new runes file.
+- A Kit 2 alias or config key pasted into Kit 3.
+- Module-scope state that leaks across requests.
+- `{@html}` on user content.
+- A database import in a file that runs in the browser.

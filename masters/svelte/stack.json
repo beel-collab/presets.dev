@@ -1,0 +1,14 @@
+{
+  "order": 20,
+  "id": "svelte",
+  "product": "Svelte",
+  "focus": "Runes, Load Functions and SSR",
+  "updated_for": "Svelte 5.57.3 and SvelteKit 3.2.0, Nov 2026",
+  "libs": ["svelte@5.57.3", "@sveltejs/kit@3.2.0"],
+  "tags": ["svelte", "sveltekit", "runes"],
+  "paths": ["**/*.svelte", "**/*.ts", "svelte.config.js"],
+  "skill_name": "svelte-code-review",
+  "skill_label": "Code Review",
+  "skill_tag": "code-review",
+  "native_skill_description": "Review a Svelte or SvelteKit change for runes, load and action boundaries, and Kit 2 versus Kit 3 config. Use for a Svelte code review. Do not use for a Svelte 4 pattern pasted into a runes component, or a non-Svelte repository."
+}

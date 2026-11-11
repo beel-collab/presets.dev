@@ -1,0 +1,14 @@
+{
+  "order": 15,
+  "id": "spring",
+  "product": "Spring Boot",
+  "focus": "Injection, Transactions and Validation",
+  "updated_for": "Spring Boot 4.1 stable line, Nov 2026",
+  "libs": ["spring-boot@4.1"],
+  "tags": ["spring", "java", "transactions"],
+  "paths": ["**/*.java"],
+  "skill_name": "spring-security-review",
+  "skill_label": "Security Review",
+  "skill_tag": "security",
+  "native_skill_description": "Review a Spring Boot change for authorization, transaction boundaries, and query shape. Use for a Spring Boot security review. Do not use for a non-Spring Java program or to adopt a Boot 4.2 release candidate."
+}

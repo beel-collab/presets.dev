@@ -1,0 +1,14 @@
+{
+  "order": 30,
+  "id": "mcp",
+  "product": "MCP",
+  "focus": "Tools, Schemas and Permissions",
+  "updated_for": "MCP spec 2026-07-28, SDK 1.32.2, Nov 2026",
+  "libs": ["@modelcontextprotocol/sdk@1.32.2"],
+  "tags": ["mcp", "tools", "security"],
+  "paths": ["**/*mcp*", "**/*.ts"],
+  "skill_name": "mcp-security-review",
+  "skill_label": "Security Review",
+  "skill_tag": "security",
+  "native_skill_description": "Review an MCP server for spec compatibility, schema checks, and tool permissions. Use for an MCP security review. Do not use for a generic HTTP API, or to pass a user's token through to an untrusted tool."
+}

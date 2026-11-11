@@ -1,0 +1,14 @@
+{
+  "order": 16,
+  "id": "dotnet",
+  "product": ".NET",
+  "focus": "Nullable Contracts, Async and Endpoints",
+  "updated_for": ".NET 10 LTS and .NET 11, Nov 2026",
+  "libs": ["dotnet@10"],
+  "tags": ["dotnet", "csharp", "async"],
+  "paths": ["**/*.cs", "**/*.csproj"],
+  "skill_name": "dotnet-code-review",
+  "skill_label": "Code Review",
+  "skill_tag": "code-review",
+  "native_skill_description": "Review a .NET change for async cancellation, endpoint authorization, and C# syntax the target framework does not have. Use for a .NET code review. Do not use for a non-.NET repository or to retarget the TFM unasked."
+}

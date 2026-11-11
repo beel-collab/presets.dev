@@ -1,0 +1,77 @@
+---
+id: "claude-swiftui-rules"
+slug: "claude/swiftui/swiftui-rules"
+title: "SwiftUI Claude Code Rules: State, Concurrency and Availability"
+description: "Claude Code rules for SwiftUI: State, Concurrency and Availability. Structure, data, errors, security, performance, and tests. Swift 6.4, Nov 2026."
+type: "rule"
+tools:
+  - "claude"
+stack: "swiftui"
+tags:
+  - "swiftui"
+  - "swift"
+  - "ios"
+author:
+  name: "presets.dev"
+  github: "beel-collab"
+license: "MIT"
+origin: "original"
+version: "1.0.0"
+tested_with:
+  - "Claude Code docs 2026-11-11; CLI not run"
+created: "2026-11-11"
+updated: "2026-11-11"
+libs:
+  - "swift@6.4"
+updated_for: "Swift 6.4, Nov 2026"
+---
+
+# SwiftUI Claude Code Rules: State, Concurrency and Availability
+
+## Install
+
+Install the native export at `.claude/rules/swiftui-rules.md`.
+Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
+Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
+
+<!-- native:start -->
+
+# SwiftUI Claude Code Rules: State, Concurrency and Availability
+
+Path-scoped Claude Code rule for SwiftUI. It loads when a matching file is read. It does not replace `CLAUDE.md`. Use `swiftui-code-review` for a review.
+
+## Updated for Swift 6.4, Nov 2026
+
+Write for the Swift tools version and the deployment target in the project. Swift 6.4 adds async `defer` and cancellation shields, and Swift Build is the default build system on that line. Use those only when the toolchain is 6.4. Do not lower a deployment target, and do not mark a type `@unchecked Sendable` to quiet the compiler.
+
+## Project shape
+
+A view is a function of state. `@State` owns view-local value. `@Binding` edits a parent's value. A reference model uses the Observation macro the project already adopted, `@Observable`, rather than a new `ObservableObject` in fresh code. Follow the existing choice if the app has not moved.
+
+Views stay small. A feature folder holds the view, the model, and the tests when that is the local layout.
+
+## Concurrency
+
+UI updates hop to the main actor. A view model that publishes to a view is `@MainActor`. `Task { }` in a view is canceled when the view disappears. Do not capture `self` strongly in a task that outlives the view.
+
+`await` a throwing call and surface the error. `try?` that becomes `nil` with no message hides a failure. Structured tasks have a parent. A detached task needs a reason. A cancellation shield is for the short cleanup that must finish, not for a whole network call you do not want to cancel.
+
+## Availability and data
+
+An API newer than the deployment target is wrapped in `if #available` or marked with the availability attribute. Do not call it unconditionally because the simulator is new.
+
+Decode JSON with `Codable` and an explicit strategy for dates and keys. A failed decode is an error state, not an empty screen that looks successful. Do not force-unwrap a network payload.
+
+## Errors, accessibility, and tests
+
+Show the error in the view. A button has a label. Images that mean something have accessibility text. Dynamic type is not clipped by a fixed frame unless the design says so.
+
+Prefer Swift Testing when the project has adopted it. Otherwise use XCTest the way the neighbors do. A test builds the model, drives the action, and asserts the state. Run the test action. Record the output. Say when you did not run a simulator.
+
+## Mistakes to avoid
+
+- `@unchecked Sendable` to silence isolation.
+- `try?` that drops the error.
+- A UI property written off the main actor.
+- An API used below the deployment target.
+- A force unwrap on decoded data.

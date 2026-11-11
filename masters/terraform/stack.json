@@ -1,0 +1,14 @@
+{
+  "order": 26,
+  "id": "terraform",
+  "product": "Terraform",
+  "focus": "Providers, State and Plan Review",
+  "updated_for": "Terraform 1.17, Nov 2026",
+  "libs": ["terraform@1.17"],
+  "tags": ["terraform", "infrastructure", "security"],
+  "paths": ["**/*.tf", "**/*.tfvars"],
+  "skill_name": "terraform-security-review",
+  "skill_label": "Security Review",
+  "skill_tag": "security",
+  "native_skill_description": "Review a Terraform plan for provider fields, IAM scope, state secrets, and destructive actions. Use for a Terraform security review. Do not use to apply or destroy, or for a non-Terraform repository."
+}
