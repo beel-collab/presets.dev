@@ -1,0 +1,55 @@
+---
+description: "Python standards for Environments, Types and pytest. Use when editing this stack. uv 0.13.7 and Ruff 0.17.4, Nov 2026."
+globs: "**/*.py, pyproject.toml"
+alwaysApply: false
+---
+
+# Python Rules for Cursor: Environments, Types and pytest
+
+File-scoped Cursor rule for Python. It attaches when a matching file is in context. Use `python-test-writer` for a review.
+
+## Updated for uv 0.13.7 and Ruff 0.17.4, Nov 2026
+
+uv 0.13.7 and Ruff 0.17.4 are the PyPI versions checked on 11 November 2026. Use the interpreter the repository already pins. Do not move a project onto a newer Python, including a 3.15 install, unless the task asks and the dependencies declare support. A lockfile is the environment. Do not mix `pip`, Poetry, and uv in one change.
+
+## Project shape
+
+Read `pyproject.toml` and the lockfile first. The package layout is either a `src/` tree or a flat package. Follow the one that exists. Tests live where the project already puts them, usually `tests/`.
+
+Entry points, scripts, and the test command come from the project config. Run them with `uv run` when uv owns the project. Do not invent a virtualenv beside an existing `.venv`.
+
+## Types and boundaries
+
+Type public functions and the data that crosses a process or a network. Prefer a typed model the project already uses, such as a dataclass or a Pydantic model, over a bare `dict`. `Any` is a hole. Use it only at a boundary you cannot name yet, and keep it off the return type.
+
+Check optional values before you attribute them. A `# type: ignore` needs the error code and a reason. Do not blanket-ignore a file.
+
+## Errors and I/O
+
+Raise a specific exception the caller can catch. Do not `except Exception` and then `pass`. Add context with `raise ... from exc` when you translate an error.
+
+Async functions do not call `time.sleep`, `requests`, or other blocking I/O. Use the async client the project already has. A sync library stays in a thread only when the project already does that and the call is bounded.
+
+Close files and HTTP responses. A `with` block is the default.
+
+## Security
+
+Do not build SQL, shell commands, or HTML by concatenating user input. Use parameters and the project's escape path. Do not log secrets, tokens, or full request bodies. Read credentials from the environment the project already documents, not from a new committed file.
+
+## Performance
+
+Stream large files instead of `read()` into a string. Paginate a query that can grow. Do not hide an N+1 query inside a property that runs on every item. Cache a pure function only when a profile says it matters, and do not cache a value that includes a user id under a global key.
+
+## Tests
+
+pytest is the default when the repo already uses it. A test names the behavior: `test_rejects_empty_name`. Arrange the inputs, act once, assert the outcome. Use the existing fixtures. Do not mock the function you are testing.
+
+Cover the failure path you touched: a bad input, a missing record, a dependency that raises. Run `uv run pytest` for the node you changed, and `uv run ruff check` when Ruff is configured. Paste the output. Do not claim a run you did not do.
+
+## Mistakes to avoid
+
+- A new package API you did not read in the installed version.
+- A second environment created because the first command failed.
+- Blocking I/O inside `async def`.
+- A test that asserts a mock was called and never checks the result.
+- An interpreter upgrade bundled into an unrelated fix.

@@ -144,6 +144,944 @@
           ]
         }
       ]
+    },
+    {
+      "id": "react",
+      "status": "complete",
+      "entries": [
+        {
+          "catalog": "cursor/react/react-rules.mdc",
+          "tool": "cursor",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/react/native/cursor/.cursor/rules/react-rules.mdc"
+          ]
+        },
+        {
+          "catalog": "cursor/react/react-performance-audit/SKILL.md",
+          "tool": "cursor",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/react/native/cursor/.cursor/skills/react-performance-audit/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "copilot/react/react-rules.instructions.md",
+          "tool": "copilot",
+          "role": "standards",
+          "type": "instruction",
+          "exports": [
+            "release/react/native/copilot/.github/instructions/react.instructions.md"
+          ]
+        },
+        {
+          "catalog": "copilot/react/react-performance-audit/SKILL.md",
+          "tool": "copilot",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/react/native/copilot/.github/skills/react-performance-audit/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "claude/react/react-rules.md",
+          "tool": "claude",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/react/native/claude/.claude/rules/react-rules.md"
+          ]
+        },
+        {
+          "catalog": "claude/skills/react/react-performance-audit/SKILL.md",
+          "tool": "claude",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/react/native/claude/.claude/skills/react-performance-audit/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "windsurf/react/react-rules.md",
+          "tool": "windsurf",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/react/native/windsurf/.devin/rules/react-rules.md",
+            "release/react/native/windsurf/.windsurf/rules/react-rules.md"
+          ]
+        },
+        {
+          "catalog": "windsurf/react/react-performance-audit/SKILL.md",
+          "tool": "windsurf",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/react/native/windsurf/.devin/skills/react-performance-audit/SKILL.md",
+            "release/react/native/windsurf/.windsurf/skills/react-performance-audit/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "cline/react/react-rules.md",
+          "tool": "cline",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/react/native/cline/.clinerules/react-rules.md"
+          ]
+        },
+        {
+          "catalog": "cline/react/react-performance-audit/SKILL.md",
+          "tool": "cline",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/react/native/cline/.cline/skills/react-performance-audit/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "codex/react/react-rules.md",
+          "tool": "codex",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/react/native/codex/AGENTS.react-section.md"
+          ]
+        },
+        {
+          "catalog": "codex/react/react-performance-audit/SKILL.md",
+          "tool": "codex",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/react/native/codex/.agents/skills/react-performance-audit/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "gemini-cli/react/react-rules.md",
+          "tool": "gemini-cli",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/react/native/gemini-cli/GEMINI.react-section.md"
+          ]
+        },
+        {
+          "catalog": "gemini-cli/react/react-performance-audit/SKILL.md",
+          "tool": "gemini-cli",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/react/native/gemini-cli/.gemini/skills/react-performance-audit/SKILL.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "python",
+      "status": "complete",
+      "entries": [
+        {
+          "catalog": "cursor/python/python-rules.mdc",
+          "tool": "cursor",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/python/native/cursor/.cursor/rules/python-rules.mdc"
+          ]
+        },
+        {
+          "catalog": "cursor/python/python-test-writer/SKILL.md",
+          "tool": "cursor",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/python/native/cursor/.cursor/skills/python-test-writer/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "copilot/python/python-rules.instructions.md",
+          "tool": "copilot",
+          "role": "standards",
+          "type": "instruction",
+          "exports": [
+            "release/python/native/copilot/.github/instructions/python.instructions.md"
+          ]
+        },
+        {
+          "catalog": "copilot/python/python-test-writer/SKILL.md",
+          "tool": "copilot",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/python/native/copilot/.github/skills/python-test-writer/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "claude/python/python-rules.md",
+          "tool": "claude",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/python/native/claude/.claude/rules/python-rules.md"
+          ]
+        },
+        {
+          "catalog": "claude/skills/python/python-test-writer/SKILL.md",
+          "tool": "claude",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/python/native/claude/.claude/skills/python-test-writer/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "windsurf/python/python-rules.md",
+          "tool": "windsurf",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/python/native/windsurf/.devin/rules/python-rules.md",
+            "release/python/native/windsurf/.windsurf/rules/python-rules.md"
+          ]
+        },
+        {
+          "catalog": "windsurf/python/python-test-writer/SKILL.md",
+          "tool": "windsurf",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/python/native/windsurf/.devin/skills/python-test-writer/SKILL.md",
+            "release/python/native/windsurf/.windsurf/skills/python-test-writer/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "cline/python/python-rules.md",
+          "tool": "cline",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/python/native/cline/.clinerules/python-rules.md"
+          ]
+        },
+        {
+          "catalog": "cline/python/python-test-writer/SKILL.md",
+          "tool": "cline",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/python/native/cline/.cline/skills/python-test-writer/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "codex/python/python-rules.md",
+          "tool": "codex",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/python/native/codex/AGENTS.python-section.md"
+          ]
+        },
+        {
+          "catalog": "codex/python/python-test-writer/SKILL.md",
+          "tool": "codex",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/python/native/codex/.agents/skills/python-test-writer/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "gemini-cli/python/python-rules.md",
+          "tool": "gemini-cli",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/python/native/gemini-cli/GEMINI.python-section.md"
+          ]
+        },
+        {
+          "catalog": "gemini-cli/python/python-test-writer/SKILL.md",
+          "tool": "gemini-cli",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/python/native/gemini-cli/.gemini/skills/python-test-writer/SKILL.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "typescript",
+      "status": "complete",
+      "entries": [
+        {
+          "catalog": "cursor/typescript/typescript-rules.mdc",
+          "tool": "cursor",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/typescript/native/cursor/.cursor/rules/typescript-rules.mdc"
+          ]
+        },
+        {
+          "catalog": "cursor/typescript/typescript-code-review/SKILL.md",
+          "tool": "cursor",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/typescript/native/cursor/.cursor/skills/typescript-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "copilot/typescript/typescript-rules.instructions.md",
+          "tool": "copilot",
+          "role": "standards",
+          "type": "instruction",
+          "exports": [
+            "release/typescript/native/copilot/.github/instructions/typescript.instructions.md"
+          ]
+        },
+        {
+          "catalog": "copilot/typescript/typescript-code-review/SKILL.md",
+          "tool": "copilot",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/typescript/native/copilot/.github/skills/typescript-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "claude/typescript/typescript-rules.md",
+          "tool": "claude",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/typescript/native/claude/.claude/rules/typescript-rules.md"
+          ]
+        },
+        {
+          "catalog": "claude/skills/typescript/typescript-code-review/SKILL.md",
+          "tool": "claude",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/typescript/native/claude/.claude/skills/typescript-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "windsurf/typescript/typescript-rules.md",
+          "tool": "windsurf",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/typescript/native/windsurf/.devin/rules/typescript-rules.md",
+            "release/typescript/native/windsurf/.windsurf/rules/typescript-rules.md"
+          ]
+        },
+        {
+          "catalog": "windsurf/typescript/typescript-code-review/SKILL.md",
+          "tool": "windsurf",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/typescript/native/windsurf/.devin/skills/typescript-code-review/SKILL.md",
+            "release/typescript/native/windsurf/.windsurf/skills/typescript-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "cline/typescript/typescript-rules.md",
+          "tool": "cline",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/typescript/native/cline/.clinerules/typescript-rules.md"
+          ]
+        },
+        {
+          "catalog": "cline/typescript/typescript-code-review/SKILL.md",
+          "tool": "cline",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/typescript/native/cline/.cline/skills/typescript-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "codex/typescript/typescript-rules.md",
+          "tool": "codex",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/typescript/native/codex/AGENTS.typescript-section.md"
+          ]
+        },
+        {
+          "catalog": "codex/typescript/typescript-code-review/SKILL.md",
+          "tool": "codex",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/typescript/native/codex/.agents/skills/typescript-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "gemini-cli/typescript/typescript-rules.md",
+          "tool": "gemini-cli",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/typescript/native/gemini-cli/GEMINI.typescript-section.md"
+          ]
+        },
+        {
+          "catalog": "gemini-cli/typescript/typescript-code-review/SKILL.md",
+          "tool": "gemini-cli",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/typescript/native/gemini-cli/.gemini/skills/typescript-code-review/SKILL.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "supabase",
+      "status": "complete",
+      "entries": [
+        {
+          "catalog": "cursor/supabase/supabase-rules.mdc",
+          "tool": "cursor",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/supabase/native/cursor/.cursor/rules/supabase-rules.mdc"
+          ]
+        },
+        {
+          "catalog": "cursor/supabase/supabase-security-review/SKILL.md",
+          "tool": "cursor",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/supabase/native/cursor/.cursor/skills/supabase-security-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "copilot/supabase/supabase-rules.instructions.md",
+          "tool": "copilot",
+          "role": "standards",
+          "type": "instruction",
+          "exports": [
+            "release/supabase/native/copilot/.github/instructions/supabase.instructions.md"
+          ]
+        },
+        {
+          "catalog": "copilot/supabase/supabase-security-review/SKILL.md",
+          "tool": "copilot",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/supabase/native/copilot/.github/skills/supabase-security-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "claude/supabase/supabase-rules.md",
+          "tool": "claude",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/supabase/native/claude/.claude/rules/supabase-rules.md"
+          ]
+        },
+        {
+          "catalog": "claude/skills/supabase/supabase-security-review/SKILL.md",
+          "tool": "claude",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/supabase/native/claude/.claude/skills/supabase-security-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "windsurf/supabase/supabase-rules.md",
+          "tool": "windsurf",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/supabase/native/windsurf/.devin/rules/supabase-rules.md",
+            "release/supabase/native/windsurf/.windsurf/rules/supabase-rules.md"
+          ]
+        },
+        {
+          "catalog": "windsurf/supabase/supabase-security-review/SKILL.md",
+          "tool": "windsurf",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/supabase/native/windsurf/.devin/skills/supabase-security-review/SKILL.md",
+            "release/supabase/native/windsurf/.windsurf/skills/supabase-security-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "cline/supabase/supabase-rules.md",
+          "tool": "cline",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/supabase/native/cline/.clinerules/supabase-rules.md"
+          ]
+        },
+        {
+          "catalog": "cline/supabase/supabase-security-review/SKILL.md",
+          "tool": "cline",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/supabase/native/cline/.cline/skills/supabase-security-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "codex/supabase/supabase-rules.md",
+          "tool": "codex",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/supabase/native/codex/AGENTS.supabase-section.md"
+          ]
+        },
+        {
+          "catalog": "codex/supabase/supabase-security-review/SKILL.md",
+          "tool": "codex",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/supabase/native/codex/.agents/skills/supabase-security-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "gemini-cli/supabase/supabase-rules.md",
+          "tool": "gemini-cli",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/supabase/native/gemini-cli/GEMINI.supabase-section.md"
+          ]
+        },
+        {
+          "catalog": "gemini-cli/supabase/supabase-security-review/SKILL.md",
+          "tool": "gemini-cli",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/supabase/native/gemini-cli/.gemini/skills/supabase-security-review/SKILL.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tailwind",
+      "status": "complete",
+      "entries": [
+        {
+          "catalog": "cursor/tailwind/tailwind-rules.mdc",
+          "tool": "cursor",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/tailwind/native/cursor/.cursor/rules/tailwind-rules.mdc"
+          ]
+        },
+        {
+          "catalog": "cursor/tailwind/tailwind-code-review/SKILL.md",
+          "tool": "cursor",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/tailwind/native/cursor/.cursor/skills/tailwind-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "copilot/tailwind/tailwind-rules.instructions.md",
+          "tool": "copilot",
+          "role": "standards",
+          "type": "instruction",
+          "exports": [
+            "release/tailwind/native/copilot/.github/instructions/tailwind.instructions.md"
+          ]
+        },
+        {
+          "catalog": "copilot/tailwind/tailwind-code-review/SKILL.md",
+          "tool": "copilot",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/tailwind/native/copilot/.github/skills/tailwind-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "claude/tailwind/tailwind-rules.md",
+          "tool": "claude",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/tailwind/native/claude/.claude/rules/tailwind-rules.md"
+          ]
+        },
+        {
+          "catalog": "claude/skills/tailwind/tailwind-code-review/SKILL.md",
+          "tool": "claude",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/tailwind/native/claude/.claude/skills/tailwind-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "windsurf/tailwind/tailwind-rules.md",
+          "tool": "windsurf",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/tailwind/native/windsurf/.devin/rules/tailwind-rules.md",
+            "release/tailwind/native/windsurf/.windsurf/rules/tailwind-rules.md"
+          ]
+        },
+        {
+          "catalog": "windsurf/tailwind/tailwind-code-review/SKILL.md",
+          "tool": "windsurf",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/tailwind/native/windsurf/.devin/skills/tailwind-code-review/SKILL.md",
+            "release/tailwind/native/windsurf/.windsurf/skills/tailwind-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "cline/tailwind/tailwind-rules.md",
+          "tool": "cline",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/tailwind/native/cline/.clinerules/tailwind-rules.md"
+          ]
+        },
+        {
+          "catalog": "cline/tailwind/tailwind-code-review/SKILL.md",
+          "tool": "cline",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/tailwind/native/cline/.cline/skills/tailwind-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "codex/tailwind/tailwind-rules.md",
+          "tool": "codex",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/tailwind/native/codex/AGENTS.tailwind-section.md"
+          ]
+        },
+        {
+          "catalog": "codex/tailwind/tailwind-code-review/SKILL.md",
+          "tool": "codex",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/tailwind/native/codex/.agents/skills/tailwind-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "gemini-cli/tailwind/tailwind-rules.md",
+          "tool": "gemini-cli",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/tailwind/native/gemini-cli/GEMINI.tailwind-section.md"
+          ]
+        },
+        {
+          "catalog": "gemini-cli/tailwind/tailwind-code-review/SKILL.md",
+          "tool": "gemini-cli",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/tailwind/native/gemini-cli/.gemini/skills/tailwind-code-review/SKILL.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "playwright",
+      "status": "complete",
+      "entries": [
+        {
+          "catalog": "cursor/playwright/playwright-rules.mdc",
+          "tool": "cursor",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/playwright/native/cursor/.cursor/rules/playwright-rules.mdc"
+          ]
+        },
+        {
+          "catalog": "cursor/playwright/playwright-test-writer/SKILL.md",
+          "tool": "cursor",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/playwright/native/cursor/.cursor/skills/playwright-test-writer/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "copilot/playwright/playwright-rules.instructions.md",
+          "tool": "copilot",
+          "role": "standards",
+          "type": "instruction",
+          "exports": [
+            "release/playwright/native/copilot/.github/instructions/playwright.instructions.md"
+          ]
+        },
+        {
+          "catalog": "copilot/playwright/playwright-test-writer/SKILL.md",
+          "tool": "copilot",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/playwright/native/copilot/.github/skills/playwright-test-writer/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "claude/playwright/playwright-rules.md",
+          "tool": "claude",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/playwright/native/claude/.claude/rules/playwright-rules.md"
+          ]
+        },
+        {
+          "catalog": "claude/skills/playwright/playwright-test-writer/SKILL.md",
+          "tool": "claude",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/playwright/native/claude/.claude/skills/playwright-test-writer/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "windsurf/playwright/playwright-rules.md",
+          "tool": "windsurf",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/playwright/native/windsurf/.devin/rules/playwright-rules.md",
+            "release/playwright/native/windsurf/.windsurf/rules/playwright-rules.md"
+          ]
+        },
+        {
+          "catalog": "windsurf/playwright/playwright-test-writer/SKILL.md",
+          "tool": "windsurf",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/playwright/native/windsurf/.devin/skills/playwright-test-writer/SKILL.md",
+            "release/playwright/native/windsurf/.windsurf/skills/playwright-test-writer/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "cline/playwright/playwright-rules.md",
+          "tool": "cline",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/playwright/native/cline/.clinerules/playwright-rules.md"
+          ]
+        },
+        {
+          "catalog": "cline/playwright/playwright-test-writer/SKILL.md",
+          "tool": "cline",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/playwright/native/cline/.cline/skills/playwright-test-writer/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "codex/playwright/playwright-rules.md",
+          "tool": "codex",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/playwright/native/codex/AGENTS.playwright-section.md"
+          ]
+        },
+        {
+          "catalog": "codex/playwright/playwright-test-writer/SKILL.md",
+          "tool": "codex",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/playwright/native/codex/.agents/skills/playwright-test-writer/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "gemini-cli/playwright/playwright-rules.md",
+          "tool": "gemini-cli",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/playwright/native/gemini-cli/GEMINI.playwright-section.md"
+          ]
+        },
+        {
+          "catalog": "gemini-cli/playwright/playwright-test-writer/SKILL.md",
+          "tool": "gemini-cli",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/playwright/native/gemini-cli/.gemini/skills/playwright-test-writer/SKILL.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs",
+      "status": "complete",
+      "entries": [
+        {
+          "catalog": "cursor/nodejs/nodejs-rules.mdc",
+          "tool": "cursor",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/nodejs/native/cursor/.cursor/rules/nodejs-rules.mdc"
+          ]
+        },
+        {
+          "catalog": "cursor/nodejs/nodejs-performance-audit/SKILL.md",
+          "tool": "cursor",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/nodejs/native/cursor/.cursor/skills/nodejs-performance-audit/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "copilot/nodejs/nodejs-rules.instructions.md",
+          "tool": "copilot",
+          "role": "standards",
+          "type": "instruction",
+          "exports": [
+            "release/nodejs/native/copilot/.github/instructions/nodejs.instructions.md"
+          ]
+        },
+        {
+          "catalog": "copilot/nodejs/nodejs-performance-audit/SKILL.md",
+          "tool": "copilot",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/nodejs/native/copilot/.github/skills/nodejs-performance-audit/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "claude/nodejs/nodejs-rules.md",
+          "tool": "claude",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/nodejs/native/claude/.claude/rules/nodejs-rules.md"
+          ]
+        },
+        {
+          "catalog": "claude/skills/nodejs/nodejs-performance-audit/SKILL.md",
+          "tool": "claude",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/nodejs/native/claude/.claude/skills/nodejs-performance-audit/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "windsurf/nodejs/nodejs-rules.md",
+          "tool": "windsurf",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/nodejs/native/windsurf/.devin/rules/nodejs-rules.md",
+            "release/nodejs/native/windsurf/.windsurf/rules/nodejs-rules.md"
+          ]
+        },
+        {
+          "catalog": "windsurf/nodejs/nodejs-performance-audit/SKILL.md",
+          "tool": "windsurf",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/nodejs/native/windsurf/.devin/skills/nodejs-performance-audit/SKILL.md",
+            "release/nodejs/native/windsurf/.windsurf/skills/nodejs-performance-audit/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "cline/nodejs/nodejs-rules.md",
+          "tool": "cline",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/nodejs/native/cline/.clinerules/nodejs-rules.md"
+          ]
+        },
+        {
+          "catalog": "cline/nodejs/nodejs-performance-audit/SKILL.md",
+          "tool": "cline",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/nodejs/native/cline/.cline/skills/nodejs-performance-audit/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "codex/nodejs/nodejs-rules.md",
+          "tool": "codex",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/nodejs/native/codex/AGENTS.nodejs-section.md"
+          ]
+        },
+        {
+          "catalog": "codex/nodejs/nodejs-performance-audit/SKILL.md",
+          "tool": "codex",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/nodejs/native/codex/.agents/skills/nodejs-performance-audit/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "gemini-cli/nodejs/nodejs-rules.md",
+          "tool": "gemini-cli",
+          "role": "standards",
+          "type": "rule",
+          "exports": [
+            "release/nodejs/native/gemini-cli/GEMINI.nodejs-section.md"
+          ]
+        },
+        {
+          "catalog": "gemini-cli/nodejs/nodejs-performance-audit/SKILL.md",
+          "tool": "gemini-cli",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/nodejs/native/gemini-cli/.gemini/skills/nodejs-performance-audit/SKILL.md"
+          ]
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "order": 5,
+  "id": "supabase",
+  "product": "Supabase",
+  "focus": "Auth, RLS and Typed Queries",
+  "updated_for": "supabase-js 2.119.0, Nov 2026",
+  "libs": ["@supabase/supabase-js@2.119.0"],
+  "tags": ["supabase", "postgres", "rls", "auth"],
+  "paths": ["**/*supabase*", "**/*.sql"],
+  "skill_name": "supabase-security-review",
+  "skill_label": "Security Review",
+  "skill_tag": "security",
+  "native_skill_description": "Review a Supabase change for RLS gaps, service-role keys in clients, and auth that trusts a caller-supplied user id. Use for a Supabase security review. Do not use for a non-Supabase repository or to apply SQL against production."
+}

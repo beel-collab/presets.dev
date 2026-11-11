@@ -1,0 +1,33 @@
+---
+name: "nodejs-performance-audit"
+description: "Audit a Node.js service for event-loop blocking, missing cancellation, and unbounded streams or retries. Use for a Node.js performance audit. Do not use for a browser-only bug or a non-Node repository."
+---
+
+# Node.js Performance Audit Skill for Codex
+
+Codex skill `nodejs-performance-audit` for Node.js. Call it with `$nodejs-performance-audit` or `/skills`. Do not install the other tools' copies beside it.
+
+## When to run
+
+Run this audit when a Node.js service is slow, timing out, or leaking work after the client disconnects. Also run it for "check the event loop" or "this handler blocks".
+
+## When to leave it
+
+Stop for a browser-only React bug, or a repository that does not run on Node. Do not upgrade Node as part of the audit.
+
+## Steps
+
+1. Read `engines` and the start script. Note the LTS line. A recommendation to move to a v27 alpha is not a finding you file as work. Flag it only if the diff already targets that alpha.
+2. Find the handler the user named. If they did not name one, ask. Search that path for `readFileSync`, `execSync`, large `JSON.parse`, and unbounded `Buffer.concat`.
+3. Check outbound calls for a timeout and an `AbortSignal` tied to the request. A retry without a cap is a high finding on a hot path.
+4. Check streams and body limits. An upload with no size cap is a high finding.
+5. Look for a process-global cache keyed without the user or tenant when the value contains their data.
+6. Run the project's benchmark or test only if one exists and the user asked. Otherwise write `not run`.
+
+## Output
+
+Findings with severity, file, line, the blocking or unbounded call, and a bounded alternative. Include the Node line you read.
+
+## Stop
+
+Stop when the user asks you to load-test production or to print environment secrets.

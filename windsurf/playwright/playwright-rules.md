@@ -1,0 +1,85 @@
+---
+id: "windsurf-playwright-rules"
+slug: "windsurf/playwright/playwright-rules"
+title: "Playwright Windsurf Rules: Locators, Fixtures and Assertions"
+description: "Windsurf rules for Playwright: Locators, Fixtures and Assertions. Structure, data, errors, security, performance, and tests. Playwright 1.65.0, Nov 2026."
+type: "rule"
+tools:
+  - "windsurf"
+stack: "playwright"
+tags:
+  - "playwright"
+  - "testing"
+  - "e2e"
+author:
+  name: "presets.dev"
+  github: "beel-collab"
+license: "MIT"
+origin: "original"
+version: "1.0.0"
+tested_with:
+  - "Devin and Cascade docs 2026-11-11; not run"
+created: "2026-11-11"
+updated: "2026-11-11"
+libs:
+  - "playwright@1.65.0"
+updated_for: "Playwright 1.65.0, Nov 2026"
+---
+
+# Playwright Windsurf Rules: Locators, Fixtures and Assertions
+
+## Install
+
+Install the native export at `.devin/rules/playwright-rules.md` and, for legacy Cascade, `.windsurf/rules/playwright-rules.md`.
+Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
+Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
+
+<!-- native:start -->
+
+# Playwright Windsurf Rules: Locators, Fixtures and Assertions
+
+Rule for Playwright on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `playwright-test-writer` for a review.
+
+## Updated for Playwright 1.65.0, Nov 2026
+
+Playwright 1.65.0 is the npm `latest` release checked on 11 November 2026. That line includes the Bun runner option, a failures reporter, and exclusive test locks. Use a feature only when the installed version has it. Do not upgrade Playwright as a side effect of adding one test. Read `playwright.config` and an existing spec before you write a new one.
+
+## Project shape
+
+Tests live in the directory the config already scans. Name the file the way neighbors are named. Share auth or a seeded account through a fixture, not through a login copied into every test. A storage state file is generated. Do not commit a storage state that contains a real session.
+
+One test owns one behavior. A serial chain is a last resort and must say why.
+
+## Locators and assertions
+
+Locate by role and accessible name first, then by test id when the role is not unique. Do not use a CSS path that walks three `div`s. Do not use an xpath you cannot read out loud.
+
+Assert with a web-first assertion: `toBeVisible`, `toHaveText`, `toHaveURL`. Those wait. `expect(await locator.textContent()).toBe(...)` does not retry the locator. A fixed `waitForTimeout` is a bug, not a fix for a race.
+
+## Isolation
+
+Each test can run alone, in any order. Create the data it needs. Do not depend on a previous test's row. Do not share a mutable account across workers. The exclusive lock exists for the rare case that must be alone. Do not put it on every test.
+
+A dialog, a download, and a popup are events you wait for before the click that opens them, using the project's pattern.
+
+## Failures
+
+On failure, the trace and the screenshot are the evidence. Turn them on in the config the project already has, usually retain-on-failure. Read the trace before you add a sleep. The failures reporter is useful when the installed version has it. Do not add a second reporter that hides the trace.
+
+## Security and performance
+
+Tests use a test account and a local or disposable base URL. Do not point the suite at production, and do not embed a password in the spec. Read credentials from the env the config already documents.
+
+Do not `page.goto` a heavy flow in `beforeEach` if the test only needs one screen. Mock a third party at the network boundary the project already uses. Do not mock the application under test.
+
+## A bug fix
+
+Reproduce the bug with a test that fails for the right reason. Then change the product code. The test stays. If you cannot reproduce it, say what you tried. Do not write a test that passes against the broken behavior.
+
+## Mistakes to avoid
+
+- `waitForTimeout` or a brittle CSS chain.
+- An assertion that never retries, so the test passes before the UI updates.
+- Shared mutable auth or data across workers.
+- A test that passes when the feature is broken because it only checks that a locator exists.
+- An upgrade of Playwright bundled into a single new spec.

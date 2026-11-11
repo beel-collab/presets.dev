@@ -1,0 +1,14 @@
+{
+  "order": 3,
+  "id": "python",
+  "product": "Python",
+  "focus": "Environments, Types and pytest",
+  "updated_for": "uv 0.13.7 and Ruff 0.17.4, Nov 2026",
+  "libs": ["uv@0.13.7", "ruff@0.17.4"],
+  "tags": ["python", "uv", "ruff", "pytest"],
+  "paths": ["**/*.py", "pyproject.toml"],
+  "skill_name": "python-test-writer",
+  "skill_label": "Test Writer",
+  "skill_tag": "testing",
+  "native_skill_description": "Add or extend pytest coverage for a Python change, using the project's uv environment and Ruff. Use when the user asks for Python tests or a failing case. Do not use for a non-Python repository or to upgrade the interpreter unasked."
+}
