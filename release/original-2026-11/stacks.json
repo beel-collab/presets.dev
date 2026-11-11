@@ -9,60 +9,106 @@
     "codex",
     "gemini-cli"
   ],
-  "note": "Complete stacks must contain one standards file and one SKILL.md for every tool in tools. Support files and native exports are not catalog entries. gemini-cli is Gemini CLI, not antigravity.",
+  "note": "Each complete stack has one standards file and one SKILL.md for every tool. Support files and native exports are not catalog entries. gemini-cli is Gemini CLI, not antigravity. The index is stacks.json because manifest.json is gitignored.",
   "stacks": [
     {
       "id": "nextjs",
       "status": "complete",
       "entries": [
         {
-          "catalog": "cursor/nextjs/app-router-caching.mdc",
+          "catalog": "cursor/nextjs/nextjs-rules.mdc",
           "tool": "cursor",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/nextjs/native/cursor/.cursor/rules/nextjs-app-router-caching.mdc"
+            "release/nextjs/native/cursor/.cursor/rules/nextjs-rules.mdc"
           ]
         },
         {
-          "catalog": "copilot/nextjs/app-router-caching.instructions.md",
+          "catalog": "cursor/nextjs/nextjs-code-review/SKILL.md",
+          "tool": "cursor",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/nextjs/native/cursor/.cursor/skills/nextjs-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "copilot/nextjs/nextjs.instructions.md",
           "tool": "copilot",
           "role": "standards",
           "type": "instruction",
           "exports": [
-            "release/nextjs/native/copilot/.github/instructions/nextjs-app-router-caching.instructions.md"
+            "release/nextjs/native/copilot/.github/instructions/nextjs.instructions.md"
           ]
         },
         {
-          "catalog": "claude/nextjs/app-router-caching.md",
+          "catalog": "copilot/nextjs/nextjs-code-review/SKILL.md",
+          "tool": "copilot",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/nextjs/native/copilot/.github/skills/nextjs-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "claude/nextjs/nextjs-rules.md",
           "tool": "claude",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/nextjs/native/claude/.claude/rules/nextjs-app-router-caching.md"
+            "release/nextjs/native/claude/.claude/rules/nextjs-rules.md"
           ]
         },
         {
-          "catalog": "windsurf/nextjs/app-router-caching.md",
+          "catalog": "claude/skills/nextjs/nextjs-code-review/SKILL.md",
+          "tool": "claude",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/nextjs/native/claude/.claude/skills/nextjs-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "windsurf/nextjs/nextjs-rules.md",
           "tool": "windsurf",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/nextjs/native/windsurf/.devin/rules/nextjs-app-router-caching.md",
-            "release/nextjs/native/windsurf/.windsurf/rules/nextjs-app-router-caching.md"
+            "release/nextjs/native/windsurf/.devin/rules/nextjs-rules.md",
+            "release/nextjs/native/windsurf/.windsurf/rules/nextjs-rules.md"
           ]
         },
         {
-          "catalog": "cline/nextjs/app-router-caching.md",
+          "catalog": "windsurf/nextjs/nextjs-code-review/SKILL.md",
+          "tool": "windsurf",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/nextjs/native/windsurf/.devin/skills/nextjs-code-review/SKILL.md",
+            "release/nextjs/native/windsurf/.windsurf/skills/nextjs-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "cline/nextjs/nextjs-rules.md",
           "tool": "cline",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/nextjs/native/cline/.clinerules/nextjs-app-router-caching.md"
+            "release/nextjs/native/cline/.clinerules/nextjs-rules.md"
           ]
         },
         {
-          "catalog": "codex/nextjs/app-router-caching.md",
+          "catalog": "cline/nextjs/nextjs-code-review/SKILL.md",
+          "tool": "cline",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/nextjs/native/cline/.cline/skills/nextjs-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "codex/nextjs/nextjs-rules.md",
           "tool": "codex",
           "role": "standards",
           "type": "rule",
@@ -71,7 +117,16 @@
           ]
         },
         {
-          "catalog": "gemini-cli/nextjs/app-router-caching.md",
+          "catalog": "codex/nextjs/nextjs-code-review/SKILL.md",
+          "tool": "codex",
+          "role": "skill",
+          "type": "skill",
+          "exports": [
+            "release/nextjs/native/codex/.agents/skills/nextjs-code-review/SKILL.md"
+          ]
+        },
+        {
+          "catalog": "gemini-cli/nextjs/nextjs-rules.md",
           "tool": "gemini-cli",
           "role": "standards",
           "type": "rule",
@@ -80,67 +135,12 @@
           ]
         },
         {
-          "catalog": "cursor/nextjs/nextjs-tenant-cache-audit/SKILL.md",
-          "tool": "cursor",
-          "role": "skill",
-          "type": "skill",
-          "exports": [
-            "release/nextjs/native/cursor/.cursor/skills/nextjs-tenant-cache-audit/SKILL.md"
-          ]
-        },
-        {
-          "catalog": "copilot/nextjs/nextjs-tenant-cache-audit/SKILL.md",
-          "tool": "copilot",
-          "role": "skill",
-          "type": "skill",
-          "exports": [
-            "release/nextjs/native/copilot/.github/skills/nextjs-tenant-cache-audit/SKILL.md"
-          ]
-        },
-        {
-          "catalog": "claude/skills/nextjs/nextjs-tenant-cache-audit/SKILL.md",
-          "tool": "claude",
-          "role": "skill",
-          "type": "skill",
-          "exports": [
-            "release/nextjs/native/claude/.claude/skills/nextjs-tenant-cache-audit/SKILL.md"
-          ]
-        },
-        {
-          "catalog": "windsurf/nextjs/nextjs-tenant-cache-audit/SKILL.md",
-          "tool": "windsurf",
-          "role": "skill",
-          "type": "skill",
-          "exports": [
-            "release/nextjs/native/windsurf/.devin/skills/nextjs-tenant-cache-audit/SKILL.md",
-            "release/nextjs/native/windsurf/.windsurf/skills/nextjs-tenant-cache-audit/SKILL.md"
-          ]
-        },
-        {
-          "catalog": "cline/nextjs/nextjs-tenant-cache-audit/SKILL.md",
-          "tool": "cline",
-          "role": "skill",
-          "type": "skill",
-          "exports": [
-            "release/nextjs/native/cline/.cline/skills/nextjs-tenant-cache-audit/SKILL.md"
-          ]
-        },
-        {
-          "catalog": "codex/nextjs/nextjs-tenant-cache-audit/SKILL.md",
-          "tool": "codex",
-          "role": "skill",
-          "type": "skill",
-          "exports": [
-            "release/nextjs/native/codex/.agents/skills/nextjs-tenant-cache-audit/SKILL.md"
-          ]
-        },
-        {
-          "catalog": "gemini-cli/nextjs/nextjs-tenant-cache-audit/SKILL.md",
+          "catalog": "gemini-cli/nextjs/nextjs-code-review/SKILL.md",
           "tool": "gemini-cli",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nextjs/native/gemini-cli/.gemini/skills/nextjs-tenant-cache-audit/SKILL.md"
+            "release/nextjs/native/gemini-cli/.gemini/skills/nextjs-code-review/SKILL.md"
           ]
         }
       ]

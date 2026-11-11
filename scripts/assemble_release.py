@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Build the original-release catalog files and native install payloads.
+"""Build original-release catalog files and native install payloads.
 
-Masters under masters/ are the source. Catalog files are what the site indexes.
-Native files under release/ are what a project should install. Catalog frontmatter
-is never copied into a native file.
+Each stack lives in masters/<id>/ with stack.json, standards.md, and skill.md.
+Catalog frontmatter stays in the catalog file. Native exports rebuild the small
+frontmatter each tool actually reads.
 """
 
 from __future__ import annotations
@@ -13,38 +13,29 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-STACK = "nextjs"
-UPDATED_FOR = "Next.js 16.4.6, security fixes since 16.4.5 (2026-11-11)"
 CREATED = "2026-11-11"
-SKILL_NAME = "nextjs-tenant-cache-audit"
 MARKER = "<!-- native:start -->"
-PATHS = [
-    "app/**/*.ts",
-    "app/**/*.tsx",
-    "src/app/**/*.ts",
-    "src/app/**/*.tsx",
-    "next.config.ts",
-    "next.config.mjs",
-    "next.config.js",
-]
-CURSOR_GLOBS = ", ".join(PATHS)
-COPILOT_APPLY = ",".join(PATHS)
-RULE_DESCRIPTION = (
-    "Next.js App Router standards for validated Server Actions and tenant-safe caching. "
-    "Use when editing routes, actions, cache helpers, or Next.js config."
-)
-SKILL_DESCRIPTION = (
-    "Audit Next.js App Router Server Actions and Cache Components for tenant leaks "
-    "and missing authentication. Use for a nextjs cache audit, a tenant isolation review, "
-    "a Server Action review, or the November 2026 Next.js cache advisories. "
-    "Do not use for CSS, new marketing pages, Playwright tests, or repositories that are not Next.js."
-)
 AUTHOR = {"name": "presets.dev", "github": "beel-collab"}
-TAGS = ["nextjs", "typescript", "server-actions", "caching", "app-router"]
-SKILL_TAGS = TAGS + ["audit"]
-LIBS = ["next@16.4.6"]
+TOOLS = ("cursor", "copilot", "claude", "windsurf", "cline", "codex", "gemini-cli")
+TOOL_LABEL = {
+    "cursor": "Cursor",
+    "copilot": "Copilot",
+    "claude": "Claude Code",
+    "windsurf": "Windsurf",
+    "cline": "Cline",
+    "codex": "Codex",
+    "gemini-cli": "Gemini CLI",
+}
+TESTED = {
+    "cursor": "Cursor docs 2026-11-11; app not executed",
+    "copilot": "Copilot docs 2026-11-11; app not executed",
+    "claude": "Claude Code docs 2026-11-11; CLI not run",
+    "windsurf": "Devin and Cascade docs 2026-11-11; not run",
+    "cline": "Cline docs 2026-11-11; app not executed",
+    "codex": "Codex docs 2026-11-11; CLI not executed",
+    "gemini-cli": "Gemini CLI docs 2026-11-11; CLI not run",
+}
 FIXTURE = "node v22.23.4 fixture 2026-11-11"
-
 CATALOG_FRONT_ORDER = [
     "id",
     "slug",
@@ -66,6 +57,26 @@ CATALOG_FRONT_ORDER = [
     "globs",
     "alwaysApply",
 ]
+FORMAT_KEYS = {
+    "cursor-rule": ["description", "globs", "alwaysApply"],
+    "copilot-instructions": ["applyTo"],
+    "claude-rule": ["paths"],
+    "windsurf-rule": ["description", "trigger"],
+    "cline-rule": ["paths"],
+    "skill": ["name", "description"],
+    "cursor-skill": ["name", "description", "paths"],
+    "plain": [],
+}
+NATIVE_ORDER = {
+    "cursor-rule": ["description", "globs", "alwaysApply"],
+    "copilot-instructions": ["applyTo"],
+    "claude-rule": ["paths"],
+    "windsurf-rule": ["description", "trigger"],
+    "cline-rule": ["paths"],
+    "skill": ["name", "description"],
+    "cursor-skill": ["name", "description", "paths"],
+    "plain": [],
+}
 
 
 def q(value: str) -> str:
@@ -100,12 +111,8 @@ def emit_frontmatter(data: dict, order: list[str]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def read(rel: str) -> str:
-    return (ROOT / rel).read_text(encoding="utf-8").strip() + "\n"
-
-
 def join_sections(parts: list[str]) -> str:
-    cleaned = [part.strip() for part in parts if part.strip()]
+    cleaned = [part.strip() for part in parts if part and part.strip()]
     return "\n\n".join(cleaned) + "\n"
 
 
@@ -117,391 +124,535 @@ def catalog_slug(rel: str) -> str:
     raise ValueError(rel)
 
 
-def entry(
-    *,
-    tool: str,
-    role: str,
-    type_name: str,
-    catalog_path: str,
-    title: str,
-    description: str,
-    tested_with: str,
-    exports: list[dict],
-    extra: dict | None = None,
-) -> dict:
-    return {
-        "tool": tool,
-        "role": role,
-        "type": type_name,
-        "id": f"{tool}-nextjs-{ 'tenant-cache-audit' if role == 'skill' else 'app-router-caching' }",
-        "catalog_path": catalog_path,
-        "title": title,
-        "description": description,
-        "tested_with": [tested_with, FIXTURE],
-        "tags": SKILL_TAGS if role == "skill" else TAGS,
-        "preamble": f"masters/nextjs/preamble/{tool}-{role}.md",
-        "host": f"masters/nextjs/host/{tool}-{role}.md",
-        "body": "masters/nextjs/skill.md" if role == "skill" else "masters/nextjs/standards.md",
-        "extra": extra or {},
-        "exports": exports,
+def load_stacks() -> list[dict]:
+    found: list[dict] = []
+    for path in sorted((ROOT / "masters").glob("*/stack.json")):
+        data = json.loads(path.read_text(encoding="utf-8"))
+        data["root"] = path.parent
+        found.append(data)
+    found.sort(key=lambda item: item["order"])
+    return found
+
+
+def standards_title(tool: str, spec: dict) -> str:
+    product = spec["product"]
+    focus = spec["focus"]
+    titles = {
+        "cursor": f"{product} Rules for Cursor: {focus}",
+        "copilot": f"{product} Copilot Instructions: {focus}",
+        "claude": f"{product} Claude Code Rules: {focus}",
+        "windsurf": f"{product} Windsurf Rules: {focus}",
+        "cline": f"{product} Cline Rules: {focus}",
+        "codex": f"{product} Codex Instructions: {focus}",
+        "gemini-cli": f"{product} Gemini CLI Rules: {focus}",
     }
+    return titles[tool]
 
 
-def native_skill(tool_dir: str, frontmatter: dict, install_suffix: str) -> dict:
-    return {
-        "path": f"release/nextjs/native/{tool_dir}/{install_suffix}",
-        "format": "cursor-skill" if "paths" in frontmatter else "skill",
-        "frontmatter": frontmatter,
-    }
-
-
-ENTRIES = [
-    entry(
-        tool="cursor",
-        role="standards",
-        type_name="rule",
-        catalog_path="cursor/nextjs/app-router-caching.mdc",
-        title="Next.js Cursor Rules for Server Actions and Safe Caching",
-        description=(
-            "Cursor rules for Next.js TypeScript App Router projects: validated Server Actions "
-            "and tenant-safe caching on 16.4.6. Use when editing routes, actions, or cached server data."
+def standards_description(tool: str, spec: dict) -> str:
+    product = spec["product"]
+    focus = spec["focus"]
+    text = {
+        "cursor": (
+            f"Cursor rules for {product}: {focus}. "
+            f"Structure, data, errors, security, performance, and tests. {spec['updated_for']}."
         ),
-        tested_with="Cursor docs 2026-11-11; app not executed",
-        extra={"globs": CURSOR_GLOBS, "alwaysApply": False},
-        exports=[
-            {
-                "path": "release/nextjs/native/cursor/.cursor/rules/nextjs-app-router-caching.mdc",
-                "format": "cursor-rule",
-                "frontmatter": {
-                    "description": RULE_DESCRIPTION,
-                    "globs": CURSOR_GLOBS,
-                    "alwaysApply": False,
+        "copilot": (
+            f"Copilot instructions for {product}: {focus}. "
+            f"Structure, data, errors, security, performance, and tests. {spec['updated_for']}."
+        ),
+        "claude": (
+            f"Claude Code rules for {product}: {focus}. "
+            f"Structure, data, errors, security, performance, and tests. {spec['updated_for']}."
+        ),
+        "windsurf": (
+            f"Windsurf rules for {product}: {focus}. "
+            f"Structure, data, errors, security, performance, and tests. {spec['updated_for']}."
+        ),
+        "cline": (
+            f"Cline rules for {product}: {focus}. "
+            f"Structure, data, errors, security, performance, and tests. {spec['updated_for']}."
+        ),
+        "codex": (
+            f"Codex instructions for {product}: {focus}. "
+            f"Append to AGENTS.md. Structure, security, and tests. {spec['updated_for']}."
+        ),
+        "gemini-cli": (
+            f"Gemini CLI rules for {product}: {focus}. "
+            f"Append to GEMINI.md. Structure, security, and tests. {spec['updated_for']}."
+        ),
+    }
+    return text[tool]
+
+
+def skill_title(tool: str, spec: dict) -> str:
+    return f"{spec['product']} {spec['skill_label']} Skill for {TOOL_LABEL[tool]}"
+
+
+def skill_catalog_description(tool: str, spec: dict) -> str:
+    label = spec["skill_label"].lower()
+    product = spec["product"]
+    lead = {
+        "cursor": "Cursor skill",
+        "copilot": "Copilot skill",
+        "claude": "Claude Code skill",
+        "windsurf": "Windsurf skill",
+        "cline": "Cline skill",
+        "codex": "Codex skill",
+        "gemini-cli": "Gemini CLI skill",
+    }[tool]
+    return (
+        f"{lead} for a {product} {label}. "
+        f"Use when you want that {label} on a {product} change. "
+        f"Do not use it for a different stack."
+    )
+
+
+def host_line(tool: str, spec: dict, role: str) -> str:
+    product = spec["product"]
+    skill = spec["skill_name"]
+    if role == "standards":
+        return {
+            "cursor": (
+                f"File-scoped Cursor rule for {product}. "
+                f"It attaches when a matching file is in context. Use `{skill}` for a review."
+            ),
+            "copilot": (
+                f"Path-specific Copilot instructions for {product}. "
+                f"They apply through `applyTo` and leave `.github/copilot-instructions.md` in place. "
+                f"Use `{skill}` for a review."
+            ),
+            "claude": (
+                f"Path-scoped Claude Code rule for {product}. "
+                f"It loads when a matching file is read. It does not replace `CLAUDE.md`. "
+                f"Use `{skill}` for a review."
+            ),
+            "windsurf": (
+                f"Rule for {product} on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). "
+                f"The trigger is model decision. Use `{skill}` for a review."
+            ),
+            "cline": (
+                f"Conditional Cline rule for {product}. "
+                f"Install it under `.clinerules/` only. Use `{skill}` for a review."
+            ),
+            "codex": (
+                f"Section to append to `AGENTS.md` for {product}. "
+                f"This is project guidance, not a custom agent. Use `${skill}` for a review."
+            ),
+            "gemini-cli": (
+                f"Section to append to `GEMINI.md` for {product}. "
+                f"Confirm with `/memory show`. The review skill waits for consent before it runs."
+            ),
+        }[tool]
+    return {
+        "cursor": (
+            f"Cursor skill `{skill}` for {product}. "
+            f"Run it with `/{skill}`, or let Agent select it when the request matches. "
+            f"`paths` only limits automatic surfacing."
+        ),
+        "copilot": (
+            f"Copilot skill `{skill}` for {product}. "
+            f"The description decides when Copilot loads it. Keep this copy under `.github/skills`."
+        ),
+        "claude": (
+            f"Claude Code skill `{skill}` for {product}. "
+            f"The command is `/{skill}`. Leave the normal permission prompts on."
+        ),
+        "windsurf": (
+            f"Skill `{skill}` for Devin CLI and the legacy Windsurf skills folder. "
+            f"Invoke it with `/{skill}`. This file is not a subagent."
+        ),
+        "cline": (
+            f"Cline skill `{skill}` for {product}. "
+            f"`/{skill}` forces it. A global skill of the same name overrides this project file."
+        ),
+        "codex": (
+            f"Codex skill `{skill}` for {product}. "
+            f"Call it with `${skill}` or `/skills`. Do not install the other tools' copies beside it."
+        ),
+        "gemini-cli": (
+            f"Gemini CLI skill `{skill}` for {product}. "
+            f"Activation calls `activate_skill` and waits for consent. "
+            f"Keep this copy under `.gemini/skills`."
+        ),
+    }[tool]
+
+
+def install_section(tool: str, spec: dict, role: str) -> str:
+    stack = spec["id"]
+    skill = spec["skill_name"]
+    rules = f"{stack}-rules"
+    if role == "standards":
+        target = {
+            "cursor": f"`.cursor/rules/{rules}.mdc`",
+            "copilot": f"`.github/instructions/{stack}.instructions.md`",
+            "claude": f"`.claude/rules/{rules}.md`",
+            "windsurf": f"`.devin/rules/{rules}.md` and, for legacy Cascade, `.windsurf/rules/{rules}.md`",
+            "cline": f"`.clinerules/{rules}.md` (do not also copy it to `.cline/rules/`)",
+            "codex": "`AGENTS.md` as an appended section, not a replacement and not a custom agent",
+            "gemini-cli": "`GEMINI.md` as an appended section, then check `/memory show`",
+        }[tool]
+    else:
+        target = {
+            "cursor": f"`.cursor/skills/{skill}/SKILL.md`",
+            "copilot": f"`.github/skills/{skill}/SKILL.md`",
+            "claude": f"`.claude/skills/{skill}/SKILL.md`",
+            "windsurf": f"`.devin/skills/{skill}/SKILL.md` and `.windsurf/skills/{skill}/SKILL.md`",
+            "cline": f"`.cline/skills/{skill}/SKILL.md`",
+            "codex": f"`.agents/skills/{skill}/SKILL.md`",
+            "gemini-cli": f"`.gemini/skills/{skill}/SKILL.md`",
+        }[tool]
+    return "\n".join(
+        [
+            "## Install",
+            "",
+            f"Install the native export at {target}.",
+            "Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.",
+            "Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.",
+        ]
+    )
+
+
+def rule_frontmatter_description(spec: dict) -> str:
+    return (
+        f"{spec['product']} standards for {spec['focus']}. "
+        f"Use when editing this stack. {spec['updated_for']}."
+    )
+
+
+def catalog_paths(spec: dict) -> dict[str, dict[str, str]]:
+    stack = spec["id"]
+    skill = spec["skill_name"]
+    return {
+        "standards": {
+            "cursor": f"cursor/{stack}/{stack}-rules.mdc",
+            "copilot": f"copilot/{stack}/{stack}.instructions.md",
+            "claude": f"claude/{stack}/{stack}-rules.md",
+            "windsurf": f"windsurf/{stack}/{stack}-rules.md",
+            "cline": f"cline/{stack}/{stack}-rules.md",
+            "codex": f"codex/{stack}/{stack}-rules.md",
+            "gemini-cli": f"gemini-cli/{stack}/{stack}-rules.md",
+        },
+        "skill": {
+            "cursor": f"cursor/{stack}/{skill}/SKILL.md",
+            "copilot": f"copilot/{stack}/{skill}/SKILL.md",
+            "claude": f"claude/skills/{stack}/{skill}/SKILL.md",
+            "windsurf": f"windsurf/{stack}/{skill}/SKILL.md",
+            "cline": f"cline/{stack}/{skill}/SKILL.md",
+            "codex": f"codex/{stack}/{skill}/SKILL.md",
+            "gemini-cli": f"gemini-cli/{stack}/{skill}/SKILL.md",
+        },
+    }
+
+
+def native_exports(spec: dict) -> dict[str, dict[str, list[dict]]]:
+    stack = spec["id"]
+    skill = spec["skill_name"]
+    rules = f"{stack}-rules"
+    paths = spec["paths"]
+    globs = ", ".join(paths)
+    apply_to = ",".join(paths)
+    description = rule_frontmatter_description(spec)
+    skill_description = spec["native_skill_description"]
+    skill_front = {"name": skill, "description": skill_description}
+    cursor_skill = {**skill_front, "paths": paths}
+    base = f"release/{stack}/native"
+    return {
+        "standards": {
+            "cursor": [
+                {
+                    "path": f"{base}/cursor/.cursor/rules/{rules}.mdc",
+                    "format": "cursor-rule",
+                    "frontmatter": {
+                        "description": description,
+                        "globs": globs,
+                        "alwaysApply": False,
+                    },
+                }
+            ],
+            "copilot": [
+                {
+                    "path": f"{base}/copilot/.github/instructions/{stack}.instructions.md",
+                    "format": "copilot-instructions",
+                    "frontmatter": {"applyTo": apply_to},
+                }
+            ],
+            "claude": [
+                {
+                    "path": f"{base}/claude/.claude/rules/{rules}.md",
+                    "format": "claude-rule",
+                    "frontmatter": {"paths": paths},
+                }
+            ],
+            "windsurf": [
+                {
+                    "path": f"{base}/windsurf/.devin/rules/{rules}.md",
+                    "format": "windsurf-rule",
+                    "frontmatter": {"description": description, "trigger": "model_decision"},
                 },
-            }
-        ],
-    ),
-    entry(
-        tool="copilot",
-        role="standards",
-        type_name="instruction",
-        catalog_path="copilot/nextjs/app-router-caching.instructions.md",
-        title="Next.js Copilot Instructions for Server Actions and Caching",
-        description=(
-            "Copilot instructions for Next.js App Router projects: validated Server Actions "
-            "and tenant-safe caching on 16.4.6. Use when editing routes, actions, or cached server data."
-        ),
-        tested_with="Copilot docs 2026-11-11; app not executed",
-        exports=[
-            {
-                "path": "release/nextjs/native/copilot/.github/instructions/nextjs-app-router-caching.instructions.md",
-                "format": "copilot-instructions",
-                "frontmatter": {"applyTo": COPILOT_APPLY},
-            }
-        ],
-    ),
-    entry(
-        tool="claude",
-        role="standards",
-        type_name="rule",
-        catalog_path="claude/nextjs/app-router-caching.md",
-        title="Next.js Claude Code Rules for Server Actions and Caching",
-        description=(
-            "Claude Code rules for Next.js App Router projects: validated Server Actions "
-            "and tenant-safe caching on 16.4.6. Use when editing routes, actions, or cached server data."
-        ),
-        tested_with="Claude Code docs 2026-11-11; CLI not run",
-        exports=[
-            {
-                "path": "release/nextjs/native/claude/.claude/rules/nextjs-app-router-caching.md",
-                "format": "claude-rule",
-                "frontmatter": {"paths": PATHS},
-            }
-        ],
-    ),
-    entry(
-        tool="windsurf",
-        role="standards",
-        type_name="rule",
-        catalog_path="windsurf/nextjs/app-router-caching.md",
-        title="Next.js Windsurf Rules for Server Actions and Safe Caching",
-        description=(
-            "Windsurf and Devin rules for Next.js App Router projects: validated Server Actions "
-            "and tenant-safe caching on 16.4.6. Use when editing routes, actions, or cached server data."
-        ),
-        tested_with="Devin and Cascade docs 2026-11-11; not run",
-        exports=[
-            {
-                "path": "release/nextjs/native/windsurf/.devin/rules/nextjs-app-router-caching.md",
-                "format": "windsurf-rule",
-                "frontmatter": {"description": RULE_DESCRIPTION, "trigger": "model_decision"},
-            },
-            {
-                "path": "release/nextjs/native/windsurf/.windsurf/rules/nextjs-app-router-caching.md",
-                "format": "windsurf-rule",
-                "frontmatter": {"description": RULE_DESCRIPTION, "trigger": "model_decision"},
-            },
-        ],
-    ),
-    entry(
-        tool="cline",
-        role="standards",
-        type_name="rule",
-        catalog_path="cline/nextjs/app-router-caching.md",
-        title="Next.js Cline Rules for Server Actions and Safe Caching",
-        description=(
-            "Cline rules for Next.js App Router projects: validated Server Actions and "
-            "tenant-safe caching on 16.4.6. Use when editing routes, actions, or cached server data."
-        ),
-        tested_with="Cline docs 2026-11-11; app not executed",
-        exports=[
-            {
-                "path": "release/nextjs/native/cline/.clinerules/nextjs-app-router-caching.md",
-                "format": "cline-rule",
-                "frontmatter": {"paths": PATHS},
-            }
-        ],
-    ),
-    entry(
-        tool="codex",
-        role="standards",
-        type_name="rule",
-        catalog_path="codex/nextjs/app-router-caching.md",
-        title="Next.js Codex Instructions for Server Actions and Caching",
-        description=(
-            "Codex project guidance for Next.js App Router work: validated Server Actions "
-            "and tenant-safe caching on 16.4.6. Append it to AGENTS.md. It is not a custom agent."
-        ),
-        tested_with="Codex docs 2026-11-11; CLI not executed",
-        exports=[
-            {
-                "path": "release/nextjs/native/codex/AGENTS.nextjs-section.md",
-                "format": "plain",
-                "banner": "<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->",
-                "frontmatter": {},
-            }
-        ],
-    ),
-    entry(
-        tool="gemini-cli",
-        role="standards",
-        type_name="rule",
-        catalog_path="gemini-cli/nextjs/app-router-caching.md",
-        title="Next.js Gemini CLI Rules for Server Actions and Caching",
-        description=(
-            "Gemini CLI context for Next.js App Router projects: validated Server Actions "
-            "and tenant-safe caching on 16.4.6. Append it to GEMINI.md instead of replacing that file."
-        ),
-        tested_with="Gemini CLI docs 2026-11-11; CLI not run",
-        exports=[
-            {
-                "path": "release/nextjs/native/gemini-cli/GEMINI.nextjs-section.md",
-                "format": "plain",
-                "banner": "<!-- Append this section to GEMINI.md. Do not replace the existing file. Confirm with /memory show. -->",
-                "frontmatter": {},
-            }
-        ],
-    ),
-    entry(
-        tool="cursor",
-        role="skill",
-        type_name="skill",
-        catalog_path=f"cursor/nextjs/{SKILL_NAME}/SKILL.md",
-        title="Next.js Cursor Skill for a Tenant Cache Audit",
-        description=(
-            "Cursor skill that audits Next.js Server Actions and tenant cache keys on 16.4.6. "
-            "Use for a cache or authentication review. Skip it for styling and non-Next.js apps."
-        ),
-        tested_with="Cursor docs 2026-11-11; app not executed",
-        exports=[
-            native_skill(
-                "cursor",
-                {"name": SKILL_NAME, "description": SKILL_DESCRIPTION, "paths": PATHS},
-                f".cursor/skills/{SKILL_NAME}/SKILL.md",
-            )
-        ],
-    ),
-    entry(
-        tool="copilot",
-        role="skill",
-        type_name="skill",
-        catalog_path=f"copilot/nextjs/{SKILL_NAME}/SKILL.md",
-        title="Next.js Copilot Skill for a Tenant Cache Audit",
-        description=(
-            "Copilot skill that audits Next.js Server Actions and tenant cache keys on 16.4.6. "
-            "Use for a cache or authentication review. Skip it for styling and non-Next.js apps."
-        ),
-        tested_with="Copilot docs 2026-11-11; app not executed",
-        exports=[
-            native_skill(
-                "copilot",
-                {"name": SKILL_NAME, "description": SKILL_DESCRIPTION},
-                f".github/skills/{SKILL_NAME}/SKILL.md",
-            )
-        ],
-    ),
-    entry(
-        tool="claude",
-        role="skill",
-        type_name="skill",
-        catalog_path=f"claude/skills/nextjs/{SKILL_NAME}/SKILL.md",
-        title="Next.js Claude Code Skill for a Tenant Cache Audit",
-        description=(
-            "Claude Code skill that audits Next.js Server Actions and tenant cache keys on 16.4.6. "
-            "Use for a cache or authentication review. Skip it for styling and non-Next.js apps."
-        ),
-        tested_with="Claude Code docs 2026-11-11; CLI not run",
-        exports=[
-            native_skill(
-                "claude",
-                {"name": SKILL_NAME, "description": SKILL_DESCRIPTION},
-                f".claude/skills/{SKILL_NAME}/SKILL.md",
-            )
-        ],
-    ),
-    entry(
-        tool="windsurf",
-        role="skill",
-        type_name="skill",
-        catalog_path=f"windsurf/nextjs/{SKILL_NAME}/SKILL.md",
-        title="Next.js Windsurf Skill for a Tenant Cache Audit",
-        description=(
-            "Windsurf and Devin skill that audits Next.js Server Actions and tenant cache keys on 16.4.6. "
-            "Use for a cache or authentication review. Skip it for styling and non-Next.js apps."
-        ),
-        tested_with="Devin and Cascade docs 2026-11-11; not run",
-        exports=[
-            native_skill(
-                "windsurf",
-                {"name": SKILL_NAME, "description": SKILL_DESCRIPTION},
-                f".devin/skills/{SKILL_NAME}/SKILL.md",
-            ),
-            native_skill(
-                "windsurf",
-                {"name": SKILL_NAME, "description": SKILL_DESCRIPTION},
-                f".windsurf/skills/{SKILL_NAME}/SKILL.md",
-            ),
-        ],
-    ),
-    entry(
-        tool="cline",
-        role="skill",
-        type_name="skill",
-        catalog_path=f"cline/nextjs/{SKILL_NAME}/SKILL.md",
-        title="Next.js Cline Skill for a Tenant Cache Audit",
-        description=(
-            "Cline skill that audits Next.js Server Actions and tenant cache keys on 16.4.6. "
-            "Use for a cache or authentication review. Skip it for styling and non-Next.js apps."
-        ),
-        tested_with="Cline docs 2026-11-11; app not executed",
-        exports=[
-            native_skill(
-                "cline",
-                {"name": SKILL_NAME, "description": SKILL_DESCRIPTION},
-                f".cline/skills/{SKILL_NAME}/SKILL.md",
-            )
-        ],
-    ),
-    entry(
-        tool="codex",
-        role="skill",
-        type_name="skill",
-        catalog_path=f"codex/nextjs/{SKILL_NAME}/SKILL.md",
-        title="Next.js Codex Skill for a Tenant Cache Audit",
-        description=(
-            "Codex skill for Next.js that audits Server Actions and tenant-safe cache keys. "
-            "Use when the request is a codex skill nextjs review, not a styling or Playwright task."
-        ),
-        tested_with="Codex docs 2026-11-11; CLI not executed",
-        exports=[
-            native_skill(
-                "codex",
-                {"name": SKILL_NAME, "description": SKILL_DESCRIPTION},
-                f".agents/skills/{SKILL_NAME}/SKILL.md",
-            )
-        ],
-    ),
-    entry(
-        tool="gemini-cli",
-        role="skill",
-        type_name="skill",
-        catalog_path=f"gemini-cli/nextjs/{SKILL_NAME}/SKILL.md",
-        title="Next.js Gemini CLI Skill for a Tenant Cache Audit",
-        description=(
-            "Gemini CLI skill that audits Next.js Server Actions and tenant cache keys on 16.4.6. "
-            "Use for a cache or authentication review. Skip it for styling and non-Next.js apps."
-        ),
-        tested_with="Gemini CLI docs 2026-11-11; CLI not run",
-        exports=[
-            native_skill(
-                "gemini-cli",
-                {"name": SKILL_NAME, "description": SKILL_DESCRIPTION},
-                f".gemini/skills/{SKILL_NAME}/SKILL.md",
-            )
-        ],
-    ),
-]
-
-FORMAT_KEYS = {
-    "cursor-rule": ["description", "globs", "alwaysApply"],
-    "copilot-instructions": ["applyTo"],
-    "claude-rule": ["paths"],
-    "windsurf-rule": ["description", "trigger"],
-    "cline-rule": ["paths"],
-    "skill": ["name", "description"],
-    "cursor-skill": ["name", "description", "paths"],
-    "plain": [],
-}
-NATIVE_ORDER = {
-    "cursor-rule": ["description", "globs", "alwaysApply"],
-    "copilot-instructions": ["applyTo"],
-    "claude-rule": ["paths"],
-    "windsurf-rule": ["description", "trigger"],
-    "cline-rule": ["paths"],
-    "skill": ["name", "description"],
-    "cursor-skill": ["name", "description", "paths"],
-    "plain": [],
-}
+                {
+                    "path": f"{base}/windsurf/.windsurf/rules/{rules}.md",
+                    "format": "windsurf-rule",
+                    "frontmatter": {"description": description, "trigger": "model_decision"},
+                },
+            ],
+            "cline": [
+                {
+                    "path": f"{base}/cline/.clinerules/{rules}.md",
+                    "format": "cline-rule",
+                    "frontmatter": {"paths": paths},
+                }
+            ],
+            "codex": [
+                {
+                    "path": f"{base}/codex/AGENTS.{stack}-section.md",
+                    "format": "plain",
+                    "banner": "<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->",
+                    "frontmatter": {},
+                }
+            ],
+            "gemini-cli": [
+                {
+                    "path": f"{base}/gemini-cli/GEMINI.{stack}-section.md",
+                    "format": "plain",
+                    "banner": "<!-- Append this section to GEMINI.md. Do not replace the existing file. Confirm with /memory show. -->",
+                    "frontmatter": {},
+                }
+            ],
+        },
+        "skill": {
+            "cursor": [
+                {
+                    "path": f"{base}/cursor/.cursor/skills/{skill}/SKILL.md",
+                    "format": "cursor-skill",
+                    "frontmatter": cursor_skill,
+                }
+            ],
+            "copilot": [
+                {
+                    "path": f"{base}/copilot/.github/skills/{skill}/SKILL.md",
+                    "format": "skill",
+                    "frontmatter": skill_front,
+                }
+            ],
+            "claude": [
+                {
+                    "path": f"{base}/claude/.claude/skills/{skill}/SKILL.md",
+                    "format": "skill",
+                    "frontmatter": skill_front,
+                }
+            ],
+            "windsurf": [
+                {
+                    "path": f"{base}/windsurf/.devin/skills/{skill}/SKILL.md",
+                    "format": "skill",
+                    "frontmatter": skill_front,
+                },
+                {
+                    "path": f"{base}/windsurf/.windsurf/skills/{skill}/SKILL.md",
+                    "format": "skill",
+                    "frontmatter": skill_front,
+                },
+            ],
+            "cline": [
+                {
+                    "path": f"{base}/cline/.cline/skills/{skill}/SKILL.md",
+                    "format": "skill",
+                    "frontmatter": skill_front,
+                }
+            ],
+            "codex": [
+                {
+                    "path": f"{base}/codex/.agents/skills/{skill}/SKILL.md",
+                    "format": "skill",
+                    "frontmatter": skill_front,
+                }
+            ],
+            "gemini-cli": [
+                {
+                    "path": f"{base}/gemini-cli/.gemini/skills/{skill}/SKILL.md",
+                    "format": "skill",
+                    "frontmatter": skill_front,
+                }
+            ],
+        },
+    }
 
 
-def validate_entry(item: dict) -> None:
+def require(spec: dict, key: str) -> None:
+    if key not in spec or spec[key] in ("", [], None):
+        raise SystemExit(f"{spec.get('id', '?')}: missing {key}")
+
+
+def validate_spec(spec: dict) -> None:
+    for key in (
+        "id",
+        "order",
+        "product",
+        "focus",
+        "updated_for",
+        "libs",
+        "tags",
+        "paths",
+        "skill_name",
+        "skill_label",
+        "native_skill_description",
+    ):
+        require(spec, key)
+    if not spec["root"].joinpath("standards.md").is_file():
+        raise SystemExit(f"{spec['id']}: missing standards.md")
+    if not spec["root"].joinpath("skill.md").is_file():
+        raise SystemExit(f"{spec['id']}: missing skill.md")
+    if len(spec["tags"]) > 11:
+        raise SystemExit(f"{spec['id']}: too many tags")
+    if len(spec["native_skill_description"]) > 1024:
+        raise SystemExit(f"{spec['id']}: native skill description is too long")
+    if "Do not use" not in spec["native_skill_description"]:
+        raise SystemExit(f"{spec['id']}: native skill description needs a Do not use clause")
+    globs = ", ".join(spec["paths"])
+    if len(globs) > 200:
+        raise SystemExit(f"{spec['id']}: cursor globs are {len(globs)} characters")
+    if len(spec["skill_name"]) > 64:
+        raise SystemExit(f"{spec['id']}: skill name exceeds 64 characters")
+    for tool in TOOLS:
+        for title, description in (
+            (standards_title(tool, spec), standards_description(tool, spec)),
+            (skill_title(tool, spec), skill_catalog_description(tool, spec)),
+        ):
+            if not 4 <= len(title) <= 120:
+                raise SystemExit(f"{spec['id']} {tool}: title length {len(title)}: {title}")
+            if not 20 <= len(description) <= 400:
+                raise SystemExit(f"{spec['id']} {tool}: description length {len(description)}")
+        tested = [TESTED[tool]]
+        if spec.get("fixture"):
+            tested.append(FIXTURE)
+        for item in tested:
+            if not 2 <= len(item) <= 80:
+                raise SystemExit(f"{spec['id']} {tool}: tested_with length {len(item)}")
+        if len(rule_frontmatter_description(spec)) > 500:
+            raise SystemExit(f"{spec['id']}: native rule description is too long")
+
+
+def entries_for(spec: dict) -> list[dict]:
+    paths = catalog_paths(spec)
+    exports = native_exports(spec)
+    built: list[dict] = []
+    for tool in TOOLS:
+        tested = [TESTED[tool]]
+        if spec.get("fixture"):
+            tested.append(FIXTURE)
+        built.append(
+            {
+                "tool": tool,
+                "role": "standards",
+                "type": "instruction" if tool == "copilot" else "rule",
+                "id": f"{tool}-{spec['id']}-rules",
+                "catalog_path": paths["standards"][tool],
+                "title": standards_title(tool, spec),
+                "description": standards_description(tool, spec),
+                "tested_with": tested,
+                "tags": spec["tags"],
+                "exports": exports["standards"][tool],
+                "extra": {"globs": ", ".join(spec["paths"]), "alwaysApply": False} if tool == "cursor" else {},
+            }
+        )
+        skill_tags = list(spec["tags"])
+        kind = spec.get("skill_tag")
+        if kind and kind not in skill_tags and len(skill_tags) < 12:
+            skill_tags.append(kind)
+        built.append(
+            {
+                "tool": tool,
+                "role": "skill",
+                "type": "skill",
+                "id": f"{tool}-{spec['skill_name']}",
+                "catalog_path": paths["skill"][tool],
+                "title": skill_title(tool, spec),
+                "description": skill_catalog_description(tool, spec),
+                "tested_with": tested,
+                "tags": skill_tags,
+                "exports": exports["skill"][tool],
+                "extra": {},
+            }
+        )
+    return built
+
+
+def render_entry(spec: dict, item: dict) -> str:
+    standards = (spec["root"] / "standards.md").read_text(encoding="utf-8")
+    skill = (spec["root"] / "skill.md").read_text(encoding="utf-8")
+    body = standards if item["role"] == "standards" else skill
     title = item["title"]
-    description = item["description"]
-    if not 4 <= len(title) <= 120:
-        raise SystemExit(f"{item['id']}: title length {len(title)}")
-    if not 20 <= len(description) <= 400:
-        raise SystemExit(f"{item['id']}: description length {len(description)}")
-    for tested in item["tested_with"]:
-        if not 2 <= len(tested) <= 80:
-            raise SystemExit(f"{item['id']}: tested_with length {len(tested)}")
-    if len(CURSOR_GLOBS) > 200:
-        raise SystemExit("cursor globs exceed 200 characters")
-    if len(SKILL_DESCRIPTION) > 1024:
-        raise SystemExit("skill description exceeds 1024 characters")
-    if item["role"] == "skill" and not item["catalog_path"].endswith("/SKILL.md"):
-        raise SystemExit(f"{item['id']}: skill path must end in SKILL.md")
-    for exported in item["exports"]:
-        kind = exported["format"]
-        if kind not in FORMAT_KEYS:
-            raise SystemExit(f"unknown format {kind}")
-        keys = list(exported.get("frontmatter", {}))
-        if keys != [key for key in NATIVE_ORDER[kind] if key in exported.get("frontmatter", {})]:
-            raise SystemExit(f"{exported['path']}: frontmatter key order {keys}")
-        if set(keys) != set(FORMAT_KEYS[kind]):
-            raise SystemExit(f"{exported['path']}: frontmatter keys {keys}")
+    native = join_sections([f"# {title}", host_line(item["tool"], spec, item["role"]), body])
+    preamble = join_sections(
+        [
+            f"# {title}",
+            install_section(item["tool"], spec, item["role"]),
+        ]
+    )
+    catalog = emit_frontmatter(
+        {
+            "id": item["id"],
+            "slug": catalog_slug(item["catalog_path"]),
+            "title": title,
+            "description": item["description"],
+            "type": item["type"],
+            "tools": [item["tool"]],
+            "stack": spec["id"],
+            "tags": item["tags"],
+            "author": AUTHOR,
+            "license": "MIT",
+            "origin": "original",
+            "version": "1.0.0",
+            "tested_with": item["tested_with"],
+            "created": CREATED,
+            "updated": CREATED,
+            "libs": spec["libs"],
+            "updated_for": spec["updated_for"],
+            **item["extra"],
+        },
+        CATALOG_FRONT_ORDER,
+    )
+    catalog += "\n" + join_sections([preamble, MARKER, native])
+    return catalog, native
 
 
-def manifest_document(entries: list[dict]) -> dict:
+def mapping_markdown(rows: list[tuple[dict, dict]]) -> str:
+    lines = [
+        "# Native install map",
+        "",
+        "Generated from `masters/*/stack.json`. Install the native file, not the catalog source.",
+        "Catalog frontmatter is presets.dev metadata.",
+        "",
+        "Windsurf ships the same text to `.devin/` (current Devin) and `.windsurf/` (legacy Cascade).",
+        "Codex and Gemini CLI standards are sections to append. Do not replace `AGENTS.md` or `GEMINI.md`.",
+        "Install one skill per checkout. Shared `.agents/skills` names collide across Cursor, Codex, and Gemini CLI.",
+        "",
+        "| Stack | Tool | Role | Catalog | Install |",
+        "| --- | --- | --- | --- | --- |",
+    ]
+    for spec, item in rows:
+        for exported in item["exports"]:
+            lines.append(
+                f"| {spec['id']} | {item['tool']} | {item['role']} | `{item['catalog_path']}` | `{exported['path']}` |"
+            )
+    lines.append("")
+    return "\n".join(lines)
+
+
+def stacks_document(groups: list[tuple[dict, list[dict]]]) -> dict:
     return {
         "release": "original-2026-11",
-        "tools": ["cursor", "copilot", "claude", "windsurf", "cline", "codex", "gemini-cli"],
+        "tools": list(TOOLS),
         "note": (
-            "Complete stacks must contain one standards file and one SKILL.md "
-            "for every tool in tools. Support files and native exports are not catalog entries. "
-            "gemini-cli is Gemini CLI, not antigravity."
+            "Each complete stack has one standards file and one SKILL.md for every tool. "
+            "Support files and native exports are not catalog entries. "
+            "gemini-cli is Gemini CLI, not antigravity. "
+            "The index is stacks.json because manifest.json is gitignored."
         ),
         "stacks": [
             {
-                "id": STACK,
+                "id": spec["id"],
                 "status": "complete",
                 "entries": [
                     {
@@ -511,104 +662,131 @@ def manifest_document(entries: list[dict]) -> dict:
                         "type": item["type"],
                         "exports": [exported["path"] for exported in item["exports"]],
                     }
-                    for item in entries
+                    for item in items
                 ],
             }
+            for spec, items in groups
         ],
     }
 
 
-def mapping_markdown(entries: list[dict]) -> str:
-    lines = [
-        "# Next.js native install map",
-        "",
-        "These files are generated from `masters/nextjs`. Install the native file, not the catalog source.",
-        "Catalog frontmatter is presets.dev metadata and is not valid product frontmatter.",
-        "",
-        "Windsurf ships two copies of the same text: `.devin/` for current Devin CLI and `.windsurf/` for legacy Cascade.",
-        "Codex and Gemini CLI standards are sections to append. Do not overwrite an existing `AGENTS.md` or `GEMINI.md`.",
-        "Install one tool's skill. Do not place every tool's copy in `.agents/skills` under the same name.",
-        "",
-        "| Tool | Role | Catalog source | Install file |",
-        "| --- | --- | --- | --- |",
-    ]
-    for item in entries:
-        for exported in item["exports"]:
-            lines.append(
-                f"| {item['tool']} | {item['role']} | `{item['catalog_path']}` | `{exported['path']}` |"
-            )
-    lines.append("")
-    return "\n".join(lines)
-
-
 def build() -> dict[str, str]:
-    sources = read("masters/nextjs/sources.md")
     files: dict[str, str] = {}
-    for item in ENTRIES:
-        validate_entry(item)
-        native_body = join_sections([read(item["host"]), read(item["body"])])
-        catalog = emit_frontmatter(
-            {
-                "id": item["id"],
-                "slug": catalog_slug(item["catalog_path"]),
-                "title": item["title"],
-                "description": item["description"],
-                "type": item["type"],
-                "tools": [item["tool"]],
-                "stack": STACK,
-                "tags": item["tags"],
-                "author": AUTHOR,
-                "license": "MIT",
-                "origin": "original",
-                "version": "1.0.0",
-                "tested_with": item["tested_with"],
-                "created": CREATED,
-                "updated": CREATED,
-                "libs": LIBS,
-                "updated_for": UPDATED_FOR,
-                **item["extra"],
-            },
-            CATALOG_FRONT_ORDER,
-        )
-        catalog += "\n" + join_sections([read(item["preamble"]), sources, MARKER, native_body])
-        files[item["catalog_path"]] = catalog
-        for exported in item["exports"]:
-            kind = exported["format"]
-            if kind == "plain":
-                body = join_sections([exported["banner"], native_body])
-            else:
-                body = emit_frontmatter(exported["frontmatter"], NATIVE_ORDER[kind])
-                body += "\n" + native_body
-            if kind == "windsurf-rule" and len(body) > 12000:
-                raise SystemExit(f"{exported['path']}: {len(body)} characters exceeds the 12000 Cascade rule limit")
-            files[exported["path"]] = body
-    document = manifest_document(ENTRIES)
-    # Not manifest.json: the repo gitignore ignores that name everywhere.
-    files["release/original-2026-11/stacks.json"] = json.dumps(document, indent=2) + "\n"
-    files["release/nextjs/native/README.md"] = mapping_markdown(ENTRIES)
+    groups: list[tuple[dict, list[dict]]] = []
+    rows: list[tuple[dict, dict]] = []
+    seen_ids: set[str] = set()
+    seen_skills: set[str] = set()
+    for spec in load_stacks():
+        validate_spec(spec)
+        if spec["id"] in seen_ids:
+            raise SystemExit(f"duplicate stack {spec['id']}")
+        if spec["skill_name"] in seen_skills:
+            raise SystemExit(f"duplicate skill name {spec['skill_name']}")
+        seen_ids.add(spec["id"])
+        seen_skills.add(spec["skill_name"])
+        items = entries_for(spec)
+        groups.append((spec, items))
+        for item in items:
+            catalog, native = render_entry(spec, item)
+            files[item["catalog_path"]] = catalog
+            for exported in item["exports"]:
+                kind = exported["format"]
+                keys = list(exported.get("frontmatter", {}))
+                if set(keys) != set(FORMAT_KEYS[kind]):
+                    raise SystemExit(f"{exported['path']}: frontmatter keys {keys}")
+                if kind == "plain":
+                    body = join_sections([exported["banner"], native_body_from_catalog(catalog)])
+                else:
+                    body = emit_frontmatter(exported["frontmatter"], NATIVE_ORDER[kind])
+                    body += "\n" + native_body_from_catalog(catalog)
+                if kind == "windsurf-rule" and len(body) > 12000:
+                    raise SystemExit(
+                        f"{exported['path']}: {len(body)} characters exceeds the 12000 Cascade rule limit"
+                    )
+                files[exported["path"]] = body
+            rows.append((spec, item))
+    files["release/original-2026-11/stacks.json"] = json.dumps(stacks_document(groups), indent=2) + "\n"
+    files["release/README.md"] = mapping_markdown(rows)
     return files
+
+
+def native_body_from_catalog(catalog: str) -> str:
+    marker = f"{MARKER}\n\n"
+    index = catalog.find(marker)
+    if index == -1:
+        raise SystemExit("catalog file is missing the native marker")
+    return catalog[index + len(marker) :]
+
+
+def managed_orphans(expected: set[str]) -> list[str]:
+    orphans: list[str] = []
+    release = ROOT / "release"
+    if release.is_dir():
+        for path in release.rglob("*"):
+            if path.is_file():
+                rel = path.relative_to(ROOT).as_posix()
+                if rel not in expected:
+                    orphans.append(rel)
+    for tool in TOOLS:
+        base = ROOT / tool
+        if not base.is_dir():
+            continue
+        for path in base.rglob("*"):
+            if not path.is_file():
+                continue
+            if path.suffix.lower() not in {".md", ".mdc"}:
+                continue
+            rel = path.relative_to(ROOT).as_posix()
+            if rel in expected:
+                continue
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            if MARKER in text:
+                orphans.append(rel)
+    return sorted(set(orphans))
+
+
+def remove_empty_dirs(start: Path) -> None:
+    if not start.is_dir():
+        return
+    for path in sorted(start.rglob("*"), reverse=True):
+        if path.is_dir():
+            try:
+                path.rmdir()
+            except OSError:
+                pass
 
 
 def main() -> int:
     check = "--check" in sys.argv
     files = build()
+    expected = set(files)
     mismatches: list[str] = []
-    for rel, text in files.items():
-        path = ROOT / rel
-        if check:
+    orphans = managed_orphans(expected)
+    if check:
+        for rel, text in files.items():
+            path = ROOT / rel
             current = path.read_text(encoding="utf-8") if path.is_file() else None
             if current != text:
                 mismatches.append(rel)
-            continue
+        if mismatches or orphans:
+            print("release files drifted:")
+            print("\n".join(mismatches + [f"orphan {rel}" for rel in orphans]))
+            print("run: python scripts/assemble_release.py")
+            return 1
+        print(f"release matches: {len(files)} file(s), {len(files) - 2} generated content file(s)")
+        return 0
+    for rel, text in files.items():
+        path = ROOT / rel
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
-    if mismatches:
-        print("release files drifted:")
-        print("\n".join(mismatches))
-        print("run: python scripts/assemble_release.py")
-        return 1
-    action = "matches" if check else "wrote"
-    print(f"release {action}: {len(files)} file(s), {len(ENTRIES)} catalog entries")
+    for rel in orphans:
+        path = ROOT / rel
+        if path.is_file():
+            path.unlink()
+    remove_empty_dirs(ROOT / "release")
+    for tool in TOOLS:
+        remove_empty_dirs(ROOT / tool)
+    print(f"release wrote: {len(files)} file(s); removed {len(orphans)} orphan(s)")
     return 0
 
 

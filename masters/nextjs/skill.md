@@ -1,49 +1,27 @@
 ## When to run
 
-Run this audit when the request is about Next.js Server Actions, `'use cache'`, cache tags, tenant isolation, or the November 2026 Next.js cache advisories. Phrases that count: "audit the server actions", "check tenant cache keys", "review use cache", "are cached notes leaking across tenants".
+Run this review for a Next.js change: a pull request, a feature, or a request to "review the app", "check this route", or "look at the server actions". Cover structure, data, auth, and tests. Caching is one part of the review, not the whole job.
 
-## When to stop without a report
+## When to leave it
 
-Do not run the audit for a CSS change, a new static page with no server data, a Playwright authoring task, a React-only upgrade, or a repository that is not Next.js. Say which of those you noticed and wait.
-
-## What you may change
-
-Read the repository. Do not edit it unless the request also asks for a fix. Do not install packages, deploy, print secrets, or flush a remote cache.
+Stop for a CSS-only tweak, a repository that does not depend on `next`, or a request that names a different framework. Say what you found and wait. Do not upgrade `next` across a major version unless the request asked.
 
 ## Steps
 
-1. Confirm `next` is a direct dependency. If it is not, stop with "not a Next.js app" and name the manifest you read.
-2. Read the installed version from the manifest and the lockfile. Apply the floor below. A 16.x version below 16.4.5, or a 15.5 version below 15.5.29, is a high finding named `below-security-floor`. Continue the audit so application-level key bugs are still listed. Do not bump the dependency unless the request asked for an upgrade. A version above 16.4.6, or a 15.5 version above 15.5.29, is `above-reviewed`: the known floor is met, and this skill was not re-checked against that build. A different 15 minor or a 14.x app is `version-not-covered`. An unreadable version is `unparsed`. Do not describe those three results as patched.
-3. Read `next.config.ts`, `next.config.mjs`, or `next.config.js`. Record `cacheComponents` and `partialPrefetching`. If Cache Components are off, skip the `'use cache'` checks and say so. Still review Server Actions.
-4. Search for `"use server"`, `'use cache'`, `unstable_cache`, `cacheTag`, `updateTag`, `revalidateTag`, `cookies(`, `headers(`, `NextResponse.cookies.set`, and `dangerouslyAllowSVG`.
-5. Review every Server Action that writes. The session check has to happen before the write. The tenant id and the user id have to come from the session. The remaining input has to be checked, with a length cap on free text. A client field named `tenantId`, `userId`, or `role` that is stored is a high finding.
-6. Review every `'use cache'` function when Cache Components are on. Tenant-scoped rows need a tag and a key that include the tenant id. A root param used for that split is read inside the cached function, from `next/root-params`, and the getter name matches the root segment. `cookies()`, `headers()`, and `searchParams` inside the cached call stack are a high finding. `Buffer` or `Uint8Array` arguments used to identify a person are a high finding. The same function also passed through `unstable_cache` is a high finding. A nested cached function that returns a pending promise beside a finished value, while reading a root param, is a high finding. A per-user payload stored under `'use cache'` is a high finding.
-7. Look for `revalidateTag` called with one argument. On 16.4 the call takes a tag and a profile such as `'max'`. `updateTag` belongs in a Server Action, after the write, and the tag should name the tenant when the data does.
-8. Ask, or infer from the config and README, whether production is `next start` on a host the project runs itself. Report `shared-fallback-shell` only when `cacheComponents` is true, `partialPrefetching` is not true, and the app is self-hosted. If the host is unknown, say unknown. Do not upgrade that to a confirmed hit.
-9. If an Edge handler sets a sensitive cookie with `NextResponse.cookies.set()`, report `edge-cookie-header`. If `images.dangerouslyAllowSVG` is true, report `svg-optimization-enabled`. If a route returns a fetched `Response` object unchanged, report `forwarded-response`.
-10. Run the adverse check. A tag of `notes` on rows that contain a tenant id is a finding even when the query's `where` clause looks right. A marketing page cached with no tenant data and no user data is not a finding.
-11. Run the non-trigger check. If the user asked for a color change or a new empty page, you should have stopped at the top of this skill. If you produced cache findings for that request, discard them.
+1. Read the installed `next` version and the config. On 16.x, 16.4.5 is the security floor and 16.4.6 is the patch this review was written against. On 15.5, the floor is 15.5.29. A version below the floor is a high finding. A version above 16.4.6 is `above-reviewed`. An unreadable version is `unparsed`. Keep going so application bugs are still listed.
+2. Map the change. Note App Router versus Pages Router, and which files are Server Components, client components, actions, and route handlers. A `"use client"` file that only displays server data is a finding. A client file that imports server-only modules is a finding.
+3. Review each write. The session check happens first. The user id and tenant id come from the session. The other fields are validated, with a length cap on free text. A client-supplied role or tenant that is stored is a high finding.
+4. Review data loading. Independent reads should not be forced into a waterfall. A `'use cache'` function sets a lifetime and, for tenant data, a tag that includes the tenant. `cookies()`, `headers()`, or `searchParams` inside that cache are a high finding. The same function also passed through `unstable_cache` is a high finding. Binary arguments used as a user id are a high finding. Cache Components that are off mean you skip this step and say so.
+5. Review failures. Missing records use the not-found path. Unexpected failures are caught by a segment error boundary. Action results that the UI already understands stay small. Internal errors are not sent to the browser.
+6. Review the security edges that show up in the diff: Edge cookie writes, `images.dangerouslyAllowSVG`, and a fetched `Response` returned unchanged from a self-hosted route.
+7. Look at tests. A behavior change without a signed-out case, a bad payload, or a tenant-scoped read is a finding when the repo has a test runner. Run that runner only if the user asked you to change code or to execute checks. Record the command and the output. If you did not run it, write `not run`.
 
 ## Output
 
-Return findings first. Each finding has a severity of high, medium, or low, a file path, a line number, a short evidence quote, the failure, and a proposed fix. Then add a coverage block: the `next` version, the config flags, the search terms, the files you opened, and the commands you ran. If you ran no command, write `not run`. End with `no file edits` unless the user asked for fixes, in which case list the edits.
+List findings first. Each one has a severity (`high`, `medium`, or `low`), a file, a line, a short quote, why it fails, and a fix. Then add the version, the config flags you saw, the searches you ran, and `no file edits` unless the user asked for fixes.
 
-When nothing matched, say "No findings" and list the searches you actually performed. A skipped search is not a clean result.
+A clean review says "No findings" and lists the files you opened. A search you skipped is not a clean result.
 
-## Floor used by the decision table
+## Stop
 
-| Installed line | Result |
-| --- | --- |
-| 16.4.5 or 16.4.6 | `patched` |
-| 16.x below 16.4.5 | `below-security-floor` |
-| 16.x above 16.4.6 | `above-reviewed` |
-| 15.5.29 | `patched` |
-| 15.5 below 15.5.29 | `below-security-floor` |
-| 15.5 above 15.5.29 | `above-reviewed` |
-| Any other or unreadable version | `version-not-covered` or `unparsed` |
-
-The fixture at `fixtures/nextjs/tenant-cache/policy.test.mjs` encodes this table and the action and cache gates. Running it checks the preset. It says nothing about the repository under review. Do not cite a passing fixture as evidence that the user's app is safe.
-
-## Stop conditions
-
-Stop when there is no manifest, when the user asks for a deploy, a secret, or a production cache flush, or when the checkout is not Next.js. Name the missing fact and wait.
+Stop when there is no manifest, when the checkout is not Next.js, or when the user asks for a deploy, a secret, or a production cache flush.
