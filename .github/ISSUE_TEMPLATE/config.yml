@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Contributing guide
+    url: https://github.com/beel-collab/presets.dev/blob/main/CONTRIBUTING.md
+    about: Originality rule, frontmatter schema, and preset starters

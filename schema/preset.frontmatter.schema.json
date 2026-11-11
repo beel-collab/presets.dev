@@ -1,0 +1,161 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://presets.dev/schema/preset.frontmatter.schema.json",
+  "title": "presets.dev preset frontmatter",
+  "description": "Required metadata for a new or edited preset. license is MIT and origin is original.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "slug",
+    "title",
+    "description",
+    "type",
+    "tools",
+    "tags",
+    "author",
+    "license",
+    "origin",
+    "version",
+    "tested_with",
+    "created",
+    "updated"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 80,
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Stable kebab-case id. Unique across the repository."
+    },
+    "slug": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 200,
+      "pattern": "^(?:[a-z0-9]+(?:-[a-z0-9]+)*)(?:/(?:[a-z0-9]+(?:[-.][a-z0-9]+)*|SKILL|AGENTS|CLAUDE))*$",
+      "description": "Repository path with the final .md or .mdc removed. Must match the file path."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 120
+    },
+    "description": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 400
+    },
+    "type": {
+      "type": "string",
+      "enum": ["rule", "instruction", "agent", "skill"]
+    },
+    "tools": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 7,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": ["copilot", "cursor", "claude", "windsurf", "cline", "codex", "antigravity"]
+      },
+      "description": "Tools this preset is written for. Include the directory the file lives in."
+    },
+    "tags": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 12,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 40,
+        "pattern": "^[A-Za-z0-9.][A-Za-z0-9 .+#_-]*$"
+      }
+    },
+    "author": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 80,
+      "description": "Person or organization who wrote the preset."
+    },
+    "license": {
+      "const": "MIT"
+    },
+    "origin": {
+      "const": "original"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)$"
+    },
+    "tested_with": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 80
+      },
+      "description": "Tool builds the author actually tried."
+    },
+    "created": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "updated": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "globs": {
+      "description": "Optional Cursor .mdc file patterns.",
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 20,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        }
+      ]
+    },
+    "alwaysApply": {
+      "type": "boolean",
+      "description": "Optional Cursor .mdc flag."
+    },
+    "libs": {
+      "type": "array",
+      "maxItems": 20,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 60
+      }
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "also_for": {
+      "type": "array",
+      "maxItems": 7,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": ["copilot", "cursor", "claude", "windsurf", "cline", "codex", "antigravity"]
+      }
+    }
+  }
+}

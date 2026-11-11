@@ -1,0 +1,27 @@
+- name: preset
+  color: "1D76DB"
+  description: New or updated preset
+- name: rule
+  color: "0E8A16"
+  description: Preset type is rule
+- name: instruction
+  color: "5319E7"
+  description: Preset type is instruction
+- name: agent
+  color: "D93F0B"
+  description: Preset type is agent
+- name: skill
+  color: "FBCA04"
+  description: Preset type is skill
+- name: bug
+  color: "B60205"
+  description: A preset or doc behaves incorrectly
+- name: originality
+  color: "BFD4F2"
+  description: Question about whether content is original
+- name: documentation
+  color: "0075CA"
+  description: Docs, templates, schema, or CI only
+- name: needs-review
+  color: "C5DEF5"
+  description: Maintainer review requested

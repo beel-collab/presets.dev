@@ -1,0 +1,32 @@
+name: Bug
+description: Report a preset or docs problem
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: input
+    id: path
+    attributes:
+      label: Path
+      description: Repository path of the preset or doc.
+      placeholder: cursor/typescript/example.md
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What went wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: input
+    id: tool
+    attributes:
+      label: Tool and version
+      placeholder: Cursor 2.1
+    validations:
+      required: false
