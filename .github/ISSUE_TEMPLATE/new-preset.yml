@@ -1,0 +1,42 @@
+name: New preset
+description: Propose an original preset
+title: "preset: "
+labels: ["preset", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read CONTRIBUTING.md before writing the preset. The text has to be your own.
+  - type: dropdown
+    id: type
+    attributes:
+      label: Preset type
+      options:
+        - rule
+        - instruction
+        - agent
+        - skill
+    validations:
+      required: true
+  - type: input
+    id: tools
+    attributes:
+      label: Tools
+      description: Which products this preset is for.
+      placeholder: cursor
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: What should this preset do?
+      description: A few sentences in your own words.
+    validations:
+      required: true
+  - type: checkboxes
+    id: originality
+    attributes:
+      label: Originality
+      options:
+        - label: I will write this preset myself. I will not copy it from another repository, documentation site, or preset collection.
+          required: true
