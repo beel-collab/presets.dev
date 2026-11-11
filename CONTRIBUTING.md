@@ -336,7 +336,7 @@ GitHub Actions runs [`.github/workflows/ci.yml`](.github/workflows/ci.yml) on pu
 | Length | 40,000 characters for a changed preset or supporting file under a tool directory. `README.md` and `CONTRIBUTING.md` are exempt. |
 | Secret scan | Files added or modified in the pull request. Private keys and common live token shapes fail the check. A line that is clearly an example is ignored. |
 | DCO | Every non-merge commit in the pull request has `Signed-off-by` matching the commit author. |
-| Release counts | Each stack listed as complete in `release/original-2026-11/manifest.json` has 14 catalog entries: one standards file and one `SKILL.md` for each of the seven release tools, including `gemini-cli`. |
+| Release counts | Each stack listed as complete in `release/original-2026-11/stacks.json` has 14 catalog entries: one standards file and one `SKILL.md` for each of the seven release tools, including `gemini-cli`. The index is not named `manifest.json` because that filename is gitignored. |
 | Native export | `scripts/assemble_release.py --check` rebuilds catalog files and native install files from `masters/` and fails on drift. |
 | Similarity | Release prose is compared with the copied catalog. A long shared run, or a very high shingle overlap, fails the check. |
 | Next.js fixture | `node --test fixtures/nextjs/tenant-cache/policy.test.mjs` runs the decision table used by the Next.js audit skill. |

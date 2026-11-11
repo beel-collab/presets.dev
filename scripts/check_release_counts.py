@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Verify original-release catalog counts and native install files.
 
-A stack marked complete in release/original-2026-11/manifest.json must contain
+A stack marked complete in release/original-2026-11/stacks.json must contain
 exactly one standards file and one SKILL.md for each release tool. The full
 420 count applies when all 30 stacks are marked complete. This checkpoint
 enforces the same per-stack contract for every stack that is complete.
@@ -19,7 +19,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from lint_presets import ROOT, load_schema, parse_frontmatter, validate_data
 
-MANIFEST = ROOT / "release" / "original-2026-11" / "manifest.json"
+MANIFEST = ROOT / "release" / "original-2026-11" / "stacks.json"
 RELEASE_TOOLS = ("cursor", "copilot", "claude", "windsurf", "cline", "codex", "gemini-cli")
 ALLOWED_NATIVE = {
     "cursor-rule": {"description", "globs", "alwaysApply"},

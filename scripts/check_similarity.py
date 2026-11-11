@@ -20,7 +20,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from lint_presets import ROOT, catalog_files
 
-MANIFEST = ROOT / "release" / "original-2026-11" / "manifest.json"
+MANIFEST = ROOT / "release" / "original-2026-11" / "stacks.json"
 FENCE = re.compile(r"```.*?```", re.DOTALL)
 FRONT = re.compile(r"^---\n.*?\n---\n", re.DOTALL)
 WORD = re.compile(r"[A-Za-z0-9']+")

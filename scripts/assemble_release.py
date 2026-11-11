@@ -583,7 +583,8 @@ def build() -> dict[str, str]:
                 raise SystemExit(f"{exported['path']}: {len(body)} characters exceeds the 12000 Cascade rule limit")
             files[exported["path"]] = body
     document = manifest_document(ENTRIES)
-    files["release/original-2026-11/manifest.json"] = json.dumps(document, indent=2) + "\n"
+    # Not manifest.json: the repo gitignore ignores that name everywhere.
+    files["release/original-2026-11/stacks.json"] = json.dumps(document, indent=2) + "\n"
     files["release/nextjs/native/README.md"] = mapping_markdown(ENTRIES)
     return files
 
