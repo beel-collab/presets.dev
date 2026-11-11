@@ -68,7 +68,7 @@ New presets, and any preset a pull request edits, start with YAML frontmatter th
 | `type` | `rule`, `instruction`, `agent`, or `skill`. |
 | `tools` | One or more of `copilot`, `cursor`, `claude`, `windsurf`, `cline`, `codex`, `antigravity`. Include the directory the file lives in. |
 | `tags` | One to twelve short tags. |
-| `author` | The person or organization who wrote the preset. `Community` is rejected. |
+| `author` | Object. `name` is required and is the person or organization who wrote the preset (`Community` is rejected). `github` is optional: a GitHub username, or `https://github.com/<username>`. The site indexer reads `author.name`. |
 | `license` | `MIT` |
 | `origin` | `original` |
 | `version` | Semver, such as `1.0.0`. |
@@ -117,7 +117,9 @@ tools:
   - cursor
 tags:
   - starter
-author: Your Name
+author:
+  name: Your Name
+  github: your-name
 license: MIT
 origin: original
 version: 1.0.0
@@ -164,7 +166,9 @@ tools:
   - copilot
 tags:
   - starter
-author: Your Name
+author:
+  name: Your Name
+  github: your-name
 license: MIT
 origin: original
 version: 1.0.0
@@ -214,7 +218,9 @@ tools:
   - claude
 tags:
   - starter
-author: Your Name
+author:
+  name: Your Name
+  github: your-name
 license: MIT
 origin: original
 version: 1.0.0
@@ -271,7 +277,9 @@ tools:
   - cursor
 tags:
   - starter
-author: Your Name
+author:
+  name: Your Name
+  github: your-name
 license: MIT
 origin: original
 version: 1.0.0

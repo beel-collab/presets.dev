@@ -8,7 +8,9 @@ tools:
   - copilot
 tags:
   - starter
-author: Your Name
+author:
+  name: Your Name
+  github: your-name
 license: MIT
 origin: original
 version: 1.0.0

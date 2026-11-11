@@ -145,9 +145,14 @@ def validate_data(rel: str, data: dict, schema: dict, *, require_tool_dir: bool)
     top = rel.split("/", 1)[0]
     if require_tool_dir and top in TOOLS and top not in data["tools"]:
         errors.append(f"{rel}: tools must include {top!r}")
-    author = data["author"].strip()
-    if author.casefold() == "community":
-        errors.append(f"{rel}: author must name the person or organization who wrote the preset")
+    author = data.get("author")
+    name = ""
+    if isinstance(author, dict) and isinstance(author.get("name"), str):
+        name = author["name"].strip()
+    if isinstance(author, dict) and (not name or name.casefold() == "community"):
+        errors.append(
+            f"{rel}: author.name must name the person or organization who wrote the preset"
+        )
     for key in ("created", "updated"):
         try:
             dt.datetime.strptime(data[key], "%Y-%m-%d")
@@ -307,15 +312,32 @@ def self_test(schema: dict) -> list[str]:
     assert expected_slug("templates/skill/SKILL.md") == "templates/skill/SKILL"
     assert expected_slug("cursor/react/rules.mdc") == "cursor/react/rules"
     assert expected_slug("copilot/go/go.instructions.md") == "copilot/go/go.instructions"
+    starter: dict | None = None
+    starter_path = TEMPLATE_FILES[0]
     for rel in TEMPLATE_FILES:
         data, parse_errors = parse_frontmatter(rel)
         errors.extend(parse_errors)
-        if data is not None:
-            errors.extend(validate_data(rel, data, schema, require_tool_dir=False))
-            broken = dict(data)
-            broken["origin"] = "copied"
-            if not validate_data(rel, broken, schema, require_tool_dir=False):
-                errors.append(f"self-test: {rel} accepted origin other than original")
+        if data is None:
+            continue
+        if rel == starter_path:
+            starter = data
+        errors.extend(validate_data(rel, data, schema, require_tool_dir=False))
+        broken = dict(data)
+        broken["origin"] = "copied"
+        if not validate_data(rel, broken, schema, require_tool_dir=False):
+            errors.append(f"self-test: {rel} accepted origin other than original")
+    if starter is not None:
+        cases = {
+            "string author was accepted": {"author": "Your Name"},
+            "Community author was accepted": {"author": {"name": "Community", "github": "octocat"}},
+            "author without name was accepted": {"author": {"github": "octocat"}},
+            "invalid github username was accepted": {"author": {"name": "Your Name", "github": "not a user"}},
+        }
+        for message, override in cases.items():
+            candidate = dict(starter)
+            candidate.update(override)
+            if not validate_data(starter_path, candidate, schema, require_tool_dir=False):
+                errors.append(f"self-test: {message}")
     sample = "\n".join(["# Title", "", "A paragraph.", ""])
     if lint_markdown("sample.md", sample):
         errors.append("self-test: clean markdown was rejected")

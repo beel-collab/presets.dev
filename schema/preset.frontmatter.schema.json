@@ -74,10 +74,23 @@
       }
     },
     "author": {
-      "type": "string",
-      "minLength": 2,
-      "maxLength": 80,
-      "description": "Person or organization who wrote the preset."
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "description": "Who wrote the preset. The site indexer reads name.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80,
+          "description": "Person or organization who wrote the preset."
+        },
+        "github": {
+          "type": "string",
+          "description": "GitHub username, or a https://github.com/<username> profile URL.",
+          "pattern": "^(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?|https://github\\.com/[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?/?)$"
+        }
+      }
     },
     "license": {
       "const": "MIT"
