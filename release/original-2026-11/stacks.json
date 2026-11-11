@@ -34,7 +34,7 @@
           ]
         },
         {
-          "catalog": "copilot/nextjs/nextjs.instructions.md",
+          "catalog": "copilot/nextjs/nextjs-rules.instructions.md",
           "tool": "copilot",
           "role": "standards",
           "type": "instruction",

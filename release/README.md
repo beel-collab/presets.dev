@@ -11,7 +11,7 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | --- | --- | --- | --- | --- |
 | nextjs | cursor | standards | `cursor/nextjs/nextjs-rules.mdc` | `release/nextjs/native/cursor/.cursor/rules/nextjs-rules.mdc` |
 | nextjs | cursor | skill | `cursor/nextjs/nextjs-code-review/SKILL.md` | `release/nextjs/native/cursor/.cursor/skills/nextjs-code-review/SKILL.md` |
-| nextjs | copilot | standards | `copilot/nextjs/nextjs.instructions.md` | `release/nextjs/native/copilot/.github/instructions/nextjs.instructions.md` |
+| nextjs | copilot | standards | `copilot/nextjs/nextjs-rules.instructions.md` | `release/nextjs/native/copilot/.github/instructions/nextjs.instructions.md` |
 | nextjs | copilot | skill | `copilot/nextjs/nextjs-code-review/SKILL.md` | `release/nextjs/native/copilot/.github/skills/nextjs-code-review/SKILL.md` |
 | nextjs | claude | standards | `claude/nextjs/nextjs-rules.md` | `release/nextjs/native/claude/.claude/rules/nextjs-rules.md` |
 | nextjs | claude | skill | `claude/skills/nextjs/nextjs-code-review/SKILL.md` | `release/nextjs/native/claude/.claude/skills/nextjs-code-review/SKILL.md` |

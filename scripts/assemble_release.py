@@ -326,7 +326,7 @@ def catalog_paths(spec: dict) -> dict[str, dict[str, str]]:
     return {
         "standards": {
             "cursor": f"cursor/{stack}/{stack}-rules.mdc",
-            "copilot": f"copilot/{stack}/{stack}.instructions.md",
+            "copilot": f"copilot/{stack}/{stack}-rules.instructions.md",
             "claude": f"claude/{stack}/{stack}-rules.md",
             "windsurf": f"windsurf/{stack}/{stack}-rules.md",
             "cline": f"cline/{stack}/{stack}-rules.md",
