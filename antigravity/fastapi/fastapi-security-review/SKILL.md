@@ -31,15 +31,15 @@ updated_for: "FastAPI 0.162.5, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/fastapi-security-review/SKILL.md`.
+Install the native export at `.agents/skills/fastapi-security-review/SKILL.md` (one file shared with Codex).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# FastAPI Security Review Skill for Antigravity CLI
+# FastAPI Security Review
 
-Antigravity CLI skill `fastapi-security-review` for FastAPI. The workspace path is `.agents/skills/fastapi-security-review/SKILL.md`. Reload skills before you expect the new command.
+Shared skill `fastapi-security-review` for FastAPI. Codex and Antigravity CLI both read `.agents/skills/fastapi-security-review/SKILL.md`. Install this one file. Codex calls it with `$fastapi-security-review` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

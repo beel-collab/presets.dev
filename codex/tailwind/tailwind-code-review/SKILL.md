@@ -31,15 +31,15 @@ updated_for: "Tailwind CSS 4.3.5, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/tailwind-code-review/SKILL.md`.
+Install the native export at `.agents/skills/tailwind-code-review/SKILL.md` (one file shared with Antigravity CLI).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# Tailwind CSS Code Review Skill for Codex
+# Tailwind CSS Code Review
 
-Codex skill `tailwind-code-review` for Tailwind CSS. Call it with `$tailwind-code-review` or `/skills`. Do not install the other tools' copies beside it.
+Shared skill `tailwind-code-review` for Tailwind CSS. Codex and Antigravity CLI both read `.agents/skills/tailwind-code-review/SKILL.md`. Install this one file. Codex calls it with `$tailwind-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

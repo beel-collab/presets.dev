@@ -30,15 +30,15 @@ updated_for: "Playwright 1.65.0, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/playwright-test-writer/SKILL.md`.
+Install the native export at `.agents/skills/playwright-test-writer/SKILL.md` (one file shared with Codex).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# Playwright Test Writer Skill for Antigravity CLI
+# Playwright Test Writer
 
-Antigravity CLI skill `playwright-test-writer` for Playwright. The workspace path is `.agents/skills/playwright-test-writer/SKILL.md`. Reload skills before you expect the new command.
+Shared skill `playwright-test-writer` for Playwright. Codex and Antigravity CLI both read `.agents/skills/playwright-test-writer/SKILL.md`. Install this one file. Codex calls it with `$playwright-test-writer` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

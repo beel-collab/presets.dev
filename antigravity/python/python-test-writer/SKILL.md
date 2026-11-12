@@ -33,15 +33,15 @@ updated_for: "uv 0.13.7 and Ruff 0.17.4, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/python-test-writer/SKILL.md`.
+Install the native export at `.agents/skills/python-test-writer/SKILL.md` (one file shared with Codex).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# Python Test Writer Skill for Antigravity CLI
+# Python Test Writer
 
-Antigravity CLI skill `python-test-writer` for Python. The workspace path is `.agents/skills/python-test-writer/SKILL.md`. Reload skills before you expect the new command.
+Shared skill `python-test-writer` for Python. Codex and Antigravity CLI both read `.agents/skills/python-test-writer/SKILL.md`. Install this one file. Codex calls it with `$python-test-writer` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

@@ -31,15 +31,15 @@ updated_for: "Flutter 3.50, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/flutter-test-writer/SKILL.md`.
+Install the native export at `.agents/skills/flutter-test-writer/SKILL.md` (one file shared with Antigravity CLI).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# Flutter Test Writer Skill for Codex
+# Flutter Test Writer
 
-Codex skill `flutter-test-writer` for Flutter. Call it with `$flutter-test-writer` or `/skills`. Do not install the other tools' copies beside it.
+Shared skill `flutter-test-writer` for Flutter. Codex and Antigravity CLI both read `.agents/skills/flutter-test-writer/SKILL.md`. Install this one file. Codex calls it with `$flutter-test-writer` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

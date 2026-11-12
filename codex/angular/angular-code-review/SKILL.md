@@ -31,15 +31,15 @@ updated_for: "Angular 22.2.6, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/angular-code-review/SKILL.md`.
+Install the native export at `.agents/skills/angular-code-review/SKILL.md` (one file shared with Antigravity CLI).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# Angular Code Review Skill for Codex
+# Angular Code Review
 
-Codex skill `angular-code-review` for Angular. Call it with `$angular-code-review` or `/skills`. Do not install the other tools' copies beside it.
+Shared skill `angular-code-review` for Angular. Codex and Antigravity CLI both read `.agents/skills/angular-code-review/SKILL.md`. Install this one file. Codex calls it with `$angular-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

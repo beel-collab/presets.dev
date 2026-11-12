@@ -31,15 +31,15 @@ updated_for: "Django 6.1.3, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/django-security-review/SKILL.md`.
+Install the native export at `.agents/skills/django-security-review/SKILL.md` (one file shared with Antigravity CLI).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# Django Security Review Skill for Codex
+# Django Security Review
 
-Codex skill `django-security-review` for Django. Call it with `$django-security-review` or `/skills`. Do not install the other tools' copies beside it.
+Shared skill `django-security-review` for Django. Codex and Antigravity CLI both read `.agents/skills/django-security-review/SKILL.md`. Install this one file. Codex calls it with `$django-security-review` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

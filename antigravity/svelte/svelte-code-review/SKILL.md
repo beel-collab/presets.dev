@@ -32,15 +32,15 @@ updated_for: "Svelte 5.57.3 and SvelteKit 3.2.0, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/svelte-code-review/SKILL.md`.
+Install the native export at `.agents/skills/svelte-code-review/SKILL.md` (one file shared with Codex).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# Svelte Code Review Skill for Antigravity CLI
+# Svelte Code Review
 
-Antigravity CLI skill `svelte-code-review` for Svelte. The workspace path is `.agents/skills/svelte-code-review/SKILL.md`. Reload skills before you expect the new command.
+Shared skill `svelte-code-review` for Svelte. Codex and Antigravity CLI both read `.agents/skills/svelte-code-review/SKILL.md`. Install this one file. Codex calls it with `$svelte-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

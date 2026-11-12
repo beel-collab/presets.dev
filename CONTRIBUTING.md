@@ -42,7 +42,7 @@ codex/          OpenAI Codex
 antigravity/    Antigravity CLI
 ```
 
-`antigravity` is Antigravity CLI. Gemini CLI stopped serving personal accounts on 18 June 2026, and Antigravity CLI reads `GEMINI.md` and `AGENTS.md`. Workspace skills install at `.agents/skills/<name>/SKILL.md`. Do not add a separate `gemini-cli` directory.
+`antigravity` is Antigravity CLI. Gemini CLI stopped serving personal accounts on 18 June 2026, and Antigravity CLI reads `GEMINI.md` and `AGENTS.md`. Workspace skills install once at `.agents/skills/<name>/SKILL.md`. Codex and Antigravity CLI share that file. Do not add a separate `gemini-cli` directory.
 
 | Type | Where to put it |
 | --- | --- |

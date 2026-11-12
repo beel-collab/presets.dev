@@ -31,15 +31,15 @@ updated_for: "Spring Boot 4.1 stable line, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/spring-security-review/SKILL.md`.
+Install the native export at `.agents/skills/spring-security-review/SKILL.md` (one file shared with Antigravity CLI).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# Spring Boot Security Review Skill for Codex
+# Spring Boot Security Review
 
-Codex skill `spring-security-review` for Spring Boot. Call it with `$spring-security-review` or `/skills`. Do not install the other tools' copies beside it.
+Shared skill `spring-security-review` for Spring Boot. Codex and Antigravity CLI both read `.agents/skills/spring-security-review/SKILL.md`. Install this one file. Codex calls it with `$spring-security-review` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

@@ -31,15 +31,15 @@ updated_for: "Docker Engine 29, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/docker-security-review/SKILL.md`.
+Install the native export at `.agents/skills/docker-security-review/SKILL.md` (one file shared with Antigravity CLI).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# Docker Security Review Skill for Codex
+# Docker Security Review
 
-Codex skill `docker-security-review` for Docker. Call it with `$docker-security-review` or `/skills`. Do not install the other tools' copies beside it.
+Shared skill `docker-security-review` for Docker. Codex and Antigravity CLI both read `.agents/skills/docker-security-review/SKILL.md`. Install this one file. Codex calls it with `$docker-security-review` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

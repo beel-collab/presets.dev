@@ -5,7 +5,7 @@ Catalog frontmatter is presets.dev metadata.
 
 Windsurf installs only under `.devin/` for current Devin. Do not also copy the file into `.windsurf/`.
 Codex standards append to `AGENTS.md`. Antigravity CLI standards append to `GEMINI.md` or `AGENTS.md`. Do not replace those files.
-Install one skill per checkout. Shared `.agents/skills` names collide across Cursor, Codex, and Gemini CLI.
+Codex and Antigravity CLI share one skill file at `release/<stack>/native/agents/.agents/skills/<skill>/SKILL.md`. Install it once. Do not also put the Cursor copy at `.agents/skills` under the same name.
 
 | Stack | Tool | Role | Catalog | Install |
 | --- | --- | --- | --- | --- |
@@ -20,9 +20,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | nextjs | cline | standards | `cline/nextjs/nextjs-rules.md` | `release/nextjs/native/cline/.clinerules/nextjs-rules.md` |
 | nextjs | cline | skill | `cline/nextjs/nextjs-code-review/SKILL.md` | `release/nextjs/native/cline/.cline/skills/nextjs-code-review/SKILL.md` |
 | nextjs | codex | standards | `codex/nextjs/nextjs-rules.md` | `release/nextjs/native/codex/AGENTS.nextjs-section.md` |
-| nextjs | codex | skill | `codex/nextjs/nextjs-code-review/SKILL.md` | `release/nextjs/native/codex/.agents/skills/nextjs-code-review/SKILL.md` |
+| nextjs | codex | skill | `codex/nextjs/nextjs-code-review/SKILL.md` | `release/nextjs/native/agents/.agents/skills/nextjs-code-review/SKILL.md` |
 | nextjs | antigravity | standards | `antigravity/nextjs/nextjs-rules.md` | `release/nextjs/native/antigravity/GEMINI.nextjs-section.md` |
-| nextjs | antigravity | skill | `antigravity/nextjs/nextjs-code-review/SKILL.md` | `release/nextjs/native/antigravity/.agents/skills/nextjs-code-review/SKILL.md` |
+| nextjs | antigravity | skill | `antigravity/nextjs/nextjs-code-review/SKILL.md` | `release/nextjs/native/agents/.agents/skills/nextjs-code-review/SKILL.md` |
 | react | cursor | standards | `cursor/react/react-rules.mdc` | `release/react/native/cursor/.cursor/rules/react-rules.mdc` |
 | react | cursor | skill | `cursor/react/react-performance-audit/SKILL.md` | `release/react/native/cursor/.cursor/skills/react-performance-audit/SKILL.md` |
 | react | copilot | standards | `copilot/react/react-rules.instructions.md` | `release/react/native/copilot/.github/instructions/react.instructions.md` |
@@ -34,9 +34,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | react | cline | standards | `cline/react/react-rules.md` | `release/react/native/cline/.clinerules/react-rules.md` |
 | react | cline | skill | `cline/react/react-performance-audit/SKILL.md` | `release/react/native/cline/.cline/skills/react-performance-audit/SKILL.md` |
 | react | codex | standards | `codex/react/react-rules.md` | `release/react/native/codex/AGENTS.react-section.md` |
-| react | codex | skill | `codex/react/react-performance-audit/SKILL.md` | `release/react/native/codex/.agents/skills/react-performance-audit/SKILL.md` |
+| react | codex | skill | `codex/react/react-performance-audit/SKILL.md` | `release/react/native/agents/.agents/skills/react-performance-audit/SKILL.md` |
 | react | antigravity | standards | `antigravity/react/react-rules.md` | `release/react/native/antigravity/GEMINI.react-section.md` |
-| react | antigravity | skill | `antigravity/react/react-performance-audit/SKILL.md` | `release/react/native/antigravity/.agents/skills/react-performance-audit/SKILL.md` |
+| react | antigravity | skill | `antigravity/react/react-performance-audit/SKILL.md` | `release/react/native/agents/.agents/skills/react-performance-audit/SKILL.md` |
 | python | cursor | standards | `cursor/python/python-rules.mdc` | `release/python/native/cursor/.cursor/rules/python-rules.mdc` |
 | python | cursor | skill | `cursor/python/python-test-writer/SKILL.md` | `release/python/native/cursor/.cursor/skills/python-test-writer/SKILL.md` |
 | python | copilot | standards | `copilot/python/python-rules.instructions.md` | `release/python/native/copilot/.github/instructions/python.instructions.md` |
@@ -48,9 +48,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | python | cline | standards | `cline/python/python-rules.md` | `release/python/native/cline/.clinerules/python-rules.md` |
 | python | cline | skill | `cline/python/python-test-writer/SKILL.md` | `release/python/native/cline/.cline/skills/python-test-writer/SKILL.md` |
 | python | codex | standards | `codex/python/python-rules.md` | `release/python/native/codex/AGENTS.python-section.md` |
-| python | codex | skill | `codex/python/python-test-writer/SKILL.md` | `release/python/native/codex/.agents/skills/python-test-writer/SKILL.md` |
+| python | codex | skill | `codex/python/python-test-writer/SKILL.md` | `release/python/native/agents/.agents/skills/python-test-writer/SKILL.md` |
 | python | antigravity | standards | `antigravity/python/python-rules.md` | `release/python/native/antigravity/GEMINI.python-section.md` |
-| python | antigravity | skill | `antigravity/python/python-test-writer/SKILL.md` | `release/python/native/antigravity/.agents/skills/python-test-writer/SKILL.md` |
+| python | antigravity | skill | `antigravity/python/python-test-writer/SKILL.md` | `release/python/native/agents/.agents/skills/python-test-writer/SKILL.md` |
 | typescript | cursor | standards | `cursor/typescript/typescript-rules.mdc` | `release/typescript/native/cursor/.cursor/rules/typescript-rules.mdc` |
 | typescript | cursor | skill | `cursor/typescript/typescript-code-review/SKILL.md` | `release/typescript/native/cursor/.cursor/skills/typescript-code-review/SKILL.md` |
 | typescript | copilot | standards | `copilot/typescript/typescript-rules.instructions.md` | `release/typescript/native/copilot/.github/instructions/typescript.instructions.md` |
@@ -62,9 +62,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | typescript | cline | standards | `cline/typescript/typescript-rules.md` | `release/typescript/native/cline/.clinerules/typescript-rules.md` |
 | typescript | cline | skill | `cline/typescript/typescript-code-review/SKILL.md` | `release/typescript/native/cline/.cline/skills/typescript-code-review/SKILL.md` |
 | typescript | codex | standards | `codex/typescript/typescript-rules.md` | `release/typescript/native/codex/AGENTS.typescript-section.md` |
-| typescript | codex | skill | `codex/typescript/typescript-code-review/SKILL.md` | `release/typescript/native/codex/.agents/skills/typescript-code-review/SKILL.md` |
+| typescript | codex | skill | `codex/typescript/typescript-code-review/SKILL.md` | `release/typescript/native/agents/.agents/skills/typescript-code-review/SKILL.md` |
 | typescript | antigravity | standards | `antigravity/typescript/typescript-rules.md` | `release/typescript/native/antigravity/GEMINI.typescript-section.md` |
-| typescript | antigravity | skill | `antigravity/typescript/typescript-code-review/SKILL.md` | `release/typescript/native/antigravity/.agents/skills/typescript-code-review/SKILL.md` |
+| typescript | antigravity | skill | `antigravity/typescript/typescript-code-review/SKILL.md` | `release/typescript/native/agents/.agents/skills/typescript-code-review/SKILL.md` |
 | supabase | cursor | standards | `cursor/supabase/supabase-rules.mdc` | `release/supabase/native/cursor/.cursor/rules/supabase-rules.mdc` |
 | supabase | cursor | skill | `cursor/supabase/supabase-security-review/SKILL.md` | `release/supabase/native/cursor/.cursor/skills/supabase-security-review/SKILL.md` |
 | supabase | copilot | standards | `copilot/supabase/supabase-rules.instructions.md` | `release/supabase/native/copilot/.github/instructions/supabase.instructions.md` |
@@ -76,9 +76,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | supabase | cline | standards | `cline/supabase/supabase-rules.md` | `release/supabase/native/cline/.clinerules/supabase-rules.md` |
 | supabase | cline | skill | `cline/supabase/supabase-security-review/SKILL.md` | `release/supabase/native/cline/.cline/skills/supabase-security-review/SKILL.md` |
 | supabase | codex | standards | `codex/supabase/supabase-rules.md` | `release/supabase/native/codex/AGENTS.supabase-section.md` |
-| supabase | codex | skill | `codex/supabase/supabase-security-review/SKILL.md` | `release/supabase/native/codex/.agents/skills/supabase-security-review/SKILL.md` |
+| supabase | codex | skill | `codex/supabase/supabase-security-review/SKILL.md` | `release/supabase/native/agents/.agents/skills/supabase-security-review/SKILL.md` |
 | supabase | antigravity | standards | `antigravity/supabase/supabase-rules.md` | `release/supabase/native/antigravity/GEMINI.supabase-section.md` |
-| supabase | antigravity | skill | `antigravity/supabase/supabase-security-review/SKILL.md` | `release/supabase/native/antigravity/.agents/skills/supabase-security-review/SKILL.md` |
+| supabase | antigravity | skill | `antigravity/supabase/supabase-security-review/SKILL.md` | `release/supabase/native/agents/.agents/skills/supabase-security-review/SKILL.md` |
 | tailwind | cursor | standards | `cursor/tailwind/tailwind-rules.mdc` | `release/tailwind/native/cursor/.cursor/rules/tailwind-rules.mdc` |
 | tailwind | cursor | skill | `cursor/tailwind/tailwind-code-review/SKILL.md` | `release/tailwind/native/cursor/.cursor/skills/tailwind-code-review/SKILL.md` |
 | tailwind | copilot | standards | `copilot/tailwind/tailwind-rules.instructions.md` | `release/tailwind/native/copilot/.github/instructions/tailwind.instructions.md` |
@@ -90,9 +90,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | tailwind | cline | standards | `cline/tailwind/tailwind-rules.md` | `release/tailwind/native/cline/.clinerules/tailwind-rules.md` |
 | tailwind | cline | skill | `cline/tailwind/tailwind-code-review/SKILL.md` | `release/tailwind/native/cline/.cline/skills/tailwind-code-review/SKILL.md` |
 | tailwind | codex | standards | `codex/tailwind/tailwind-rules.md` | `release/tailwind/native/codex/AGENTS.tailwind-section.md` |
-| tailwind | codex | skill | `codex/tailwind/tailwind-code-review/SKILL.md` | `release/tailwind/native/codex/.agents/skills/tailwind-code-review/SKILL.md` |
+| tailwind | codex | skill | `codex/tailwind/tailwind-code-review/SKILL.md` | `release/tailwind/native/agents/.agents/skills/tailwind-code-review/SKILL.md` |
 | tailwind | antigravity | standards | `antigravity/tailwind/tailwind-rules.md` | `release/tailwind/native/antigravity/GEMINI.tailwind-section.md` |
-| tailwind | antigravity | skill | `antigravity/tailwind/tailwind-code-review/SKILL.md` | `release/tailwind/native/antigravity/.agents/skills/tailwind-code-review/SKILL.md` |
+| tailwind | antigravity | skill | `antigravity/tailwind/tailwind-code-review/SKILL.md` | `release/tailwind/native/agents/.agents/skills/tailwind-code-review/SKILL.md` |
 | playwright | cursor | standards | `cursor/playwright/playwright-rules.mdc` | `release/playwright/native/cursor/.cursor/rules/playwright-rules.mdc` |
 | playwright | cursor | skill | `cursor/playwright/playwright-test-writer/SKILL.md` | `release/playwright/native/cursor/.cursor/skills/playwright-test-writer/SKILL.md` |
 | playwright | copilot | standards | `copilot/playwright/playwright-rules.instructions.md` | `release/playwright/native/copilot/.github/instructions/playwright.instructions.md` |
@@ -104,9 +104,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | playwright | cline | standards | `cline/playwright/playwright-rules.md` | `release/playwright/native/cline/.clinerules/playwright-rules.md` |
 | playwright | cline | skill | `cline/playwright/playwright-test-writer/SKILL.md` | `release/playwright/native/cline/.cline/skills/playwright-test-writer/SKILL.md` |
 | playwright | codex | standards | `codex/playwright/playwright-rules.md` | `release/playwright/native/codex/AGENTS.playwright-section.md` |
-| playwright | codex | skill | `codex/playwright/playwright-test-writer/SKILL.md` | `release/playwright/native/codex/.agents/skills/playwright-test-writer/SKILL.md` |
+| playwright | codex | skill | `codex/playwright/playwright-test-writer/SKILL.md` | `release/playwright/native/agents/.agents/skills/playwright-test-writer/SKILL.md` |
 | playwright | antigravity | standards | `antigravity/playwright/playwright-rules.md` | `release/playwright/native/antigravity/GEMINI.playwright-section.md` |
-| playwright | antigravity | skill | `antigravity/playwright/playwright-test-writer/SKILL.md` | `release/playwright/native/antigravity/.agents/skills/playwright-test-writer/SKILL.md` |
+| playwright | antigravity | skill | `antigravity/playwright/playwright-test-writer/SKILL.md` | `release/playwright/native/agents/.agents/skills/playwright-test-writer/SKILL.md` |
 | nodejs | cursor | standards | `cursor/nodejs/nodejs-rules.mdc` | `release/nodejs/native/cursor/.cursor/rules/nodejs-rules.mdc` |
 | nodejs | cursor | skill | `cursor/nodejs/nodejs-performance-audit/SKILL.md` | `release/nodejs/native/cursor/.cursor/skills/nodejs-performance-audit/SKILL.md` |
 | nodejs | copilot | standards | `copilot/nodejs/nodejs-rules.instructions.md` | `release/nodejs/native/copilot/.github/instructions/nodejs.instructions.md` |
@@ -118,9 +118,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | nodejs | cline | standards | `cline/nodejs/nodejs-rules.md` | `release/nodejs/native/cline/.clinerules/nodejs-rules.md` |
 | nodejs | cline | skill | `cline/nodejs/nodejs-performance-audit/SKILL.md` | `release/nodejs/native/cline/.cline/skills/nodejs-performance-audit/SKILL.md` |
 | nodejs | codex | standards | `codex/nodejs/nodejs-rules.md` | `release/nodejs/native/codex/AGENTS.nodejs-section.md` |
-| nodejs | codex | skill | `codex/nodejs/nodejs-performance-audit/SKILL.md` | `release/nodejs/native/codex/.agents/skills/nodejs-performance-audit/SKILL.md` |
+| nodejs | codex | skill | `codex/nodejs/nodejs-performance-audit/SKILL.md` | `release/nodejs/native/agents/.agents/skills/nodejs-performance-audit/SKILL.md` |
 | nodejs | antigravity | standards | `antigravity/nodejs/nodejs-rules.md` | `release/nodejs/native/antigravity/GEMINI.nodejs-section.md` |
-| nodejs | antigravity | skill | `antigravity/nodejs/nodejs-performance-audit/SKILL.md` | `release/nodejs/native/antigravity/.agents/skills/nodejs-performance-audit/SKILL.md` |
+| nodejs | antigravity | skill | `antigravity/nodejs/nodejs-performance-audit/SKILL.md` | `release/nodejs/native/agents/.agents/skills/nodejs-performance-audit/SKILL.md` |
 | react-native | cursor | standards | `cursor/react-native/react-native-rules.mdc` | `release/react-native/native/cursor/.cursor/rules/react-native-rules.mdc` |
 | react-native | cursor | skill | `cursor/react-native/react-native-code-review/SKILL.md` | `release/react-native/native/cursor/.cursor/skills/react-native-code-review/SKILL.md` |
 | react-native | copilot | standards | `copilot/react-native/react-native-rules.instructions.md` | `release/react-native/native/copilot/.github/instructions/react-native.instructions.md` |
@@ -132,9 +132,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | react-native | cline | standards | `cline/react-native/react-native-rules.md` | `release/react-native/native/cline/.clinerules/react-native-rules.md` |
 | react-native | cline | skill | `cline/react-native/react-native-code-review/SKILL.md` | `release/react-native/native/cline/.cline/skills/react-native-code-review/SKILL.md` |
 | react-native | codex | standards | `codex/react-native/react-native-rules.md` | `release/react-native/native/codex/AGENTS.react-native-section.md` |
-| react-native | codex | skill | `codex/react-native/react-native-code-review/SKILL.md` | `release/react-native/native/codex/.agents/skills/react-native-code-review/SKILL.md` |
+| react-native | codex | skill | `codex/react-native/react-native-code-review/SKILL.md` | `release/react-native/native/agents/.agents/skills/react-native-code-review/SKILL.md` |
 | react-native | antigravity | standards | `antigravity/react-native/react-native-rules.md` | `release/react-native/native/antigravity/GEMINI.react-native-section.md` |
-| react-native | antigravity | skill | `antigravity/react-native/react-native-code-review/SKILL.md` | `release/react-native/native/antigravity/.agents/skills/react-native-code-review/SKILL.md` |
+| react-native | antigravity | skill | `antigravity/react-native/react-native-code-review/SKILL.md` | `release/react-native/native/agents/.agents/skills/react-native-code-review/SKILL.md` |
 | vue | cursor | standards | `cursor/vue/vue-rules.mdc` | `release/vue/native/cursor/.cursor/rules/vue-rules.mdc` |
 | vue | cursor | skill | `cursor/vue/vue-code-review/SKILL.md` | `release/vue/native/cursor/.cursor/skills/vue-code-review/SKILL.md` |
 | vue | copilot | standards | `copilot/vue/vue-rules.instructions.md` | `release/vue/native/copilot/.github/instructions/vue.instructions.md` |
@@ -146,9 +146,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | vue | cline | standards | `cline/vue/vue-rules.md` | `release/vue/native/cline/.clinerules/vue-rules.md` |
 | vue | cline | skill | `cline/vue/vue-code-review/SKILL.md` | `release/vue/native/cline/.cline/skills/vue-code-review/SKILL.md` |
 | vue | codex | standards | `codex/vue/vue-rules.md` | `release/vue/native/codex/AGENTS.vue-section.md` |
-| vue | codex | skill | `codex/vue/vue-code-review/SKILL.md` | `release/vue/native/codex/.agents/skills/vue-code-review/SKILL.md` |
+| vue | codex | skill | `codex/vue/vue-code-review/SKILL.md` | `release/vue/native/agents/.agents/skills/vue-code-review/SKILL.md` |
 | vue | antigravity | standards | `antigravity/vue/vue-rules.md` | `release/vue/native/antigravity/GEMINI.vue-section.md` |
-| vue | antigravity | skill | `antigravity/vue/vue-code-review/SKILL.md` | `release/vue/native/antigravity/.agents/skills/vue-code-review/SKILL.md` |
+| vue | antigravity | skill | `antigravity/vue/vue-code-review/SKILL.md` | `release/vue/native/agents/.agents/skills/vue-code-review/SKILL.md` |
 | angular | cursor | standards | `cursor/angular/angular-rules.mdc` | `release/angular/native/cursor/.cursor/rules/angular-rules.mdc` |
 | angular | cursor | skill | `cursor/angular/angular-code-review/SKILL.md` | `release/angular/native/cursor/.cursor/skills/angular-code-review/SKILL.md` |
 | angular | copilot | standards | `copilot/angular/angular-rules.instructions.md` | `release/angular/native/copilot/.github/instructions/angular.instructions.md` |
@@ -160,9 +160,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | angular | cline | standards | `cline/angular/angular-rules.md` | `release/angular/native/cline/.clinerules/angular-rules.md` |
 | angular | cline | skill | `cline/angular/angular-code-review/SKILL.md` | `release/angular/native/cline/.cline/skills/angular-code-review/SKILL.md` |
 | angular | codex | standards | `codex/angular/angular-rules.md` | `release/angular/native/codex/AGENTS.angular-section.md` |
-| angular | codex | skill | `codex/angular/angular-code-review/SKILL.md` | `release/angular/native/codex/.agents/skills/angular-code-review/SKILL.md` |
+| angular | codex | skill | `codex/angular/angular-code-review/SKILL.md` | `release/angular/native/agents/.agents/skills/angular-code-review/SKILL.md` |
 | angular | antigravity | standards | `antigravity/angular/angular-rules.md` | `release/angular/native/antigravity/GEMINI.angular-section.md` |
-| angular | antigravity | skill | `antigravity/angular/angular-code-review/SKILL.md` | `release/angular/native/antigravity/.agents/skills/angular-code-review/SKILL.md` |
+| angular | antigravity | skill | `antigravity/angular/angular-code-review/SKILL.md` | `release/angular/native/agents/.agents/skills/angular-code-review/SKILL.md` |
 | fastapi | cursor | standards | `cursor/fastapi/fastapi-rules.mdc` | `release/fastapi/native/cursor/.cursor/rules/fastapi-rules.mdc` |
 | fastapi | cursor | skill | `cursor/fastapi/fastapi-security-review/SKILL.md` | `release/fastapi/native/cursor/.cursor/skills/fastapi-security-review/SKILL.md` |
 | fastapi | copilot | standards | `copilot/fastapi/fastapi-rules.instructions.md` | `release/fastapi/native/copilot/.github/instructions/fastapi.instructions.md` |
@@ -174,9 +174,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | fastapi | cline | standards | `cline/fastapi/fastapi-rules.md` | `release/fastapi/native/cline/.clinerules/fastapi-rules.md` |
 | fastapi | cline | skill | `cline/fastapi/fastapi-security-review/SKILL.md` | `release/fastapi/native/cline/.cline/skills/fastapi-security-review/SKILL.md` |
 | fastapi | codex | standards | `codex/fastapi/fastapi-rules.md` | `release/fastapi/native/codex/AGENTS.fastapi-section.md` |
-| fastapi | codex | skill | `codex/fastapi/fastapi-security-review/SKILL.md` | `release/fastapi/native/codex/.agents/skills/fastapi-security-review/SKILL.md` |
+| fastapi | codex | skill | `codex/fastapi/fastapi-security-review/SKILL.md` | `release/fastapi/native/agents/.agents/skills/fastapi-security-review/SKILL.md` |
 | fastapi | antigravity | standards | `antigravity/fastapi/fastapi-rules.md` | `release/fastapi/native/antigravity/GEMINI.fastapi-section.md` |
-| fastapi | antigravity | skill | `antigravity/fastapi/fastapi-security-review/SKILL.md` | `release/fastapi/native/antigravity/.agents/skills/fastapi-security-review/SKILL.md` |
+| fastapi | antigravity | skill | `antigravity/fastapi/fastapi-security-review/SKILL.md` | `release/fastapi/native/agents/.agents/skills/fastapi-security-review/SKILL.md` |
 | prisma | cursor | standards | `cursor/prisma/prisma-rules.mdc` | `release/prisma/native/cursor/.cursor/rules/prisma-rules.mdc` |
 | prisma | cursor | skill | `cursor/prisma/prisma-code-review/SKILL.md` | `release/prisma/native/cursor/.cursor/skills/prisma-code-review/SKILL.md` |
 | prisma | copilot | standards | `copilot/prisma/prisma-rules.instructions.md` | `release/prisma/native/copilot/.github/instructions/prisma.instructions.md` |
@@ -188,9 +188,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | prisma | cline | standards | `cline/prisma/prisma-rules.md` | `release/prisma/native/cline/.clinerules/prisma-rules.md` |
 | prisma | cline | skill | `cline/prisma/prisma-code-review/SKILL.md` | `release/prisma/native/cline/.cline/skills/prisma-code-review/SKILL.md` |
 | prisma | codex | standards | `codex/prisma/prisma-rules.md` | `release/prisma/native/codex/AGENTS.prisma-section.md` |
-| prisma | codex | skill | `codex/prisma/prisma-code-review/SKILL.md` | `release/prisma/native/codex/.agents/skills/prisma-code-review/SKILL.md` |
+| prisma | codex | skill | `codex/prisma/prisma-code-review/SKILL.md` | `release/prisma/native/agents/.agents/skills/prisma-code-review/SKILL.md` |
 | prisma | antigravity | standards | `antigravity/prisma/prisma-rules.md` | `release/prisma/native/antigravity/GEMINI.prisma-section.md` |
-| prisma | antigravity | skill | `antigravity/prisma/prisma-code-review/SKILL.md` | `release/prisma/native/antigravity/.agents/skills/prisma-code-review/SKILL.md` |
+| prisma | antigravity | skill | `antigravity/prisma/prisma-code-review/SKILL.md` | `release/prisma/native/agents/.agents/skills/prisma-code-review/SKILL.md` |
 | go | cursor | standards | `cursor/go/go-rules.mdc` | `release/go/native/cursor/.cursor/rules/go-rules.mdc` |
 | go | cursor | skill | `cursor/go/go-code-review/SKILL.md` | `release/go/native/cursor/.cursor/skills/go-code-review/SKILL.md` |
 | go | copilot | standards | `copilot/go/go-rules.instructions.md` | `release/go/native/copilot/.github/instructions/go.instructions.md` |
@@ -202,9 +202,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | go | cline | standards | `cline/go/go-rules.md` | `release/go/native/cline/.clinerules/go-rules.md` |
 | go | cline | skill | `cline/go/go-code-review/SKILL.md` | `release/go/native/cline/.cline/skills/go-code-review/SKILL.md` |
 | go | codex | standards | `codex/go/go-rules.md` | `release/go/native/codex/AGENTS.go-section.md` |
-| go | codex | skill | `codex/go/go-code-review/SKILL.md` | `release/go/native/codex/.agents/skills/go-code-review/SKILL.md` |
+| go | codex | skill | `codex/go/go-code-review/SKILL.md` | `release/go/native/agents/.agents/skills/go-code-review/SKILL.md` |
 | go | antigravity | standards | `antigravity/go/go-rules.md` | `release/go/native/antigravity/GEMINI.go-section.md` |
-| go | antigravity | skill | `antigravity/go/go-code-review/SKILL.md` | `release/go/native/antigravity/.agents/skills/go-code-review/SKILL.md` |
+| go | antigravity | skill | `antigravity/go/go-code-review/SKILL.md` | `release/go/native/agents/.agents/skills/go-code-review/SKILL.md` |
 | spring | cursor | standards | `cursor/spring/spring-rules.mdc` | `release/spring/native/cursor/.cursor/rules/spring-rules.mdc` |
 | spring | cursor | skill | `cursor/spring/spring-security-review/SKILL.md` | `release/spring/native/cursor/.cursor/skills/spring-security-review/SKILL.md` |
 | spring | copilot | standards | `copilot/spring/spring-rules.instructions.md` | `release/spring/native/copilot/.github/instructions/spring.instructions.md` |
@@ -216,9 +216,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | spring | cline | standards | `cline/spring/spring-rules.md` | `release/spring/native/cline/.clinerules/spring-rules.md` |
 | spring | cline | skill | `cline/spring/spring-security-review/SKILL.md` | `release/spring/native/cline/.cline/skills/spring-security-review/SKILL.md` |
 | spring | codex | standards | `codex/spring/spring-rules.md` | `release/spring/native/codex/AGENTS.spring-section.md` |
-| spring | codex | skill | `codex/spring/spring-security-review/SKILL.md` | `release/spring/native/codex/.agents/skills/spring-security-review/SKILL.md` |
+| spring | codex | skill | `codex/spring/spring-security-review/SKILL.md` | `release/spring/native/agents/.agents/skills/spring-security-review/SKILL.md` |
 | spring | antigravity | standards | `antigravity/spring/spring-rules.md` | `release/spring/native/antigravity/GEMINI.spring-section.md` |
-| spring | antigravity | skill | `antigravity/spring/spring-security-review/SKILL.md` | `release/spring/native/antigravity/.agents/skills/spring-security-review/SKILL.md` |
+| spring | antigravity | skill | `antigravity/spring/spring-security-review/SKILL.md` | `release/spring/native/agents/.agents/skills/spring-security-review/SKILL.md` |
 | dotnet | cursor | standards | `cursor/dotnet/dotnet-rules.mdc` | `release/dotnet/native/cursor/.cursor/rules/dotnet-rules.mdc` |
 | dotnet | cursor | skill | `cursor/dotnet/dotnet-code-review/SKILL.md` | `release/dotnet/native/cursor/.cursor/skills/dotnet-code-review/SKILL.md` |
 | dotnet | copilot | standards | `copilot/dotnet/dotnet-rules.instructions.md` | `release/dotnet/native/copilot/.github/instructions/dotnet.instructions.md` |
@@ -230,9 +230,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | dotnet | cline | standards | `cline/dotnet/dotnet-rules.md` | `release/dotnet/native/cline/.clinerules/dotnet-rules.md` |
 | dotnet | cline | skill | `cline/dotnet/dotnet-code-review/SKILL.md` | `release/dotnet/native/cline/.cline/skills/dotnet-code-review/SKILL.md` |
 | dotnet | codex | standards | `codex/dotnet/dotnet-rules.md` | `release/dotnet/native/codex/AGENTS.dotnet-section.md` |
-| dotnet | codex | skill | `codex/dotnet/dotnet-code-review/SKILL.md` | `release/dotnet/native/codex/.agents/skills/dotnet-code-review/SKILL.md` |
+| dotnet | codex | skill | `codex/dotnet/dotnet-code-review/SKILL.md` | `release/dotnet/native/agents/.agents/skills/dotnet-code-review/SKILL.md` |
 | dotnet | antigravity | standards | `antigravity/dotnet/dotnet-rules.md` | `release/dotnet/native/antigravity/GEMINI.dotnet-section.md` |
-| dotnet | antigravity | skill | `antigravity/dotnet/dotnet-code-review/SKILL.md` | `release/dotnet/native/antigravity/.agents/skills/dotnet-code-review/SKILL.md` |
+| dotnet | antigravity | skill | `antigravity/dotnet/dotnet-code-review/SKILL.md` | `release/dotnet/native/agents/.agents/skills/dotnet-code-review/SKILL.md` |
 | flutter | cursor | standards | `cursor/flutter/flutter-rules.mdc` | `release/flutter/native/cursor/.cursor/rules/flutter-rules.mdc` |
 | flutter | cursor | skill | `cursor/flutter/flutter-test-writer/SKILL.md` | `release/flutter/native/cursor/.cursor/skills/flutter-test-writer/SKILL.md` |
 | flutter | copilot | standards | `copilot/flutter/flutter-rules.instructions.md` | `release/flutter/native/copilot/.github/instructions/flutter.instructions.md` |
@@ -244,9 +244,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | flutter | cline | standards | `cline/flutter/flutter-rules.md` | `release/flutter/native/cline/.clinerules/flutter-rules.md` |
 | flutter | cline | skill | `cline/flutter/flutter-test-writer/SKILL.md` | `release/flutter/native/cline/.cline/skills/flutter-test-writer/SKILL.md` |
 | flutter | codex | standards | `codex/flutter/flutter-rules.md` | `release/flutter/native/codex/AGENTS.flutter-section.md` |
-| flutter | codex | skill | `codex/flutter/flutter-test-writer/SKILL.md` | `release/flutter/native/codex/.agents/skills/flutter-test-writer/SKILL.md` |
+| flutter | codex | skill | `codex/flutter/flutter-test-writer/SKILL.md` | `release/flutter/native/agents/.agents/skills/flutter-test-writer/SKILL.md` |
 | flutter | antigravity | standards | `antigravity/flutter/flutter-rules.md` | `release/flutter/native/antigravity/GEMINI.flutter-section.md` |
-| flutter | antigravity | skill | `antigravity/flutter/flutter-test-writer/SKILL.md` | `release/flutter/native/antigravity/.agents/skills/flutter-test-writer/SKILL.md` |
+| flutter | antigravity | skill | `antigravity/flutter/flutter-test-writer/SKILL.md` | `release/flutter/native/agents/.agents/skills/flutter-test-writer/SKILL.md` |
 | swiftui | cursor | standards | `cursor/swiftui/swiftui-rules.mdc` | `release/swiftui/native/cursor/.cursor/rules/swiftui-rules.mdc` |
 | swiftui | cursor | skill | `cursor/swiftui/swiftui-code-review/SKILL.md` | `release/swiftui/native/cursor/.cursor/skills/swiftui-code-review/SKILL.md` |
 | swiftui | copilot | standards | `copilot/swiftui/swiftui-rules.instructions.md` | `release/swiftui/native/copilot/.github/instructions/swiftui.instructions.md` |
@@ -258,9 +258,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | swiftui | cline | standards | `cline/swiftui/swiftui-rules.md` | `release/swiftui/native/cline/.clinerules/swiftui-rules.md` |
 | swiftui | cline | skill | `cline/swiftui/swiftui-code-review/SKILL.md` | `release/swiftui/native/cline/.cline/skills/swiftui-code-review/SKILL.md` |
 | swiftui | codex | standards | `codex/swiftui/swiftui-rules.md` | `release/swiftui/native/codex/AGENTS.swiftui-section.md` |
-| swiftui | codex | skill | `codex/swiftui/swiftui-code-review/SKILL.md` | `release/swiftui/native/codex/.agents/skills/swiftui-code-review/SKILL.md` |
+| swiftui | codex | skill | `codex/swiftui/swiftui-code-review/SKILL.md` | `release/swiftui/native/agents/.agents/skills/swiftui-code-review/SKILL.md` |
 | swiftui | antigravity | standards | `antigravity/swiftui/swiftui-rules.md` | `release/swiftui/native/antigravity/GEMINI.swiftui-section.md` |
-| swiftui | antigravity | skill | `antigravity/swiftui/swiftui-code-review/SKILL.md` | `release/swiftui/native/antigravity/.agents/skills/swiftui-code-review/SKILL.md` |
+| swiftui | antigravity | skill | `antigravity/swiftui/swiftui-code-review/SKILL.md` | `release/swiftui/native/agents/.agents/skills/swiftui-code-review/SKILL.md` |
 | django | cursor | standards | `cursor/django/django-rules.mdc` | `release/django/native/cursor/.cursor/rules/django-rules.mdc` |
 | django | cursor | skill | `cursor/django/django-security-review/SKILL.md` | `release/django/native/cursor/.cursor/skills/django-security-review/SKILL.md` |
 | django | copilot | standards | `copilot/django/django-rules.instructions.md` | `release/django/native/copilot/.github/instructions/django.instructions.md` |
@@ -272,9 +272,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | django | cline | standards | `cline/django/django-rules.md` | `release/django/native/cline/.clinerules/django-rules.md` |
 | django | cline | skill | `cline/django/django-security-review/SKILL.md` | `release/django/native/cline/.cline/skills/django-security-review/SKILL.md` |
 | django | codex | standards | `codex/django/django-rules.md` | `release/django/native/codex/AGENTS.django-section.md` |
-| django | codex | skill | `codex/django/django-security-review/SKILL.md` | `release/django/native/codex/.agents/skills/django-security-review/SKILL.md` |
+| django | codex | skill | `codex/django/django-security-review/SKILL.md` | `release/django/native/agents/.agents/skills/django-security-review/SKILL.md` |
 | django | antigravity | standards | `antigravity/django/django-rules.md` | `release/django/native/antigravity/GEMINI.django-section.md` |
-| django | antigravity | skill | `antigravity/django/django-security-review/SKILL.md` | `release/django/native/antigravity/.agents/skills/django-security-review/SKILL.md` |
+| django | antigravity | skill | `antigravity/django/django-security-review/SKILL.md` | `release/django/native/agents/.agents/skills/django-security-review/SKILL.md` |
 | svelte | cursor | standards | `cursor/svelte/svelte-rules.mdc` | `release/svelte/native/cursor/.cursor/rules/svelte-rules.mdc` |
 | svelte | cursor | skill | `cursor/svelte/svelte-code-review/SKILL.md` | `release/svelte/native/cursor/.cursor/skills/svelte-code-review/SKILL.md` |
 | svelte | copilot | standards | `copilot/svelte/svelte-rules.instructions.md` | `release/svelte/native/copilot/.github/instructions/svelte.instructions.md` |
@@ -286,9 +286,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | svelte | cline | standards | `cline/svelte/svelte-rules.md` | `release/svelte/native/cline/.clinerules/svelte-rules.md` |
 | svelte | cline | skill | `cline/svelte/svelte-code-review/SKILL.md` | `release/svelte/native/cline/.cline/skills/svelte-code-review/SKILL.md` |
 | svelte | codex | standards | `codex/svelte/svelte-rules.md` | `release/svelte/native/codex/AGENTS.svelte-section.md` |
-| svelte | codex | skill | `codex/svelte/svelte-code-review/SKILL.md` | `release/svelte/native/codex/.agents/skills/svelte-code-review/SKILL.md` |
+| svelte | codex | skill | `codex/svelte/svelte-code-review/SKILL.md` | `release/svelte/native/agents/.agents/skills/svelte-code-review/SKILL.md` |
 | svelte | antigravity | standards | `antigravity/svelte/svelte-rules.md` | `release/svelte/native/antigravity/GEMINI.svelte-section.md` |
-| svelte | antigravity | skill | `antigravity/svelte/svelte-code-review/SKILL.md` | `release/svelte/native/antigravity/.agents/skills/svelte-code-review/SKILL.md` |
+| svelte | antigravity | skill | `antigravity/svelte/svelte-code-review/SKILL.md` | `release/svelte/native/agents/.agents/skills/svelte-code-review/SKILL.md` |
 | laravel | cursor | standards | `cursor/laravel/laravel-rules.mdc` | `release/laravel/native/cursor/.cursor/rules/laravel-rules.mdc` |
 | laravel | cursor | skill | `cursor/laravel/laravel-security-review/SKILL.md` | `release/laravel/native/cursor/.cursor/skills/laravel-security-review/SKILL.md` |
 | laravel | copilot | standards | `copilot/laravel/laravel-rules.instructions.md` | `release/laravel/native/copilot/.github/instructions/laravel.instructions.md` |
@@ -300,9 +300,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | laravel | cline | standards | `cline/laravel/laravel-rules.md` | `release/laravel/native/cline/.clinerules/laravel-rules.md` |
 | laravel | cline | skill | `cline/laravel/laravel-security-review/SKILL.md` | `release/laravel/native/cline/.cline/skills/laravel-security-review/SKILL.md` |
 | laravel | codex | standards | `codex/laravel/laravel-rules.md` | `release/laravel/native/codex/AGENTS.laravel-section.md` |
-| laravel | codex | skill | `codex/laravel/laravel-security-review/SKILL.md` | `release/laravel/native/codex/.agents/skills/laravel-security-review/SKILL.md` |
+| laravel | codex | skill | `codex/laravel/laravel-security-review/SKILL.md` | `release/laravel/native/agents/.agents/skills/laravel-security-review/SKILL.md` |
 | laravel | antigravity | standards | `antigravity/laravel/laravel-rules.md` | `release/laravel/native/antigravity/GEMINI.laravel-section.md` |
-| laravel | antigravity | skill | `antigravity/laravel/laravel-security-review/SKILL.md` | `release/laravel/native/antigravity/.agents/skills/laravel-security-review/SKILL.md` |
+| laravel | antigravity | skill | `antigravity/laravel/laravel-security-review/SKILL.md` | `release/laravel/native/agents/.agents/skills/laravel-security-review/SKILL.md` |
 | rust | cursor | standards | `cursor/rust/rust-rules.mdc` | `release/rust/native/cursor/.cursor/rules/rust-rules.mdc` |
 | rust | cursor | skill | `cursor/rust/rust-code-review/SKILL.md` | `release/rust/native/cursor/.cursor/skills/rust-code-review/SKILL.md` |
 | rust | copilot | standards | `copilot/rust/rust-rules.instructions.md` | `release/rust/native/copilot/.github/instructions/rust.instructions.md` |
@@ -314,9 +314,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | rust | cline | standards | `cline/rust/rust-rules.md` | `release/rust/native/cline/.clinerules/rust-rules.md` |
 | rust | cline | skill | `cline/rust/rust-code-review/SKILL.md` | `release/rust/native/cline/.cline/skills/rust-code-review/SKILL.md` |
 | rust | codex | standards | `codex/rust/rust-rules.md` | `release/rust/native/codex/AGENTS.rust-section.md` |
-| rust | codex | skill | `codex/rust/rust-code-review/SKILL.md` | `release/rust/native/codex/.agents/skills/rust-code-review/SKILL.md` |
+| rust | codex | skill | `codex/rust/rust-code-review/SKILL.md` | `release/rust/native/agents/.agents/skills/rust-code-review/SKILL.md` |
 | rust | antigravity | standards | `antigravity/rust/rust-rules.md` | `release/rust/native/antigravity/GEMINI.rust-section.md` |
-| rust | antigravity | skill | `antigravity/rust/rust-code-review/SKILL.md` | `release/rust/native/antigravity/.agents/skills/rust-code-review/SKILL.md` |
+| rust | antigravity | skill | `antigravity/rust/rust-code-review/SKILL.md` | `release/rust/native/agents/.agents/skills/rust-code-review/SKILL.md` |
 | nestjs | cursor | standards | `cursor/nestjs/nestjs-rules.mdc` | `release/nestjs/native/cursor/.cursor/rules/nestjs-rules.mdc` |
 | nestjs | cursor | skill | `cursor/nestjs/nestjs-security-review/SKILL.md` | `release/nestjs/native/cursor/.cursor/skills/nestjs-security-review/SKILL.md` |
 | nestjs | copilot | standards | `copilot/nestjs/nestjs-rules.instructions.md` | `release/nestjs/native/copilot/.github/instructions/nestjs.instructions.md` |
@@ -328,9 +328,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | nestjs | cline | standards | `cline/nestjs/nestjs-rules.md` | `release/nestjs/native/cline/.clinerules/nestjs-rules.md` |
 | nestjs | cline | skill | `cline/nestjs/nestjs-security-review/SKILL.md` | `release/nestjs/native/cline/.cline/skills/nestjs-security-review/SKILL.md` |
 | nestjs | codex | standards | `codex/nestjs/nestjs-rules.md` | `release/nestjs/native/codex/AGENTS.nestjs-section.md` |
-| nestjs | codex | skill | `codex/nestjs/nestjs-security-review/SKILL.md` | `release/nestjs/native/codex/.agents/skills/nestjs-security-review/SKILL.md` |
+| nestjs | codex | skill | `codex/nestjs/nestjs-security-review/SKILL.md` | `release/nestjs/native/agents/.agents/skills/nestjs-security-review/SKILL.md` |
 | nestjs | antigravity | standards | `antigravity/nestjs/nestjs-rules.md` | `release/nestjs/native/antigravity/GEMINI.nestjs-section.md` |
-| nestjs | antigravity | skill | `antigravity/nestjs/nestjs-security-review/SKILL.md` | `release/nestjs/native/antigravity/.agents/skills/nestjs-security-review/SKILL.md` |
+| nestjs | antigravity | skill | `antigravity/nestjs/nestjs-security-review/SKILL.md` | `release/nestjs/native/agents/.agents/skills/nestjs-security-review/SKILL.md` |
 | nuxt | cursor | standards | `cursor/nuxt/nuxt-rules.mdc` | `release/nuxt/native/cursor/.cursor/rules/nuxt-rules.mdc` |
 | nuxt | cursor | skill | `cursor/nuxt/nuxt-performance-audit/SKILL.md` | `release/nuxt/native/cursor/.cursor/skills/nuxt-performance-audit/SKILL.md` |
 | nuxt | copilot | standards | `copilot/nuxt/nuxt-rules.instructions.md` | `release/nuxt/native/copilot/.github/instructions/nuxt.instructions.md` |
@@ -342,9 +342,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | nuxt | cline | standards | `cline/nuxt/nuxt-rules.md` | `release/nuxt/native/cline/.clinerules/nuxt-rules.md` |
 | nuxt | cline | skill | `cline/nuxt/nuxt-performance-audit/SKILL.md` | `release/nuxt/native/cline/.cline/skills/nuxt-performance-audit/SKILL.md` |
 | nuxt | codex | standards | `codex/nuxt/nuxt-rules.md` | `release/nuxt/native/codex/AGENTS.nuxt-section.md` |
-| nuxt | codex | skill | `codex/nuxt/nuxt-performance-audit/SKILL.md` | `release/nuxt/native/codex/.agents/skills/nuxt-performance-audit/SKILL.md` |
+| nuxt | codex | skill | `codex/nuxt/nuxt-performance-audit/SKILL.md` | `release/nuxt/native/agents/.agents/skills/nuxt-performance-audit/SKILL.md` |
 | nuxt | antigravity | standards | `antigravity/nuxt/nuxt-rules.md` | `release/nuxt/native/antigravity/GEMINI.nuxt-section.md` |
-| nuxt | antigravity | skill | `antigravity/nuxt/nuxt-performance-audit/SKILL.md` | `release/nuxt/native/antigravity/.agents/skills/nuxt-performance-audit/SKILL.md` |
+| nuxt | antigravity | skill | `antigravity/nuxt/nuxt-performance-audit/SKILL.md` | `release/nuxt/native/agents/.agents/skills/nuxt-performance-audit/SKILL.md` |
 | docker | cursor | standards | `cursor/docker/docker-rules.mdc` | `release/docker/native/cursor/.cursor/rules/docker-rules.mdc` |
 | docker | cursor | skill | `cursor/docker/docker-security-review/SKILL.md` | `release/docker/native/cursor/.cursor/skills/docker-security-review/SKILL.md` |
 | docker | copilot | standards | `copilot/docker/docker-rules.instructions.md` | `release/docker/native/copilot/.github/instructions/docker.instructions.md` |
@@ -356,9 +356,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | docker | cline | standards | `cline/docker/docker-rules.md` | `release/docker/native/cline/.clinerules/docker-rules.md` |
 | docker | cline | skill | `cline/docker/docker-security-review/SKILL.md` | `release/docker/native/cline/.cline/skills/docker-security-review/SKILL.md` |
 | docker | codex | standards | `codex/docker/docker-rules.md` | `release/docker/native/codex/AGENTS.docker-section.md` |
-| docker | codex | skill | `codex/docker/docker-security-review/SKILL.md` | `release/docker/native/codex/.agents/skills/docker-security-review/SKILL.md` |
+| docker | codex | skill | `codex/docker/docker-security-review/SKILL.md` | `release/docker/native/agents/.agents/skills/docker-security-review/SKILL.md` |
 | docker | antigravity | standards | `antigravity/docker/docker-rules.md` | `release/docker/native/antigravity/GEMINI.docker-section.md` |
-| docker | antigravity | skill | `antigravity/docker/docker-security-review/SKILL.md` | `release/docker/native/antigravity/.agents/skills/docker-security-review/SKILL.md` |
+| docker | antigravity | skill | `antigravity/docker/docker-security-review/SKILL.md` | `release/docker/native/agents/.agents/skills/docker-security-review/SKILL.md` |
 | terraform | cursor | standards | `cursor/terraform/terraform-rules.mdc` | `release/terraform/native/cursor/.cursor/rules/terraform-rules.mdc` |
 | terraform | cursor | skill | `cursor/terraform/terraform-security-review/SKILL.md` | `release/terraform/native/cursor/.cursor/skills/terraform-security-review/SKILL.md` |
 | terraform | copilot | standards | `copilot/terraform/terraform-rules.instructions.md` | `release/terraform/native/copilot/.github/instructions/terraform.instructions.md` |
@@ -370,9 +370,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | terraform | cline | standards | `cline/terraform/terraform-rules.md` | `release/terraform/native/cline/.clinerules/terraform-rules.md` |
 | terraform | cline | skill | `cline/terraform/terraform-security-review/SKILL.md` | `release/terraform/native/cline/.cline/skills/terraform-security-review/SKILL.md` |
 | terraform | codex | standards | `codex/terraform/terraform-rules.md` | `release/terraform/native/codex/AGENTS.terraform-section.md` |
-| terraform | codex | skill | `codex/terraform/terraform-security-review/SKILL.md` | `release/terraform/native/codex/.agents/skills/terraform-security-review/SKILL.md` |
+| terraform | codex | skill | `codex/terraform/terraform-security-review/SKILL.md` | `release/terraform/native/agents/.agents/skills/terraform-security-review/SKILL.md` |
 | terraform | antigravity | standards | `antigravity/terraform/terraform-rules.md` | `release/terraform/native/antigravity/GEMINI.terraform-section.md` |
-| terraform | antigravity | skill | `antigravity/terraform/terraform-security-review/SKILL.md` | `release/terraform/native/antigravity/.agents/skills/terraform-security-review/SKILL.md` |
+| terraform | antigravity | skill | `antigravity/terraform/terraform-security-review/SKILL.md` | `release/terraform/native/agents/.agents/skills/terraform-security-review/SKILL.md` |
 | kotlin | cursor | standards | `cursor/kotlin/kotlin-rules.mdc` | `release/kotlin/native/cursor/.cursor/rules/kotlin-rules.mdc` |
 | kotlin | cursor | skill | `cursor/kotlin/kotlin-code-review/SKILL.md` | `release/kotlin/native/cursor/.cursor/skills/kotlin-code-review/SKILL.md` |
 | kotlin | copilot | standards | `copilot/kotlin/kotlin-rules.instructions.md` | `release/kotlin/native/copilot/.github/instructions/kotlin.instructions.md` |
@@ -384,9 +384,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | kotlin | cline | standards | `cline/kotlin/kotlin-rules.md` | `release/kotlin/native/cline/.clinerules/kotlin-rules.md` |
 | kotlin | cline | skill | `cline/kotlin/kotlin-code-review/SKILL.md` | `release/kotlin/native/cline/.cline/skills/kotlin-code-review/SKILL.md` |
 | kotlin | codex | standards | `codex/kotlin/kotlin-rules.md` | `release/kotlin/native/codex/AGENTS.kotlin-section.md` |
-| kotlin | codex | skill | `codex/kotlin/kotlin-code-review/SKILL.md` | `release/kotlin/native/codex/.agents/skills/kotlin-code-review/SKILL.md` |
+| kotlin | codex | skill | `codex/kotlin/kotlin-code-review/SKILL.md` | `release/kotlin/native/agents/.agents/skills/kotlin-code-review/SKILL.md` |
 | kotlin | antigravity | standards | `antigravity/kotlin/kotlin-rules.md` | `release/kotlin/native/antigravity/GEMINI.kotlin-section.md` |
-| kotlin | antigravity | skill | `antigravity/kotlin/kotlin-code-review/SKILL.md` | `release/kotlin/native/antigravity/.agents/skills/kotlin-code-review/SKILL.md` |
+| kotlin | antigravity | skill | `antigravity/kotlin/kotlin-code-review/SKILL.md` | `release/kotlin/native/agents/.agents/skills/kotlin-code-review/SKILL.md` |
 | rails | cursor | standards | `cursor/rails/rails-rules.mdc` | `release/rails/native/cursor/.cursor/rules/rails-rules.mdc` |
 | rails | cursor | skill | `cursor/rails/rails-code-review/SKILL.md` | `release/rails/native/cursor/.cursor/skills/rails-code-review/SKILL.md` |
 | rails | copilot | standards | `copilot/rails/rails-rules.instructions.md` | `release/rails/native/copilot/.github/instructions/rails.instructions.md` |
@@ -398,9 +398,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | rails | cline | standards | `cline/rails/rails-rules.md` | `release/rails/native/cline/.clinerules/rails-rules.md` |
 | rails | cline | skill | `cline/rails/rails-code-review/SKILL.md` | `release/rails/native/cline/.cline/skills/rails-code-review/SKILL.md` |
 | rails | codex | standards | `codex/rails/rails-rules.md` | `release/rails/native/codex/AGENTS.rails-section.md` |
-| rails | codex | skill | `codex/rails/rails-code-review/SKILL.md` | `release/rails/native/codex/.agents/skills/rails-code-review/SKILL.md` |
+| rails | codex | skill | `codex/rails/rails-code-review/SKILL.md` | `release/rails/native/agents/.agents/skills/rails-code-review/SKILL.md` |
 | rails | antigravity | standards | `antigravity/rails/rails-rules.md` | `release/rails/native/antigravity/GEMINI.rails-section.md` |
-| rails | antigravity | skill | `antigravity/rails/rails-code-review/SKILL.md` | `release/rails/native/antigravity/.agents/skills/rails-code-review/SKILL.md` |
+| rails | antigravity | skill | `antigravity/rails/rails-code-review/SKILL.md` | `release/rails/native/agents/.agents/skills/rails-code-review/SKILL.md` |
 | express | cursor | standards | `cursor/express/express-rules.mdc` | `release/express/native/cursor/.cursor/rules/express-rules.mdc` |
 | express | cursor | skill | `cursor/express/express-security-review/SKILL.md` | `release/express/native/cursor/.cursor/skills/express-security-review/SKILL.md` |
 | express | copilot | standards | `copilot/express/express-rules.instructions.md` | `release/express/native/copilot/.github/instructions/express.instructions.md` |
@@ -412,9 +412,9 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | express | cline | standards | `cline/express/express-rules.md` | `release/express/native/cline/.clinerules/express-rules.md` |
 | express | cline | skill | `cline/express/express-security-review/SKILL.md` | `release/express/native/cline/.cline/skills/express-security-review/SKILL.md` |
 | express | codex | standards | `codex/express/express-rules.md` | `release/express/native/codex/AGENTS.express-section.md` |
-| express | codex | skill | `codex/express/express-security-review/SKILL.md` | `release/express/native/codex/.agents/skills/express-security-review/SKILL.md` |
+| express | codex | skill | `codex/express/express-security-review/SKILL.md` | `release/express/native/agents/.agents/skills/express-security-review/SKILL.md` |
 | express | antigravity | standards | `antigravity/express/express-rules.md` | `release/express/native/antigravity/GEMINI.express-section.md` |
-| express | antigravity | skill | `antigravity/express/express-security-review/SKILL.md` | `release/express/native/antigravity/.agents/skills/express-security-review/SKILL.md` |
+| express | antigravity | skill | `antigravity/express/express-security-review/SKILL.md` | `release/express/native/agents/.agents/skills/express-security-review/SKILL.md` |
 | mcp | cursor | standards | `cursor/mcp/mcp-rules.mdc` | `release/mcp/native/cursor/.cursor/rules/mcp-rules.mdc` |
 | mcp | cursor | skill | `cursor/mcp/mcp-security-review/SKILL.md` | `release/mcp/native/cursor/.cursor/skills/mcp-security-review/SKILL.md` |
 | mcp | copilot | standards | `copilot/mcp/mcp-rules.instructions.md` | `release/mcp/native/copilot/.github/instructions/mcp.instructions.md` |
@@ -426,6 +426,6 @@ Install one skill per checkout. Shared `.agents/skills` names collide across Cur
 | mcp | cline | standards | `cline/mcp/mcp-rules.md` | `release/mcp/native/cline/.clinerules/mcp-rules.md` |
 | mcp | cline | skill | `cline/mcp/mcp-security-review/SKILL.md` | `release/mcp/native/cline/.cline/skills/mcp-security-review/SKILL.md` |
 | mcp | codex | standards | `codex/mcp/mcp-rules.md` | `release/mcp/native/codex/AGENTS.mcp-section.md` |
-| mcp | codex | skill | `codex/mcp/mcp-security-review/SKILL.md` | `release/mcp/native/codex/.agents/skills/mcp-security-review/SKILL.md` |
+| mcp | codex | skill | `codex/mcp/mcp-security-review/SKILL.md` | `release/mcp/native/agents/.agents/skills/mcp-security-review/SKILL.md` |
 | mcp | antigravity | standards | `antigravity/mcp/mcp-rules.md` | `release/mcp/native/antigravity/GEMINI.mcp-section.md` |
-| mcp | antigravity | skill | `antigravity/mcp/mcp-security-review/SKILL.md` | `release/mcp/native/antigravity/.agents/skills/mcp-security-review/SKILL.md` |
+| mcp | antigravity | skill | `antigravity/mcp/mcp-security-review/SKILL.md` | `release/mcp/native/agents/.agents/skills/mcp-security-review/SKILL.md` |

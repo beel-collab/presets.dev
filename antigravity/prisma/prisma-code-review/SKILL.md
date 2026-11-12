@@ -31,15 +31,15 @@ updated_for: "Prisma 7.10.1 stable, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/prisma-code-review/SKILL.md`.
+Install the native export at `.agents/skills/prisma-code-review/SKILL.md` (one file shared with Codex).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# Prisma Code Review Skill for Antigravity CLI
+# Prisma Code Review
 
-Antigravity CLI skill `prisma-code-review` for Prisma. The workspace path is `.agents/skills/prisma-code-review/SKILL.md`. Reload skills before you expect the new command.
+Shared skill `prisma-code-review` for Prisma. Codex and Antigravity CLI both read `.agents/skills/prisma-code-review/SKILL.md`. Install this one file. Codex calls it with `$prisma-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

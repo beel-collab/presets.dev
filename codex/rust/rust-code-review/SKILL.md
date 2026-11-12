@@ -31,15 +31,15 @@ updated_for: "Rust 1.100.0, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/rust-code-review/SKILL.md`.
+Install the native export at `.agents/skills/rust-code-review/SKILL.md` (one file shared with Antigravity CLI).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# Rust Code Review Skill for Codex
+# Rust Code Review
 
-Codex skill `rust-code-review` for Rust. Call it with `$rust-code-review` or `/skills`. Do not install the other tools' copies beside it.
+Shared skill `rust-code-review` for Rust. Codex and Antigravity CLI both read `.agents/skills/rust-code-review/SKILL.md`. Install this one file. Codex calls it with `$rust-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

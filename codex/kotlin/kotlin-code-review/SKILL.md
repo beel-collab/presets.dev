@@ -31,15 +31,15 @@ updated_for: "Kotlin 2.4 stable line, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/kotlin-code-review/SKILL.md`.
+Install the native export at `.agents/skills/kotlin-code-review/SKILL.md` (one file shared with Antigravity CLI).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# Kotlin Code Review Skill for Codex
+# Kotlin Code Review
 
-Codex skill `kotlin-code-review` for Kotlin. Call it with `$kotlin-code-review` or `/skills`. Do not install the other tools' copies beside it.
+Shared skill `kotlin-code-review` for Kotlin. Codex and Antigravity CLI both read `.agents/skills/kotlin-code-review/SKILL.md`. Install this one file. Codex calls it with `$kotlin-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

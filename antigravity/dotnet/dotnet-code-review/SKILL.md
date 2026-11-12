@@ -31,15 +31,15 @@ updated_for: ".NET 10 LTS and .NET 11, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/dotnet-code-review/SKILL.md`.
+Install the native export at `.agents/skills/dotnet-code-review/SKILL.md` (one file shared with Codex).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# .NET Code Review Skill for Antigravity CLI
+# .NET Code Review
 
-Antigravity CLI skill `dotnet-code-review` for .NET. The workspace path is `.agents/skills/dotnet-code-review/SKILL.md`. Reload skills before you expect the new command.
+Shared skill `dotnet-code-review` for .NET. Codex and Antigravity CLI both read `.agents/skills/dotnet-code-review/SKILL.md`. Install this one file. Codex calls it with `$dotnet-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

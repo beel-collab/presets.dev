@@ -31,15 +31,15 @@ updated_for: "Nuxt 4.6.4, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/nuxt-performance-audit/SKILL.md`.
+Install the native export at `.agents/skills/nuxt-performance-audit/SKILL.md` (one file shared with Codex).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# Nuxt Performance Audit Skill for Antigravity CLI
+# Nuxt Performance Audit
 
-Antigravity CLI skill `nuxt-performance-audit` for Nuxt. The workspace path is `.agents/skills/nuxt-performance-audit/SKILL.md`. Reload skills before you expect the new command.
+Shared skill `nuxt-performance-audit` for Nuxt. Codex and Antigravity CLI both read `.agents/skills/nuxt-performance-audit/SKILL.md`. Install this one file. Codex calls it with `$nuxt-performance-audit` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

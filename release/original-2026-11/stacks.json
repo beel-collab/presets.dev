@@ -120,7 +120,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nextjs/native/codex/.agents/skills/nextjs-code-review/SKILL.md"
+            "release/nextjs/native/agents/.agents/skills/nextjs-code-review/SKILL.md"
           ]
         },
         {
@@ -138,7 +138,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nextjs/native/antigravity/.agents/skills/nextjs-code-review/SKILL.md"
+            "release/nextjs/native/agents/.agents/skills/nextjs-code-review/SKILL.md"
           ]
         }
       ]
@@ -252,7 +252,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/react/native/codex/.agents/skills/react-performance-audit/SKILL.md"
+            "release/react/native/agents/.agents/skills/react-performance-audit/SKILL.md"
           ]
         },
         {
@@ -270,7 +270,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/react/native/antigravity/.agents/skills/react-performance-audit/SKILL.md"
+            "release/react/native/agents/.agents/skills/react-performance-audit/SKILL.md"
           ]
         }
       ]
@@ -384,7 +384,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/python/native/codex/.agents/skills/python-test-writer/SKILL.md"
+            "release/python/native/agents/.agents/skills/python-test-writer/SKILL.md"
           ]
         },
         {
@@ -402,7 +402,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/python/native/antigravity/.agents/skills/python-test-writer/SKILL.md"
+            "release/python/native/agents/.agents/skills/python-test-writer/SKILL.md"
           ]
         }
       ]
@@ -516,7 +516,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/typescript/native/codex/.agents/skills/typescript-code-review/SKILL.md"
+            "release/typescript/native/agents/.agents/skills/typescript-code-review/SKILL.md"
           ]
         },
         {
@@ -534,7 +534,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/typescript/native/antigravity/.agents/skills/typescript-code-review/SKILL.md"
+            "release/typescript/native/agents/.agents/skills/typescript-code-review/SKILL.md"
           ]
         }
       ]
@@ -648,7 +648,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/supabase/native/codex/.agents/skills/supabase-security-review/SKILL.md"
+            "release/supabase/native/agents/.agents/skills/supabase-security-review/SKILL.md"
           ]
         },
         {
@@ -666,7 +666,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/supabase/native/antigravity/.agents/skills/supabase-security-review/SKILL.md"
+            "release/supabase/native/agents/.agents/skills/supabase-security-review/SKILL.md"
           ]
         }
       ]
@@ -780,7 +780,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/tailwind/native/codex/.agents/skills/tailwind-code-review/SKILL.md"
+            "release/tailwind/native/agents/.agents/skills/tailwind-code-review/SKILL.md"
           ]
         },
         {
@@ -798,7 +798,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/tailwind/native/antigravity/.agents/skills/tailwind-code-review/SKILL.md"
+            "release/tailwind/native/agents/.agents/skills/tailwind-code-review/SKILL.md"
           ]
         }
       ]
@@ -912,7 +912,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/playwright/native/codex/.agents/skills/playwright-test-writer/SKILL.md"
+            "release/playwright/native/agents/.agents/skills/playwright-test-writer/SKILL.md"
           ]
         },
         {
@@ -930,7 +930,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/playwright/native/antigravity/.agents/skills/playwright-test-writer/SKILL.md"
+            "release/playwright/native/agents/.agents/skills/playwright-test-writer/SKILL.md"
           ]
         }
       ]
@@ -1044,7 +1044,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nodejs/native/codex/.agents/skills/nodejs-performance-audit/SKILL.md"
+            "release/nodejs/native/agents/.agents/skills/nodejs-performance-audit/SKILL.md"
           ]
         },
         {
@@ -1062,7 +1062,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nodejs/native/antigravity/.agents/skills/nodejs-performance-audit/SKILL.md"
+            "release/nodejs/native/agents/.agents/skills/nodejs-performance-audit/SKILL.md"
           ]
         }
       ]
@@ -1176,7 +1176,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/react-native/native/codex/.agents/skills/react-native-code-review/SKILL.md"
+            "release/react-native/native/agents/.agents/skills/react-native-code-review/SKILL.md"
           ]
         },
         {
@@ -1194,7 +1194,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/react-native/native/antigravity/.agents/skills/react-native-code-review/SKILL.md"
+            "release/react-native/native/agents/.agents/skills/react-native-code-review/SKILL.md"
           ]
         }
       ]
@@ -1308,7 +1308,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/vue/native/codex/.agents/skills/vue-code-review/SKILL.md"
+            "release/vue/native/agents/.agents/skills/vue-code-review/SKILL.md"
           ]
         },
         {
@@ -1326,7 +1326,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/vue/native/antigravity/.agents/skills/vue-code-review/SKILL.md"
+            "release/vue/native/agents/.agents/skills/vue-code-review/SKILL.md"
           ]
         }
       ]
@@ -1440,7 +1440,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/angular/native/codex/.agents/skills/angular-code-review/SKILL.md"
+            "release/angular/native/agents/.agents/skills/angular-code-review/SKILL.md"
           ]
         },
         {
@@ -1458,7 +1458,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/angular/native/antigravity/.agents/skills/angular-code-review/SKILL.md"
+            "release/angular/native/agents/.agents/skills/angular-code-review/SKILL.md"
           ]
         }
       ]
@@ -1572,7 +1572,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/fastapi/native/codex/.agents/skills/fastapi-security-review/SKILL.md"
+            "release/fastapi/native/agents/.agents/skills/fastapi-security-review/SKILL.md"
           ]
         },
         {
@@ -1590,7 +1590,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/fastapi/native/antigravity/.agents/skills/fastapi-security-review/SKILL.md"
+            "release/fastapi/native/agents/.agents/skills/fastapi-security-review/SKILL.md"
           ]
         }
       ]
@@ -1704,7 +1704,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/prisma/native/codex/.agents/skills/prisma-code-review/SKILL.md"
+            "release/prisma/native/agents/.agents/skills/prisma-code-review/SKILL.md"
           ]
         },
         {
@@ -1722,7 +1722,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/prisma/native/antigravity/.agents/skills/prisma-code-review/SKILL.md"
+            "release/prisma/native/agents/.agents/skills/prisma-code-review/SKILL.md"
           ]
         }
       ]
@@ -1836,7 +1836,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/go/native/codex/.agents/skills/go-code-review/SKILL.md"
+            "release/go/native/agents/.agents/skills/go-code-review/SKILL.md"
           ]
         },
         {
@@ -1854,7 +1854,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/go/native/antigravity/.agents/skills/go-code-review/SKILL.md"
+            "release/go/native/agents/.agents/skills/go-code-review/SKILL.md"
           ]
         }
       ]
@@ -1968,7 +1968,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/spring/native/codex/.agents/skills/spring-security-review/SKILL.md"
+            "release/spring/native/agents/.agents/skills/spring-security-review/SKILL.md"
           ]
         },
         {
@@ -1986,7 +1986,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/spring/native/antigravity/.agents/skills/spring-security-review/SKILL.md"
+            "release/spring/native/agents/.agents/skills/spring-security-review/SKILL.md"
           ]
         }
       ]
@@ -2100,7 +2100,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/dotnet/native/codex/.agents/skills/dotnet-code-review/SKILL.md"
+            "release/dotnet/native/agents/.agents/skills/dotnet-code-review/SKILL.md"
           ]
         },
         {
@@ -2118,7 +2118,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/dotnet/native/antigravity/.agents/skills/dotnet-code-review/SKILL.md"
+            "release/dotnet/native/agents/.agents/skills/dotnet-code-review/SKILL.md"
           ]
         }
       ]
@@ -2232,7 +2232,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/flutter/native/codex/.agents/skills/flutter-test-writer/SKILL.md"
+            "release/flutter/native/agents/.agents/skills/flutter-test-writer/SKILL.md"
           ]
         },
         {
@@ -2250,7 +2250,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/flutter/native/antigravity/.agents/skills/flutter-test-writer/SKILL.md"
+            "release/flutter/native/agents/.agents/skills/flutter-test-writer/SKILL.md"
           ]
         }
       ]
@@ -2364,7 +2364,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/swiftui/native/codex/.agents/skills/swiftui-code-review/SKILL.md"
+            "release/swiftui/native/agents/.agents/skills/swiftui-code-review/SKILL.md"
           ]
         },
         {
@@ -2382,7 +2382,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/swiftui/native/antigravity/.agents/skills/swiftui-code-review/SKILL.md"
+            "release/swiftui/native/agents/.agents/skills/swiftui-code-review/SKILL.md"
           ]
         }
       ]
@@ -2496,7 +2496,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/django/native/codex/.agents/skills/django-security-review/SKILL.md"
+            "release/django/native/agents/.agents/skills/django-security-review/SKILL.md"
           ]
         },
         {
@@ -2514,7 +2514,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/django/native/antigravity/.agents/skills/django-security-review/SKILL.md"
+            "release/django/native/agents/.agents/skills/django-security-review/SKILL.md"
           ]
         }
       ]
@@ -2628,7 +2628,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/svelte/native/codex/.agents/skills/svelte-code-review/SKILL.md"
+            "release/svelte/native/agents/.agents/skills/svelte-code-review/SKILL.md"
           ]
         },
         {
@@ -2646,7 +2646,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/svelte/native/antigravity/.agents/skills/svelte-code-review/SKILL.md"
+            "release/svelte/native/agents/.agents/skills/svelte-code-review/SKILL.md"
           ]
         }
       ]
@@ -2760,7 +2760,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/laravel/native/codex/.agents/skills/laravel-security-review/SKILL.md"
+            "release/laravel/native/agents/.agents/skills/laravel-security-review/SKILL.md"
           ]
         },
         {
@@ -2778,7 +2778,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/laravel/native/antigravity/.agents/skills/laravel-security-review/SKILL.md"
+            "release/laravel/native/agents/.agents/skills/laravel-security-review/SKILL.md"
           ]
         }
       ]
@@ -2892,7 +2892,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/rust/native/codex/.agents/skills/rust-code-review/SKILL.md"
+            "release/rust/native/agents/.agents/skills/rust-code-review/SKILL.md"
           ]
         },
         {
@@ -2910,7 +2910,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/rust/native/antigravity/.agents/skills/rust-code-review/SKILL.md"
+            "release/rust/native/agents/.agents/skills/rust-code-review/SKILL.md"
           ]
         }
       ]
@@ -3024,7 +3024,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nestjs/native/codex/.agents/skills/nestjs-security-review/SKILL.md"
+            "release/nestjs/native/agents/.agents/skills/nestjs-security-review/SKILL.md"
           ]
         },
         {
@@ -3042,7 +3042,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nestjs/native/antigravity/.agents/skills/nestjs-security-review/SKILL.md"
+            "release/nestjs/native/agents/.agents/skills/nestjs-security-review/SKILL.md"
           ]
         }
       ]
@@ -3156,7 +3156,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nuxt/native/codex/.agents/skills/nuxt-performance-audit/SKILL.md"
+            "release/nuxt/native/agents/.agents/skills/nuxt-performance-audit/SKILL.md"
           ]
         },
         {
@@ -3174,7 +3174,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nuxt/native/antigravity/.agents/skills/nuxt-performance-audit/SKILL.md"
+            "release/nuxt/native/agents/.agents/skills/nuxt-performance-audit/SKILL.md"
           ]
         }
       ]
@@ -3288,7 +3288,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/docker/native/codex/.agents/skills/docker-security-review/SKILL.md"
+            "release/docker/native/agents/.agents/skills/docker-security-review/SKILL.md"
           ]
         },
         {
@@ -3306,7 +3306,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/docker/native/antigravity/.agents/skills/docker-security-review/SKILL.md"
+            "release/docker/native/agents/.agents/skills/docker-security-review/SKILL.md"
           ]
         }
       ]
@@ -3420,7 +3420,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/terraform/native/codex/.agents/skills/terraform-security-review/SKILL.md"
+            "release/terraform/native/agents/.agents/skills/terraform-security-review/SKILL.md"
           ]
         },
         {
@@ -3438,7 +3438,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/terraform/native/antigravity/.agents/skills/terraform-security-review/SKILL.md"
+            "release/terraform/native/agents/.agents/skills/terraform-security-review/SKILL.md"
           ]
         }
       ]
@@ -3552,7 +3552,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/kotlin/native/codex/.agents/skills/kotlin-code-review/SKILL.md"
+            "release/kotlin/native/agents/.agents/skills/kotlin-code-review/SKILL.md"
           ]
         },
         {
@@ -3570,7 +3570,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/kotlin/native/antigravity/.agents/skills/kotlin-code-review/SKILL.md"
+            "release/kotlin/native/agents/.agents/skills/kotlin-code-review/SKILL.md"
           ]
         }
       ]
@@ -3684,7 +3684,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/rails/native/codex/.agents/skills/rails-code-review/SKILL.md"
+            "release/rails/native/agents/.agents/skills/rails-code-review/SKILL.md"
           ]
         },
         {
@@ -3702,7 +3702,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/rails/native/antigravity/.agents/skills/rails-code-review/SKILL.md"
+            "release/rails/native/agents/.agents/skills/rails-code-review/SKILL.md"
           ]
         }
       ]
@@ -3816,7 +3816,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/express/native/codex/.agents/skills/express-security-review/SKILL.md"
+            "release/express/native/agents/.agents/skills/express-security-review/SKILL.md"
           ]
         },
         {
@@ -3834,7 +3834,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/express/native/antigravity/.agents/skills/express-security-review/SKILL.md"
+            "release/express/native/agents/.agents/skills/express-security-review/SKILL.md"
           ]
         }
       ]
@@ -3948,7 +3948,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/mcp/native/codex/.agents/skills/mcp-security-review/SKILL.md"
+            "release/mcp/native/agents/.agents/skills/mcp-security-review/SKILL.md"
           ]
         },
         {
@@ -3966,7 +3966,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/mcp/native/antigravity/.agents/skills/mcp-security-review/SKILL.md"
+            "release/mcp/native/agents/.agents/skills/mcp-security-review/SKILL.md"
           ]
         }
       ]

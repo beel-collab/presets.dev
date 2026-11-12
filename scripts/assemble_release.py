@@ -198,6 +198,16 @@ def skill_catalog_description(tool: str, spec: dict) -> str:
     return text
 
 
+def shared_skill_host(spec: dict) -> str:
+    skill = spec["skill_name"]
+    return (
+        f"Shared skill `{skill}` for {spec['product']}. "
+        f"Codex and Antigravity CLI both read `.agents/skills/{skill}/SKILL.md`. "
+        f"Install this one file. Codex calls it with `${skill}` or `/skills`. "
+        f"Do not also copy the Cursor skill to that path."
+    )
+
+
 def host_line(tool: str, spec: dict, role: str) -> str:
     product = spec["product"]
     skill = spec["skill_name"]
@@ -254,15 +264,8 @@ def host_line(tool: str, spec: dict, role: str) -> str:
             f"Cline skill `{skill}` for {product}. "
             f"`/{skill}` forces it. A global skill of the same name overrides this project file."
         ),
-        "codex": (
-            f"Codex skill `{skill}` for {product}. "
-            f"Call it with `${skill}` or `/skills`. Do not install the other tools' copies beside it."
-        ),
-        "antigravity": (
-            f"Antigravity CLI skill `{skill}` for {product}. "
-            f"The workspace path is `.agents/skills/{skill}/SKILL.md`. "
-            f"Reload skills before you expect the new command."
-        ),
+        "codex": shared_skill_host(spec),
+        "antigravity": shared_skill_host(spec),
     }[tool]
 
 
@@ -287,8 +290,8 @@ def install_section(tool: str, spec: dict, role: str) -> str:
             "claude": f"`.claude/skills/{skill}/SKILL.md`",
             "windsurf": f"`.devin/skills/{skill}/SKILL.md`",
             "cline": f"`.cline/skills/{skill}/SKILL.md`",
-            "codex": f"`.agents/skills/{skill}/SKILL.md`",
-            "antigravity": f"`.agents/skills/{skill}/SKILL.md`",
+            "codex": f"`.agents/skills/{skill}/SKILL.md` (one file shared with Antigravity CLI)",
+            "antigravity": f"`.agents/skills/{skill}/SKILL.md` (one file shared with Codex)",
         }[tool]
     return "\n".join(
         [
@@ -441,14 +444,14 @@ def native_exports(spec: dict) -> dict[str, dict[str, list[dict]]]:
             ],
             "codex": [
                 {
-                    "path": f"{base}/codex/.agents/skills/{skill}/SKILL.md",
+                    "path": f"{base}/agents/.agents/skills/{skill}/SKILL.md",
                     "format": "skill",
                     "frontmatter": skill_front,
                 }
             ],
             "antigravity": [
                 {
-                    "path": f"{base}/antigravity/.agents/skills/{skill}/SKILL.md",
+                    "path": f"{base}/agents/.agents/skills/{skill}/SKILL.md",
                     "format": "skill",
                     "frontmatter": skill_front,
                 }
@@ -561,7 +564,11 @@ def render_entry(spec: dict, item: dict) -> str:
     skill = (spec["root"] / "skill.md").read_text(encoding="utf-8")
     body = standards if item["role"] == "standards" else skill
     title = item["title"]
-    native = join_sections([f"# {title}", host_line(item["tool"], spec, item["role"]), body])
+    if item["role"] == "skill" and item["tool"] in {"codex", "antigravity"}:
+        heading = f"# {spec['product']} {spec['skill_label']}"
+    else:
+        heading = f"# {title}"
+    native = join_sections([heading, host_line(item["tool"], spec, item["role"]), body])
     preamble = join_sections(
         [
             f"# {title}",
@@ -604,7 +611,7 @@ def mapping_markdown(rows: list[tuple[dict, dict]]) -> str:
         "",
         "Windsurf installs only under `.devin/` for current Devin. Do not also copy the file into `.windsurf/`.",
         "Codex standards append to `AGENTS.md`. Antigravity CLI standards append to `GEMINI.md` or `AGENTS.md`. Do not replace those files.",
-        "Install one skill per checkout. Shared `.agents/skills` names collide across Cursor, Codex, and Gemini CLI.",
+        "Codex and Antigravity CLI share one skill file at `release/<stack>/native/agents/.agents/skills/<skill>/SKILL.md`. Install it once. Do not also put the Cursor copy at `.agents/skills` under the same name.",
         "",
         "| Stack | Tool | Role | Catalog | Install |",
         "| --- | --- | --- | --- | --- |",
@@ -681,6 +688,9 @@ def build() -> dict[str, str]:
                     raise SystemExit(
                         f"{exported['path']}: {len(body)} characters exceeds the 12000 Cascade rule limit"
                     )
+                previous = files.get(exported["path"])
+                if previous is not None and previous != body:
+                    raise SystemExit(f"{exported['path']}: two tools wrote different contents")
                 files[exported["path"]] = body
             rows.append((spec, item))
     files["release/original-2026-11/stacks.json"] = json.dumps(stacks_document(groups), indent=2) + "\n"

@@ -31,15 +31,15 @@ updated_for: "Node.js 26.13.1 LTS, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/nodejs-performance-audit/SKILL.md`.
+Install the native export at `.agents/skills/nodejs-performance-audit/SKILL.md` (one file shared with Codex).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# Node.js Performance Audit Skill for Antigravity CLI
+# Node.js Performance Audit
 
-Antigravity CLI skill `nodejs-performance-audit` for Node.js. The workspace path is `.agents/skills/nodejs-performance-audit/SKILL.md`. Reload skills before you expect the new command.
+Shared skill `nodejs-performance-audit` for Node.js. Codex and Antigravity CLI both read `.agents/skills/nodejs-performance-audit/SKILL.md`. Install this one file. Codex calls it with `$nodejs-performance-audit` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 

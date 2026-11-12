@@ -30,15 +30,15 @@ updated_for: "Terraform 1.17, Nov 2026"
 
 ## Install
 
-Install the native export at `.agents/skills/terraform-security-review/SKILL.md`.
+Install the native export at `.agents/skills/terraform-security-review/SKILL.md` (one file shared with Antigravity CLI).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
 <!-- native:start -->
 
-# Terraform Security Review Skill for Codex
+# Terraform Security Review
 
-Codex skill `terraform-security-review` for Terraform. Call it with `$terraform-security-review` or `/skills`. Do not install the other tools' copies beside it.
+Shared skill `terraform-security-review` for Terraform. Codex and Antigravity CLI both read `.agents/skills/terraform-security-review/SKILL.md`. Install this one file. Codex calls it with `$terraform-security-review` or `/skills`. Do not also copy the Cursor skill to that path.
 
 ## When to run
 
