@@ -11,7 +11,7 @@ Conditional Cline rule for Kotlin. Install it under `.clinerules/` only.
 ## Updated for Kotlin 2.4, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 
-Stay on the Kotlin version the Gradle build uses. The 2.4 line adds coroutine trace recovery and Swift-export improvements. Use them only when the compiler is already on 2.4. Do not upgrade Kotlin, Compose, or the Android Gradle Plugin unless the task asks. A multiplatform target is added only when the project is already multiplatform.
+Stay on the Kotlin version the Gradle build uses. Kotlin 2.4.20 adds `StackTraceRecoverable` for coroutine stack traces. That API is experimental and requires `@OptIn(ExperimentalStdlibCoroutineSupportApi::class)`. It is not on by default. Swift export is the other 2.4.20 change. Use either only when the compiler is already on 2.4. Do not upgrade Kotlin, Compose, or the Android Gradle Plugin unless the task asks. A multiplatform target is added only when the project is already multiplatform.
 
 ## Project shape
 
@@ -61,7 +61,12 @@ Run the Gradle unit test task.
 
 ```kotlin
 viewModelScope.launch {
-  try { repo.refresh() }
-  catch (e: CancellationException) { throw e }
+  try {
+    repo.refresh()
+  } catch (e: CancellationException) {
+    throw e
+  } catch (e: Exception) {
+    show(e)
+  }
 }
 ```
