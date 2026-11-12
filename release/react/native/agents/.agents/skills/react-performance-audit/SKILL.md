@@ -37,8 +37,8 @@ Each finding has severity, file, line, the render or network cost you can point 
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a React 19 function component wraps itself in `forwardRef` only to pass `ref` to a button.
-Output: No findings. On React 19, `ref` is a normal prop. Do not flag `forwardRef` removal. Flag `componentWillMount`.
+Input: `Name.tsx` stores `first` and `last` in state from an effect, then renders that copy.
+Output: medium | Name.tsx:12 | the effect copies props into state | compute the full name during render. Do not flag a React 19 component that takes `ref` as a prop.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

@@ -69,8 +69,8 @@ Findings with severity, file, line, the platform assumption, and a fix. Include 
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: `HomeScreen.tsx` starts a request in `useEffect` and aborts it only in that effect's cleanup, while a stack push leaves the screen mounted.
-Output: medium | HomeScreen.tsx:18 | cleanup does not run on blur | load in `useFocusEffect` and abort in the focus cleanup.
+Input: `HomeScreen.tsx` does `const user = await load()` and then `setUser(user)` with no cancelled flag. The screen can unmount first.
+Output: high | HomeScreen.tsx:22 | the state update runs after unmount | return when the effect cleanup has run. A one-time load in `useEffect` that checks that flag is not a finding.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

@@ -35,8 +35,8 @@ Findings with severity, file, line, the isolation or availability issue, and a f
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a view starts work with `Task { await model.load() }` and never stores the handle.
-Output: high | ProfileView.swift:14 | an unstructured Task is not cancelled when the view disappears | use `.task { await model.load() }`.
+Input: `ProfileView.body` starts `Task { await model.load() }`, so every redraw starts another load.
+Output: high | ProfileView.swift:11 | the load is an unstructured task in `body` | use `.task { await model.load() }`. A `Task` inside a button action is not this finding.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
