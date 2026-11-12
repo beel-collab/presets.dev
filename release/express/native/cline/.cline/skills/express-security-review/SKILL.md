@@ -37,7 +37,7 @@ Say "No findings" and list the files you opened. A search you skipped is not a c
 
 ## Example
 Input: an Express 5 router still has `app.get('/*', handler)`.
-Output: high | src/app.ts:22 | Express 5 rejects an unnamed `*` wildcard | use `/*splat`.
+Output: high | src/app.ts:22 | Express 5 throws at startup on an unnamed `*` | use `/*splat`.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

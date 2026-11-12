@@ -45,7 +45,7 @@ Express 5 forwards rejected promises. Replace Express 4 `/*` wildcards. Do not c
 
 ## Deprecated APIs to never generate
 
-Express 5 removed the unnamed wildcard. `app.get('/*')` does not match. Write `app.get('/*splat', ...)`.
+Express 5 uses path-to-regexp v8. `app.get('/*')` throws at startup because the `*` has no name. Write `app.get('/*splat', ...)`.
 
 ## Commands
 
