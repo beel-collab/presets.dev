@@ -24,7 +24,7 @@ updated: "2026-11-11"
 libs:
   - "docker-engine@29"
 updated_for: "Docker Engine 29, Nov 2026"
-globs: "Dockerfile, Dockerfile.*, docker-compose*.yml, docker-compose*.yaml, compose.yml, compose.yaml"
+globs: "**/Dockerfile, **/Dockerfile.*, **/docker-compose*.yml, **/docker-compose*.yaml, **/compose.yml, **/compose.yaml"
 alwaysApply: false
 ---
 

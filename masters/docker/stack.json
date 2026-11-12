@@ -13,12 +13,12 @@
     "supply-chain"
   ],
   "paths": [
-    "Dockerfile",
-    "Dockerfile.*",
-    "docker-compose*.yml",
-    "docker-compose*.yaml",
-    "compose.yml",
-    "compose.yaml"
+    "**/Dockerfile",
+    "**/Dockerfile.*",
+    "**/docker-compose*.yml",
+    "**/docker-compose*.yaml",
+    "**/compose.yml",
+    "**/compose.yaml"
   ],
   "skill_name": "docker-security-review",
   "skill_label": "Security Review",

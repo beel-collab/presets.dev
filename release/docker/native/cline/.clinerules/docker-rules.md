@@ -1,11 +1,11 @@
 ---
 paths:
-  - "Dockerfile"
-  - "Dockerfile.*"
-  - "docker-compose*.yml"
-  - "docker-compose*.yaml"
-  - "compose.yml"
-  - "compose.yaml"
+  - "**/Dockerfile"
+  - "**/Dockerfile.*"
+  - "**/docker-compose*.yml"
+  - "**/docker-compose*.yaml"
+  - "**/compose.yml"
+  - "**/compose.yaml"
 ---
 
 # Docker Cline Rules: Images, Runtime Users and Build Secrets

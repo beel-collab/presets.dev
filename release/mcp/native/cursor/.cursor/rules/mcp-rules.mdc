@@ -1,6 +1,6 @@
 ---
 description: "MCP standards for Tools, Schemas and Permissions. Use when editing this stack. MCP spec 2026-07-28, server SDK 2.4.0, Nov 2026."
-globs: "**/*mcp*.ts, **/mcp/**/*.ts, src/server/**/*.ts"
+globs: "**/*mcp*.ts, **/mcp/**/*.ts, **/server.ts"
 alwaysApply: false
 ---
 

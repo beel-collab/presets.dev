@@ -1,5 +1,5 @@
 ---
-applyTo: "Dockerfile,Dockerfile.*,docker-compose*.yml,docker-compose*.yaml,compose.yml,compose.yaml"
+applyTo: "**/Dockerfile,**/Dockerfile.*,**/docker-compose*.yml,**/docker-compose*.yaml,**/compose.yml,**/compose.yaml"
 ---
 
 # Docker Copilot Instructions: Images, Runtime Users and Build Secrets

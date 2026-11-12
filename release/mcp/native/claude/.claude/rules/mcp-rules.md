@@ -2,7 +2,7 @@
 paths:
   - "**/*mcp*.ts"
   - "**/mcp/**/*.ts"
-  - "src/server/**/*.ts"
+  - "**/server.ts"
 ---
 
 # MCP Claude Code Rules: Tools, Schemas and Permissions

@@ -1,5 +1,5 @@
 ---
-applyTo: "**/*mcp*.ts,**/mcp/**/*.ts,src/server/**/*.ts"
+applyTo: "**/*mcp*.ts,**/mcp/**/*.ts,**/server.ts"
 ---
 
 # MCP Copilot Instructions: Tools, Schemas and Permissions

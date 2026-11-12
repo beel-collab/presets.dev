@@ -2,12 +2,12 @@
 name: "docker-security-review"
 description: "Review a Dockerfile or Compose file for root runtime, latest tags, secrets in layers, and the Docker socket. Use for a Docker security review. Do not use for a non-container change or to mount the Docker socket into an app container."
 paths:
-  - "Dockerfile"
-  - "Dockerfile.*"
-  - "docker-compose*.yml"
-  - "docker-compose*.yaml"
-  - "compose.yml"
-  - "compose.yaml"
+  - "**/Dockerfile"
+  - "**/Dockerfile.*"
+  - "**/docker-compose*.yml"
+  - "**/docker-compose*.yaml"
+  - "**/compose.yml"
+  - "**/compose.yaml"
 ---
 
 # Docker Security Review Skill for Cursor

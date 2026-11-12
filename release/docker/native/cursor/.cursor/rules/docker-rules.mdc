@@ -1,6 +1,6 @@
 ---
 description: "Docker standards for Images, Runtime Users and Build Secrets. Use when editing this stack. Docker Engine 29, Nov 2026."
-globs: "Dockerfile, Dockerfile.*, docker-compose*.yml, docker-compose*.yaml, compose.yml, compose.yaml"
+globs: "**/Dockerfile, **/Dockerfile.*, **/docker-compose*.yml, **/docker-compose*.yaml, **/compose.yml, **/compose.yaml"
 alwaysApply: false
 ---
 
