@@ -602,6 +602,34 @@ def render_entry(spec: dict, item: dict) -> str:
     return catalog, native
 
 
+def content_index(groups: list[tuple[dict, list[dict]]]) -> dict:
+    entries = []
+    for spec, items in groups:
+        for item in items:
+            entries.append(
+                {
+                    "catalog": item["catalog_path"],
+                    "tool": item["tool"],
+                    "role": item["role"],
+                    "type": item["type"],
+                    "stack": spec["id"],
+                }
+            )
+    claude_rules = [
+        row for row in entries if row["tool"] == "claude" and row["role"] == "standards"
+    ]
+    return {
+        "note": (
+            "All release catalog files, including Claude standards at "
+            "claude/<stack>/<stack>-rules.md. A filename scan that only accepts "
+            "CLAUDE.md skips those 30. presets-web still has to read this index."
+        ),
+        "count": len(entries),
+        "claude_standards": len(claude_rules),
+        "entries": entries,
+    }
+
+
 def mapping_markdown(rows: list[tuple[dict, dict]]) -> str:
     lines = [
         "# Native install map",
@@ -694,6 +722,7 @@ def build() -> dict[str, str]:
                 files[exported["path"]] = body
             rows.append((spec, item))
     files["release/original-2026-11/stacks.json"] = json.dumps(stacks_document(groups), indent=2) + "\n"
+    files["release/original-2026-11/content-index.json"] = json.dumps(content_index(groups), indent=2) + "\n"
     files["release/README.md"] = mapping_markdown(rows)
     return files
 

@@ -1,0 +1,2947 @@
+{
+  "note": "All release catalog files, including Claude standards at claude/<stack>/<stack>-rules.md. A filename scan that only accepts CLAUDE.md skips those 30. presets-web still has to read this index.",
+  "count": 420,
+  "claude_standards": 30,
+  "entries": [
+    {
+      "catalog": "cursor/nextjs/nextjs-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nextjs"
+    },
+    {
+      "catalog": "cursor/nextjs/nextjs-code-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nextjs"
+    },
+    {
+      "catalog": "copilot/nextjs/nextjs-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "nextjs"
+    },
+    {
+      "catalog": "copilot/nextjs/nextjs-code-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nextjs"
+    },
+    {
+      "catalog": "claude/nextjs/nextjs-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nextjs"
+    },
+    {
+      "catalog": "claude/skills/nextjs/nextjs-code-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nextjs"
+    },
+    {
+      "catalog": "windsurf/nextjs/nextjs-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nextjs"
+    },
+    {
+      "catalog": "windsurf/nextjs/nextjs-code-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nextjs"
+    },
+    {
+      "catalog": "cline/nextjs/nextjs-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nextjs"
+    },
+    {
+      "catalog": "cline/nextjs/nextjs-code-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nextjs"
+    },
+    {
+      "catalog": "codex/nextjs/nextjs-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nextjs"
+    },
+    {
+      "catalog": "codex/nextjs/nextjs-code-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nextjs"
+    },
+    {
+      "catalog": "antigravity/nextjs/nextjs-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nextjs"
+    },
+    {
+      "catalog": "antigravity/nextjs/nextjs-code-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nextjs"
+    },
+    {
+      "catalog": "cursor/react/react-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "react"
+    },
+    {
+      "catalog": "cursor/react/react-performance-audit/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "react"
+    },
+    {
+      "catalog": "copilot/react/react-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "react"
+    },
+    {
+      "catalog": "copilot/react/react-performance-audit/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "react"
+    },
+    {
+      "catalog": "claude/react/react-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "react"
+    },
+    {
+      "catalog": "claude/skills/react/react-performance-audit/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "react"
+    },
+    {
+      "catalog": "windsurf/react/react-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "react"
+    },
+    {
+      "catalog": "windsurf/react/react-performance-audit/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "react"
+    },
+    {
+      "catalog": "cline/react/react-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "react"
+    },
+    {
+      "catalog": "cline/react/react-performance-audit/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "react"
+    },
+    {
+      "catalog": "codex/react/react-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "react"
+    },
+    {
+      "catalog": "codex/react/react-performance-audit/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "react"
+    },
+    {
+      "catalog": "antigravity/react/react-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "react"
+    },
+    {
+      "catalog": "antigravity/react/react-performance-audit/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "react"
+    },
+    {
+      "catalog": "cursor/python/python-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "python"
+    },
+    {
+      "catalog": "cursor/python/python-test-writer/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "python"
+    },
+    {
+      "catalog": "copilot/python/python-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "python"
+    },
+    {
+      "catalog": "copilot/python/python-test-writer/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "python"
+    },
+    {
+      "catalog": "claude/python/python-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "python"
+    },
+    {
+      "catalog": "claude/skills/python/python-test-writer/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "python"
+    },
+    {
+      "catalog": "windsurf/python/python-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "python"
+    },
+    {
+      "catalog": "windsurf/python/python-test-writer/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "python"
+    },
+    {
+      "catalog": "cline/python/python-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "python"
+    },
+    {
+      "catalog": "cline/python/python-test-writer/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "python"
+    },
+    {
+      "catalog": "codex/python/python-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "python"
+    },
+    {
+      "catalog": "codex/python/python-test-writer/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "python"
+    },
+    {
+      "catalog": "antigravity/python/python-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "python"
+    },
+    {
+      "catalog": "antigravity/python/python-test-writer/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "python"
+    },
+    {
+      "catalog": "cursor/typescript/typescript-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "typescript"
+    },
+    {
+      "catalog": "cursor/typescript/typescript-code-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "typescript"
+    },
+    {
+      "catalog": "copilot/typescript/typescript-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "typescript"
+    },
+    {
+      "catalog": "copilot/typescript/typescript-code-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "typescript"
+    },
+    {
+      "catalog": "claude/typescript/typescript-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "typescript"
+    },
+    {
+      "catalog": "claude/skills/typescript/typescript-code-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "typescript"
+    },
+    {
+      "catalog": "windsurf/typescript/typescript-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "typescript"
+    },
+    {
+      "catalog": "windsurf/typescript/typescript-code-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "typescript"
+    },
+    {
+      "catalog": "cline/typescript/typescript-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "typescript"
+    },
+    {
+      "catalog": "cline/typescript/typescript-code-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "typescript"
+    },
+    {
+      "catalog": "codex/typescript/typescript-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "typescript"
+    },
+    {
+      "catalog": "codex/typescript/typescript-code-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "typescript"
+    },
+    {
+      "catalog": "antigravity/typescript/typescript-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "typescript"
+    },
+    {
+      "catalog": "antigravity/typescript/typescript-code-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "typescript"
+    },
+    {
+      "catalog": "cursor/supabase/supabase-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "supabase"
+    },
+    {
+      "catalog": "cursor/supabase/supabase-security-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "supabase"
+    },
+    {
+      "catalog": "copilot/supabase/supabase-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "supabase"
+    },
+    {
+      "catalog": "copilot/supabase/supabase-security-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "supabase"
+    },
+    {
+      "catalog": "claude/supabase/supabase-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "supabase"
+    },
+    {
+      "catalog": "claude/skills/supabase/supabase-security-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "supabase"
+    },
+    {
+      "catalog": "windsurf/supabase/supabase-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "supabase"
+    },
+    {
+      "catalog": "windsurf/supabase/supabase-security-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "supabase"
+    },
+    {
+      "catalog": "cline/supabase/supabase-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "supabase"
+    },
+    {
+      "catalog": "cline/supabase/supabase-security-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "supabase"
+    },
+    {
+      "catalog": "codex/supabase/supabase-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "supabase"
+    },
+    {
+      "catalog": "codex/supabase/supabase-security-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "supabase"
+    },
+    {
+      "catalog": "antigravity/supabase/supabase-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "supabase"
+    },
+    {
+      "catalog": "antigravity/supabase/supabase-security-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "supabase"
+    },
+    {
+      "catalog": "cursor/tailwind/tailwind-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "tailwind"
+    },
+    {
+      "catalog": "cursor/tailwind/tailwind-code-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "tailwind"
+    },
+    {
+      "catalog": "copilot/tailwind/tailwind-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "tailwind"
+    },
+    {
+      "catalog": "copilot/tailwind/tailwind-code-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "tailwind"
+    },
+    {
+      "catalog": "claude/tailwind/tailwind-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "tailwind"
+    },
+    {
+      "catalog": "claude/skills/tailwind/tailwind-code-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "tailwind"
+    },
+    {
+      "catalog": "windsurf/tailwind/tailwind-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "tailwind"
+    },
+    {
+      "catalog": "windsurf/tailwind/tailwind-code-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "tailwind"
+    },
+    {
+      "catalog": "cline/tailwind/tailwind-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "tailwind"
+    },
+    {
+      "catalog": "cline/tailwind/tailwind-code-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "tailwind"
+    },
+    {
+      "catalog": "codex/tailwind/tailwind-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "tailwind"
+    },
+    {
+      "catalog": "codex/tailwind/tailwind-code-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "tailwind"
+    },
+    {
+      "catalog": "antigravity/tailwind/tailwind-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "tailwind"
+    },
+    {
+      "catalog": "antigravity/tailwind/tailwind-code-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "tailwind"
+    },
+    {
+      "catalog": "cursor/playwright/playwright-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "playwright"
+    },
+    {
+      "catalog": "cursor/playwright/playwright-test-writer/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "playwright"
+    },
+    {
+      "catalog": "copilot/playwright/playwright-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "playwright"
+    },
+    {
+      "catalog": "copilot/playwright/playwright-test-writer/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "playwright"
+    },
+    {
+      "catalog": "claude/playwright/playwright-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "playwright"
+    },
+    {
+      "catalog": "claude/skills/playwright/playwright-test-writer/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "playwright"
+    },
+    {
+      "catalog": "windsurf/playwright/playwright-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "playwright"
+    },
+    {
+      "catalog": "windsurf/playwright/playwright-test-writer/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "playwright"
+    },
+    {
+      "catalog": "cline/playwright/playwright-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "playwright"
+    },
+    {
+      "catalog": "cline/playwright/playwright-test-writer/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "playwright"
+    },
+    {
+      "catalog": "codex/playwright/playwright-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "playwright"
+    },
+    {
+      "catalog": "codex/playwright/playwright-test-writer/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "playwright"
+    },
+    {
+      "catalog": "antigravity/playwright/playwright-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "playwright"
+    },
+    {
+      "catalog": "antigravity/playwright/playwright-test-writer/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "playwright"
+    },
+    {
+      "catalog": "cursor/nodejs/nodejs-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nodejs"
+    },
+    {
+      "catalog": "cursor/nodejs/nodejs-performance-audit/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nodejs"
+    },
+    {
+      "catalog": "copilot/nodejs/nodejs-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "nodejs"
+    },
+    {
+      "catalog": "copilot/nodejs/nodejs-performance-audit/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nodejs"
+    },
+    {
+      "catalog": "claude/nodejs/nodejs-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nodejs"
+    },
+    {
+      "catalog": "claude/skills/nodejs/nodejs-performance-audit/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nodejs"
+    },
+    {
+      "catalog": "windsurf/nodejs/nodejs-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nodejs"
+    },
+    {
+      "catalog": "windsurf/nodejs/nodejs-performance-audit/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nodejs"
+    },
+    {
+      "catalog": "cline/nodejs/nodejs-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nodejs"
+    },
+    {
+      "catalog": "cline/nodejs/nodejs-performance-audit/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nodejs"
+    },
+    {
+      "catalog": "codex/nodejs/nodejs-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nodejs"
+    },
+    {
+      "catalog": "codex/nodejs/nodejs-performance-audit/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nodejs"
+    },
+    {
+      "catalog": "antigravity/nodejs/nodejs-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nodejs"
+    },
+    {
+      "catalog": "antigravity/nodejs/nodejs-performance-audit/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nodejs"
+    },
+    {
+      "catalog": "cursor/react-native/react-native-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "react-native"
+    },
+    {
+      "catalog": "cursor/react-native/react-native-code-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "react-native"
+    },
+    {
+      "catalog": "copilot/react-native/react-native-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "react-native"
+    },
+    {
+      "catalog": "copilot/react-native/react-native-code-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "react-native"
+    },
+    {
+      "catalog": "claude/react-native/react-native-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "react-native"
+    },
+    {
+      "catalog": "claude/skills/react-native/react-native-code-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "react-native"
+    },
+    {
+      "catalog": "windsurf/react-native/react-native-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "react-native"
+    },
+    {
+      "catalog": "windsurf/react-native/react-native-code-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "react-native"
+    },
+    {
+      "catalog": "cline/react-native/react-native-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "react-native"
+    },
+    {
+      "catalog": "cline/react-native/react-native-code-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "react-native"
+    },
+    {
+      "catalog": "codex/react-native/react-native-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "react-native"
+    },
+    {
+      "catalog": "codex/react-native/react-native-code-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "react-native"
+    },
+    {
+      "catalog": "antigravity/react-native/react-native-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "react-native"
+    },
+    {
+      "catalog": "antigravity/react-native/react-native-code-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "react-native"
+    },
+    {
+      "catalog": "cursor/vue/vue-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "vue"
+    },
+    {
+      "catalog": "cursor/vue/vue-code-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "vue"
+    },
+    {
+      "catalog": "copilot/vue/vue-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "vue"
+    },
+    {
+      "catalog": "copilot/vue/vue-code-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "vue"
+    },
+    {
+      "catalog": "claude/vue/vue-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "vue"
+    },
+    {
+      "catalog": "claude/skills/vue/vue-code-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "vue"
+    },
+    {
+      "catalog": "windsurf/vue/vue-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "vue"
+    },
+    {
+      "catalog": "windsurf/vue/vue-code-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "vue"
+    },
+    {
+      "catalog": "cline/vue/vue-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "vue"
+    },
+    {
+      "catalog": "cline/vue/vue-code-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "vue"
+    },
+    {
+      "catalog": "codex/vue/vue-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "vue"
+    },
+    {
+      "catalog": "codex/vue/vue-code-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "vue"
+    },
+    {
+      "catalog": "antigravity/vue/vue-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "vue"
+    },
+    {
+      "catalog": "antigravity/vue/vue-code-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "vue"
+    },
+    {
+      "catalog": "cursor/angular/angular-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "angular"
+    },
+    {
+      "catalog": "cursor/angular/angular-code-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "angular"
+    },
+    {
+      "catalog": "copilot/angular/angular-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "angular"
+    },
+    {
+      "catalog": "copilot/angular/angular-code-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "angular"
+    },
+    {
+      "catalog": "claude/angular/angular-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "angular"
+    },
+    {
+      "catalog": "claude/skills/angular/angular-code-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "angular"
+    },
+    {
+      "catalog": "windsurf/angular/angular-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "angular"
+    },
+    {
+      "catalog": "windsurf/angular/angular-code-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "angular"
+    },
+    {
+      "catalog": "cline/angular/angular-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "angular"
+    },
+    {
+      "catalog": "cline/angular/angular-code-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "angular"
+    },
+    {
+      "catalog": "codex/angular/angular-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "angular"
+    },
+    {
+      "catalog": "codex/angular/angular-code-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "angular"
+    },
+    {
+      "catalog": "antigravity/angular/angular-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "angular"
+    },
+    {
+      "catalog": "antigravity/angular/angular-code-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "angular"
+    },
+    {
+      "catalog": "cursor/fastapi/fastapi-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "fastapi"
+    },
+    {
+      "catalog": "cursor/fastapi/fastapi-security-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "fastapi"
+    },
+    {
+      "catalog": "copilot/fastapi/fastapi-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "fastapi"
+    },
+    {
+      "catalog": "copilot/fastapi/fastapi-security-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "fastapi"
+    },
+    {
+      "catalog": "claude/fastapi/fastapi-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "fastapi"
+    },
+    {
+      "catalog": "claude/skills/fastapi/fastapi-security-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "fastapi"
+    },
+    {
+      "catalog": "windsurf/fastapi/fastapi-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "fastapi"
+    },
+    {
+      "catalog": "windsurf/fastapi/fastapi-security-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "fastapi"
+    },
+    {
+      "catalog": "cline/fastapi/fastapi-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "fastapi"
+    },
+    {
+      "catalog": "cline/fastapi/fastapi-security-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "fastapi"
+    },
+    {
+      "catalog": "codex/fastapi/fastapi-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "fastapi"
+    },
+    {
+      "catalog": "codex/fastapi/fastapi-security-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "fastapi"
+    },
+    {
+      "catalog": "antigravity/fastapi/fastapi-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "fastapi"
+    },
+    {
+      "catalog": "antigravity/fastapi/fastapi-security-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "fastapi"
+    },
+    {
+      "catalog": "cursor/prisma/prisma-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "prisma"
+    },
+    {
+      "catalog": "cursor/prisma/prisma-code-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "prisma"
+    },
+    {
+      "catalog": "copilot/prisma/prisma-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "prisma"
+    },
+    {
+      "catalog": "copilot/prisma/prisma-code-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "prisma"
+    },
+    {
+      "catalog": "claude/prisma/prisma-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "prisma"
+    },
+    {
+      "catalog": "claude/skills/prisma/prisma-code-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "prisma"
+    },
+    {
+      "catalog": "windsurf/prisma/prisma-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "prisma"
+    },
+    {
+      "catalog": "windsurf/prisma/prisma-code-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "prisma"
+    },
+    {
+      "catalog": "cline/prisma/prisma-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "prisma"
+    },
+    {
+      "catalog": "cline/prisma/prisma-code-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "prisma"
+    },
+    {
+      "catalog": "codex/prisma/prisma-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "prisma"
+    },
+    {
+      "catalog": "codex/prisma/prisma-code-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "prisma"
+    },
+    {
+      "catalog": "antigravity/prisma/prisma-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "prisma"
+    },
+    {
+      "catalog": "antigravity/prisma/prisma-code-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "prisma"
+    },
+    {
+      "catalog": "cursor/go/go-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "go"
+    },
+    {
+      "catalog": "cursor/go/go-code-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "go"
+    },
+    {
+      "catalog": "copilot/go/go-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "go"
+    },
+    {
+      "catalog": "copilot/go/go-code-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "go"
+    },
+    {
+      "catalog": "claude/go/go-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "go"
+    },
+    {
+      "catalog": "claude/skills/go/go-code-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "go"
+    },
+    {
+      "catalog": "windsurf/go/go-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "go"
+    },
+    {
+      "catalog": "windsurf/go/go-code-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "go"
+    },
+    {
+      "catalog": "cline/go/go-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "go"
+    },
+    {
+      "catalog": "cline/go/go-code-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "go"
+    },
+    {
+      "catalog": "codex/go/go-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "go"
+    },
+    {
+      "catalog": "codex/go/go-code-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "go"
+    },
+    {
+      "catalog": "antigravity/go/go-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "go"
+    },
+    {
+      "catalog": "antigravity/go/go-code-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "go"
+    },
+    {
+      "catalog": "cursor/spring/spring-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "spring"
+    },
+    {
+      "catalog": "cursor/spring/spring-security-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "spring"
+    },
+    {
+      "catalog": "copilot/spring/spring-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "spring"
+    },
+    {
+      "catalog": "copilot/spring/spring-security-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "spring"
+    },
+    {
+      "catalog": "claude/spring/spring-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "spring"
+    },
+    {
+      "catalog": "claude/skills/spring/spring-security-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "spring"
+    },
+    {
+      "catalog": "windsurf/spring/spring-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "spring"
+    },
+    {
+      "catalog": "windsurf/spring/spring-security-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "spring"
+    },
+    {
+      "catalog": "cline/spring/spring-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "spring"
+    },
+    {
+      "catalog": "cline/spring/spring-security-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "spring"
+    },
+    {
+      "catalog": "codex/spring/spring-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "spring"
+    },
+    {
+      "catalog": "codex/spring/spring-security-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "spring"
+    },
+    {
+      "catalog": "antigravity/spring/spring-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "spring"
+    },
+    {
+      "catalog": "antigravity/spring/spring-security-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "spring"
+    },
+    {
+      "catalog": "cursor/dotnet/dotnet-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "dotnet"
+    },
+    {
+      "catalog": "cursor/dotnet/dotnet-code-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "dotnet"
+    },
+    {
+      "catalog": "copilot/dotnet/dotnet-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "dotnet"
+    },
+    {
+      "catalog": "copilot/dotnet/dotnet-code-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "dotnet"
+    },
+    {
+      "catalog": "claude/dotnet/dotnet-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "dotnet"
+    },
+    {
+      "catalog": "claude/skills/dotnet/dotnet-code-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "dotnet"
+    },
+    {
+      "catalog": "windsurf/dotnet/dotnet-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "dotnet"
+    },
+    {
+      "catalog": "windsurf/dotnet/dotnet-code-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "dotnet"
+    },
+    {
+      "catalog": "cline/dotnet/dotnet-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "dotnet"
+    },
+    {
+      "catalog": "cline/dotnet/dotnet-code-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "dotnet"
+    },
+    {
+      "catalog": "codex/dotnet/dotnet-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "dotnet"
+    },
+    {
+      "catalog": "codex/dotnet/dotnet-code-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "dotnet"
+    },
+    {
+      "catalog": "antigravity/dotnet/dotnet-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "dotnet"
+    },
+    {
+      "catalog": "antigravity/dotnet/dotnet-code-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "dotnet"
+    },
+    {
+      "catalog": "cursor/flutter/flutter-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "flutter"
+    },
+    {
+      "catalog": "cursor/flutter/flutter-test-writer/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "flutter"
+    },
+    {
+      "catalog": "copilot/flutter/flutter-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "flutter"
+    },
+    {
+      "catalog": "copilot/flutter/flutter-test-writer/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "flutter"
+    },
+    {
+      "catalog": "claude/flutter/flutter-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "flutter"
+    },
+    {
+      "catalog": "claude/skills/flutter/flutter-test-writer/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "flutter"
+    },
+    {
+      "catalog": "windsurf/flutter/flutter-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "flutter"
+    },
+    {
+      "catalog": "windsurf/flutter/flutter-test-writer/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "flutter"
+    },
+    {
+      "catalog": "cline/flutter/flutter-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "flutter"
+    },
+    {
+      "catalog": "cline/flutter/flutter-test-writer/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "flutter"
+    },
+    {
+      "catalog": "codex/flutter/flutter-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "flutter"
+    },
+    {
+      "catalog": "codex/flutter/flutter-test-writer/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "flutter"
+    },
+    {
+      "catalog": "antigravity/flutter/flutter-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "flutter"
+    },
+    {
+      "catalog": "antigravity/flutter/flutter-test-writer/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "flutter"
+    },
+    {
+      "catalog": "cursor/swiftui/swiftui-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "swiftui"
+    },
+    {
+      "catalog": "cursor/swiftui/swiftui-code-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "swiftui"
+    },
+    {
+      "catalog": "copilot/swiftui/swiftui-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "swiftui"
+    },
+    {
+      "catalog": "copilot/swiftui/swiftui-code-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "swiftui"
+    },
+    {
+      "catalog": "claude/swiftui/swiftui-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "swiftui"
+    },
+    {
+      "catalog": "claude/skills/swiftui/swiftui-code-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "swiftui"
+    },
+    {
+      "catalog": "windsurf/swiftui/swiftui-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "swiftui"
+    },
+    {
+      "catalog": "windsurf/swiftui/swiftui-code-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "swiftui"
+    },
+    {
+      "catalog": "cline/swiftui/swiftui-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "swiftui"
+    },
+    {
+      "catalog": "cline/swiftui/swiftui-code-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "swiftui"
+    },
+    {
+      "catalog": "codex/swiftui/swiftui-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "swiftui"
+    },
+    {
+      "catalog": "codex/swiftui/swiftui-code-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "swiftui"
+    },
+    {
+      "catalog": "antigravity/swiftui/swiftui-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "swiftui"
+    },
+    {
+      "catalog": "antigravity/swiftui/swiftui-code-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "swiftui"
+    },
+    {
+      "catalog": "cursor/django/django-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "django"
+    },
+    {
+      "catalog": "cursor/django/django-security-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "django"
+    },
+    {
+      "catalog": "copilot/django/django-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "django"
+    },
+    {
+      "catalog": "copilot/django/django-security-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "django"
+    },
+    {
+      "catalog": "claude/django/django-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "django"
+    },
+    {
+      "catalog": "claude/skills/django/django-security-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "django"
+    },
+    {
+      "catalog": "windsurf/django/django-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "django"
+    },
+    {
+      "catalog": "windsurf/django/django-security-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "django"
+    },
+    {
+      "catalog": "cline/django/django-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "django"
+    },
+    {
+      "catalog": "cline/django/django-security-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "django"
+    },
+    {
+      "catalog": "codex/django/django-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "django"
+    },
+    {
+      "catalog": "codex/django/django-security-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "django"
+    },
+    {
+      "catalog": "antigravity/django/django-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "django"
+    },
+    {
+      "catalog": "antigravity/django/django-security-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "django"
+    },
+    {
+      "catalog": "cursor/svelte/svelte-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "svelte"
+    },
+    {
+      "catalog": "cursor/svelte/svelte-code-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "svelte"
+    },
+    {
+      "catalog": "copilot/svelte/svelte-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "svelte"
+    },
+    {
+      "catalog": "copilot/svelte/svelte-code-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "svelte"
+    },
+    {
+      "catalog": "claude/svelte/svelte-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "svelte"
+    },
+    {
+      "catalog": "claude/skills/svelte/svelte-code-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "svelte"
+    },
+    {
+      "catalog": "windsurf/svelte/svelte-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "svelte"
+    },
+    {
+      "catalog": "windsurf/svelte/svelte-code-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "svelte"
+    },
+    {
+      "catalog": "cline/svelte/svelte-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "svelte"
+    },
+    {
+      "catalog": "cline/svelte/svelte-code-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "svelte"
+    },
+    {
+      "catalog": "codex/svelte/svelte-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "svelte"
+    },
+    {
+      "catalog": "codex/svelte/svelte-code-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "svelte"
+    },
+    {
+      "catalog": "antigravity/svelte/svelte-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "svelte"
+    },
+    {
+      "catalog": "antigravity/svelte/svelte-code-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "svelte"
+    },
+    {
+      "catalog": "cursor/laravel/laravel-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "laravel"
+    },
+    {
+      "catalog": "cursor/laravel/laravel-security-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "laravel"
+    },
+    {
+      "catalog": "copilot/laravel/laravel-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "laravel"
+    },
+    {
+      "catalog": "copilot/laravel/laravel-security-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "laravel"
+    },
+    {
+      "catalog": "claude/laravel/laravel-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "laravel"
+    },
+    {
+      "catalog": "claude/skills/laravel/laravel-security-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "laravel"
+    },
+    {
+      "catalog": "windsurf/laravel/laravel-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "laravel"
+    },
+    {
+      "catalog": "windsurf/laravel/laravel-security-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "laravel"
+    },
+    {
+      "catalog": "cline/laravel/laravel-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "laravel"
+    },
+    {
+      "catalog": "cline/laravel/laravel-security-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "laravel"
+    },
+    {
+      "catalog": "codex/laravel/laravel-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "laravel"
+    },
+    {
+      "catalog": "codex/laravel/laravel-security-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "laravel"
+    },
+    {
+      "catalog": "antigravity/laravel/laravel-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "laravel"
+    },
+    {
+      "catalog": "antigravity/laravel/laravel-security-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "laravel"
+    },
+    {
+      "catalog": "cursor/rust/rust-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "rust"
+    },
+    {
+      "catalog": "cursor/rust/rust-code-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "rust"
+    },
+    {
+      "catalog": "copilot/rust/rust-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "rust"
+    },
+    {
+      "catalog": "copilot/rust/rust-code-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "rust"
+    },
+    {
+      "catalog": "claude/rust/rust-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "rust"
+    },
+    {
+      "catalog": "claude/skills/rust/rust-code-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "rust"
+    },
+    {
+      "catalog": "windsurf/rust/rust-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "rust"
+    },
+    {
+      "catalog": "windsurf/rust/rust-code-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "rust"
+    },
+    {
+      "catalog": "cline/rust/rust-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "rust"
+    },
+    {
+      "catalog": "cline/rust/rust-code-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "rust"
+    },
+    {
+      "catalog": "codex/rust/rust-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "rust"
+    },
+    {
+      "catalog": "codex/rust/rust-code-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "rust"
+    },
+    {
+      "catalog": "antigravity/rust/rust-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "rust"
+    },
+    {
+      "catalog": "antigravity/rust/rust-code-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "rust"
+    },
+    {
+      "catalog": "cursor/nestjs/nestjs-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nestjs"
+    },
+    {
+      "catalog": "cursor/nestjs/nestjs-security-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nestjs"
+    },
+    {
+      "catalog": "copilot/nestjs/nestjs-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "nestjs"
+    },
+    {
+      "catalog": "copilot/nestjs/nestjs-security-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nestjs"
+    },
+    {
+      "catalog": "claude/nestjs/nestjs-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nestjs"
+    },
+    {
+      "catalog": "claude/skills/nestjs/nestjs-security-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nestjs"
+    },
+    {
+      "catalog": "windsurf/nestjs/nestjs-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nestjs"
+    },
+    {
+      "catalog": "windsurf/nestjs/nestjs-security-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nestjs"
+    },
+    {
+      "catalog": "cline/nestjs/nestjs-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nestjs"
+    },
+    {
+      "catalog": "cline/nestjs/nestjs-security-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nestjs"
+    },
+    {
+      "catalog": "codex/nestjs/nestjs-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nestjs"
+    },
+    {
+      "catalog": "codex/nestjs/nestjs-security-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nestjs"
+    },
+    {
+      "catalog": "antigravity/nestjs/nestjs-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nestjs"
+    },
+    {
+      "catalog": "antigravity/nestjs/nestjs-security-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nestjs"
+    },
+    {
+      "catalog": "cursor/nuxt/nuxt-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nuxt"
+    },
+    {
+      "catalog": "cursor/nuxt/nuxt-performance-audit/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nuxt"
+    },
+    {
+      "catalog": "copilot/nuxt/nuxt-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "nuxt"
+    },
+    {
+      "catalog": "copilot/nuxt/nuxt-performance-audit/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nuxt"
+    },
+    {
+      "catalog": "claude/nuxt/nuxt-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nuxt"
+    },
+    {
+      "catalog": "claude/skills/nuxt/nuxt-performance-audit/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nuxt"
+    },
+    {
+      "catalog": "windsurf/nuxt/nuxt-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nuxt"
+    },
+    {
+      "catalog": "windsurf/nuxt/nuxt-performance-audit/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nuxt"
+    },
+    {
+      "catalog": "cline/nuxt/nuxt-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nuxt"
+    },
+    {
+      "catalog": "cline/nuxt/nuxt-performance-audit/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nuxt"
+    },
+    {
+      "catalog": "codex/nuxt/nuxt-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nuxt"
+    },
+    {
+      "catalog": "codex/nuxt/nuxt-performance-audit/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nuxt"
+    },
+    {
+      "catalog": "antigravity/nuxt/nuxt-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "nuxt"
+    },
+    {
+      "catalog": "antigravity/nuxt/nuxt-performance-audit/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "nuxt"
+    },
+    {
+      "catalog": "cursor/docker/docker-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "docker"
+    },
+    {
+      "catalog": "cursor/docker/docker-security-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "docker"
+    },
+    {
+      "catalog": "copilot/docker/docker-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "docker"
+    },
+    {
+      "catalog": "copilot/docker/docker-security-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "docker"
+    },
+    {
+      "catalog": "claude/docker/docker-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "docker"
+    },
+    {
+      "catalog": "claude/skills/docker/docker-security-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "docker"
+    },
+    {
+      "catalog": "windsurf/docker/docker-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "docker"
+    },
+    {
+      "catalog": "windsurf/docker/docker-security-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "docker"
+    },
+    {
+      "catalog": "cline/docker/docker-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "docker"
+    },
+    {
+      "catalog": "cline/docker/docker-security-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "docker"
+    },
+    {
+      "catalog": "codex/docker/docker-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "docker"
+    },
+    {
+      "catalog": "codex/docker/docker-security-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "docker"
+    },
+    {
+      "catalog": "antigravity/docker/docker-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "docker"
+    },
+    {
+      "catalog": "antigravity/docker/docker-security-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "docker"
+    },
+    {
+      "catalog": "cursor/terraform/terraform-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "terraform"
+    },
+    {
+      "catalog": "cursor/terraform/terraform-security-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "terraform"
+    },
+    {
+      "catalog": "copilot/terraform/terraform-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "terraform"
+    },
+    {
+      "catalog": "copilot/terraform/terraform-security-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "terraform"
+    },
+    {
+      "catalog": "claude/terraform/terraform-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "terraform"
+    },
+    {
+      "catalog": "claude/skills/terraform/terraform-security-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "terraform"
+    },
+    {
+      "catalog": "windsurf/terraform/terraform-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "terraform"
+    },
+    {
+      "catalog": "windsurf/terraform/terraform-security-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "terraform"
+    },
+    {
+      "catalog": "cline/terraform/terraform-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "terraform"
+    },
+    {
+      "catalog": "cline/terraform/terraform-security-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "terraform"
+    },
+    {
+      "catalog": "codex/terraform/terraform-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "terraform"
+    },
+    {
+      "catalog": "codex/terraform/terraform-security-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "terraform"
+    },
+    {
+      "catalog": "antigravity/terraform/terraform-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "terraform"
+    },
+    {
+      "catalog": "antigravity/terraform/terraform-security-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "terraform"
+    },
+    {
+      "catalog": "cursor/kotlin/kotlin-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "kotlin"
+    },
+    {
+      "catalog": "cursor/kotlin/kotlin-code-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "kotlin"
+    },
+    {
+      "catalog": "copilot/kotlin/kotlin-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "kotlin"
+    },
+    {
+      "catalog": "copilot/kotlin/kotlin-code-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "kotlin"
+    },
+    {
+      "catalog": "claude/kotlin/kotlin-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "kotlin"
+    },
+    {
+      "catalog": "claude/skills/kotlin/kotlin-code-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "kotlin"
+    },
+    {
+      "catalog": "windsurf/kotlin/kotlin-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "kotlin"
+    },
+    {
+      "catalog": "windsurf/kotlin/kotlin-code-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "kotlin"
+    },
+    {
+      "catalog": "cline/kotlin/kotlin-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "kotlin"
+    },
+    {
+      "catalog": "cline/kotlin/kotlin-code-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "kotlin"
+    },
+    {
+      "catalog": "codex/kotlin/kotlin-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "kotlin"
+    },
+    {
+      "catalog": "codex/kotlin/kotlin-code-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "kotlin"
+    },
+    {
+      "catalog": "antigravity/kotlin/kotlin-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "kotlin"
+    },
+    {
+      "catalog": "antigravity/kotlin/kotlin-code-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "kotlin"
+    },
+    {
+      "catalog": "cursor/rails/rails-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "rails"
+    },
+    {
+      "catalog": "cursor/rails/rails-code-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "rails"
+    },
+    {
+      "catalog": "copilot/rails/rails-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "rails"
+    },
+    {
+      "catalog": "copilot/rails/rails-code-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "rails"
+    },
+    {
+      "catalog": "claude/rails/rails-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "rails"
+    },
+    {
+      "catalog": "claude/skills/rails/rails-code-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "rails"
+    },
+    {
+      "catalog": "windsurf/rails/rails-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "rails"
+    },
+    {
+      "catalog": "windsurf/rails/rails-code-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "rails"
+    },
+    {
+      "catalog": "cline/rails/rails-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "rails"
+    },
+    {
+      "catalog": "cline/rails/rails-code-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "rails"
+    },
+    {
+      "catalog": "codex/rails/rails-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "rails"
+    },
+    {
+      "catalog": "codex/rails/rails-code-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "rails"
+    },
+    {
+      "catalog": "antigravity/rails/rails-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "rails"
+    },
+    {
+      "catalog": "antigravity/rails/rails-code-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "rails"
+    },
+    {
+      "catalog": "cursor/express/express-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "express"
+    },
+    {
+      "catalog": "cursor/express/express-security-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "express"
+    },
+    {
+      "catalog": "copilot/express/express-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "express"
+    },
+    {
+      "catalog": "copilot/express/express-security-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "express"
+    },
+    {
+      "catalog": "claude/express/express-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "express"
+    },
+    {
+      "catalog": "claude/skills/express/express-security-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "express"
+    },
+    {
+      "catalog": "windsurf/express/express-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "express"
+    },
+    {
+      "catalog": "windsurf/express/express-security-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "express"
+    },
+    {
+      "catalog": "cline/express/express-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "express"
+    },
+    {
+      "catalog": "cline/express/express-security-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "express"
+    },
+    {
+      "catalog": "codex/express/express-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "express"
+    },
+    {
+      "catalog": "codex/express/express-security-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "express"
+    },
+    {
+      "catalog": "antigravity/express/express-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "express"
+    },
+    {
+      "catalog": "antigravity/express/express-security-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "express"
+    },
+    {
+      "catalog": "cursor/mcp/mcp-rules.mdc",
+      "tool": "cursor",
+      "role": "standards",
+      "type": "rule",
+      "stack": "mcp"
+    },
+    {
+      "catalog": "cursor/mcp/mcp-security-review/SKILL.md",
+      "tool": "cursor",
+      "role": "skill",
+      "type": "skill",
+      "stack": "mcp"
+    },
+    {
+      "catalog": "copilot/mcp/mcp-rules.instructions.md",
+      "tool": "copilot",
+      "role": "standards",
+      "type": "instruction",
+      "stack": "mcp"
+    },
+    {
+      "catalog": "copilot/mcp/mcp-security-review/SKILL.md",
+      "tool": "copilot",
+      "role": "skill",
+      "type": "skill",
+      "stack": "mcp"
+    },
+    {
+      "catalog": "claude/mcp/mcp-rules.md",
+      "tool": "claude",
+      "role": "standards",
+      "type": "rule",
+      "stack": "mcp"
+    },
+    {
+      "catalog": "claude/skills/mcp/mcp-security-review/SKILL.md",
+      "tool": "claude",
+      "role": "skill",
+      "type": "skill",
+      "stack": "mcp"
+    },
+    {
+      "catalog": "windsurf/mcp/mcp-rules.md",
+      "tool": "windsurf",
+      "role": "standards",
+      "type": "rule",
+      "stack": "mcp"
+    },
+    {
+      "catalog": "windsurf/mcp/mcp-security-review/SKILL.md",
+      "tool": "windsurf",
+      "role": "skill",
+      "type": "skill",
+      "stack": "mcp"
+    },
+    {
+      "catalog": "cline/mcp/mcp-rules.md",
+      "tool": "cline",
+      "role": "standards",
+      "type": "rule",
+      "stack": "mcp"
+    },
+    {
+      "catalog": "cline/mcp/mcp-security-review/SKILL.md",
+      "tool": "cline",
+      "role": "skill",
+      "type": "skill",
+      "stack": "mcp"
+    },
+    {
+      "catalog": "codex/mcp/mcp-rules.md",
+      "tool": "codex",
+      "role": "standards",
+      "type": "rule",
+      "stack": "mcp"
+    },
+    {
+      "catalog": "codex/mcp/mcp-security-review/SKILL.md",
+      "tool": "codex",
+      "role": "skill",
+      "type": "skill",
+      "stack": "mcp"
+    },
+    {
+      "catalog": "antigravity/mcp/mcp-rules.md",
+      "tool": "antigravity",
+      "role": "standards",
+      "type": "rule",
+      "stack": "mcp"
+    },
+    {
+      "catalog": "antigravity/mcp/mcp-security-review/SKILL.md",
+      "tool": "antigravity",
+      "role": "skill",
+      "type": "skill",
+      "stack": "mcp"
+    }
+  ]
+}

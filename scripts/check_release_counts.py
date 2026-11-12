@@ -183,6 +183,26 @@ def check_retirement_routes(errors: list[str]) -> None:
             )
 
 
+def check_content_index(errors: list[str]) -> None:
+    path = ROOT / "release" / "original-2026-11" / "content-index.json"
+    if not path.is_file():
+        errors.append("release/original-2026-11/content-index.json: missing")
+        return
+    document = json.loads(path.read_text(encoding="utf-8"))
+    entries = document.get("entries") or []
+    if document.get("count") != 420 or len(entries) != 420:
+        errors.append(f"content index count is {len(entries)}, expected 420")
+    claude_rules = [
+        row for row in entries if row.get("tool") == "claude" and row.get("role") == "standards"
+    ]
+    if len(claude_rules) != 30:
+        errors.append(f"content index has {len(claude_rules)} Claude standards, expected 30")
+    for row in claude_rules:
+        rel = str(row.get("catalog") or "")
+        if not rel.endswith("-rules.md") or not (ROOT / rel).is_file():
+            errors.append(f"content index Claude standards path is missing: {rel}")
+
+
 def check_source_urls(complete: list[dict], errors: list[str]) -> None:
     """A release stack must cite at least one fetched https URL."""
     for stack in complete:
@@ -208,6 +228,7 @@ def main() -> int:
     complete = [stack for stack in document.get("stacks", []) if stack.get("status") == "complete"]
     check_source_urls(complete, errors)
     check_retirement_routes(errors)
+    check_content_index(errors)
     if not complete:
         errors.append("manifest has no complete stack")
     seen_catalog: set[str] = set()
