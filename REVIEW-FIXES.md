@@ -55,6 +55,10 @@ Rule: work ONE ITEM AT A TIME. For each item: (1) verify against the official so
 
 - [x] D1 Main has 854 entries / 97 technologies; release has 420 / 30, zero agents, no AWS/Azure/Kubernetes/accessibility. **fixed as a map only.** `release/original-2026-11/retirement-map.json` lists 854 catalog files from `origin/main` (the CI catalog rule). 292 map to a same-tool stack standards file. 562 have `redirect_target: null` because they do not match one of the 30 stacks, so they are not forced onto an unrelated page. Nothing was deleted. The 97-technology figure was not reproduced; the same catalog rule finds 84 second-level topic folders.
 
+## Round 3
+
+- [x] R3-1 Every skill.md has two "## Output" sections. **fixed.** Merged the prose and the fenced template under one `## Output` in all 30 `masters/*/skill.md` files, then re-rendered. Evidence: `rg -c '^## Output$' masters/*/skill.md` is 1 for each of the 30 masters. Release catalog skills plus native exports: 210 catalog skills, 0 files with a heading count other than 1 (headings inside fences ignored). Example: `masters/nextjs/skill.md` line 19.
+
 ## Not checked by me (verify before fixing)
 
 A3 Accelerate date, A4 key deprecation, A5 TS7 API, A8 Nest 12 @Body({schema}), A18 Rust 1.100 / Flutter 3.50, B6 each MCP server/tool.

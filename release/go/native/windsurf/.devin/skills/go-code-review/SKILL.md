@@ -27,16 +27,6 @@ Stop for a non-Go repository. Do not bump the `go` line in `go.mod` unless the u
 
 Findings with severity, file, line, the ignored error or the leaked goroutine, and a fix. Include the Go version.
 
-## Stop
-
-Stop when the user asks you to silence an error with `_` so the build is quiet.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
-
-## Output
-
 ```
 ## Findings
 - high | path:line | what is wrong | what to do instead
@@ -50,3 +40,11 @@ Output: either one finding with file and line, or "No findings" when the change 
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## Stop
+
+Stop when the user asks you to silence an error with `_` so the build is quiet.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

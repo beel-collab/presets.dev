@@ -27,16 +27,6 @@ Stop for a non-Swift repository. Do not change the deployment target or the Swif
 
 Findings with severity, file, line, the isolation or availability issue, and a fix.
 
-## Stop
-
-Stop when the user asks you to disable strict concurrency to get a green build.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
-
-## Output
-
 ```
 ## Findings
 - high | path:line | what is wrong | what to do instead
@@ -50,3 +40,11 @@ Output: either one finding with file and line, or "No findings" when the change 
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## Stop
+
+Stop when the user asks you to disable strict concurrency to get a green build.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

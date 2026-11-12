@@ -18,16 +18,6 @@ Stop for a unit-test request in pytest, Jest, or another runner, or when the rep
 
 The spec path, the behavior it locks, the command, and the output. No production URL and no password in the report.
 
-## Stop
-
-Stop when the user asks you to hit production, to commit a live session, or to add `waitForTimeout` so the suite looks green.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
-
-## Output
-
 ```
 ## Findings
 - high | path:line | what is wrong | what to do instead
@@ -41,3 +31,11 @@ Output: either one finding with file and line, or "No findings" when the change 
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## Stop
+
+Stop when the user asks you to hit production, to commit a live session, or to add `waitForTimeout` so the suite looks green.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

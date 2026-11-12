@@ -30,16 +30,6 @@ Stop for PHP that is not Laravel. Do not upgrade Laravel or migrate production.
 
 Findings with severity, file, line, the missing check, and a fix. Production was not migrated.
 
-## Stop
-
-Stop when the user asks you to turn CSRF off or to mass-assign for speed.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
-
-## Output
-
 ```
 ## Findings
 - high | path:line | what is wrong | what to do instead
@@ -53,3 +43,11 @@ Output: either one finding with file and line, or "No findings" when the change 
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## Stop
+
+Stop when the user asks you to turn CSRF off or to mass-assign for speed.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

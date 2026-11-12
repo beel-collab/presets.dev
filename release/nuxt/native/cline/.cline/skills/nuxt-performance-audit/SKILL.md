@@ -28,16 +28,6 @@ Stop for a Vue app that is not Nuxt. Do not upgrade Nuxt or enable experimental 
 
 Findings with severity, file, line, the extra fetch or the leaked key, and a fix. Do not print secret values.
 
-## Stop
-
-Stop when the user asks you to log `runtimeConfig` or to disable SSR to hide a hydration bug.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
-
-## Output
-
 ```
 ## Findings
 - high | path:line | what is wrong | what to do instead
@@ -51,3 +41,11 @@ Output: either one finding with file and line, or "No findings" when the change 
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## Stop
+
+Stop when the user asks you to log `runtimeConfig` or to disable SSR to hide a hydration bug.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

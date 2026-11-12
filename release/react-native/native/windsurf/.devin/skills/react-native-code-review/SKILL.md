@@ -27,16 +27,6 @@ Stop for a web-only React repository. Do not upgrade Expo or React Native unless
 
 Findings with severity, file, line, the platform assumption, and a fix. Include the versions you read.
 
-## Stop
-
-Stop when the user asks you to ship a store build or to change the SDK as part of a review.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
-
-## Output
-
 ```
 ## Findings
 - high | path:line | what is wrong | what to do instead
@@ -50,3 +40,11 @@ Output: either one finding with file and line, or "No findings" when the change 
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## Stop
+
+Stop when the user asks you to ship a store build or to change the SDK as part of a review.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

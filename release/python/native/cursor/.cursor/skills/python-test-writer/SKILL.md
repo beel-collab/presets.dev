@@ -30,16 +30,6 @@ Stop for a non-Python repository, or when the user asked for production code and
 
 List the test files, the behavior each one locks, the commands, and the results. A failing test stays failing until the code is fixed, and only when the user asked for the fix too.
 
-## Stop
-
-Stop when there is no Python project, when adding a test would require a new framework, or when the user asks you to mark tests passed without running them.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
-
-## Output
-
 ```
 ## Findings
 - high | path:line | what is wrong | what to do instead
@@ -53,3 +43,11 @@ Output: either one finding with file and line, or "No findings" when the change 
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## Stop
+
+Stop when there is no Python project, when adding a test would require a new framework, or when the user asks you to mark tests passed without running them.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

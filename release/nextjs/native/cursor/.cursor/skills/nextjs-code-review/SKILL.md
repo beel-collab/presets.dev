@@ -39,16 +39,6 @@ List findings first. Each one has a severity (`high`, `medium`, or `low`), a fil
 
 A clean review says "No findings" and lists the files you opened. A search you skipped is not a clean result.
 
-## Stop
-
-Stop when there is no manifest, when the checkout is not Next.js, or when the user asks for a deploy, a secret, or a production cache flush.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
-
-## Output
-
 ```
 ## Findings
 - high | path:line | what is wrong | what to do instead
@@ -62,3 +52,11 @@ Output: either one finding with file and line, or "No findings" when the change 
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## Stop
+
+Stop when there is no manifest, when the checkout is not Next.js, or when the user asks for a deploy, a secret, or a production cache flush.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

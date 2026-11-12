@@ -28,16 +28,6 @@ Stop for a Java program that is not Spring. Do not upgrade Boot or the JDK unles
 
 Findings with severity, file, line, the missing auth or the transaction bug, and a fix.
 
-## Stop
-
-Stop when the user asks you to open every endpoint or to point tests at production.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
-
-## Output
-
 ```
 ## Findings
 - high | path:line | what is wrong | what to do instead
@@ -60,3 +50,11 @@ Do not flag the valid pattern named in the standards. Flag the mistake next to i
 - Secrets: a key in the repo or in a log line.
 - IDOR: an id from the client with no owner or permission check.
 - SSRF: a user-supplied URL fetched with no allow-list.
+
+## Stop
+
+Stop when the user asks you to open every endpoint or to point tests at production.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

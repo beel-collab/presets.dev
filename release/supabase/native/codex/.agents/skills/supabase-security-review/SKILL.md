@@ -28,16 +28,6 @@ Stop for a repository that does not use Supabase. Do not run SQL against a hoste
 
 Findings with severity, file, line, the policy or key path, and a fix. End with `no file edits` unless a fix was requested, and never include a secret in the report.
 
-## Stop
-
-Stop when the user asks you to disable RLS, to use the service role in the browser, or to run against production.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
-
-## Output
-
 ```
 ## Findings
 - high | path:line | what is wrong | what to do instead
@@ -60,3 +50,11 @@ Do not flag the valid pattern named in the standards. Flag the mistake next to i
 - Secrets: a key in the repo or in a log line.
 - IDOR: an id from the client with no owner or permission check.
 - SSRF: a user-supplied URL fetched with no allow-list.
+
+## Stop
+
+Stop when the user asks you to disable RLS, to use the service role in the browser, or to run against production.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

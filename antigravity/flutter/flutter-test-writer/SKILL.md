@@ -61,16 +61,6 @@ Stop for a non-Flutter repository. Do not add an integration driver the project 
 
 The test path, the behavior, the command, and the result.
 
-## Stop
-
-Stop when the user asks you to mark the test passed without running it, or to change the Flutter SDK constraint to satisfy one import.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
-
-## Output
-
 ```
 ## Findings
 - high | path:line | what is wrong | what to do instead
@@ -84,3 +74,11 @@ Output: either one finding with file and line, or "No findings" when the change 
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## Stop
+
+Stop when the user asks you to mark the test passed without running it, or to change the Flutter SDK constraint to satisfy one import.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

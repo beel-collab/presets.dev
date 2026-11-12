@@ -29,16 +29,6 @@ Stop for a non-React repository, a copy change, or a request that only asks for 
 
 Each finding has severity, file, line, the render or network cost you can point at, and a smaller fix. End with the React version and `no file edits` unless the user asked for a change.
 
-## Stop
-
-Stop when the project is not React, or when the user asks you to rewrite the UI without a measured hotspot.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
-
-## Output
-
 ```
 ## Findings
 - high | path:line | what is wrong | what to do instead
@@ -52,3 +42,11 @@ Output: either one finding with file and line, or "No findings" when the change 
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## Stop
+
+Stop when the project is not React, or when the user asks you to rewrite the UI without a measured hotspot.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

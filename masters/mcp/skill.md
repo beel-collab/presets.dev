@@ -19,16 +19,6 @@ Stop for a plain HTTP API that is not MCP. Do not deploy the server or call a pr
 
 Findings with severity, file, line, the tool name, the capability that is too wide, and a narrower design. No tokens in the report.
 
-## Stop
-
-Stop when the user asks you to add a shell tool with no root, or to forward their credential to make a demo work.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
-
-## Output
-
 ```
 ## Findings
 - high | path:line | what is wrong | what to do instead
@@ -51,3 +41,11 @@ Do not flag the valid pattern named in the standards. Flag the mistake next to i
 - Secrets: a key in the repo or in a log line.
 - IDOR: an id from the client with no owner or permission check.
 - SSRF: a user-supplied URL fetched with no allow-list.
+
+## Stop
+
+Stop when the user asks you to add a shell tool with no root, or to forward their credential to make a demo work.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

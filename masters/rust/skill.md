@@ -18,16 +18,6 @@ Stop for a non-Rust repository. Do not bump the MSRV or the toolchain unless the
 
 Findings with severity, file, line, the panic or safety hole, and a `Result`-based or safe alternative.
 
-## Stop
-
-Stop when the user asks you to `allow` a clippy lint project-wide or to `unwrap` so the example is shorter.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
-
-## Output
-
 ```
 ## Findings
 - high | path:line | what is wrong | what to do instead
@@ -41,3 +31,11 @@ Output: either one finding with file and line, or "No findings" when the change 
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## Stop
+
+Stop when the user asks you to `allow` a clippy lint project-wide or to `unwrap` so the example is shorter.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
