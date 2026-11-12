@@ -1,4 +1,4 @@
-## Updated for Angular 22.2.5, Nov 2026
+## Updated for Angular 22.2.6, Nov 2026
 
 ## Project shape
 

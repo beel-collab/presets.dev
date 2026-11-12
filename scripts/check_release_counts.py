@@ -147,6 +147,19 @@ def check_native(rel: str, errors: list[str]) -> None:
         errors.append(f"{rel}: native export still contains the catalog marker")
 
 
+def check_source_urls(complete: list[dict], errors: list[str]) -> None:
+    """A release stack must cite at least one fetched https URL."""
+    for stack in complete:
+        stack_id = stack.get("id")
+        rel = f"research/{stack_id}/sources.md"
+        path = ROOT / rel
+        if not path.is_file():
+            errors.append(f"{rel}: missing source notes for a release stack")
+            continue
+        if "https://" not in path.read_text(encoding="utf-8"):
+            errors.append(f"{rel}: no https URL")
+
+
 def main() -> int:
     errors: list[str] = []
     if not MANIFEST.is_file():
@@ -157,6 +170,7 @@ def main() -> int:
         errors.append("manifest tools must be the seven release tools, including antigravity")
     schema = load_schema()
     complete = [stack for stack in document.get("stacks", []) if stack.get("status") == "complete"]
+    check_source_urls(complete, errors)
     if not complete:
         errors.append("manifest has no complete stack")
     seen_catalog: set[str] = set()

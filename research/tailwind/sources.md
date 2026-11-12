@@ -1,3 +1,7 @@
 # Tailwind CSS sources
 
-Checked 11 November 2026. npm `latest` for `tailwindcss` was 4.3.5. v4 projects are CSS-first. A repository still on v3 keeps its config and is not upgraded unless the task says so. Clients were not launched.
+Fetched 12 November 2026.
+
+- Registry: https://registry.npmjs.org/tailwindcss reports `latest` 4.3.5.
+- https://tailwindcss.com/docs/upgrade-guide is the v4 upgrade. v4 does not use `@tailwind base` or a v3 `tailwind.config.js` as the setup. Do not upgrade a v3 repository unless the task says so.
+- https://tailwindcss.com/docs/theme documents `@theme` in CSS for design tokens.

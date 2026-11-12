@@ -7,7 +7,7 @@ paths:
 
 Conditional Cline rule for FastAPI. Install it under `.clinerules/` only.
 
-## Updated for FastAPI 0.162.4, Nov 2026
+## Updated for FastAPI 0.162.5, Nov 2026
 
 ## Project shape
 

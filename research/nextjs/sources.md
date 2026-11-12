@@ -1,10 +1,13 @@
 # Next.js sources
 
-Checked 11 November 2026.
+Fetched 12 November 2026.
 
-- npm `latest` for `next` was 16.4.6. Engines require Node `>=20.9.0`. The React peer includes React 19.
-- GitHub release `v16.4.6` (9 November 2026) is a bugfix backport.
-- GitHub release `v16.4.5` (3 November 2026) and the Next.js post "November 2026 Security Release" name the patched versions 16.4.5 and 15.5.29. The advisories cover cross-tenant `use cache` leaks, binary cache arguments, shared fallback shells, forwarded responses, Edge cookie headers, and SVG image optimization.
-- Docs checked the same day: `use cache`, `next/root-params`, `cacheTag`, `updateTag`, and `revalidateTag` with a cache profile.
-- `node --test fixtures/nextjs/tenant-cache/policy.test.mjs` locks the version floor used by the review skill. It does not boot Next.js.
-- Cursor, Copilot, Claude Code, Windsurf, Devin, Cline, Codex, and Gemini CLI were not launched. Format notes are in the install section of each catalog file.
+- Registry: https://registry.npmjs.org/next reports `latest` 16.4.6.
+- https://nextjs.org/blog/next-16 introduces Next.js 16, including the caching APIs and the move from `middleware` to `proxy`.
+- https://nextjs.org/docs/app/api-reference/file-conventions/proxy documents `proxy` on the Node.js runtime. `middleware.ts` is the deprecated Edge name.
+- https://nextjs.org/docs/app/api-reference/directives/use-cache documents the cache key: arguments and values read inside the function.
+- https://nextjs.org/docs/app/api-reference/functions/cacheTag documents tags as invalidation, not as the cache key.
+- https://nextjs.org/docs/app/api-reference/functions/updateTag and https://nextjs.org/docs/app/api-reference/functions/revalidateTag document the current tag calls. `revalidateTag` takes a tag and a cache profile.
+- https://nextjs.org/blog/november-2026-security-release (3 November 2026) names the patched versions 16.4.5 and 15.5.29, including cross-tenant cache disclosure.
+- https://nextjs.org/blog/next-16 also describes the Next.js Devtools MCP server and `AGENTS.md` for agents.
+- `node --test fixtures/nextjs/tenant-cache/policy.test.mjs` checks the decision table. It does not boot Next.js.

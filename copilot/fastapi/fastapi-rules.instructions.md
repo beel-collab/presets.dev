@@ -40,7 +40,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 Path-specific Copilot instructions for FastAPI. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
-## Updated for FastAPI 0.162.4, Nov 2026
+## Updated for FastAPI 0.162.5, Nov 2026
 
 ## Project shape
 

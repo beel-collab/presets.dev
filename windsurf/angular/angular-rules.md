@@ -40,7 +40,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 Devin rule for Angular. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
-## Updated for Angular 22.2.5, Nov 2026
+## Updated for Angular 22.2.6, Nov 2026
 
 ## Project shape
 

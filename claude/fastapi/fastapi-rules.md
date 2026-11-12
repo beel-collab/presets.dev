@@ -40,7 +40,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 Path-scoped Claude Code rule for FastAPI. It loads when a matching file is read. It does not replace `CLAUDE.md`.
 
-## Updated for FastAPI 0.162.4, Nov 2026
+## Updated for FastAPI 0.162.5, Nov 2026
 
 ## Project shape
 

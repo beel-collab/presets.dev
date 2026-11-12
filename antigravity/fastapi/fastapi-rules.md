@@ -40,7 +40,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 Section to append to `GEMINI.md` for FastAPI. Antigravity CLI also reads `AGENTS.md`. Confirm the loaded rules before you rely on them.
 
-## Updated for FastAPI 0.162.4, Nov 2026
+## Updated for FastAPI 0.162.5, Nov 2026
 
 ## Project shape
 

@@ -6,7 +6,7 @@ applyTo: "**/*.dart,pubspec.yaml"
 
 Path-specific Copilot instructions for Flutter. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
-## Updated for Flutter 3.47, Nov 2026
+## Updated for Flutter 3.50, Nov 2026
 
 Write for the Flutter version in `pubspec.yaml` and the SDK constraint. Flutter 3.50, with Dart 3.14, is the stable release announced on 11 November 2026. Direct native interop is stable there, and new projects use the standalone `material_ui` and `cupertino_ui` packages. Do not bump a 3.47 app unless the task asks. Do not edit generated files under `.dart_tool` or plugin registries.
 

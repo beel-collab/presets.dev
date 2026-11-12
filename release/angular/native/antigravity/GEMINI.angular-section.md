@@ -4,7 +4,7 @@
 
 Section to append to `GEMINI.md` for Angular. Antigravity CLI also reads `AGENTS.md`. Confirm the loaded rules before you rely on them.
 
-## Updated for Angular 22.2.5, Nov 2026
+## Updated for Angular 22.2.6, Nov 2026
 
 ## Project shape
 

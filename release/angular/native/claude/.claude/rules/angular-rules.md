@@ -8,7 +8,7 @@ paths:
 
 Path-scoped Claude Code rule for Angular. It loads when a matching file is read. It does not replace `CLAUDE.md`.
 
-## Updated for Angular 22.2.5, Nov 2026
+## Updated for Angular 22.2.6, Nov 2026
 
 ## Project shape
 

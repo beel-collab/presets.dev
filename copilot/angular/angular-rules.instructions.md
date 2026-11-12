@@ -40,7 +40,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 Path-specific Copilot instructions for Angular. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
-## Updated for Angular 22.2.5, Nov 2026
+## Updated for Angular 22.2.6, Nov 2026
 
 ## Project shape
 

@@ -1,3 +1,7 @@
 # Nuxt sources
 
-Checked 11 November 2026. npm `latest` for `nuxt` was 4.6.4. Server imports and the rebuilt typed fetch are the current stable surface. `routeTypedFetch` stays experimental. Private `runtimeConfig` must not reach the client. Clients were not launched.
+Fetched 12 November 2026.
+
+- Registry: https://registry.npmjs.org/nuxt reports `latest` 4.6.4.
+- https://nuxt.com/docs/4.x/getting-started/upgrade is the Nuxt 4 upgrade guide. It describes `experimental.routeTypedFetch` as the switch that types `$fetch` and `useFetch` from generated route types. Leave it off unless the task asks.
+- https://nuxt.com/docs/4.x/guide/going-further/runtime-config says keys outside `public` stay on the server, and keys under `public` are exposed to the client.

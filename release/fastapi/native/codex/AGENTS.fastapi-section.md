@@ -4,7 +4,7 @@
 
 Section to append to `AGENTS.md` for FastAPI. This is project guidance, not a custom agent.
 
-## Updated for FastAPI 0.162.4, Nov 2026
+## Updated for FastAPI 0.162.5, Nov 2026
 
 ## Project shape
 
