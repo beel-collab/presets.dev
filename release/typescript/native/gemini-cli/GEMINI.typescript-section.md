@@ -6,7 +6,7 @@ Section to append to `GEMINI.md` for TypeScript. Confirm with `/memory show`. Th
 
 ## Updated for TypeScript 7.0.2, Nov 2026
 
-TypeScript 7.0.2 is the npm `latest` release checked on 11 November 2026. The 7.0 line is the native compiler. Its compiler API is not the TypeScript 6 API. Do not import an old `typescript` programmatic API and assume the methods still exist. Read the installed version in `package.json` before you write a compiler script or a migration. Leave a TS 5 or TS 6 project on that major unless the task asks to move.
+TypeScript 7.0.2 is the npm `latest` release checked on 11 November 2026. It is the native compiler. It does not ship a stable programmatic API. TypeScript 7.1 is the release expected to add a new, different API. Until that API is stable, tools that import `typescript` (typescript-eslint, Vue, Svelte, Angular language service) stay on the 6.0 API from `@typescript/typescript6`. You can run `tsc` from 7.0 beside that package. Do not rewrite a compiler script against a 7.0 API that is not there. Leave a TS 5 or TS 6 project on that major unless the task asks to move.
 
 ## Project shape
 
@@ -36,7 +36,7 @@ Return a result or throw a typed error the caller catches. Do not `catch (e) {}`
 
 Do not enable a slower project-wide flag to type one file. Fix the file. A giant union built from string concatenation is a compile-time cost. Prefer a map of known keys.
 
-A native TypeScript 7 compiler script is new code. Porting a TS 6 `ts.createProgram` helper means reading the 7.0 API, not pasting the old sample. If the project has not upgraded, do not rewrite its lint or codegen pipeline.
+Do not port a `ts.createProgram` helper onto the `typescript` 7.0 package. That package has no stable compiler API. Keep the programmatic calls on `@typescript/typescript6` until the project adopts the 7.1 API on purpose. If the project has not upgraded, do not rewrite its lint or codegen pipeline.
 
 ## Tests
 
@@ -46,6 +46,6 @@ Type tests belong next to the function when the project uses `expectType` or `ts
 
 - `any` or `as` to silence an error at a trust boundary.
 - A TypeScript interface treated as proof that JSON has that shape.
-- An old compiler API call copied into a TypeScript 7 toolchain.
+- Assuming TypeScript 7.0 exports the old compiler API, or a new one.
 - A `strict` flag turned off to make a branch compile.
 - A non-null assertion on a value that can be missing.

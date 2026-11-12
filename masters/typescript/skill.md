@@ -8,7 +8,7 @@ Stop for a repository without TypeScript, or for a formatting-only diff. Do not 
 
 ## Steps
 
-1. Read the installed `typescript` version and whether `strict` is on. A 7.0 compiler API assumption in a 5.x or 6.x repo is a high finding. A plan to jump majors without a request is a finding, not a task you start.
+1. Read the installed `typescript` version and whether `strict` is on. A script that imports compiler APIs from the 7.0 `typescript` package is a high finding: 7.0 does not ship that API. Point it at `@typescript/typescript6`, or wait for a real 7.1 API. A plan to jump majors without a request is a finding, not a task you start.
 2. Search the diff for `any`, `as `, `!`, and `@ts-ignore` or `@ts-expect-error` without a reason. Each one at a boundary is a finding. An assertion immediately after a proper parse can stay.
 3. Find functions that accept `unknown` or external JSON and return a typed value without a parser. That is a finding.
 4. Check unions. A `switch` that falls through to a default which returns `any` is a finding. An exhaustive switch can stay.
