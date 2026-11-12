@@ -1,6 +1,6 @@
 ---
 description: "Svelte standards for Runes, Load Functions and SSR. Use when editing this stack. Svelte 5.57.3 and SvelteKit 3.2.0, Nov 2026."
-globs: "**/*.svelte, **/*.ts, svelte.config.js"
+globs: "**/*.svelte, **/*.svelte.ts, src/routes/**/*.ts, src/lib/**/*.ts, src/hooks*.ts, vite.config.ts, vite.config.js"
 alwaysApply: false
 ---
 

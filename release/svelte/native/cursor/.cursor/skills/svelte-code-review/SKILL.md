@@ -3,8 +3,12 @@ name: "svelte-code-review"
 description: "Review a Svelte or SvelteKit change for runes, load and action boundaries, and Kit 2 versus Kit 3 config. Use for a Svelte code review. Do not use for a Svelte 4 pattern pasted into a runes component, or a non-Svelte repository."
 paths:
   - "**/*.svelte"
-  - "**/*.ts"
-  - "svelte.config.js"
+  - "**/*.svelte.ts"
+  - "src/routes/**/*.ts"
+  - "src/lib/**/*.ts"
+  - "src/hooks*.ts"
+  - "vite.config.ts"
+  - "vite.config.js"
 ---
 
 # Svelte Code Review Skill for Cursor

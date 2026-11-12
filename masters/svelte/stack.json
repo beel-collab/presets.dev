@@ -6,7 +6,7 @@
   "updated_for": "Svelte 5.57.3 and SvelteKit 3.2.0, Nov 2026",
   "libs": ["svelte@5.57.3", "@sveltejs/kit@3.2.0"],
   "tags": ["svelte", "sveltekit", "runes"],
-  "paths": ["**/*.svelte", "**/*.ts", "svelte.config.js"],
+  "paths": ["**/*.svelte", "**/*.svelte.ts", "src/routes/**/*.ts", "src/lib/**/*.ts", "src/hooks*.ts", "vite.config.ts", "vite.config.js"],
   "skill_name": "svelte-code-review",
   "skill_label": "Code Review",
   "skill_tag": "code-review",

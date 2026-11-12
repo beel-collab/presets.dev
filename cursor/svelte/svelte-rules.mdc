@@ -25,7 +25,7 @@ libs:
   - "svelte@5.57.3"
   - "@sveltejs/kit@3.2.0"
 updated_for: "Svelte 5.57.3 and SvelteKit 3.2.0, Nov 2026"
-globs: "**/*.svelte, **/*.ts, svelte.config.js"
+globs: "**/*.svelte, **/*.svelte.ts, src/routes/**/*.ts, src/lib/**/*.ts, src/hooks*.ts, vite.config.ts, vite.config.js"
 alwaysApply: false
 ---
 

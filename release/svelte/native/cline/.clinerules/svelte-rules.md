@@ -1,8 +1,12 @@
 ---
 paths:
   - "**/*.svelte"
-  - "**/*.ts"
-  - "svelte.config.js"
+  - "**/*.svelte.ts"
+  - "src/routes/**/*.ts"
+  - "src/lib/**/*.ts"
+  - "src/hooks*.ts"
+  - "vite.config.ts"
+  - "vite.config.js"
 ---
 
 # Svelte Cline Rules: Runes, Load Functions and SSR

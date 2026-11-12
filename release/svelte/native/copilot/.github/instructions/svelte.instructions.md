@@ -1,5 +1,5 @@
 ---
-applyTo: "**/*.svelte,**/*.ts,svelte.config.js"
+applyTo: "**/*.svelte,**/*.svelte.ts,src/routes/**/*.ts,src/lib/**/*.ts,src/hooks*.ts,vite.config.ts,vite.config.js"
 ---
 
 # Svelte Copilot Instructions: Runes, Load Functions and SSR
