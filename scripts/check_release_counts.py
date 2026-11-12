@@ -162,6 +162,27 @@ def tested_with_ok(claim: str) -> bool:
     return REAL_TEST.match(claim) is not None
 
 
+PUBLIC_ROUTE = re.compile(
+    r"^/(?:copilot|cursor|claude|windsurf|cline|codex|antigravity)/rules/[a-z0-9-]+/[a-z0-9-]+$"
+)
+
+
+def check_retirement_routes(errors: list[str]) -> None:
+    path = ROOT / "release" / "original-2026-11" / "retirement-map.json"
+    if not path.is_file():
+        errors.append("release/original-2026-11/retirement-map.json: missing")
+        return
+    document = json.loads(path.read_text(encoding="utf-8"))
+    for entry in document.get("entries", []):
+        target = entry.get("redirect_target")
+        if target is None:
+            continue
+        if not isinstance(target, str) or ".md" in target or PUBLIC_ROUTE.match(target) is None:
+            errors.append(
+                f"{entry.get('old_file')}: redirect_target must be a /tool/rules/stack/slug route, not {target!r}"
+            )
+
+
 def check_source_urls(complete: list[dict], errors: list[str]) -> None:
     """A release stack must cite at least one fetched https URL."""
     for stack in complete:
@@ -186,6 +207,7 @@ def main() -> int:
     schema = load_schema()
     complete = [stack for stack in document.get("stacks", []) if stack.get("status") == "complete"]
     check_source_urls(complete, errors)
+    check_retirement_routes(errors)
     if not complete:
         errors.append("manifest has no complete stack")
     seen_catalog: set[str] = set()
