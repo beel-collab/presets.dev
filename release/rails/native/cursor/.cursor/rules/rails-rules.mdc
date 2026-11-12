@@ -52,7 +52,7 @@ Rails 8.1.4.1 is the security line. Job continuations resume work. They do not m
 
 ## Deprecated APIs to never generate
 
-No API covered here was deprecated or removed.
+`update_attributes` and `update_attributes!` were removed. Use `update` and `update!`. Rails 8.1 deprecates an order-dependent finder such as `first` when the query has no `order`.
 
 ## Commands
 

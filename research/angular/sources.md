@@ -8,3 +8,4 @@ Fetched 12 November 2026.
 - https://angular.dev/guide/forms/signals/overview is the stable Signal Forms guide.
 - https://angular.dev/guide/templates/control-flow documents `@if`, `@for`, and `@switch`. That is the template syntax to generate.
 - https://angular.dev/ai/mcp is the Angular CLI MCP server (`npx @angular/cli mcp`).
+- https://blog.angular.dev/announcing-angular-v20-b5c9c06cf301 deprecates `*ngIf`, `*ngFor`, and `*ngSwitch` in favor of `@if`, `@for`, and `@switch`. https://angular.dev/api/common/NgIf repeats that deprecation. https://blog.angular.dev/angular-v13-is-now-available-cce66f7bc296 says `ViewContainerRef.createComponent` no longer needs `ComponentFactoryResolver`. The Angular 22 event page does not list that class as removed.

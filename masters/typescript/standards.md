@@ -50,7 +50,7 @@ TypeScript 7.0 is the native `tsc` and ships no stable compiler API. Programmati
 
 ## Deprecated APIs to never generate
 
-No API covered here was deprecated or removed. TypeScript 7.0 ships no compiler API. Tooling stays on `@typescript/typescript6` until 7.1.
+TypeScript 7 removed `baseUrl`, `moduleResolution` values `node`/`node10` and `classic`, `target: es5`, and `downlevelIteration`. Write `paths` relative to the project root. Use `nodenext` or `bundler`. Set `target` to `es2015` or later and delete `downlevelIteration`.
 
 ## Commands
 

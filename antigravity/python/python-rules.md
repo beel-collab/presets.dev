@@ -93,7 +93,7 @@ No new language syntax is required here. uv 0.13 and Ruff 0.17 are the tools to 
 
 ## Deprecated APIs to never generate
 
-No API covered here was deprecated or removed.
+The `distutils` package was removed in Python 3.12. Use `setuptools`, or the standard-library module that replaced the function you needed.
 
 ## Commands
 

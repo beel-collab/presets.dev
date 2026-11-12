@@ -49,7 +49,7 @@ Swift 6.4 adds async `defer` and cancellation shields. `.task` is the view-scope
 
 ## Deprecated APIs to never generate
 
-No API covered here was deprecated or removed.
+Do not generate `NavigationView`. Use `NavigationStack`. The single-parameter `onChange(of:perform:)` stops at iOS 17. Use `onChange(of:initial:_:)`. The current `foregroundColor` page does not mark that method deprecated, so it is not listed here.
 
 ## Commands
 

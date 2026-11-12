@@ -41,7 +41,7 @@ Terraform 1.17 plans are the review artifact. Do not invent provider arguments.
 
 ## Deprecated APIs to never generate
 
-No API covered here was deprecated or removed.
+The `hashicorp/template` provider is deprecated and archived. Replace a `template_file` data source with the `templatefile()` function.
 
 ## Commands
 

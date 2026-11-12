@@ -48,7 +48,7 @@ Engine 29 is the current major. BuildKit secrets and a non-root `USER` are the d
 
 ## Deprecated APIs to never generate
 
-No API covered here was deprecated or removed.
+Do not write a top-level `version:` key in a Compose file. Current Compose treats that key as obsolete and ignores it.
 
 ## Commands
 

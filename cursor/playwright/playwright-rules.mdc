@@ -92,7 +92,7 @@ Playwright 1.65 adds the failures reporter, exclusive locks, and a Bun runner. U
 
 ## Deprecated APIs to never generate
 
-No API covered here was deprecated or removed.
+`page.$` and `page.$$` are in Playwright's deprecated list. Use `page.locator()`.
 
 ## Commands
 

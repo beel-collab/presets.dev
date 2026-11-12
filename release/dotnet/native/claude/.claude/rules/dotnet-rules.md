@@ -55,7 +55,7 @@ Use the project's `WebApplicationFactory` or unit style. Cover a canceled token,
 
 ## Deprecated APIs to never generate
 
-No API covered here was deprecated or removed.
+The in-box `BinaryFormatter` implementation was removed in .NET 9 and throws on use. Serialize with `System.Text.Json`.
 
 ## Commands
 

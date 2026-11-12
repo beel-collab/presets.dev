@@ -88,7 +88,7 @@ Boot 4.1 is the stable line. Do not take a 4.2 release candidate. `@Transactiona
 
 ## Deprecated APIs to never generate
 
-No API covered here was deprecated or removed.
+`@MockBean` and `@SpyBean` were removed in Spring Boot 4. Use `@MockitoBean` and `@MockitoSpyBean`. `WebSecurityConfigurerAdapter` is deprecated. Declare a `SecurityFilterChain` bean and match paths with `requestMatchers`, not `antMatchers`.
 
 ## Commands
 

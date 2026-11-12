@@ -43,7 +43,7 @@ Nuxt 4.6 keeps private `runtimeConfig` off the client. `routeTypedFetch` is expe
 
 ## Deprecated APIs to never generate
 
-No API covered here was deprecated or removed.
+The Nuxt 2 `asyncData` and `fetch` component hooks were replaced. Use `useAsyncData` or `useFetch`.
 
 ## Commands
 

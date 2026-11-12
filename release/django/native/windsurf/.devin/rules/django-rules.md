@@ -57,7 +57,7 @@ Django 6.1 adds the fetch modes `FETCH_PEERS` and `FETCH_RAISE`. `QuerySet.delet
 
 ## Deprecated APIs to never generate
 
-No API covered here was deprecated or removed.
+In Django 6.1, `values_list(flat=True)` with no field name is deprecated. Pass the field, as in `values_list("pk", flat=True)`. `select_related()` with no arguments is deprecated. Name the relations, or use `FETCH_PEERS`.
 
 ## Commands
 

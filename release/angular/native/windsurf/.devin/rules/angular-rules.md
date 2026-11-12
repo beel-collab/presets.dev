@@ -58,7 +58,7 @@ Angular 22 defaults to OnPush (`Eager` is the old Default). New services use `@S
 
 ## Deprecated APIs to never generate
 
-No API covered here was deprecated or removed. New templates should use the control-flow blocks.
+`*ngIf`, `*ngFor`, and `*ngSwitch` were deprecated in Angular 20. Use `@if`, `@for`, and `@switch`. Do not inject `ComponentFactoryResolver` to build a component. Use `ViewContainerRef.createComponent`. That factory change is from v13. Angular 22 did not delete the resolver class.
 
 ## Commands
 

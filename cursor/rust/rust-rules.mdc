@@ -83,7 +83,7 @@ Rust 1.100 stabilizes the never type and custom allocators. `unwrap` on I/O is s
 
 ## Deprecated APIs to never generate
 
-No API covered here was deprecated or removed.
+`std::sync::atomic::spin_loop_hint` has been deprecated since Rust 1.51. Call `std::hint::spin_loop`.
 
 ## Commands
 
