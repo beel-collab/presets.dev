@@ -29,7 +29,7 @@ Exceptions render through the project's handler. Do not `dd()` or return a stack
 
 ## Security and tests
 
-Every state-changing route has middleware and a policy. A route missing `auth` is a review. CSRF stays on for session forms. Since Laravel 11 the middleware class is `ValidateCsrfToken`, not `VerifyCsrfToken`. Do not disable it for a web route to make a test pass.
+Every state-changing route has middleware and a policy. A route missing `auth` is a review. CSRF stays on for session forms. On Laravel 13 the middleware class is `PreventRequestForgery`. `ValidateCsrfToken` and `VerifyCsrfToken` are deprecated aliases. Do not generate the aliases. Do not disable the middleware for a web route to make a test pass.
 
 Feature tests hit the endpoint as a guest, as the wrong user, and as the owner. Assert the status and the database. Run `php artisan test` or the project's Pest command for the file you touched. Record the output.
 
@@ -43,11 +43,11 @@ Feature tests hit the endpoint as a guest, as the wrong user, and as the owner. 
 
 ## What changed in this major
 
-Laravel 13 runs on PHP 8.3 through 8.5. CSRF middleware is `ValidateCsrfToken`.
+Laravel 13 runs on PHP 8.3 through 8.5. CSRF middleware is `PreventRequestForgery`.
 
 ## Deprecated APIs to never generate
 
-No API covered here was deprecated or removed. The CSRF middleware name is in the body of these rules.
+`ValidateCsrfToken` and `VerifyCsrfToken` are deprecated aliases of `PreventRequestForgery`. Generate `PreventRequestForgery`.
 
 ## Commands
 

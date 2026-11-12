@@ -53,7 +53,7 @@ Stop for PHP that is not Laravel. Do not upgrade Laravel or migrate production.
 
 - Injection: `DB::raw`, `whereRaw`, and `selectRaw` with concatenated user input. Bindings are the safe form.
 - XSS: `{!! !!}` on user text.
-- CSRF: a web route that disables `ValidateCsrfToken`.
+- CSRF: a web route that disables `PreventRequestForgery`. `ValidateCsrfToken` and `VerifyCsrfToken` are deprecated aliases. Do not generate them.
 - Secrets: a key in `.env` that was committed, or a token written to the log.
 - IDOR: a route-model binding or `find($id)` that never calls a policy.
 - SSRF: `Http::get($request->input('url'))` with no allow-list.
