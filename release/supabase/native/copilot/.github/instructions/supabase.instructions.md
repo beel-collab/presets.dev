@@ -12,13 +12,13 @@ Path-specific Copilot instructions for Supabase. They apply through `applyTo` an
 
 ## Project shape
 
-The browser client uses the anon key. The service-role key stays on the server, in the environment the project already uses. A Next.js or other SSR app creates the server client the way the repo already does, with the request cookies. Do not invent a second auth helper.
+The browser uses a publishable key (`sb_publishable_...`). A secret key (`sb_secret_...`) stays on a server you control. Supabase is deprecating the legacy `anon` and `service_role` JWT keys by the end of 2026. They still work until you disable them, and a publishable key has the same low privilege as `anon`. A secret key, like `service_role`, bypasses RLS. Do not ship either elevated key to a browser. A Next.js or other SSR app creates the server client the way the repo already does, with the request cookies. Do not invent a second auth helper.
 
 SQL lives in migrations. Generated database types are generated. Do not hand-edit the generated file.
 
 ## Queries and RLS
 
-Every table that holds user data has row level security enabled. A policy for `SELECT` does not cover `INSERT`, `UPDATE`, or `DELETE`. Writes need a `WITH CHECK` expression, not only `USING`. A policy that is `true` for every role is a bug unless the table is genuinely public.
+Every table that holds user data has row level security enabled. Write one policy per command. `INSERT` checks the new row with `WITH CHECK` and cannot take `USING`. `DELETE` filters existing rows with `USING` and cannot take `WITH CHECK`. `UPDATE` needs both: `USING` picks the rows that can change, and `WITH CHECK` accepts the new values. If an `UPDATE` policy omits `WITH CHECK`, Postgres reuses `USING` for the new row. That is valid. Do not flag it as missing. A `DELETE` policy that only has `USING (auth.uid() = user_id)` is also valid. A policy of `true` for every role is a bug unless the table is genuinely public.
 
 The user id in a policy comes from `auth.uid()` or the project's equivalent. A column filled from a client-supplied id is not identity. Filter tenant rows in the policy, not only in the UI.
 
@@ -32,7 +32,7 @@ A route that mutates data checks the session before the write. Hiding the button
 
 ## Realtime
 
-Subscribe with a filter that matches the rows the user may see. Unsubscribe on cleanup. A persisted broadcast is still data. Do not put secrets in a broadcast payload. If you pass a custom fetch on a request, keep it local to that call. Do not replace the global fetch with a logger that prints headers.
+Subscribe with a filter so the client does less work, and unsubscribe on cleanup. The filter is not authorization. RLS, or Realtime authorization, decides which rows leave the server. A persisted broadcast is still data. Do not put secrets in a broadcast payload. If you pass a custom fetch on a request, keep it local to that call. Do not replace the global fetch with a logger that prints headers.
 
 ## Errors and security
 
@@ -48,8 +48,8 @@ Test a policy with two users. The second user cannot read or write the first use
 
 ## Mistakes to avoid
 
-- A service-role client constructed in browser code.
-- A policy missing `WITH CHECK` on a write.
+- A secret or `service_role` key in browser code.
+- `WITH CHECK` on a `DELETE` policy, which Postgres rejects, or an `INSERT` policy with only `USING`.
 - Trusting `user_id` from the request body.
-- A realtime channel with no filter and no cleanup.
+- Treating a Realtime filter as the security boundary.
 - A generated types file edited by hand.
