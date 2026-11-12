@@ -6,7 +6,7 @@
   "updated_for": "Prisma 7.10.1 stable, Nov 2026",
   "libs": ["prisma@7.10.1"],
   "tags": ["prisma", "postgresql", "migrations"],
-  "paths": ["**/*.prisma", "**/migrations/**/*.sql", "prisma.config.ts", "**/*prisma*.ts", "src/**/*.ts", "app/**/*.ts"],
+  "paths": ["**/*.prisma", "**/migrations/**/*.sql", "prisma.config.ts", "**/*prisma*.ts", "**/db.ts", "**/db/**/*.ts"],
   "skill_name": "prisma-code-review",
   "skill_label": "Code Review",
   "skill_tag": "code-review",

@@ -4,8 +4,8 @@ paths:
   - "**/migrations/**/*.sql"
   - "prisma.config.ts"
   - "**/*prisma*.ts"
-  - "src/**/*.ts"
-  - "app/**/*.ts"
+  - "**/db.ts"
+  - "**/db/**/*.ts"
 ---
 
 # Prisma Cline Rules: Schema, Migrations and Query Shape

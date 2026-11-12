@@ -1,5 +1,5 @@
 ---
-applyTo: "**/*.prisma,**/migrations/**/*.sql,prisma.config.ts,**/*prisma*.ts,src/**/*.ts,app/**/*.ts"
+applyTo: "**/*.prisma,**/migrations/**/*.sql,prisma.config.ts,**/*prisma*.ts,**/db.ts,**/db/**/*.ts"
 ---
 
 # Prisma Copilot Instructions: Schema, Migrations and Query Shape

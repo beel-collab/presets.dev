@@ -6,8 +6,8 @@ paths:
   - "**/migrations/**/*.sql"
   - "prisma.config.ts"
   - "**/*prisma*.ts"
-  - "src/**/*.ts"
-  - "app/**/*.ts"
+  - "**/db.ts"
+  - "**/db/**/*.ts"
 ---
 
 # Prisma Code Review Skill for Cursor
