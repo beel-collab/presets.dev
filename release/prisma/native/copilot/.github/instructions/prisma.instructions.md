@@ -17,7 +17,7 @@ On Prisma 7 the CLI reads `prisma.config.ts`. `defineConfig` from `prisma/config
 
 The client is created with a driver adapter. For Postgres on Node, that is `PrismaPg` from `@prisma/adapter-pg` and `new PrismaClient({ adapter })`. Do not pass a `prisma://` or hosted `prisma+postgres://` Accelerate URL to `PrismaPg`. Those strings are not TCP connection strings.
 
-The generator is `prisma-client` with an `output` directory. Import `PrismaClient` from that generated path, not from `@prisma/client` as if v6 still re-exported it. Do not hand-edit the generated files.
+The generator is `prisma-client` with a required `output` directory. Import `PrismaClient` from that generated path. The v7 upgrade example uses `./generated/prisma/client`, not `@prisma/client`. Do not hand-edit the generated files.
 
 Hosted Accelerate URLs, including `prisma+postgres://accelerate.prisma-data.net`, retire on 1 December 2026. Local `prisma+postgres://localhost` URLs are not that retirement. Move CLI config to a direct URL before that date. If the app still uses the Accelerate extension, keep that temporary and do not mix it with a driver adapter on the same URL.
 
@@ -76,6 +76,9 @@ Run `prisma validate`. It checks the schema file and does not open a database. D
 ## Example
 
 ```ts
+import { PrismaClient } from "./generated/prisma/client"
+import { PrismaPg } from "@prisma/adapter-pg"
+
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL })
 export const prisma = new PrismaClient({ adapter })
 ```
