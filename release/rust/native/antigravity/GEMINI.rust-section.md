@@ -21,7 +21,9 @@ Library code does not `unwrap` or `expect` on a path a caller can trigger. `expe
 
 ## Async
 
-An async function is cancel-safe at its await points, or it documents that it is not. Do not hold a `std::sync::Mutex` or a `parking_lot` guard across an `.await`. Those guards are not cancel-safe and can poison or stall the runtime. `tokio::sync::Mutex` is the lock you may hold across `.await`. A spawned task has a join handle or a structured scope. Blocking work does not run on the async runtime. Use the project's `spawn_blocking` helper.
+An async function is cancel-safe at its await points, or it documents that it is not. Cancel safety is what happens if the future is dropped at an `.await`. It is separate from which mutex you hold.
+
+Do not hold a `std::sync::Mutex` or a `parking_lot` guard across an `.await`. Those guards are `!Send`, so the future cannot be spawned on a multi-thread runtime. Holding one also blocks a worker thread and can deadlock. `tokio::sync::Mutex` is the lock you may hold across `.await`. A spawned task has a join handle or a structured scope. Blocking work does not run on the async runtime. Use the project's `spawn_blocking` helper.
 
 A timeout cancels the inner work. Dropping a future should release the resources it holds.
 
