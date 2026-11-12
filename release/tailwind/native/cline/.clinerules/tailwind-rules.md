@@ -55,7 +55,7 @@ Tailwind v4 configures tokens with `@theme` in CSS. A v3 `tailwind.config.js` is
 
 ## Deprecated APIs to never generate
 
-Do not generate `@tailwind base` in a v4 project, or a class built by string concatenation.
+Tailwind v4 removed the `@tailwind base` directive. Use `@import "tailwindcss"` and `@theme`. A class built by string concatenation is a scanning mistake, not a removed API.
 
 ## Commands
 

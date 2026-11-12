@@ -102,7 +102,7 @@ Prisma 7 reads `prisma.config.ts`, requires a driver adapter, and emits the clie
 
 ## Deprecated APIs to never generate
 
-Do not generate `new PrismaClient()` without an adapter on Prisma 7, or a hosted Accelerate URL passed to `PrismaPg`.
+Hosted Accelerate URLs (`prisma://` and hosted `prisma+postgres://`) retire on 1 December 2026. Pass a direct database URL to the driver adapter.
 
 ## Commands
 

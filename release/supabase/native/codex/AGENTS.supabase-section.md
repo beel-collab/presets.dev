@@ -56,7 +56,7 @@ New keys are `sb_publishable_...` and `sb_secret_...`. Legacy `anon` and `servic
 
 ## Deprecated APIs to never generate
 
-Do not generate a new `service_role` client in browser code. Prefer `sb_publishable_` and `sb_secret_`.
+The `anon` and `service_role` key names are deprecated. New keys use the `sb_publishable_` and `sb_secret_` prefixes. Do not put a secret key in browser code.
 
 ## Commands
 

@@ -48,7 +48,7 @@ Kotlin 2.4 keeps `CancellationException` special. `GlobalScope` is still the wro
 
 ## Deprecated APIs to never generate
 
-Do not generate `GlobalScope.launch`, or `!!` on a value that can be null.
+No API covered here was deprecated or removed.
 
 ## Commands
 

@@ -44,7 +44,7 @@ Use the project's `WebApplicationFactory` or unit style. Cover a canceled token,
 
 ## Deprecated APIs to never generate
 
-Do not generate C# 15 union syntax in a `net10.0` project, or `.Result` on a request path.
+No API covered here was deprecated or removed.
 
 ## Commands
 

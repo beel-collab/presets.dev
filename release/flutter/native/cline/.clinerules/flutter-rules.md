@@ -50,7 +50,7 @@ Flutter 3.50 makes direct native interop stable. New projects use standalone `ma
 
 ## Deprecated APIs to never generate
 
-Do not generate `RaisedButton` or edit files under `.dart_tool`.
+`RaisedButton` was replaced by `ElevatedButton`.
 
 ## Commands
 

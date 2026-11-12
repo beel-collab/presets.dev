@@ -46,7 +46,7 @@ Engine 29 is the current major. BuildKit secrets and a non-root `USER` are the d
 
 ## Deprecated APIs to never generate
 
-Do not generate `latest` as a base image, or `USER root` in the runtime stage.
+No API covered here was deprecated or removed.
 
 ## Commands
 

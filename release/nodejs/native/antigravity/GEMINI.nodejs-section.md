@@ -54,7 +54,7 @@ Stay on the 26.13 LTS line. Do not target the v27 alpha. `AbortSignal` and timeo
 
 ## Deprecated APIs to never generate
 
-Do not generate `url.parse` or an unbounded `retry` without an `AbortSignal`.
+`url.parse` is deprecated. Use the WHATWG `URL` class. An unbounded retry is a missing cancellation, not a removed API.
 
 ## Commands
 

@@ -59,6 +59,7 @@ Test what the user sees. Query by role or label. Fire events through the testing
 - A suppressed hydration warning.
 - A 19.3 DOM API used in React Native or in a React 18 app.
 - `memo` and new context providers added without a measurement.
+- `forwardRef` added to a new React 19 function component. Pass `ref` as a prop.
 
 ## What changed in this major
 
@@ -66,7 +67,7 @@ React 19.3 stabilizes View Transitions, Fragment refs, and `browser()`. Those ar
 
 ## Deprecated APIs to never generate
 
-Do not generate `forwardRef` on a React 19 function component, or `componentWillMount`.
+`componentWillMount` is a legacy lifecycle. Do not generate it. Use a function component.
 
 ## Commands
 

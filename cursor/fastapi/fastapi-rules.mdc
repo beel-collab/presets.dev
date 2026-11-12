@@ -86,7 +86,7 @@ FastAPI 0.162 requires Pydantic v2 and AnyIO >= 4.1. `orm_mode` and v1 `@validat
 
 ## Deprecated APIs to never generate
 
-Do not generate Pydantic v1 `@validator` or `orm_mode = True`.
+`@validator` is deprecated. Use `@field_validator`. `orm_mode = True` is deprecated. Use `model_config = ConfigDict(from_attributes=True)`.
 
 ## Commands
 

@@ -79,6 +79,7 @@ A slice test covers a controller or a repository when the project uses slices. A
 - `@Transactional` on a private self-invoked method.
 - An N+1 lazy load in a loop.
 - `permitAll` added to hide a failing test.
+- A Spring Boot 4.2 release candidate added to a 4.1 project.
 
 ## What changed in this major
 
@@ -86,7 +87,7 @@ Boot 4.1 is the stable line. Do not take a 4.2 release candidate. `@Transactiona
 
 ## Deprecated APIs to never generate
 
-Do not generate field `@Autowired`, or a Boot 4.2 RC dependency.
+No API covered here was deprecated or removed.
 
 ## Commands
 

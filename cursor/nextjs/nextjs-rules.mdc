@@ -133,7 +133,7 @@ Next 16 uses `proxy.ts` exporting `proxy` (Node runtime). `middleware.ts` remain
 
 ## Deprecated APIs to never generate
 
-Do not generate `middleware.ts` on a Next 16 app, one-argument `revalidateTag(tag)`, or `images.domains`.
+`middleware.ts` is the deprecated name on Next 16. Write `proxy.ts` exporting `proxy`, unless the app must stay on the Edge runtime. One-argument `revalidateTag(tag)` is the old call. Pass a cache profile. `images.domains` is deprecated. Use `images.remotePatterns`.
 
 ## Commands
 

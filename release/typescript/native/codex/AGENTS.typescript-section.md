@@ -47,6 +47,7 @@ Type tests belong next to the function when the project uses `expectType` or `ts
 - Assuming TypeScript 7.0 exports the old compiler API, or a new one.
 - A `strict` flag turned off to make a branch compile.
 - A non-null assertion on a value that can be missing.
+- An `enum` where a union already names the cases.
 
 ## What changed in this major
 
@@ -54,7 +55,7 @@ TypeScript 7.0 is the native `tsc` and ships no stable compiler API. Programmati
 
 ## Deprecated APIs to never generate
 
-Do not generate `enum` where a union is enough, or `import typescript` against the 7.0 package for the compiler API.
+No API covered here was deprecated or removed. TypeScript 7.0 ships no compiler API. Tooling stays on `@typescript/typescript6` until 7.1.
 
 ## Commands
 

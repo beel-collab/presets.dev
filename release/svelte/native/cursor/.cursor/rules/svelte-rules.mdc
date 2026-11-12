@@ -50,7 +50,7 @@ SvelteKit 3 reads the `sveltekit()` Vite plugin, not `svelte.config.js`. Use `$a
 
 ## Deprecated APIs to never generate
 
-Do not generate `svelte.config.js`, `$app/stores`, or `$lib` in a Kit 3 app.
+In Kit 3, `svelte.config.js` is unsupported. Put `sveltekit()` in `vite.config.js`. `$app/stores` is removed. Import from `$app/state`. `$lib` is replaced by `#lib` with the file extension in `package.json` imports.
 
 ## Commands
 

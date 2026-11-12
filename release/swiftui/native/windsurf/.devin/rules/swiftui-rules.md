@@ -49,7 +49,7 @@ Swift 6.4 adds async `defer` and cancellation shields. `.task` is the view-scope
 
 ## Deprecated APIs to never generate
 
-Do not generate `@unchecked Sendable` to silence isolation, or `try?` on a failing load.
+No API covered here was deprecated or removed.
 
 ## Commands
 

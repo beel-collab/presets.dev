@@ -49,6 +49,7 @@ Reproduce the bug with a test that fails for the right reason. Then change the p
 - Shared mutable auth or data across workers.
 - A test that passes when the feature is broken because it only checks that a locator exists.
 - An upgrade of Playwright bundled into a single new spec.
+- `page.$` when a `getByRole` locator can see the control.
 
 ## What changed in this major
 
@@ -56,7 +57,7 @@ Playwright 1.65 adds the failures reporter, exclusive locks, and a Bun runner. U
 
 ## Deprecated APIs to never generate
 
-Do not generate `waitForTimeout` or `page.$`.
+No API covered here was deprecated or removed.
 
 ## Commands
 

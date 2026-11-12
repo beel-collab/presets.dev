@@ -44,7 +44,7 @@ Nest 12 adds `@Body({ schema })` plus `StandardSchemaValidationPipe`. Class DTOs
 
 ## Deprecated APIs to never generate
 
-Do not generate an unregistered provider, or `@Body()` typed only as an interface.
+No API covered here was deprecated or removed.
 
 ## Commands
 

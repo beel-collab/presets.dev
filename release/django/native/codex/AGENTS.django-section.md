@@ -45,6 +45,7 @@ The test client covers an anonymous user, a user without the permission, and the
 - `fields = "__all__"` on a public form.
 - A sync query inside an async view.
 - A shipped migration rewritten in place.
+- `mark_safe` on user text, or `@csrf_exempt` on a browser form.
 
 ## What changed in this major
 
@@ -52,7 +53,7 @@ Django 6.1 adds `FETCH_PEERS` and `FETCH_RAISE`. `QuerySet.delete()` sends delet
 
 ## Deprecated APIs to never generate
 
-Do not generate `mark_safe` on user text, or `@csrf_exempt` on a browser form.
+No API covered here was deprecated or removed.
 
 ## Commands
 

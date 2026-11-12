@@ -42,7 +42,7 @@ Go 1.27 backs `encoding/json` with v2. Opt out with `GOEXPERIMENT=nojsonv2`. SIM
 
 ## Deprecated APIs to never generate
 
-Do not generate `ioutil`, or `GOEXPERIMENT=simd` as a default.
+`io/ioutil` is deprecated. Use `os` and `io`.
 
 ## Commands
 

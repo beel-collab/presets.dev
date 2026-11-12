@@ -57,7 +57,7 @@ React Native 0.88 is the current line. Expo SDK 58 is current npm latest. Do not
 
 ## Deprecated APIs to never generate
 
-Do not generate `componentWillMount`, or `document` / `window` in a native screen.
+`componentWillMount` is a legacy lifecycle. Do not generate it.
 
 ## Commands
 

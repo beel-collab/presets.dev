@@ -48,6 +48,8 @@ Test with the project's TestBed or the newer test API it already uses. A compone
 - `zone.js` added back to silence a stale example.
 - A form value submitted while invalid.
 - `bypassSecurityTrustHtml` on a user string.
+- `*ngIf` or `*ngFor` in a new template. Use `@if` and `@for`.
+- Constructor injection on a new `@Service()`. Use `inject()`.
 
 ## What changed in this major
 
@@ -55,7 +57,7 @@ Angular 22 defaults to OnPush (`Eager` is the old Default). New services use `@S
 
 ## Deprecated APIs to never generate
 
-Do not generate `*ngIf` or `*ngFor` in a new template, or constructor injection on a new `@Service`.
+No API covered here was deprecated or removed. New templates should use the control-flow blocks.
 
 ## Commands
 

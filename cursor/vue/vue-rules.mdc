@@ -92,7 +92,7 @@ Vue 3.5 compiles destructured `defineProps()` so the bindings stay reactive.
 
 ## Deprecated APIs to never generate
 
-Do not generate `Vue.filter`, or a Vue 2 `new Vue()` app.
+`Vue.filter` was removed in Vue 3. Use a function or a computed. `new Vue()` was removed. Use `createApp`.
 
 ## Commands
 

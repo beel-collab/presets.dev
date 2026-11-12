@@ -47,7 +47,7 @@ Laravel 13 runs on PHP 8.3 through 8.5. CSRF middleware is `ValidateCsrfToken`.
 
 ## Deprecated APIs to never generate
 
-Do not generate `VerifyCsrfToken`, or `$request->all()` into `create`.
+No API covered here was deprecated or removed. The CSRF middleware name is in the body of these rules.
 
 ## Commands
 

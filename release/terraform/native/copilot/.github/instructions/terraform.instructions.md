@@ -48,7 +48,7 @@ Terraform 1.17 plans are the review artifact. Do not invent provider arguments.
 
 ## Deprecated APIs to never generate
 
-Do not generate an invented provider argument, or `terraform apply` from an agent.
+No API covered here was deprecated or removed.
 
 ## Commands
 

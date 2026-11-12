@@ -55,6 +55,7 @@ A destructive tool says so in its description. Do not treat a `confirm: true` ar
 - The user's token forwarded to another service.
 - A tool result written as instructions that outrank the user.
 - An open network or filesystem tool on a remote server with no authentication.
+- A `confirm` argument treated as the user's approval.
 
 ## What changed in this major
 
@@ -62,7 +63,7 @@ The 2026-07-28 spec removes `initialize` and `Mcp-Session-Id`. Serve it with `@m
 
 ## Deprecated APIs to never generate
 
-Do not generate `server.connect(new StdioServerTransport())` from `@modelcontextprotocol/sdk` 1.32 for a 2026-07-28 server, or a `confirm` argument as consent.
+For a 2026-07-28 server, do not generate `server.connect(new StdioServerTransport())` from `@modelcontextprotocol/sdk` 1.32. Call `serveStdio` or `createMcpHandler` from `@modelcontextprotocol/server` 2.x.
 
 ## Commands
 

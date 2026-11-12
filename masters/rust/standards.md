@@ -38,7 +38,7 @@ Rust 1.100 stabilizes the never type and custom allocators. `unwrap` on I/O is s
 
 ## Deprecated APIs to never generate
 
-Do not generate `unwrap()` on `Result` from I/O, or `unsafe` to skip the borrow checker.
+No API covered here was deprecated or removed.
 
 ## Commands
 

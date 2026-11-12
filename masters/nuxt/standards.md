@@ -42,7 +42,7 @@ Nuxt 4.6 keeps private `runtimeConfig` off the client. `routeTypedFetch` is expe
 
 ## Deprecated APIs to never generate
 
-Do not generate a private key under `runtimeConfig.public`, or experimental `routeTypedFetch` unasked.
+No API covered here was deprecated or removed.
 
 ## Commands
 

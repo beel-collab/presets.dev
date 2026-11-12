@@ -48,7 +48,7 @@ No new language syntax is required here. uv 0.13 and Ruff 0.17 are the tools to 
 
 ## Deprecated APIs to never generate
 
-Do not generate a second virtualenv or a `pip install` beside an existing uv or Poetry lock.
+No API covered here was deprecated or removed.
 
 ## Commands
 
