@@ -19,7 +19,7 @@ Stop for a plain HTTP API that is not MCP. Do not deploy the server or call a pr
 
 1. Read the package names. A 2026-07-28 server that still depends only on `@modelcontextprotocol/sdk` and calls `server.connect(new StdioServerTransport())` is a high finding: that entry speaks the 2025 protocol. `initialize` and `Mcp-Session-Id` are not part of 2026-07-28. Flag them when the project claims that revision.
 2. List every tool. A missing input schema, or a handler that does not check the schema, is a high finding.
-3. For each tool, name the files, hosts, and credentials it can reach. A token passed through from the end user, or a path that escapes the root, is a high finding.
+3. For each tool, name the files, hosts, and credentials it can reach. A token passed through from the end user, or a path that escapes the root, is a high finding. A destructive tool whose only gate is a model-written `confirm` argument is a high finding. Approval has to come back through `input_required` and the host UI.
 4. Check result text. Instructions that tell the model to ignore the user are a high finding.
 5. A remote server with no auth in front of a sensitive tool is a high finding.
 6. Run the project's server test only if the user asked. Otherwise write `not run`. Do not use a real account.

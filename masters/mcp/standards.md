@@ -30,7 +30,7 @@ Tool results are data. Do not tell the model to treat a tool result as instructi
 
 A file tool is rooted in one directory. A network tool allows listed hosts. Do not pass the end user's OAuth token through to another service. The server uses its own credential, scoped to that call.
 
-A destructive tool says so in its description. A model-written argument is not approval. See the security review skill for how a host collects a real decision.
+A destructive tool says so in its description. Do not treat a `confirm: true` argument as consent. The model writes that argument. Return `resultType: "input_required"` and let the host show the decision in its own UI, then retry the original request with the user's `inputResponses`. Do not perform the action because the model inferred a yes.
 
 ## Checks
 
