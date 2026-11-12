@@ -162,12 +162,52 @@ def tested_with_ok(claim: str) -> bool:
     return REAL_TEST.match(claim) is not None
 
 
-PUBLIC_ROUTE = re.compile(
-    r"^/(?:copilot|cursor|claude|windsurf|cline|codex|antigravity)/rules/[a-z0-9-]+/[a-z0-9-]+$"
-)
+def canonical_route(catalog: str) -> str:
+    """Public route for a release catalog path.
+
+    Copilot standards are instructions. Cursor, Claude, Windsurf, Cline,
+    Codex, and Antigravity standards are rules. Skills and agents use
+    those category names.
+    """
+    parts = catalog.split("/")
+    tool, stack, name = parts[0], parts[1], parts[-1]
+    if name.endswith(".instructions.md"):
+        kind = "instructions"
+        slug = name[: -len(".instructions.md")]
+    elif name == "SKILL.md":
+        kind = "skills"
+        slug = parts[-2]
+    elif name.endswith(".agent.md"):
+        kind = "agents"
+        slug = name[: -len(".agent.md")]
+    elif name.endswith(".mdc"):
+        kind = "rules"
+        slug = name[: -len(".mdc")]
+    elif name.endswith(".md"):
+        kind = "rules"
+        slug = name[: -len(".md")]
+    else:
+        kind = "rules"
+        slug = name
+    return f"/{tool}/{kind}/{stack}/{slug}"
+
+
+def route_self_test() -> list[str]:
+    cases = {
+        "copilot/nextjs/nextjs-rules.instructions.md": "/copilot/instructions/nextjs/nextjs-rules",
+        "cursor/go/go-rules.mdc": "/cursor/rules/go/go-rules",
+        "claude/mcp/mcp-rules.md": "/claude/rules/mcp/mcp-rules",
+    }
+    errors = []
+    for catalog, expected in cases.items():
+        got = canonical_route(catalog)
+        if got != expected:
+            errors.append(f"route self-test {catalog}: {got} != {expected}")
+    return errors
 
 
 def check_retirement_routes(errors: list[str]) -> None:
+    errors.extend(route_self_test())
     path = ROOT / "release" / "original-2026-11" / "retirement-map.json"
     if not path.is_file():
         errors.append("release/original-2026-11/retirement-map.json: missing")
@@ -177,9 +217,15 @@ def check_retirement_routes(errors: list[str]) -> None:
         target = entry.get("redirect_target")
         if target is None:
             continue
-        if not isinstance(target, str) or ".md" in target or PUBLIC_ROUTE.match(target) is None:
+        catalog = entry.get("new_catalog") or ""
+        expected = canonical_route(catalog) if catalog else ""
+        if (
+            not isinstance(target, str)
+            or ".md" in target
+            or target != expected
+        ):
             errors.append(
-                f"{entry.get('old_file')}: redirect_target must be a /tool/rules/stack/slug route, not {target!r}"
+                f"{entry.get('old_file')}: redirect_target {target!r} is not the canonical route {expected!r}"
             )
 
 

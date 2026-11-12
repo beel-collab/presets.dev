@@ -3,7 +3,7 @@
   "old_catalog_files": 854,
   "mapped": 292,
   "retire_without_redirect": 562,
-  "note": "Proposal only. No file is deleted. redirect_target is a public route /{tool}/rules/{stack}/{slug} with no file extension, matching the review example /claude/rules/mcp/mcp-rules and the live presets.dev kind segments (/claude/skills/..., /copilot/agents/...). Unmatched entries stay null.",
+  "note": "Proposal only. No file is deleted. redirect_target is a public route. Copilot standards use /copilot/instructions/<stack>/<slug>. Other standards use /<tool>/rules/<stack>/<slug>. Unmatched entries stay null.",
   "entries": [
     {
       "old_file": "claude/agents/business-product/business-analyst.md",
@@ -1595,7 +1595,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -1604,7 +1604,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -1676,7 +1676,7 @@
       "stack": "angular",
       "status": "map",
       "new_catalog": "copilot/angular/angular-rules.instructions.md",
-      "redirect_target": "/copilot/rules/angular/angular-rules",
+      "redirect_target": "/copilot/instructions/angular/angular-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -1703,7 +1703,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -1757,7 +1757,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -1892,7 +1892,7 @@
       "stack": "terraform",
       "status": "map",
       "new_catalog": "copilot/terraform/terraform-rules.instructions.md",
-      "redirect_target": "/copilot/rules/terraform/terraform-rules",
+      "redirect_target": "/copilot/instructions/terraform/terraform-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -1901,7 +1901,7 @@
       "stack": "terraform",
       "status": "map",
       "new_catalog": "copilot/terraform/terraform-rules.instructions.md",
-      "redirect_target": "/copilot/rules/terraform/terraform-rules",
+      "redirect_target": "/copilot/instructions/terraform/terraform-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -1946,7 +1946,7 @@
       "stack": "spring",
       "status": "map",
       "new_catalog": "copilot/spring/spring-rules.instructions.md",
-      "redirect_target": "/copilot/rules/spring/spring-rules",
+      "redirect_target": "/copilot/instructions/spring/spring-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -1955,7 +1955,7 @@
       "stack": "spring",
       "status": "map",
       "new_catalog": "copilot/spring/spring-rules.instructions.md",
-      "redirect_target": "/copilot/rules/spring/spring-rules",
+      "redirect_target": "/copilot/instructions/spring/spring-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2297,7 +2297,7 @@
       "stack": "flutter",
       "status": "map",
       "new_catalog": "copilot/flutter/flutter-rules.instructions.md",
-      "redirect_target": "/copilot/rules/flutter/flutter-rules",
+      "redirect_target": "/copilot/instructions/flutter/flutter-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2333,7 +2333,7 @@
       "stack": "docker",
       "status": "map",
       "new_catalog": "copilot/docker/docker-rules.instructions.md",
-      "redirect_target": "/copilot/rules/docker/docker-rules",
+      "redirect_target": "/copilot/instructions/docker/docker-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2414,7 +2414,7 @@
       "stack": "docker",
       "status": "map",
       "new_catalog": "copilot/docker/docker-rules.instructions.md",
-      "redirect_target": "/copilot/rules/docker/docker-rules",
+      "redirect_target": "/copilot/instructions/docker/docker-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2513,7 +2513,7 @@
       "stack": "docker",
       "status": "map",
       "new_catalog": "copilot/docker/docker-rules.instructions.md",
-      "redirect_target": "/copilot/rules/docker/docker-rules",
+      "redirect_target": "/copilot/instructions/docker/docker-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2522,7 +2522,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2801,7 +2801,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2810,7 +2810,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2819,7 +2819,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2828,7 +2828,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2837,7 +2837,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2846,7 +2846,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2855,7 +2855,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2864,7 +2864,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2873,7 +2873,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2882,7 +2882,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2891,7 +2891,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2900,7 +2900,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2909,7 +2909,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2918,7 +2918,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2927,7 +2927,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2936,7 +2936,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2945,7 +2945,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2954,7 +2954,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2963,7 +2963,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2972,7 +2972,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2981,7 +2981,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2990,7 +2990,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -2999,7 +2999,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3008,7 +3008,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3017,7 +3017,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3026,7 +3026,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3035,7 +3035,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3044,7 +3044,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3053,7 +3053,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3062,7 +3062,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3071,7 +3071,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3080,7 +3080,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3089,7 +3089,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3098,7 +3098,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3107,7 +3107,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3494,7 +3494,7 @@
       "stack": "go",
       "status": "map",
       "new_catalog": "copilot/go/go-rules.instructions.md",
-      "redirect_target": "/copilot/rules/go/go-rules",
+      "redirect_target": "/copilot/instructions/go/go-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3503,7 +3503,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3512,7 +3512,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3521,7 +3521,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3530,7 +3530,7 @@
       "stack": "go",
       "status": "map",
       "new_catalog": "copilot/go/go-rules.instructions.md",
-      "redirect_target": "/copilot/rules/go/go-rules",
+      "redirect_target": "/copilot/instructions/go/go-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3656,7 +3656,7 @@
       "stack": "spring",
       "status": "map",
       "new_catalog": "copilot/spring/spring-rules.instructions.md",
-      "redirect_target": "/copilot/rules/spring/spring-rules",
+      "redirect_target": "/copilot/instructions/spring/spring-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3665,7 +3665,7 @@
       "stack": "spring",
       "status": "map",
       "new_catalog": "copilot/spring/spring-rules.instructions.md",
-      "redirect_target": "/copilot/rules/spring/spring-rules",
+      "redirect_target": "/copilot/instructions/spring/spring-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3674,7 +3674,7 @@
       "stack": "spring",
       "status": "map",
       "new_catalog": "copilot/spring/spring-rules.instructions.md",
-      "redirect_target": "/copilot/rules/spring/spring-rules",
+      "redirect_target": "/copilot/instructions/spring/spring-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3683,7 +3683,7 @@
       "stack": "spring",
       "status": "map",
       "new_catalog": "copilot/spring/spring-rules.instructions.md",
-      "redirect_target": "/copilot/rules/spring/spring-rules",
+      "redirect_target": "/copilot/instructions/spring/spring-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3692,7 +3692,7 @@
       "stack": "spring",
       "status": "map",
       "new_catalog": "copilot/spring/spring-rules.instructions.md",
-      "redirect_target": "/copilot/rules/spring/spring-rules",
+      "redirect_target": "/copilot/instructions/spring/spring-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3701,7 +3701,7 @@
       "stack": "spring",
       "status": "map",
       "new_catalog": "copilot/spring/spring-rules.instructions.md",
-      "redirect_target": "/copilot/rules/spring/spring-rules",
+      "redirect_target": "/copilot/instructions/spring/spring-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3710,7 +3710,7 @@
       "stack": "spring",
       "status": "map",
       "new_catalog": "copilot/spring/spring-rules.instructions.md",
-      "redirect_target": "/copilot/rules/spring/spring-rules",
+      "redirect_target": "/copilot/instructions/spring/spring-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3719,7 +3719,7 @@
       "stack": "spring",
       "status": "map",
       "new_catalog": "copilot/spring/spring-rules.instructions.md",
-      "redirect_target": "/copilot/rules/spring/spring-rules",
+      "redirect_target": "/copilot/instructions/spring/spring-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3728,7 +3728,7 @@
       "stack": "spring",
       "status": "map",
       "new_catalog": "copilot/spring/spring-rules.instructions.md",
-      "redirect_target": "/copilot/rules/spring/spring-rules",
+      "redirect_target": "/copilot/instructions/spring/spring-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3737,7 +3737,7 @@
       "stack": "spring",
       "status": "map",
       "new_catalog": "copilot/spring/spring-rules.instructions.md",
-      "redirect_target": "/copilot/rules/spring/spring-rules",
+      "redirect_target": "/copilot/instructions/spring/spring-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3746,7 +3746,7 @@
       "stack": "spring",
       "status": "map",
       "new_catalog": "copilot/spring/spring-rules.instructions.md",
-      "redirect_target": "/copilot/rules/spring/spring-rules",
+      "redirect_target": "/copilot/instructions/spring/spring-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3755,7 +3755,7 @@
       "stack": "kotlin",
       "status": "map",
       "new_catalog": "copilot/kotlin/kotlin-rules.instructions.md",
-      "redirect_target": "/copilot/rules/kotlin/kotlin-rules",
+      "redirect_target": "/copilot/instructions/kotlin/kotlin-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3764,7 +3764,7 @@
       "stack": "kotlin",
       "status": "map",
       "new_catalog": "copilot/kotlin/kotlin-rules.instructions.md",
-      "redirect_target": "/copilot/rules/kotlin/kotlin-rules",
+      "redirect_target": "/copilot/instructions/kotlin/kotlin-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3773,7 +3773,7 @@
       "stack": "kotlin",
       "status": "map",
       "new_catalog": "copilot/kotlin/kotlin-rules.instructions.md",
-      "redirect_target": "/copilot/rules/kotlin/kotlin-rules",
+      "redirect_target": "/copilot/instructions/kotlin/kotlin-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3782,7 +3782,7 @@
       "stack": "kotlin",
       "status": "map",
       "new_catalog": "copilot/kotlin/kotlin-rules.instructions.md",
-      "redirect_target": "/copilot/rules/kotlin/kotlin-rules",
+      "redirect_target": "/copilot/instructions/kotlin/kotlin-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3791,7 +3791,7 @@
       "stack": "kotlin",
       "status": "map",
       "new_catalog": "copilot/kotlin/kotlin-rules.instructions.md",
-      "redirect_target": "/copilot/rules/kotlin/kotlin-rules",
+      "redirect_target": "/copilot/instructions/kotlin/kotlin-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -3800,7 +3800,7 @@
       "stack": "kotlin",
       "status": "map",
       "new_catalog": "copilot/kotlin/kotlin-rules.instructions.md",
-      "redirect_target": "/copilot/rules/kotlin/kotlin-rules",
+      "redirect_target": "/copilot/instructions/kotlin/kotlin-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4007,7 +4007,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4016,7 +4016,7 @@
       "stack": "dotnet",
       "status": "map",
       "new_catalog": "copilot/dotnet/dotnet-rules.instructions.md",
-      "redirect_target": "/copilot/rules/dotnet/dotnet-rules",
+      "redirect_target": "/copilot/instructions/dotnet/dotnet-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4061,7 +4061,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4070,7 +4070,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4079,7 +4079,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4088,7 +4088,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4097,7 +4097,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4133,7 +4133,7 @@
       "stack": "nextjs",
       "status": "map",
       "new_catalog": "copilot/nextjs/nextjs-rules.instructions.md",
-      "redirect_target": "/copilot/rules/nextjs/nextjs-rules",
+      "redirect_target": "/copilot/instructions/nextjs/nextjs-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4142,7 +4142,7 @@
       "stack": "nextjs",
       "status": "map",
       "new_catalog": "copilot/nextjs/nextjs-rules.instructions.md",
-      "redirect_target": "/copilot/rules/nextjs/nextjs-rules",
+      "redirect_target": "/copilot/instructions/nextjs/nextjs-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4151,7 +4151,7 @@
       "stack": "tailwind",
       "status": "map",
       "new_catalog": "copilot/tailwind/tailwind-rules.instructions.md",
-      "redirect_target": "/copilot/rules/tailwind/tailwind-rules",
+      "redirect_target": "/copilot/instructions/tailwind/tailwind-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4160,7 +4160,7 @@
       "stack": "nextjs",
       "status": "map",
       "new_catalog": "copilot/nextjs/nextjs-rules.instructions.md",
-      "redirect_target": "/copilot/rules/nextjs/nextjs-rules",
+      "redirect_target": "/copilot/instructions/nextjs/nextjs-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4178,7 +4178,7 @@
       "stack": "laravel",
       "status": "map",
       "new_catalog": "copilot/laravel/laravel-rules.instructions.md",
-      "redirect_target": "/copilot/rules/laravel/laravel-rules",
+      "redirect_target": "/copilot/instructions/laravel/laravel-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4196,7 +4196,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4205,7 +4205,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4214,7 +4214,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4250,7 +4250,7 @@
       "stack": "playwright",
       "status": "map",
       "new_catalog": "copilot/playwright/playwright-rules.instructions.md",
-      "redirect_target": "/copilot/rules/playwright/playwright-rules",
+      "redirect_target": "/copilot/instructions/playwright/playwright-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4259,7 +4259,7 @@
       "stack": "playwright",
       "status": "map",
       "new_catalog": "copilot/playwright/playwright-rules.instructions.md",
-      "redirect_target": "/copilot/rules/playwright/playwright-rules",
+      "redirect_target": "/copilot/instructions/playwright/playwright-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4268,7 +4268,7 @@
       "stack": "playwright",
       "status": "map",
       "new_catalog": "copilot/playwright/playwright-rules.instructions.md",
-      "redirect_target": "/copilot/rules/playwright/playwright-rules",
+      "redirect_target": "/copilot/instructions/playwright/playwright-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4277,7 +4277,7 @@
       "stack": "playwright",
       "status": "map",
       "new_catalog": "copilot/playwright/playwright-rules.instructions.md",
-      "redirect_target": "/copilot/rules/playwright/playwright-rules",
+      "redirect_target": "/copilot/instructions/playwright/playwright-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4286,7 +4286,7 @@
       "stack": "playwright",
       "status": "map",
       "new_catalog": "copilot/playwright/playwright-rules.instructions.md",
-      "redirect_target": "/copilot/rules/playwright/playwright-rules",
+      "redirect_target": "/copilot/instructions/playwright/playwright-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4295,7 +4295,7 @@
       "stack": "playwright",
       "status": "map",
       "new_catalog": "copilot/playwright/playwright-rules.instructions.md",
-      "redirect_target": "/copilot/rules/playwright/playwright-rules",
+      "redirect_target": "/copilot/instructions/playwright/playwright-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4304,7 +4304,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4754,7 +4754,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4763,7 +4763,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4772,7 +4772,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4988,7 +4988,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -4997,7 +4997,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5006,7 +5006,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5015,7 +5015,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5024,7 +5024,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5033,7 +5033,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5042,7 +5042,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5051,7 +5051,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5060,7 +5060,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5069,7 +5069,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5078,7 +5078,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5087,7 +5087,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5096,7 +5096,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5105,7 +5105,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5114,7 +5114,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5123,7 +5123,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5132,7 +5132,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5141,7 +5141,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5150,7 +5150,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5159,7 +5159,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5168,7 +5168,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5177,7 +5177,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5186,7 +5186,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5195,7 +5195,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5204,7 +5204,7 @@
       "stack": "python",
       "status": "map",
       "new_catalog": "copilot/python/python-rules.instructions.md",
-      "redirect_target": "/copilot/rules/python/python-rules",
+      "redirect_target": "/copilot/instructions/python/python-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5222,7 +5222,7 @@
       "stack": "react",
       "status": "map",
       "new_catalog": "copilot/react/react-rules.instructions.md",
-      "redirect_target": "/copilot/rules/react/react-rules",
+      "redirect_target": "/copilot/instructions/react/react-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5231,7 +5231,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5240,7 +5240,7 @@
       "stack": "react",
       "status": "map",
       "new_catalog": "copilot/react/react-rules.instructions.md",
-      "redirect_target": "/copilot/rules/react/react-rules",
+      "redirect_target": "/copilot/instructions/react/react-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5276,7 +5276,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5285,7 +5285,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5294,7 +5294,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5303,7 +5303,7 @@
       "stack": "rails",
       "status": "map",
       "new_catalog": "copilot/rails/rails-rules.instructions.md",
-      "redirect_target": "/copilot/rules/rails/rails-rules",
+      "redirect_target": "/copilot/instructions/rails/rails-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5312,7 +5312,7 @@
       "stack": "rust",
       "status": "map",
       "new_catalog": "copilot/rust/rust-rules.instructions.md",
-      "redirect_target": "/copilot/rules/rust/rust-rules",
+      "redirect_target": "/copilot/instructions/rust/rust-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5321,7 +5321,7 @@
       "stack": "rust",
       "status": "map",
       "new_catalog": "copilot/rust/rust-rules.instructions.md",
-      "redirect_target": "/copilot/rules/rust/rust-rules",
+      "redirect_target": "/copilot/instructions/rust/rust-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5330,7 +5330,7 @@
       "stack": "rust",
       "status": "map",
       "new_catalog": "copilot/rust/rust-rules.instructions.md",
-      "redirect_target": "/copilot/rules/rust/rust-rules",
+      "redirect_target": "/copilot/instructions/rust/rust-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5339,7 +5339,7 @@
       "stack": "rust",
       "status": "map",
       "new_catalog": "copilot/rust/rust-rules.instructions.md",
-      "redirect_target": "/copilot/rules/rust/rust-rules",
+      "redirect_target": "/copilot/instructions/rust/rust-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5348,7 +5348,7 @@
       "stack": "rust",
       "status": "map",
       "new_catalog": "copilot/rust/rust-rules.instructions.md",
-      "redirect_target": "/copilot/rules/rust/rust-rules",
+      "redirect_target": "/copilot/instructions/rust/rust-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5897,7 +5897,7 @@
       "stack": "svelte",
       "status": "map",
       "new_catalog": "copilot/svelte/svelte-rules.instructions.md",
-      "redirect_target": "/copilot/rules/svelte/svelte-rules",
+      "redirect_target": "/copilot/instructions/svelte/svelte-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5906,7 +5906,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5915,7 +5915,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5924,7 +5924,7 @@
       "stack": "mcp",
       "status": "map",
       "new_catalog": "copilot/mcp/mcp-rules.instructions.md",
-      "redirect_target": "/copilot/rules/mcp/mcp-rules",
+      "redirect_target": "/copilot/instructions/mcp/mcp-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5933,7 +5933,7 @@
       "stack": "tailwind",
       "status": "map",
       "new_catalog": "copilot/tailwind/tailwind-rules.instructions.md",
-      "redirect_target": "/copilot/rules/tailwind/tailwind-rules",
+      "redirect_target": "/copilot/instructions/tailwind/tailwind-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5942,7 +5942,7 @@
       "stack": "tailwind",
       "status": "map",
       "new_catalog": "copilot/tailwind/tailwind-rules.instructions.md",
-      "redirect_target": "/copilot/rules/tailwind/tailwind-rules",
+      "redirect_target": "/copilot/instructions/tailwind/tailwind-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5951,7 +5951,7 @@
       "stack": "tailwind",
       "status": "map",
       "new_catalog": "copilot/tailwind/tailwind-rules.instructions.md",
-      "redirect_target": "/copilot/rules/tailwind/tailwind-rules",
+      "redirect_target": "/copilot/instructions/tailwind/tailwind-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5960,7 +5960,7 @@
       "stack": "terraform",
       "status": "map",
       "new_catalog": "copilot/terraform/terraform-rules.instructions.md",
-      "redirect_target": "/copilot/rules/terraform/terraform-rules",
+      "redirect_target": "/copilot/instructions/terraform/terraform-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5969,7 +5969,7 @@
       "stack": "terraform",
       "status": "map",
       "new_catalog": "copilot/terraform/terraform-rules.instructions.md",
-      "redirect_target": "/copilot/rules/terraform/terraform-rules",
+      "redirect_target": "/copilot/instructions/terraform/terraform-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5978,7 +5978,7 @@
       "stack": "terraform",
       "status": "map",
       "new_catalog": "copilot/terraform/terraform-rules.instructions.md",
-      "redirect_target": "/copilot/rules/terraform/terraform-rules",
+      "redirect_target": "/copilot/instructions/terraform/terraform-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5987,7 +5987,7 @@
       "stack": "terraform",
       "status": "map",
       "new_catalog": "copilot/terraform/terraform-rules.instructions.md",
-      "redirect_target": "/copilot/rules/terraform/terraform-rules",
+      "redirect_target": "/copilot/instructions/terraform/terraform-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -5996,7 +5996,7 @@
       "stack": "terraform",
       "status": "map",
       "new_catalog": "copilot/terraform/terraform-rules.instructions.md",
-      "redirect_target": "/copilot/rules/terraform/terraform-rules",
+      "redirect_target": "/copilot/instructions/terraform/terraform-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6005,7 +6005,7 @@
       "stack": "terraform",
       "status": "map",
       "new_catalog": "copilot/terraform/terraform-rules.instructions.md",
-      "redirect_target": "/copilot/rules/terraform/terraform-rules",
+      "redirect_target": "/copilot/instructions/terraform/terraform-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6014,7 +6014,7 @@
       "stack": "terraform",
       "status": "map",
       "new_catalog": "copilot/terraform/terraform-rules.instructions.md",
-      "redirect_target": "/copilot/rules/terraform/terraform-rules",
+      "redirect_target": "/copilot/instructions/terraform/terraform-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6023,7 +6023,7 @@
       "stack": "terraform",
       "status": "map",
       "new_catalog": "copilot/terraform/terraform-rules.instructions.md",
-      "redirect_target": "/copilot/rules/terraform/terraform-rules",
+      "redirect_target": "/copilot/instructions/terraform/terraform-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6032,7 +6032,7 @@
       "stack": "terraform",
       "status": "map",
       "new_catalog": "copilot/terraform/terraform-rules.instructions.md",
-      "redirect_target": "/copilot/rules/terraform/terraform-rules",
+      "redirect_target": "/copilot/instructions/terraform/terraform-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6041,7 +6041,7 @@
       "stack": "terraform",
       "status": "map",
       "new_catalog": "copilot/terraform/terraform-rules.instructions.md",
-      "redirect_target": "/copilot/rules/terraform/terraform-rules",
+      "redirect_target": "/copilot/instructions/terraform/terraform-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6050,7 +6050,7 @@
       "stack": "terraform",
       "status": "map",
       "new_catalog": "copilot/terraform/terraform-rules.instructions.md",
-      "redirect_target": "/copilot/rules/terraform/terraform-rules",
+      "redirect_target": "/copilot/instructions/terraform/terraform-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6329,7 +6329,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6338,7 +6338,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6347,7 +6347,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6356,7 +6356,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6365,7 +6365,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6374,7 +6374,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6383,7 +6383,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6392,7 +6392,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6401,7 +6401,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6410,7 +6410,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6419,7 +6419,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6428,7 +6428,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6437,7 +6437,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6446,7 +6446,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6455,7 +6455,7 @@
       "stack": "typescript",
       "status": "map",
       "new_catalog": "copilot/typescript/typescript-rules.instructions.md",
-      "redirect_target": "/copilot/rules/typescript/typescript-rules",
+      "redirect_target": "/copilot/instructions/typescript/typescript-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6581,7 +6581,7 @@
       "stack": "vue",
       "status": "map",
       "new_catalog": "copilot/vue/vue-rules.instructions.md",
-      "redirect_target": "/copilot/rules/vue/vue-rules",
+      "redirect_target": "/copilot/instructions/vue/vue-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6590,7 +6590,7 @@
       "stack": "vue",
       "status": "map",
       "new_catalog": "copilot/vue/vue-rules.instructions.md",
-      "redirect_target": "/copilot/rules/vue/vue-rules",
+      "redirect_target": "/copilot/instructions/vue/vue-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
@@ -6599,7 +6599,7 @@
       "stack": "vue",
       "status": "map",
       "new_catalog": "copilot/vue/vue-rules.instructions.md",
-      "redirect_target": "/copilot/rules/vue/vue-rules",
+      "redirect_target": "/copilot/instructions/vue/vue-rules",
       "reason": "same tool and a matching stack word in the path"
     },
     {
