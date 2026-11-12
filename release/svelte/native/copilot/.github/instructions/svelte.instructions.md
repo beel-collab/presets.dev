@@ -57,9 +57,11 @@ Run the project's `vite` test or `npm test`.
 
 ## Example
 
-```ts
-import { page } from '$app/state'
-const id = page.params.id
+```svelte
+<script>
+  import { page } from '$app/state'
+  const id = $derived(page.params.id)
+</script>
 ```
 
 ## Agent tooling
