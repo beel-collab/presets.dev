@@ -15,8 +15,11 @@
   "paths": [
     "**/*.controller.ts",
     "**/*.module.ts",
+    "**/*.service.ts",
     "**/*.dto.ts",
-    "**/*.guard.ts"
+    "**/*.guard.ts",
+    "**/*.pipe.ts",
+    "**/*.interceptor.ts"
   ],
   "skill_name": "nestjs-security-review",
   "skill_label": "Security Review",

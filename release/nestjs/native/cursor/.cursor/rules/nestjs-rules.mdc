@@ -1,6 +1,6 @@
 ---
 description: "NestJS standards for Modules, DTOs and Guards. Use when editing this stack. NestJS 12.4.2, Nov 2026."
-globs: "**/*.controller.ts, **/*.module.ts, **/*.dto.ts, **/*.guard.ts"
+globs: "**/*.controller.ts, **/*.module.ts, **/*.service.ts, **/*.dto.ts, **/*.guard.ts, **/*.pipe.ts, **/*.interceptor.ts"
 alwaysApply: false
 ---
 

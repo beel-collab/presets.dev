@@ -4,8 +4,11 @@ description: "Review a NestJS change for unregistered providers, DTO validation,
 paths:
   - "**/*.controller.ts"
   - "**/*.module.ts"
+  - "**/*.service.ts"
   - "**/*.dto.ts"
   - "**/*.guard.ts"
+  - "**/*.pipe.ts"
+  - "**/*.interceptor.ts"
 ---
 
 # NestJS Security Review Skill for Cursor

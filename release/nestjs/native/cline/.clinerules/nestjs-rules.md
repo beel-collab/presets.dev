@@ -2,8 +2,11 @@
 paths:
   - "**/*.controller.ts"
   - "**/*.module.ts"
+  - "**/*.service.ts"
   - "**/*.dto.ts"
   - "**/*.guard.ts"
+  - "**/*.pipe.ts"
+  - "**/*.interceptor.ts"
 ---
 
 # NestJS Cline Rules: Modules, DTOs and Guards

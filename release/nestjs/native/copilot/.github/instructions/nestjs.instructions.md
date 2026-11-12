@@ -1,5 +1,5 @@
 ---
-applyTo: "**/*.controller.ts,**/*.module.ts,**/*.dto.ts,**/*.guard.ts"
+applyTo: "**/*.controller.ts,**/*.module.ts,**/*.service.ts,**/*.dto.ts,**/*.guard.ts,**/*.pipe.ts,**/*.interceptor.ts"
 ---
 
 # NestJS Copilot Instructions: Modules, DTOs and Guards
