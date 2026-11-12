@@ -17,7 +17,7 @@ CREATED = "2026-11-11"
 MARKER = "<!-- native:start -->"
 AUTHOR = {"name": "presets.dev", "github": "beel-collab"}
 TOOLS = ("cursor", "copilot", "claude", "windsurf", "cline", "codex", "antigravity")
-# Gemini CLI catalog files from the earlier draft. Orphan cleanup removes them.
+# Retired tool directory. Orphan cleanup deletes generated files still under this name.
 RETIRED_TOOLS = ("gemini-cli",)
 TOOL_LABEL = {
     "cursor": "Cursor",
@@ -401,7 +401,7 @@ def native_exports(spec: dict) -> dict[str, dict[str, list[dict]]]:
                 {
                     "path": f"{base}/antigravity/GEMINI.{stack}-section.md",
                     "format": "plain",
-                    "banner": "<!-- Append this section to GEMINI.md. Do not replace the existing file. Confirm with /memory show. -->",
+                    "banner": "<!-- Append this section to GEMINI.md. Do not replace the existing file. /context lists loaded GEMINI.md files. -->",
                     "frontmatter": {},
                 }
             ],

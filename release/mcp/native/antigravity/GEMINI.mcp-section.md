@@ -1,4 +1,4 @@
-<!-- Append this section to GEMINI.md. Do not replace the existing file. Confirm with /memory show. -->
+<!-- Append this section to GEMINI.md. Do not replace the existing file. /context lists loaded GEMINI.md files. -->
 
 # MCP Antigravity CLI Rules: Tools, Schemas and Permissions
 

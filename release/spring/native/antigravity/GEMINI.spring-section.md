@@ -1,4 +1,4 @@
-<!-- Append this section to GEMINI.md. Do not replace the existing file. Confirm with /memory show. -->
+<!-- Append this section to GEMINI.md. Do not replace the existing file. /context lists loaded GEMINI.md files. -->
 
 # Spring Boot Antigravity CLI Rules: Injection, Transactions and Validation
 
