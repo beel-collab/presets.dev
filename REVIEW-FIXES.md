@@ -110,6 +110,16 @@ Rule: work ONE ITEM AT A TIME. For each item: (1) verify against the official so
   - (d) The Next.js `AGENTS.md` note cites https://nextjs.org/docs/app/guides/ai-agents and https://nextjs.org/blog/next-16-2-ai. The Next 16 post is no longer that source. The nested backticks around `cacheTag` are gone. The sentence uses the plain string `tenant:${tenantId}:notes`.
   - (e) Antigravity loads both `GEMINI.md` and `AGENTS.md` (https://antigravity.google/docs/rules/ and https://antigravity.google/docs/customization-discovery/). The banner and host line say not to paste the section into both. Cursor (https://cursor.com/docs/skills), GitHub Copilot (https://docs.github.com/en/copilot/concepts/agents/about-agent-skills), and Devin (https://docs.devin.ai/cli/reference/configuration/read-config-from, which imports Codex skills from `.agents/skills`) can read that directory. The install note says a second copy with the same name collides.
 
+## Round 5
+
+- [x] R5-1 MCP example does not typecheck. **fixed.** https://ts.sdk.modelcontextprotocol.io/v2/serving/stdio.html imports `McpServer` from `@modelcontextprotocol/server` and `serveStdio` from `@modelcontextprotocol/server/stdio`, and the factory builds a new server per call. https://ts.sdk.modelcontextprotocol.io/v2/servers/tools.html uses `inputSchema: z.object(...)` from `zod/v4` and lets the handler arguments be inferred. `@modelcontextprotocol/server` 2.4.0 matches that: the root export list contains `McpServer` and `createMcpHandler` and does not contain `serveStdio`; `./stdio` exports `serveStdio` and `StdioServerTransport`. The old example failed strict `tsc` with TS2305 (`serveStdio` is not exported from the package root) and TS2769 (the hand-annotated `(args: { id: string })` matches neither `registerTool` overload). The published example is the `ts` fence under `## Example` in `masters/mcp/standards.md`. The same import and `z.string().min(1).max(64)` schema are in all 14 rendered standards files (7 catalog, 7 native). The skill step names the same two import paths (13 rendered skill files; Codex and Antigravity share one native file). `import { McpServer, serveStdio }` and `async (args: { id: string })` are gone from every `.md` and `.mdc`. The one remaining `import { StdioServerTransport }` is the untouched main-catalog file `copilot/typescript/typescript-mcp-server.instructions.md`. Verification, outside the repo, after extracting that fence verbatim to `/tmp/mcp-published/example.ts`:
+  ```
+  npm install --ignore-scripts @modelcontextprotocol/server@2.4.0 zod@4.6.7
+  npm install --ignore-scripts --save-dev typescript@5.9.3 @types/node@24.10.1
+  npx tsc --strict --module NodeNext --moduleResolution NodeNext --target ES2022 --noEmit example.ts
+  ```
+  `package.json` has `"type": "module"`. `@types/node` is there because `stdio.d.mts` imports `node:stream`; without it, `tsc` exits 2 inside the SDK (TS2307, TS2580) before it judges the example. With it, exit code is 0.
+
 ## Not checked by me (verify before fixing)
 
 A3 Accelerate date, A4 key deprecation, A5 TS7 API, A8 Nest 12 @Body({schema}), A18 Rust 1.100 / Flutter 3.50, B6 each MCP server/tool.

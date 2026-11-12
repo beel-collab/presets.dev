@@ -9,7 +9,7 @@ Do not upgrade dependencies or the framework version unless the task asks.
 
 The spec this file follows is the 2026-07-28 revision. `@modelcontextprotocol/sdk` 1.32.2 is still the v1 package on npm, and a server that calls `server.connect(new StdioServerTransport())` or hands requests to a Streamable HTTP transport from that package speaks the 2025-era protocol only. A client pinned to 2026-07-28 cannot complete a session with it.
 
-To serve 2026-07-28, use the v2 packages. `@modelcontextprotocol/server` 2.4.0 and `@modelcontextprotocol/client` 2.4.0 are the v2 packages that speak this revision. A Node stdio or HTTP entry uses `@modelcontextprotocol/node` when the handler sees Node `IncomingMessage`. Start with `serveStdio(() => createServer())` or `createMcpHandler(() => createServer())`. Read the installed package names before editing. Leave a v1 server on v1 unless the task is the move to v2, and do not import `@modelcontextprotocol/core-internal`.
+To serve 2026-07-28, use the v2 packages. `@modelcontextprotocol/server` 2.4.0 and `@modelcontextprotocol/client` 2.4.0 are the v2 packages that speak this revision. Import `McpServer` and `createMcpHandler` from `@modelcontextprotocol/server`. Import `serveStdio` from `@modelcontextprotocol/server/stdio`. Pass a factory that constructs a new `McpServer` on each call. A handler that receives Node `IncomingMessage` imports its HTTP transport from `@modelcontextprotocol/node`. Read the installed package names before editing. Leave a v1 server on v1 unless the task is the move to v2, and do not import `@modelcontextprotocol/core-internal`.
 
 ## What this revision removed
 
@@ -55,11 +55,11 @@ A destructive tool says so in its description. Do not treat a `confirm: true` ar
 
 ## What changed in this major
 
-The 2026-07-28 spec removes `initialize` and `Mcp-Session-Id`. Serve it with `@modelcontextprotocol/server` 2.x via `serveStdio` or `createMcpHandler`.
+The 2026-07-28 spec removes `initialize` and `Mcp-Session-Id`. Import `McpServer` and `createMcpHandler` from `@modelcontextprotocol/server` 2.x, and `serveStdio` from `@modelcontextprotocol/server/stdio`.
 
 ## Deprecated APIs to never generate
 
-For a 2026-07-28 server, do not generate `server.connect(new StdioServerTransport())` from `@modelcontextprotocol/sdk` 1.32. Call `serveStdio` or `createMcpHandler` from `@modelcontextprotocol/server` 2.x.
+For a 2026-07-28 server, do not generate `server.connect(new StdioServerTransport())` from `@modelcontextprotocol/sdk` 1.32. Import `McpServer` from `@modelcontextprotocol/server` and call `serveStdio` from `@modelcontextprotocol/server/stdio`, or call `createMcpHandler` from `@modelcontextprotocol/server`.
 
 ## Commands
 
@@ -68,19 +68,26 @@ Run the server package tests against a fixture directory.
 ## Example
 
 ```ts
-import { McpServer, serveStdio } from "@modelcontextprotocol/server"
-import { StdioServerTransport } from "@modelcontextprotocol/server/stdio"
+import { McpServer } from "@modelcontextprotocol/server"
+import { serveStdio } from "@modelcontextprotocol/server/stdio"
+import * as z from "zod/v4"
 
-const notes = new McpServer({ name: "notes", version: "1.0.0" })
-notes.registerTool(
-  "read_note",
-  { description: "Read one note by id" },
-  async (args: { id: string }) => ({
-    content: [{ type: "text", text: args.id }],
-  }),
-)
-
-await serveStdio(() => notes)
+serveStdio(() => {
+  const notes = new McpServer({ name: "notes", version: "1.0.0" })
+  notes.registerTool(
+    "read_note",
+    {
+      description: "Read one note by id",
+      inputSchema: z.object({
+        id: z.string().min(1).max(64),
+      }),
+    },
+    async ({ id }) => ({
+      content: [{ type: "text", text: id }],
+    }),
+  )
+  return notes
+})
 ```
 
-`registerTool` is the v2 name for `.tool()`. `serveStdio` and `McpServer` come from `@modelcontextprotocol/server`. `StdioServerTransport` comes from `@modelcontextprotocol/server/stdio`, not from the package root. A handler that receives Node's `IncomingMessage` imports its HTTP transport from `@modelcontextprotocol/node`. Do not import `createServer` from `node:http` to build this server. `server.connect(new StdioServerTransport())` from `@modelcontextprotocol/sdk` 1.32 cannot speak 2026-07-28.
+`registerTool` is the v2 name for `.tool()`. Pass a Zod `inputSchema` and let the SDK infer the handler arguments. `McpServer` and `createMcpHandler` come from `@modelcontextprotocol/server`. `serveStdio` comes from `@modelcontextprotocol/server/stdio`, not from the package root. Do not import `StdioServerTransport` to start this server. A handler that receives Node's `IncomingMessage` imports its HTTP transport from `@modelcontextprotocol/node`. Do not import `createServer` from `node:http` to build this server. `server.connect(new StdioServerTransport())` from `@modelcontextprotocol/sdk` 1.32 cannot speak 2026-07-28.
