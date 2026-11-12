@@ -73,7 +73,7 @@ Hosted Accelerate URLs (`prisma://` and hosted `prisma+postgres://`) retire on 1
 
 ## Commands
 
-Run `prisma validate` against a disposable database. Do not `migrate` production.
+Run `prisma validate`. It checks the schema file and does not open a database. Do not `migrate` production.
 
 ## Example
 
