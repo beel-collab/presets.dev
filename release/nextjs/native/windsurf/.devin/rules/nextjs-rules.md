@@ -63,7 +63,7 @@ export async function saveNote(input: { body?: unknown }) {
 }
 ```
 
-`requireSession`, `db`, and `updateTag` stand in for the app's own imports. The cached reader stays in a Server Component, reads the tenant inside `'use cache'` so the key differs per tenant, and may use one shared `notes` tag.
+`requireSession`, `db`, and `updateTag` stand in for the app's own imports. The cached reader stays in a Server Component, reads the tenant inside `'use cache'` so the key differs per tenant, and calls `cacheTag(`tenant:${tenantId}:notes`)`. That is the same string `updateTag` expires. A shared `notes` tag on the reader would not be refreshed by this action.
 
 ## Errors
 
@@ -105,7 +105,7 @@ Run `npx tsc --noEmit` and the repo's test script. Do not deploy.
 
 ## Example
 
-The Server Action in the data section is the worked example: session first, validated text, `updateTag` after the write.
+The Server Action in the data section is the worked example: session first, validated text, then `updateTag` of the same tenant tag the reader passed to `cacheTag`.
 
 ## Agent tooling
 
