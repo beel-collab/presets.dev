@@ -28,26 +28,25 @@ Stop for a non-Flutter repository. Do not add an integration driver the project 
 
 ## Output
 
-The test path, the behavior, the command, and the result.
-
 ```
-## Findings
-- high | path:line | what is wrong | what to do instead
+## Files written
+- test/profile_page_test.dart
 
-## No findings
-Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+## Covered
+- After `lookup()` completes, the widget pops only if `context.mounted` is true.
 
-## Example
-Input: `profile_page.dart` does `await lookup()` and then `Navigator.of(context).pop()` with no `mounted` check.
-Output: high | profile_page.dart:22 | the context may be unmounted after the await | return when `!context.mounted`.
+## How to run
+flutter test test/profile_page_test.dart
+
+## Result
+pass, fail, or not run. If the SDK is missing, say so. Do not report a pass you did not see.
+
+## Gaps
+- Devices and platforms this run did not exercise.
 ```
 
-Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+Example: `profile_page.dart` pops after `await lookup()` with no `mounted` check. The test pumps the widget, completes the future after unmount, and expects no `Navigator` use. Run `flutter test` on that file.
 
 ## Stop
 
 Stop when the user asks you to mark the test passed without running it, or to change the Flutter SDK constraint to satisfy one import.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

@@ -25,26 +25,25 @@ Stop for a unit-test request in pytest, Jest, or another runner, or when the rep
 
 ## Output
 
-The spec path, the behavior it locks, the command, and the output. No production URL and no password in the report.
-
 ```
-## Findings
-- high | path:line | what is wrong | what to do instead
+## Files written
+- tests/login.spec.ts
 
-## No findings
-Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+## Covered
+- A signed-in user clicks Save and sees the note.
 
-## Example
-Input: `login.spec.ts` waits with `await page.waitForTimeout(2000)` before clicking Save.
-Output: high | login.spec.ts:12 | a fixed sleep hides a missing assertion | use `getByRole` and `expect(...).toBeVisible()`.
+## How to run
+npx playwright test tests/login.spec.ts
+
+## Result
+pass, fail, or not run, with the command output. No production URL and no password.
+
+## Gaps
+- Browsers or projects this run did not execute.
 ```
 
-Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+Example: the bug is a Save button that never appears. Write the spec with `getByRole` and `toBeVisible()`, not `waitForTimeout`. Run that one file. If the browser cannot start, the result is `not run` and the gap says so.
 
 ## Stop
 
 Stop when the user asks you to hit production, to commit a live session, or to add `waitForTimeout` so the suite looks green.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

@@ -61,26 +61,25 @@ Stop for a non-Python repository, or when the user asked for production code and
 
 ## Output
 
-List the test files, the behavior each one locks, the commands, and the results. A failing test stays failing until the code is fixed, and only when the user asked for the fix too.
-
 ```
-## Findings
-- high | path:line | what is wrong | what to do instead
+## Files written
+- tests/test_notes.py
 
-## No findings
-Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+## Covered
+- `parse_port("0")` and `parse_port("99999")` raise `ValueError`.
 
-## Example
-Input: `notes.py` adds `parse_port` and the repo's pytest suite has no case for `"0"` or `"99999"`.
-Output: add `tests/test_notes.py` asserting `ValueError` for both. Run the command in `pyproject.toml` (for example `uv run pytest tests/test_notes.py` only when uv owns the project).
+## How to run
+The command the repo documents. `uv run pytest tests/test_notes.py` only when uv owns the project. Poetry, Hatch, tox, or a venv otherwise.
+
+## Result
+pass, fail, or not run, with the output. A failing test stays failing unless the user also asked for the fix.
+
+## Gaps
+- Cases this file does not lock, and any command that could not run.
 ```
 
-Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+Example: `notes.py` adds `parse_port` and nothing asserts the out-of-range ports. Add those two cases and run the repo command. Do not mark them passed without a run.
 
 ## Stop
 
 Stop when there is no Python project, when adding a test would require a new framework, or when the user asks you to mark tests passed without running them.
-
-## Severity
-
-`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
