@@ -27,8 +27,8 @@ Findings with severity, file, line, the boundary that broke, and a fix. Include 
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a SvelteKit 3 load function imports `page` from `$app/stores`.
-Output: high | src/routes/notes/+page.ts:1 | `$app/stores` is removed in Kit 3 | import from `$app/state`.
+Input: `src/routes/notes/+page.ts` imports `page` from `$app/state` and reads `page.params.id`.
+Output: high | src/routes/notes/+page.ts:1 | a load function cannot read `page` | export `load({ params })` and use `params.id`. In a `.svelte` component, `$app/state` and `$derived` are the right read.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
