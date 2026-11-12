@@ -1,0 +1,23 @@
+{
+  "order": 1,
+  "id": "nextjs",
+  "product": "Next.js",
+  "focus": "App Router, TypeScript and Server Actions",
+  "updated_for": "Next.js 16.4.6, Nov 2026",
+  "libs": ["next@16.4.6"],
+  "tags": ["nextjs", "typescript", "app-router", "server-actions"],
+  "paths": [
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "src/app/**/*.ts",
+    "src/app/**/*.tsx",
+    "next.config.ts",
+    "proxy.ts",
+    "src/proxy.ts"
+  ],
+  "skill_name": "nextjs-code-review",
+  "skill_label": "Code Review",
+  "skill_tag": "code-review",
+  "fixture": true,
+  "native_skill_description": "Review a Next.js App Router change for structure, Server Actions, data fetching, security, and tests. Use for a Next.js code review or a pre-merge check. Do not use for a CSS-only tweak, a non-Next.js repository, or a major upgrade nobody asked for."
+}

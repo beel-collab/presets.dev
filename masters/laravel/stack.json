@@ -1,0 +1,14 @@
+{
+  "order": 21,
+  "id": "laravel",
+  "product": "Laravel",
+  "focus": "Requests, Policies and Eloquent",
+  "updated_for": "Laravel 13, Nov 2026",
+  "libs": ["laravel@13"],
+  "tags": ["laravel", "php", "eloquent"],
+  "paths": ["**/*.php"],
+  "skill_name": "laravel-security-review",
+  "skill_label": "Security Review",
+  "skill_tag": "security",
+  "native_skill_description": "Review a Laravel change for policies, Form Request validation, and mass assignment. Use for a Laravel security review. Do not use for a non-Laravel PHP script or to run a migration against production."
+}

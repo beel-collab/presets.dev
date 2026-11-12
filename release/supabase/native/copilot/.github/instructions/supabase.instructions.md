@@ -1,0 +1,75 @@
+---
+applyTo: "**/*supabase*,**/*.sql"
+---
+
+# Supabase Copilot Instructions: Auth, RLS and Typed Queries
+
+Path-specific Copilot instructions for Supabase. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
+
+## Updated for supabase-js 2.119.0, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
+
+## Project shape
+
+The browser uses a publishable key (`sb_publishable_...`). A secret key (`sb_secret_...`) stays on a server you control. Supabase is deprecating the legacy `anon` and `service_role` JWT keys by the end of 2026. They still work until you disable them, and a publishable key has the same low privilege as `anon`. A secret key, like `service_role`, bypasses RLS. Do not ship either elevated key to a browser. A Next.js or other SSR app creates the server client the way the repo already does, with the request cookies. Do not invent a second auth helper.
+
+SQL lives in migrations. Generated database types are generated. Do not hand-edit the generated file.
+
+## Queries and RLS
+
+Every table that holds user data has row level security enabled. Write one policy per command. `INSERT` checks the new row with `WITH CHECK` and cannot take `USING`. `DELETE` filters existing rows with `USING` and cannot take `WITH CHECK`. `UPDATE` needs both: `USING` picks the rows that can change, and `WITH CHECK` accepts the new values. If an `UPDATE` policy omits `WITH CHECK`, Postgres reuses `USING` for the new row. That is valid. Do not flag it as missing. A `DELETE` policy that only has `USING ((select auth.uid()) = user_id)` is also valid. A policy of `true` for every role is a bug unless the table is genuinely public.
+
+The user id in a policy comes from `(select auth.uid())`, not from a client-supplied column. Postgres can cache that select for the statement. A bare `auth.uid()` call still runs, but it is evaluated per row. Filter tenant rows in the policy, not only in the UI.
+
+Use the typed client when the project generates types. Select the columns you need. Do not `select('*')` on a table that contains secrets and then return the row to the browser.
+
+## Auth
+
+Sign-in, refresh, and sign-out go through the project's auth helpers. After a session change, the server client sees the new cookies. Do not trust a user id, role, or tenant id posted from the browser. Read them from the session.
+
+A route that mutates data checks the session before the write. Hiding the button is not the check.
+
+## Realtime
+
+Subscribe with a filter so the client does less work, and unsubscribe on cleanup. The filter is not authorization. RLS, or Realtime authorization, decides which rows leave the server. A persisted broadcast is still data. Do not put secrets in a broadcast payload. If you pass a custom fetch on a request, keep it local to that call. Do not replace the global fetch with a logger that prints headers.
+
+## Errors and security
+
+Map a Postgres error to a message the UI can show. Do not return the raw policy failure plus the service key's context. Log the code on the server.
+
+Never ship the service-role key, a JWT secret, or a database URL to a client bundle. Search the diff for those names before you finish.
+
+## Performance and tests
+
+Add the index a new filter needs. A policy that calls a heavy function per row needs a reason. Paginate lists.
+
+Test a policy with two users. The second user cannot read or write the first user's row. Run that test against a local database, not production. Record the command.
+
+## Mistakes to avoid
+
+- A secret or `service_role` key in browser code.
+- `WITH CHECK` on a `DELETE` policy, which Postgres rejects, or an `INSERT` policy with only `USING`.
+- Trusting `user_id` from the request body.
+- Treating a Realtime filter as the security boundary.
+- A generated types file edited by hand.
+
+## What changed in this major
+
+New keys are `sb_publishable_...` and `sb_secret_...`. Legacy `anon` and `service_role` JWTs still work until you disable them.
+
+## Deprecated APIs to never generate
+
+The `anon` and `service_role` key names are deprecated. New keys use the `sb_publishable_` and `sb_secret_` prefixes. Do not put a secret key in browser code.
+
+## Commands
+
+Run the local policy test. Do not apply SQL to production.
+
+## Example
+
+```sql
+create policy notes_delete on notes
+  for delete to authenticated
+  using ((select auth.uid()) = user_id);
+```
+That delete policy is complete. It has no `WITH CHECK`.

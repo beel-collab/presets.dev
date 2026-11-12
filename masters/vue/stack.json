@@ -1,0 +1,14 @@
+{
+  "order": 10,
+  "id": "vue",
+  "product": "Vue",
+  "focus": "Script Setup, Composables and SSR",
+  "updated_for": "Vue 3.5.45, Nov 2026",
+  "libs": ["vue@3.5.45"],
+  "tags": ["vue", "typescript", "composables"],
+  "paths": ["**/*.vue", "**/*.ts"],
+  "skill_name": "vue-code-review",
+  "skill_label": "Code Review",
+  "skill_tag": "code-review",
+  "native_skill_description": "Review a Vue 3 change for lost reactivity, composable cleanup, and SSR safety. Use for a Vue code review. Do not use for a Vue 2 Options API migration nobody asked for, or a non-Vue repository."
+}

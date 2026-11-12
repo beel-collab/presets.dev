@@ -1,0 +1,14 @@
+{
+  "order": 9,
+  "id": "react-native",
+  "product": "React Native",
+  "focus": "Expo, Navigation and Native Lifecycle",
+  "updated_for": "React Native 0.88.1, Nov 2026",
+  "libs": ["react-native@0.88.1"],
+  "tags": ["react-native", "expo", "mobile"],
+  "paths": ["**/*.tsx", "app.json", "app.config.ts"],
+  "skill_name": "react-native-code-review",
+  "skill_label": "Code Review",
+  "skill_tag": "code-review",
+  "native_skill_description": "Review a React Native or Expo change for platform APIs, navigation, and lifecycle safety. Use for a React Native code review. Do not use for a web-only React bug or an Expo upgrade nobody asked for."
+}

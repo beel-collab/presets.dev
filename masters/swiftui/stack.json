@@ -1,0 +1,14 @@
+{
+  "order": 18,
+  "id": "swiftui",
+  "product": "SwiftUI",
+  "focus": "State, Concurrency and Availability",
+  "updated_for": "Swift 6.4, Nov 2026",
+  "libs": ["swift@6.4"],
+  "tags": ["swiftui", "swift", "ios"],
+  "paths": ["**/*.swift"],
+  "skill_name": "swiftui-code-review",
+  "skill_label": "Code Review",
+  "skill_tag": "code-review",
+  "native_skill_description": "Review a SwiftUI change for actor isolation, observation, and main-actor UI updates. Use for a SwiftUI code review. Do not use for a non-Swift repository or to silence isolation with unchecked Sendable."
+}

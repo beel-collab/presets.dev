@@ -1,0 +1,84 @@
+---
+id: "codex-rails-code-review"
+slug: "codex/rails/rails-code-review/SKILL"
+title: "Rails Code Review Skill for Codex"
+description: "Review a Rails change for authorization, strong parameters, query counts, and job retries. Use for a Rails code review. Do not use for a non-Rails Ruby script or to migrate production."
+type: "skill"
+tools:
+  - "codex"
+stack: "rails"
+tags:
+  - "rails"
+  - "ruby"
+  - "jobs"
+  - "code-review"
+author:
+  name: "presets.dev"
+  github: "beel-collab"
+license: "MIT"
+origin: "original"
+version: "1.0.0"
+tested_with:
+  - "Codex docs 2026-11-11; CLI not executed"
+created: "2026-11-11"
+updated: "2026-11-11"
+libs:
+  - "rails@8.1.4.1"
+updated_for: "Rails 8.1.4.1, Nov 2026"
+---
+
+# Rails Code Review Skill for Codex
+
+## Install
+
+Install the native export at `.agents/skills/rails-code-review/SKILL.md` (one file shared with Antigravity CLI).
+Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
+Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI, and Devin can all read `.agents/skills`, so a second copy with the same name collides.
+
+<!-- native:start -->
+
+# Rails Code Review
+
+Shared skill `rails-code-review` for Rails. Codex and Antigravity CLI both read `.agents/skills/rails-code-review/SKILL.md`. Install this one file. Codex calls it with `$rails-code-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
+
+## When to run
+
+Run this review for a Rails model, controller, migration, or job.
+
+## When to leave it
+
+Stop for Ruby that is not Rails. Do not upgrade Rails or migrate production.
+
+## Steps
+
+1. Read the Rails version in the Gemfile. A 7.x app receiving 8.1-only job APIs is a high finding unless the user asked to upgrade.
+2. Review strong params and authorization on each write. `permit!` or a missing `authorize` is a high finding.
+3. Review includes and indexes for new associations.
+4. Review jobs for a second execution. A non-idempotent mail or charge is a high finding.
+5. Run the test file only if the user asked. Otherwise write `not run`.
+
+## Output
+
+Findings with severity, file, line, the missing permit or the query, and a fix. Production was not migrated.
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a job comment says `include ActiveJob::Continuable` makes the import idempotent.
+Output: medium | app/jobs/process_import_job.rb:3 | continuations resume the last step; they do not dedupe side effects | make each step safe to run again, separately from the continuation.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## Stop
+
+Stop when the user asks you to skip CSRF or to permit every column.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.

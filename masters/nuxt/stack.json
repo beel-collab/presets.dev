@@ -1,0 +1,14 @@
+{
+  "order": 24,
+  "id": "nuxt",
+  "product": "Nuxt",
+  "focus": "SSR Data, Nitro and Runtime Config",
+  "updated_for": "Nuxt 4.6.4, Nov 2026",
+  "libs": ["nuxt@4.6.4"],
+  "tags": ["nuxt", "vue", "ssr"],
+  "paths": ["**/*.vue", "nuxt.config.ts", "server/**/*.ts"],
+  "skill_name": "nuxt-performance-audit",
+  "skill_label": "Performance Audit",
+  "skill_tag": "performance",
+  "native_skill_description": "Audit a Nuxt app for duplicate SSR fetches, unstable payload keys, and private runtime config leaking to the client. Use for a Nuxt performance audit. Do not use for a non-Nuxt Vue app or to enable experimental routeTypedFetch unasked."
+}

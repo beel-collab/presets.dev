@@ -1,0 +1,14 @@
+{
+  "order": 6,
+  "id": "tailwind",
+  "product": "Tailwind CSS",
+  "focus": "CSS-First Tokens and Accessible UI",
+  "updated_for": "Tailwind CSS 4.3.5, Nov 2026",
+  "libs": ["tailwindcss@4.3.5"],
+  "tags": ["tailwind", "css", "accessibility"],
+  "paths": ["**/*.css", "**/*.tsx", "**/*.html"],
+  "skill_name": "tailwind-code-review",
+  "skill_label": "Code Review",
+  "skill_tag": "code-review",
+  "native_skill_description": "Review a Tailwind change for version fit, detectable class names, and accessible layout. Use for a Tailwind code review. Do not use for a non-Tailwind repository or to convert a v3 project to v4 unasked."
+}

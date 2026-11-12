@@ -1,0 +1,8 @@
+# Rust sources
+
+Fetched 12 November 2026.
+
+- https://github.com/rust-lang/rust/blob/master/RELEASES.md is the official release notes. The raw copy https://raw.githubusercontent.com/rust-lang/rust/master/RELEASES.md opens with Version 1.100.0 (2026-11-12) and lists stabilization of the never type and custom allocators. The Rust blog has not published a 1.100.0 announcement post.
+- https://docs.rs/tokio/latest/tokio/sync/struct.Mutex.html documents `tokio::sync::Mutex` as the lock that may be held across `.await`. A `std::sync::Mutex` guard is `!Send`, so a future that holds it cannot be spawned on a multi-thread runtime, and the guard blocks a worker thread. That is not a cancel-safety rule.
+- A crate keeps the MSRV in its manifest. `unsafe` is not a borrow-checker bypass.
+- https://doc.rust-lang.org/std/sync/atomic/fn.spin_loop_hint.html deprecates `spin_loop_hint` since Rust 1.51 and says to call `std::hint::spin_loop`. `std::env::home_dir` was undeprecated in Rust 1.87, so it is not listed.

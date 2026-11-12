@@ -1,0 +1,64 @@
+<!-- Append this section to GEMINI.md. Do not replace the existing file. Antigravity CLI also loads AGENTS.md, so do not paste this section into both. /context lists the loaded files. -->
+
+# Go Antigravity CLI Rules: Errors, Context and Goroutines
+
+Section to append to `GEMINI.md` for Go. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
+
+## Updated for Go 1.27.4, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
+
+Go 1.27.4 is the current stable release on `go.dev/dl`. Go 1.26.11 is the other stable line. Stay on the version in `go.mod`. Go 1.27 adds generic methods. `encoding/json` is backed by `encoding/json/v2` on this release. Behavior of the v1 API is preserved. `GOEXPERIMENT=nojsonv2` restores the old implementation and is a temporary opt-out, not the default. The `simd` package stays experimental and turns on only with `GOEXPERIMENT=simd`. Do not set that flag because it exists. Import `encoding/json/v2` only when the task asks for the new API.
+
+## Project shape
+
+`go.mod` names the module. Packages are small and named for what they provide. `internal/` is for code other modules must not import. Match the existing layout. Commands live in `cmd/` when the repo already does that.
+
+Format with `gofmt`. Vet and the project's linters are part of the check, not optional decoration.
+
+## Errors
+
+Check every error. `_ = do()` is a bug unless the comment says why the error cannot matter. Wrap with `%w` when the caller should use `errors.Is` or `errors.As`. A sentinel or a typed error is the project's existing style. Do not panic for a request failure. `panic` is for a broken invariant during startup, and even then `main` should fail with an error when it can.
+
+## Context and goroutines
+
+The first argument of a request-scoped function is `context.Context`. Pass `ctx`. Do not store a context in a struct. When the caller cancels, the work stops: a select on `ctx.Done()`, a query that takes `ctx`, an HTTP request built with `NewRequestWithContext`.
+
+A goroutine has an owner and an end. A `go` with no way to finish is a leak. Use `errgroup` or the project's worker helper when you start more than one. Send results on a channel that is closed by the sender. Do not copy a `WaitGroup` by value.
+
+## HTTP, JSON, and data
+
+Handlers set a timeout on the server and on outbound calls. Decode JSON into a struct with a size limit. Unknown fields follow the project's decoder. Existing `encoding/json` calls keep working. The v2 package rejects invalid UTF-8 and duplicate object names by default, so do not swap an import to `encoding/json/v2` without reading those defaults.
+
+SQL uses parameters. A transaction commits or rolls back on every path, including the error path.
+
+## Tests
+
+Table tests cover the success and the error. Use `t.Helper` in a helper. A test that starts a goroutine fails the test on `ctx` cancel instead of sleeping. Run `go test` for the package you changed. Record the output.
+
+## Mistakes to avoid
+
+- An ignored error.
+- A goroutine with no cancellation and no join.
+- `context.Background()` inside a request instead of the request context.
+- `GOEXPERIMENT=simd` turned on as a default. `encoding/json` already uses the v2 implementation.
+- A retry that ignores `ctx.Done()`.
+
+## What changed in this major
+
+Go 1.27 backs `encoding/json` with v2. Opt out with `GOEXPERIMENT=nojsonv2`. SIMD is `GOEXPERIMENT=simd` only.
+
+## Deprecated APIs to never generate
+
+`io/ioutil` is deprecated. Use `os` and `io`.
+
+## Commands
+
+Run `go test ./...` for the touched package.
+
+## Example
+
+```go
+if err != nil {
+    return fmt.Errorf("save note: %w", err)
+}
+```

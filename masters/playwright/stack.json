@@ -1,0 +1,14 @@
+{
+  "order": 7,
+  "id": "playwright",
+  "product": "Playwright",
+  "focus": "Locators, Fixtures and Assertions",
+  "updated_for": "Playwright 1.65.0, Nov 2026",
+  "libs": ["playwright@1.65.0"],
+  "tags": ["playwright", "testing", "e2e"],
+  "paths": ["**/*.spec.ts", "**/*playwright*"],
+  "skill_name": "playwright-test-writer",
+  "skill_label": "Test Writer",
+  "skill_tag": "testing",
+  "native_skill_description": "Write a Playwright regression test that reproduces a bug with locators and web-first assertions. Use when the user asks for a Playwright test or an end-to-end case. Do not use for unit tests in another runner or a non-browser bug."
+}

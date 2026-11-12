@@ -1,0 +1,45 @@
+{
+  "checked": "2026-11-11",
+  "stack": "nextjs",
+  "npm_latest": {
+    "name": "next",
+    "version": "16.4.6",
+    "endpoint": "https://registry.npmjs.org/next/latest",
+    "engines_node": ">=20.9.0",
+    "peer_react": "^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0"
+  },
+  "releases": [
+    {
+      "version": "16.4.6",
+      "published": "2026-11-09",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.4.6",
+      "note": "Bugfix backport. Includes the 16.4.5 security fixes because it is a later 16.4 patch. Not a feature release."
+    },
+    {
+      "version": "16.4.5",
+      "published": "2026-11-03",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.4.5",
+      "note": "Active LTS security patch cited by the November 2026 security release."
+    },
+    {
+      "version": "15.5.29",
+      "published": "2026-11-03",
+      "url": "https://nextjs.org/blog/november-2026-security-release",
+      "note": "Maintenance LTS patch named in the same security release. Not re-fetched as an npm dist-tag."
+    }
+  ],
+  "excluded": [
+    "Canary builds",
+    "A major upgrade from 15 to 16 unless a task asks for it",
+    "React 19.3.1 was not re-verified for this stack; the preset only requires a React peer this Next.js version accepts"
+  ],
+  "advisories": [
+    "GHSA-mfr8-8qww-v76h",
+    "GHSA-vc7v-qv4w-wrv8",
+    "GHSA-rhh4-g77r-r9qj",
+    "GHSA-vvgp-ww4w-46vf",
+    "GHSA-pc58-hwjq-p385",
+    "GHSA-f3mh-rxg3-f5g2",
+    "GHSA-7qx7-33qx-rqx2"
+  ]
+}

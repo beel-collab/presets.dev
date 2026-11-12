@@ -1,0 +1,27 @@
+{
+  "order": 25,
+  "id": "docker",
+  "product": "Docker",
+  "focus": "Images, Runtime Users and Build Secrets",
+  "updated_for": "Docker Engine 29, Nov 2026",
+  "libs": [
+    "docker-engine@29"
+  ],
+  "tags": [
+    "docker",
+    "containers",
+    "supply-chain"
+  ],
+  "paths": [
+    "**/Dockerfile",
+    "**/Dockerfile.*",
+    "**/docker-compose*.yml",
+    "**/docker-compose*.yaml",
+    "**/compose.yml",
+    "**/compose.yaml"
+  ],
+  "skill_name": "docker-security-review",
+  "skill_label": "Security Review",
+  "skill_tag": "security",
+  "native_skill_description": "Review a Dockerfile or Compose file for root runtime, latest tags, secrets in layers, and the Docker socket. Use for a Docker security review. Do not use for a non-container change or to mount the Docker socket into an app container."
+}

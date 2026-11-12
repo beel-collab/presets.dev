@@ -1,0 +1,66 @@
+---
+paths:
+  - "**/*.rs"
+  - "Cargo.toml"
+---
+
+# Rust Claude Code Rules: Ownership, Errors and Async
+
+Path-scoped Claude Code rule for Rust. It loads when a matching file is read. It does not replace `CLAUDE.md`.
+
+## Updated for Rust 1.100.0, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
+
+Stay on the rust-toolchain and the MSRV in `Cargo.toml`. Rust 1.100.0 stabilizes the never type and custom allocators. The 1.99 C-ABI variadics and raw-pointer layout APIs are already stable. Those FFI and layout APIs are not a reason to rewrite safe Rust. Do not raise the MSRV just because 1.100 exists. Read `Cargo.toml` before you add a crate.
+
+## Project shape
+
+A library crate returns `Result`. A binary's `main` decides how to exit. Modules follow the existing tree. `unsafe` lives in the smallest block that needs it, with a comment that states the invariant. Do not use `unsafe` to avoid the borrow checker.
+
+Prefer borrowing. Clone when the ownership story is actually a copy, and say why if the clone is on a hot path.
+
+## Errors
+
+Library code does not `unwrap` or `expect` on a path a caller can trigger. `expect` is for a bug in the program, with a message that explains the broken invariant. Use the project's error type. `?` propagates. A `match` that drops the error and returns a default hides a failure.
+
+## Async
+
+An async function is cancel-safe at its await points, or it documents that it is not. Cancel safety is what happens if the future is dropped at an `.await`. It is separate from which mutex you hold.
+
+Do not hold a `std::sync::Mutex` or a `parking_lot` guard across an `.await`. Those guards are `!Send`, so the future cannot be spawned on a multi-thread runtime. Holding one also blocks a worker thread and can deadlock. `tokio::sync::Mutex` is the lock you may hold across `.await`. A spawned task has a join handle or a structured scope. Blocking work does not run on the async runtime. Use the project's `spawn_blocking` helper.
+
+A timeout cancels the inner work. Dropping a future should release the resources it holds.
+
+## FFI, security, and tests
+
+A new `unsafe` or a C-ABI variadic is reviewed as FFI. Pointer layout APIs are not a shortcut around lifetimes. Input from the network is validated before it becomes a length or an index.
+
+Tests live next to the code or in `tests/` as the crate already does. Cover the error variant, not only the happy path. Run `cargo test` for the package. Record the output. `cargo clippy` follows the project's lints.
+
+## Mistakes to avoid
+
+- `unwrap` on input or I/O.
+- `unsafe` to silence the borrow checker.
+- A `std::sync::Mutex` or `parking_lot` guard held across `.await`.
+- A blocking call on the async executor.
+- An MSRV bump hidden in an unrelated change.
+
+## What changed in this major
+
+Rust 1.100 stabilizes the never type and custom allocators. `unwrap` on I/O is still a bug.
+
+## Deprecated APIs to never generate
+
+`std::sync::atomic::spin_loop_hint` has been deprecated since Rust 1.51. Call `std::hint::spin_loop`.
+
+## Commands
+
+Run `cargo test -p` for the package you changed.
+
+## Example
+
+```rust
+fn read_port(raw: &str) -> Result<u16, ParseError> {
+    raw.parse().map_err(|_| ParseError::Port)
+}
+```

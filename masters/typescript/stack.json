@@ -1,0 +1,14 @@
+{
+  "order": 4,
+  "id": "typescript",
+  "product": "TypeScript",
+  "focus": "Strict Types and Runtime Checks",
+  "updated_for": "TypeScript 7.0.2, Nov 2026",
+  "libs": ["typescript@7.0.2"],
+  "tags": ["typescript", "strict", "validation"],
+  "paths": ["**/*.ts", "**/*.tsx", "tsconfig.json"],
+  "skill_name": "typescript-code-review",
+  "skill_label": "Code Review",
+  "skill_tag": "code-review",
+  "native_skill_description": "Review a TypeScript change for unsafe assertions, missing runtime checks, and compiler-API assumptions. Use for a TypeScript code review. Do not use for a non-TypeScript repository or to turn on a new compiler unasked."
+}

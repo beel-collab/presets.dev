@@ -1,0 +1,14 @@
+{
+  "order": 11,
+  "id": "angular",
+  "product": "Angular",
+  "focus": "Standalone Components, Signals and Forms",
+  "updated_for": "Angular 22.2.6, Nov 2026",
+  "libs": ["@angular/core@22.2.6"],
+  "tags": ["angular", "typescript", "signals"],
+  "paths": ["**/*.ts", "**/*.html"],
+  "skill_name": "angular-code-review",
+  "skill_label": "Code Review",
+  "skill_tag": "code-review",
+  "native_skill_description": "Review an Angular change for standalone components, signals, zoneless updates, and Signal Forms. Use for an Angular code review. Do not use for a new NgModule-first app or a non-Angular repository."
+}

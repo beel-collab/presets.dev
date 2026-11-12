@@ -23,7 +23,7 @@ body:
     attributes:
       label: Tools
       description: Which products this preset is for.
-      placeholder: cursor
+      placeholder: cursor, antigravity
     validations:
       required: true
   - type: textarea

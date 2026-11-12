@@ -1,0 +1,28 @@
+{
+  "order": 23,
+  "id": "nestjs",
+  "product": "NestJS",
+  "focus": "Modules, DTOs and Guards",
+  "updated_for": "NestJS 12.4.2, Nov 2026",
+  "libs": [
+    "@nestjs/core@12.4.2"
+  ],
+  "tags": [
+    "nestjs",
+    "typescript",
+    "dto"
+  ],
+  "paths": [
+    "**/*.controller.ts",
+    "**/*.module.ts",
+    "**/*.service.ts",
+    "**/*.dto.ts",
+    "**/*.guard.ts",
+    "**/*.pipe.ts",
+    "**/*.interceptor.ts"
+  ],
+  "skill_name": "nestjs-security-review",
+  "skill_label": "Security Review",
+  "skill_tag": "security",
+  "native_skill_description": "Review a NestJS change for unregistered providers, DTO validation, and unguarded routes. Use for a NestJS security review. Do not use for a non-NestJS TypeScript API or to treat a TypeScript interface as runtime validation."
+}

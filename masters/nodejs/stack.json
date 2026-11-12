@@ -1,0 +1,14 @@
+{
+  "order": 8,
+  "id": "nodejs",
+  "product": "Node.js",
+  "focus": "ESM, Cancellation and Streams",
+  "updated_for": "Node.js 26.13.1 LTS, Nov 2026",
+  "libs": ["node@26.13.1"],
+  "tags": ["nodejs", "esm", "streams"],
+  "paths": ["**/*.mjs", "**/*.js", "**/*.ts", "package.json"],
+  "skill_name": "nodejs-performance-audit",
+  "skill_label": "Performance Audit",
+  "skill_tag": "performance",
+  "native_skill_description": "Audit a Node.js service for event-loop blocking, missing cancellation, and unbounded streams or retries. Use for a Node.js performance audit. Do not use for a browser-only bug or a non-Node repository."
+}

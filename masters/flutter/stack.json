@@ -1,0 +1,14 @@
+{
+  "order": 17,
+  "id": "flutter",
+  "product": "Flutter",
+  "focus": "Widgets, Async UI and Platform Builds",
+  "updated_for": "Flutter 3.50, Nov 2026",
+  "libs": ["flutter@3.50"],
+  "tags": ["flutter", "dart", "widgets"],
+  "paths": ["**/*.dart", "pubspec.yaml"],
+  "skill_name": "flutter-test-writer",
+  "skill_label": "Test Writer",
+  "skill_tag": "testing",
+  "native_skill_description": "Write a Flutter widget or unit test for a behavior, including the mounted check after an await. Use when the user asks for Flutter tests. Do not use for a non-Flutter repository or to edit a generated file."
+}

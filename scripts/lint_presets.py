@@ -338,6 +338,24 @@ def self_test(schema: dict) -> list[str]:
             candidate.update(override)
             if not validate_data(starter_path, candidate, schema, require_tool_dir=False):
                 errors.append(f"self-test: {message}")
+        accepted = dict(starter)
+        accepted["tools"] = ["antigravity"]
+        accepted["stack"] = "nextjs"
+        accepted["updated_for"] = "Next.js 16.4.6"
+        if validate_data(starter_path, accepted, schema, require_tool_dir=False):
+            errors.append("self-test: antigravity stack metadata was rejected")
+        full_list = dict(starter)
+        full_list["tools"] = list(TOOLS)
+        if validate_data(starter_path, full_list, schema, require_tool_dir=False):
+            errors.append("self-test: the eight-tool list was rejected")
+        unknown = dict(starter)
+        unknown["tools"] = ["not-a-tool"]
+        if not validate_data(starter_path, unknown, schema, require_tool_dir=False):
+            errors.append("self-test: unknown tool id was accepted")
+        extra = dict(starter)
+        extra["freshness"] = "Next.js 16.4.6"
+        if not validate_data(starter_path, extra, schema, require_tool_dir=False):
+            errors.append("self-test: unknown frontmatter field was accepted")
     sample = "\n".join(["# Title", "", "A paragraph.", ""])
     if lint_markdown("sample.md", sample):
         errors.append("self-test: clean markdown was rejected")
