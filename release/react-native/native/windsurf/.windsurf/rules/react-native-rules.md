@@ -19,9 +19,9 @@ A new native module or config plugin is a product decision. Do not add one to so
 
 ## Components and state
 
-The React rules still apply: derive values during render, clean up effects, and do not store props in state. A screen unmounts when the user navigates away. Cancel the request and the subscription in the cleanup.
+The React rules still apply: derive values during render, clean up effects, and do not store props in state. In a native stack, pushing another screen does not unmount the one underneath. Focus-owned work uses `useFocusEffect` and returns a cleanup that runs on blur. Effect cleanup runs when the screen actually unmounts, which is later, often after it is popped. Do not treat blur as unmount.
 
-Do not touch a navigation ref or a screen's state after the screen has blurred unless the API you call is documented to allow it. Check `mounted` or the navigation focus hook the project already uses before you set state after `await`.
+After `await`, check that the screen is still focused before you set state or navigate. A request started on focus is cancelled in the focus cleanup.
 
 ## Platform behavior
 

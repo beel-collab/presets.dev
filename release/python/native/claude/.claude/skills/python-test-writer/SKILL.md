@@ -21,7 +21,7 @@ Stop for a non-Python repository, or when the user asked for production code and
 2. Name the behavior that is missing. One test, one behavior. Include the failure case: empty input, a missing row, or a dependency error.
 3. Reuse fixtures. Build only the data the assertion needs. Call the real function. Assert the return value, the raised error, or the persisted row.
 4. If the bug is not reproduced by the new test, stop and say so. Do not weaken the assertion to go green.
-5. Run the narrowest pytest command through `uv run`, then Ruff if the project configures it. Record both outputs. If a command cannot run, write `not run` and the reason.
+5. Run the test command the repository documents. If it uses uv, that is `uv run pytest`. If it uses Poetry, Hatch, tox, or a venv, use that command. Do not force uv onto a project that does not use it. Run Ruff only when the project configures it. Record the outputs. If a command cannot run, write `not run` and the reason.
 
 ## Output
 

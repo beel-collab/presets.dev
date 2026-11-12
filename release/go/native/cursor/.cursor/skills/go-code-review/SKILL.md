@@ -20,7 +20,7 @@ Stop for a non-Go repository. Do not bump the `go` line in `go.mod` unless the u
 
 ## Steps
 
-1. Read the `go` version in `go.mod`. A new import of `json/v2` or an experimental SIMD flag on a module that is not on 1.27, or without a written reason, is a high finding.
+1. Read the `go` version in `go.mod`. `GOEXPERIMENT=simd` without a written reason is a high finding. An import of `encoding/json/v2` on a module older than 1.27 is a high finding. On 1.27, `encoding/json` is already the v2 implementation. Do not flag that import. Flag a switch to the `encoding/json/v2` package only when the diff does not account for the stricter defaults.
 2. Search the diff for `_ =` on a call that returns an error, and for `if err != nil { return nil }`. A discarded error is a high finding.
 3. Search for `go func`. Each goroutine needs a cancel path and something that waits for it. A missing `ctx.Done()` in a loop is a high finding.
 4. Check HTTP and SQL calls for a context and for parameters. String-built SQL is a high finding.

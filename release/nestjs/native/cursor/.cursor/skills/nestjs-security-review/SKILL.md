@@ -22,7 +22,7 @@ Stop for an Express app that does not use Nest. Do not upgrade Nest unless the u
 
 1. Read the installed `@nestjs/core` version and the Node engine. A pattern from a newer major is a finding.
 2. For each new provider, confirm it is registered and exported only if another module injects it. A missing registration is a high finding.
-3. For each `@Body()`, confirm a class DTO with validation decorators. An interface is a high finding.
+3. For each `@Body()`, confirm a real check. A class DTO with `ValidationPipe`, or `@Body({ schema })` with `StandardSchemaValidationPipe` registered, is valid. Do not flag the schema form. An interface, or a `schema` option with no pipe, is a high finding.
 4. For each write, confirm a guard and that the service does not persist a client-supplied role or owner from a spread DTO.
 5. Confirm the global validation pipe is still enabled.
 6. Run the project's test script only if the user asked. Otherwise write `not run`.

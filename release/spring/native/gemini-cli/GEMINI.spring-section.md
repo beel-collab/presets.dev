@@ -22,7 +22,7 @@ Return the status the API already uses. A not-found and a forbidden are differen
 
 ## Transactions and data
 
-`@Transactional` sits on the service method that must commit or roll back together. Do not annotate a private method and expect a proxy to see it. Do not call a remote HTTP API inside the transaction. Keep the transaction short.
+`@Transactional` sits on the service method that must commit or roll back together. Spring applies it with a proxy. A call from another method in the same class, `this.save()`, does not pass through that proxy, so `@Transactional` and `@Async` on the callee do not run. The same is true for a private method. Call through an injected bean, or move the boundary to the method that is actually invoked from outside. Do not call a remote HTTP API inside the transaction. Keep the transaction short.
 
 A JPA query fetches what it needs. An open session that lazy-loads a collection in a loop is an N+1. Use a fetch join or a projection the project already prefers. Pagination has a page size cap.
 

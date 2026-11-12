@@ -11,7 +11,9 @@
     "app/**/*.tsx",
     "src/app/**/*.ts",
     "src/app/**/*.tsx",
-    "next.config.ts"
+    "next.config.ts",
+    "proxy.ts",
+    "src/proxy.ts"
   ],
   "skill_name": "nextjs-code-review",
   "skill_label": "Code Review",

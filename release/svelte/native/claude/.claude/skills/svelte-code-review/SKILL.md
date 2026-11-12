@@ -17,7 +17,7 @@ Stop for a non-Svelte repository. Do not upgrade Svelte or Kit unless the user a
 
 ## Steps
 
-1. Read the Svelte and Kit majors. Svelte 4 syntax in a rune component, or a Kit 2 config key on Kit 3, is a high finding.
+1. Read the Svelte and Kit majors. On Kit 3, a new `svelte.config.js`, an import from `$app/stores`, or a `$lib` import is a high finding. On Kit 2 those are still valid. Do not flag them there. Svelte 4 syntax in a rune component is a high finding.
 2. Search for module-level mutable state in server code. User data stored there is a high finding.
 3. Check `+page.ts` and `.svelte` files for a server-only import. That is a high finding.
 4. Check `{@html}`, form actions that trust a hidden user id, and `$effect` loops.

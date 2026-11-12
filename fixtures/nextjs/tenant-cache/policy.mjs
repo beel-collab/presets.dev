@@ -40,8 +40,8 @@ export function reviewAction(action) {
 
 export function reviewCache(entry) {
   const findings = []
-  if (entry.tenantScopedData && !entry.tagIncludesTenant) {
-    findings.push({ id: "shared-tenant-tag", severity: "high" })
+  if (entry.tenantScopedData && !entry.keyIncludesTenant) {
+    findings.push({ id: "shared-cache-key", severity: "high" })
   }
   if (entry.readsCookiesInside) {
     findings.push({ id: "request-api-in-cache", severity: "high" })

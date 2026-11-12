@@ -16,7 +16,9 @@ A callback that hides a write is hard to test. Prefer an explicit method when th
 
 ## Jobs
 
-A job that retries must be safe to run twice. Use a continuation or an idempotency key when 8.1 continuations fit the existing job style. Do not enqueue a job with a huge Active Record object if the project passes ids. Structured events follow the logger the app already configured.
+Passing an Active Record instance to a job is normal. GlobalID stores the model name and id, and the job loads the record again when it runs. Do not tell the author to pass only ids when the app already passes records.
+
+A retry can run the same side effect twice. A continuation resumes interrupted work. It does not make a charge or a mail idempotent. Guard those effects with a key or a state check the app already uses. Structured events follow the logger the app already configured.
 
 ## Security and tests
 

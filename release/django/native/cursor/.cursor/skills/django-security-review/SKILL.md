@@ -18,11 +18,22 @@ Run this review for a Django view, model, form, or migration.
 
 Stop for a non-Django repository. Do not upgrade Django or run a migration against production.
 
+## What to check
+
+- Injection: `raw()`, `extra()`, and `.raw` SQL built with f-strings or `%` formatting. Parameters are the safe form.
+- XSS: `|safe`, `mark_safe`, and `format_html` on user text without escaping.
+- CSRF: a state-changing view that is `@csrf_exempt` without a documented machine client.
+- Secrets: a key or password in settings committed to the tree, or logged on the request.
+- IDOR: a queryset that loads by the posted id and never checks the owner or a permission.
+- SSRF: a view that `requests.get`s a URL the user supplied, with no host allow-list.
+- Mass assignment: a model form with `fields = "__all__"` facing the browser.
+- Uploads: a file stored with the original name and no type or size check.
+
 ## Steps
 
 1. Read the installed Django version. A 6.1-only fetch mode or delete option on an older install is a high finding.
 2. Review permission checks on every changed write. A missing check is a high finding. A form with `fields = "__all__"` facing users is a high finding.
-3. Review querysets for per-row queries and for `update` or `delete` that the author thinks will run signals. A database cascade treated as a Django signal is a high finding when the code depends on that signal.
+3. Review querysets for per-row queries. `update()` sends no signals. `QuerySet.delete()` sends `pre_delete` and `post_delete` but skips `Model.delete()`. A database `ON DELETE CASCADE` sends nothing. Flag a comment or a test that assumes the wrong one of those three. Do not flag `QuerySet.delete()` itself for "no signals".
 4. Review migrations for edits to shipped files and for destructive drops bundled with unrelated code.
 5. Check async views for a direct ORM call.
 6. Run the app's tests only if the user asked. Otherwise write `not run`.

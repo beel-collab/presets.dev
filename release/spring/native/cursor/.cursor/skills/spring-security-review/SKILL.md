@@ -21,7 +21,7 @@ Stop for a Java program that is not Spring. Do not upgrade Boot or the JDK unles
 
 1. Read the Boot version in the build file. A bump to a release candidate is a high finding unless the user asked for it.
 2. Review new endpoints for an authorization rule. A missing matcher or `permitAll` on a write is a high finding.
-3. Review `@Transactional`. A transaction that wraps an HTTP call, or a private method that will not be proxied, is a finding.
+3. Review `@Transactional` and `@Async`. A transaction that wraps an HTTP call is a finding. A self-call (`this.method()`) onto a `@Transactional` or `@Async` method in the same class is a high finding, because the proxy never sees it.
 4. Review JPA. A loop that triggers lazy loads is a finding. A query that returns entities the controller then mutates across requests is a finding.
 5. Check validation on the request DTO. A body bound straight onto an entity is a high finding.
 6. Run the project's test task only if the user asked. Otherwise write `not run`.

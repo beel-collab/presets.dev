@@ -22,7 +22,7 @@ Stop for a web-only React repository. Do not upgrade Expo or React Native unless
 ## Steps
 
 1. Read the React Native version and the Expo SDK field if it exists. A mismatch with the SDK's supported React Native is a high finding. A DOM API (`window`, `document`, View Transitions) in native code is a high finding.
-2. Review effects that set state after `await`. A missing focus or mounted check is a finding.
+2. Review effects that set state after `await`. A stack screen that is covered is still mounted. Work that should stop on blur belongs in `useFocusEffect`, not in an unmount cleanup. Missing that split is a finding.
 3. Review navigation params and cache keys. A secret in a param, or a private cache with no user id, is a high finding.
 4. Review permissions. A request with no denial path is a finding.
 5. Note how the change was run: device, simulator, or not run. Do not call a release ready from a simulator-only look.

@@ -18,7 +18,7 @@ Do not mix Options API and Composition API in a new component. An old Options co
 
 `ref` and `reactive` are the state. A `computed` derives a value. Do not copy a prop into a `ref` unless you need a local editable copy, and then say so.
 
-Destructuring a `reactive` object into plain variables drops the reactivity. Destructure from `props` only with `toRefs`, or read `props.field` in the template and in computeds. `storeToRefs` is the same rule for a Pinia store, when the project uses Pinia.
+Since Vue 3.5, destructuring `defineProps()` in `<script setup>` stays reactive. The compiler rewrites those bindings. Do not flag that. Destructuring a `reactive()` object, or a Pinia store without `storeToRefs`, still copies plain values and drops reactivity. On 3.4 and earlier, `defineProps()` destructure is also a plain copy unless the project turned the transform on.
 
 A watcher has a cleanup. Stop a timer, an observer, and a request when the scope disposes. `watchEffect` is for a side effect you can rerun. It is not a place to derive state you could compute.
 

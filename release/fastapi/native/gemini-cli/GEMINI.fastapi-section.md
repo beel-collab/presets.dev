@@ -6,7 +6,7 @@ Section to append to `GEMINI.md` for FastAPI. Confirm with `/memory show`. The r
 
 ## Updated for FastAPI 0.162.4, Nov 2026
 
-FastAPI 0.162.4 is the PyPI version checked on 11 November 2026. Current releases expect AnyIO 4.1 or newer and Pydantic v2. Do not write Pydantic v1 `validator` / `orm_mode` syntax in a v2 project. Read `pyproject.toml` before you add a pattern. Use the uv or pip workflow the repo already uses.
+FastAPI 0.162.5 is the PyPI version checked on 12 November 2026. Current releases expect AnyIO 4.1 or newer and Pydantic v2. Do not write Pydantic v1 `validator` / `orm_mode` syntax in a v2 project. Read `pyproject.toml` before you add a pattern. Use the uv or pip workflow the repo already uses.
 
 ## Project shape
 

@@ -9,7 +9,7 @@ Rule for Go on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rul
 
 ## Updated for Go 1.27.4, Nov 2026
 
-Go 1.27.4 was the current stable release reported by `go.dev/dl` on 11 November 2026. Go 1.26.11 was also listed as stable. Stay on the version in `go.mod`. Go 1.27 adds generic methods and `json/v2`. SIMD stays experimental. Do not flip an experimental flag on because it exists, and do not switch a module to `json/v2` unless the task asks and the module is already on 1.27.
+Go 1.27.4 was the current stable release reported by `go.dev/dl` on 11 November 2026. Go 1.26.11 was also listed as stable. Stay on the version in `go.mod`. Go 1.27 adds generic methods. `encoding/json` is backed by `encoding/json/v2` on this release. Behavior of the v1 API is preserved. `GOEXPERIMENT=nojsonv2` restores the old implementation and is a temporary opt-out, not the default. The `simd` package stays experimental and turns on only with `GOEXPERIMENT=simd`. Do not set that flag because it exists. Import `encoding/json/v2` only when the task asks for the new API.
 
 ## Project shape
 
@@ -29,7 +29,7 @@ A goroutine has an owner and an end. A `go` with no way to finish is a leak. Use
 
 ## HTTP, JSON, and data
 
-Handlers set a timeout on the server and on outbound calls. Decode JSON into a struct with a size limit. Unknown fields follow the project's decoder. `json/v2` is a deliberate switch on Go 1.27, not a drop-in rename of every `encoding/json` call. Read the behavior before you change a marshal.
+Handlers set a timeout on the server and on outbound calls. Decode JSON into a struct with a size limit. Unknown fields follow the project's decoder. Existing `encoding/json` calls keep working. The v2 package rejects invalid UTF-8 and duplicate object names by default, so do not swap an import to `encoding/json/v2` without reading those defaults.
 
 SQL uses parameters. A transaction commits or rolls back on every path, including the error path.
 
@@ -42,5 +42,5 @@ Table tests cover the success and the error. Use `t.Helper` in a helper. A test 
 - An ignored error.
 - A goroutine with no cancellation and no join.
 - `context.Background()` inside a request instead of the request context.
-- Experimental SIMD or `json/v2` enabled by default.
+- `GOEXPERIMENT=simd` turned on as a default. `encoding/json` already uses the v2 implementation.
 - A retry that ignores `ctx.Done()`.

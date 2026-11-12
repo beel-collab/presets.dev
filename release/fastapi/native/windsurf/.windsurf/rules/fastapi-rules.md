@@ -1,5 +1,5 @@
 ---
-description: "FastAPI standards for Pydantic Models, Dependencies and Async. Use when editing this stack. FastAPI 0.162.4, Nov 2026."
+description: "FastAPI standards for Pydantic Models, Dependencies and Async. Use when editing this stack. FastAPI 0.162.5, Nov 2026."
 trigger: "model_decision"
 ---
 
@@ -9,7 +9,7 @@ Rule for FastAPI on current Devin (`.devin/rules`) and legacy Cascade (`.windsur
 
 ## Updated for FastAPI 0.162.4, Nov 2026
 
-FastAPI 0.162.4 is the PyPI version checked on 11 November 2026. Current releases expect AnyIO 4.1 or newer and Pydantic v2. Do not write Pydantic v1 `validator` / `orm_mode` syntax in a v2 project. Read `pyproject.toml` before you add a pattern. Use the uv or pip workflow the repo already uses.
+FastAPI 0.162.5 is the PyPI version checked on 12 November 2026. Current releases expect AnyIO 4.1 or newer and Pydantic v2. Do not write Pydantic v1 `validator` / `orm_mode` syntax in a v2 project. Read `pyproject.toml` before you add a pattern. Use the uv or pip workflow the repo already uses.
 
 ## Project shape
 

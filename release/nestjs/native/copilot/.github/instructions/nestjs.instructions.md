@@ -18,7 +18,7 @@ Controllers take DTOs. Services own the use case and the transaction. Repositori
 
 ## DTOs and validation
 
-A DTO is a class with the project's validation decorators, and the global validation pipe is on. A TypeScript `interface` disappears at runtime and does not validate. Do not use an interface as the `@Body()` type and call it safe.
+Nest 12 validates in two supported ways. A class DTO with `class-validator` decorators needs `ValidationPipe`. A Standard Schema (Zod, Valibot, ArkType) passed as `@Body({ schema })` needs `StandardSchemaValidationPipe`. The decorator only stores the schema. Without that pipe, nothing is checked. A TypeScript `interface` disappears at runtime and does not validate. Do not flag `@Body({ schema })` when the pipe is registered. Do not use an interface as the `@Body()` type and call it safe.
 
 The validation pipe rejects unknown fields when the project has `whitelist` and `forbidNonWhitelisted`. Keep that on. A write copies the DTO fields the entity is allowed to store. Do not spread the DTO into a save if the DTO contains a role or an owner id the client must not set.
 

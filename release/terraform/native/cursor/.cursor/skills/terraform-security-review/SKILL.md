@@ -21,7 +21,7 @@ Stop if the user asks you to apply or destroy. Explain that a person runs those.
 ## Steps
 
 1. Read the required Terraform version and the provider lock. An attribute you cannot find in that provider's schema is a high finding. Do not guess a replacement field.
-2. Review IAM and security groups in the diff. `*` or `0.0.0.0/0` on an admin port is a high finding.
+2. Review IAM and security groups in the diff. Flag a policy that grants more actions or a wider ARN than the resource needs. Do not flag `Resource "*"` when the action has no resource-level permission. `0.0.0.0/0` on an admin port is a high finding.
 3. Search for secrets in variables, outputs, and tfvars. A committed secret is a high finding. Do not copy the secret into the report. Say the file and the variable name.
 4. If a saved plan or `terraform plan` output is available and the user asked for a read-only plan, summarize creates, changes, replaces, and destroys. A replace of a data store is a high finding. If you cannot run plan, write `not run`.
 5. Do not run `apply` or `destroy`.

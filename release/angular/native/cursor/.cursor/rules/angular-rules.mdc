@@ -1,5 +1,5 @@
 ---
-description: "Angular standards for Standalone Components, Signals and Forms. Use when editing this stack. Angular 22.2.5, Nov 2026."
+description: "Angular standards for Standalone Components, Signals and Forms. Use when editing this stack. Angular 22.2.6, Nov 2026."
 globs: "**/*.ts, **/*.html"
 alwaysApply: false
 ---
@@ -10,11 +10,13 @@ File-scoped Cursor rule for Angular. It attaches when a matching file is in cont
 
 ## Updated for Angular 22.2.5, Nov 2026
 
-`@angular/core` 22.2.5 is the npm `latest` release checked on 11 November 2026. Signal Forms are stable in v22. Zoneless change detection has been the default since v21. Read the installed major before you generate a component. Do not scaffold a new NgModule-first app. Do not add `zone.js` back because an old example imported it.
+`@angular/core` 22.2.6 is the npm `latest` release checked on 12 November 2026. Signal Forms are stable in v22. Zoneless change detection has been the default since v21. Read the installed major before you generate a component. Do not scaffold a new NgModule-first app. Do not add `zone.js` back because an old example imported it.
 
 ## Project shape
 
-New components are standalone. They declare `imports` for the directives they use. A feature is a set of standalone components and a route, not a new module, unless the repository is still on the module style and the task did not ask to convert it.
+New components are standalone. They declare `imports` for the directives they use. Templates use `@if`, `@for`, and `@switch`. That control flow has been the standard since v17. It is not a v22 feature. On v22, `OnPush` is the default change detection. The old `Default` strategy is named `Eager`. Do not set `ChangeDetectionStrategy.Default` on a new component. A feature is a set of standalone components and a route, not a new module, unless the repository is still on the module style and the task did not ask to convert it.
+
+A new service uses `@Service()` and `inject()`. That decorator does not support constructor injection. Keep `@Injectable` when you need a constructor, `useClass`, or a non-root scope. `injectAsync` is the async form of `inject()` when the project is on a version that exports it. Do not generate a constructor-injected `@Service`.
 
 Routes are lazy where the app already lazy-loads. Provide services at the route or the root the project already chose. Do not provide the same stateful service in every component.
 

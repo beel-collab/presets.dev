@@ -34,7 +34,7 @@ Stream large files instead of `read()` into a string. Paginate a query that can 
 
 pytest is the default when the repo already uses it. A test names the behavior: `test_rejects_empty_name`. Arrange the inputs, act once, assert the outcome. Use the existing fixtures. Do not mock the function you are testing.
 
-Cover the failure path you touched: a bad input, a missing record, a dependency that raises. Run `uv run pytest` for the node you changed, and `uv run ruff check` when Ruff is configured. Paste the output. Do not claim a run you did not do.
+Cover the failure path you touched: a bad input, a missing record, a dependency that raises. Run the test command the repo documents: `uv run pytest` only when uv owns the project, otherwise Poetry, Hatch, tox, or the venv the README names. Run Ruff when the project configures it. Paste the output. Do not claim a run you did not do.
 
 ## Mistakes to avoid
 

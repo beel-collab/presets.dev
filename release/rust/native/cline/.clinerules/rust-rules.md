@@ -10,7 +10,7 @@ Conditional Cline rule for Rust. Install it under `.clinerules/` only. Use `rust
 
 ## Updated for Rust 1.99, Nov 2026
 
-Stay on the rust-toolchain and the MSRV in `Cargo.toml`. The 1.99 stable line adds C-ABI variadics and raw-pointer layout APIs. Those are for FFI and layout code, not a reason to rewrite safe Rust. Do not raise the MSRV, and do not depend on a 1.100 feature that is not in the toolchain. Read `Cargo.toml` before you add a crate.
+Stay on the rust-toolchain and the MSRV in `Cargo.toml`. Rust 1.100.0 shipped on 12 November 2026 and stabilizes the never type and custom allocators. The 1.99 C-ABI variadics and raw-pointer layout APIs are already stable. Those FFI and layout APIs are not a reason to rewrite safe Rust. Do not raise the MSRV just because 1.100 exists. Read `Cargo.toml` before you add a crate.
 
 ## Project shape
 
@@ -24,7 +24,7 @@ Library code does not `unwrap` or `expect` on a path a caller can trigger. `expe
 
 ## Async
 
-An async function is cancel-safe at its await points, or it documents that it is not. Do not hold a lock across an `.await`. A spawned task has a join handle or a structured scope. Blocking work does not run on the async runtime. Use the project's `spawn_blocking` helper.
+An async function is cancel-safe at its await points, or it documents that it is not. Do not hold a `std::sync::Mutex` or a `parking_lot` guard across an `.await`. Those guards are not cancel-safe and can poison or stall the runtime. `tokio::sync::Mutex` is the lock you may hold across `.await`. A spawned task has a join handle or a structured scope. Blocking work does not run on the async runtime. Use the project's `spawn_blocking` helper.
 
 A timeout cancels the inner work. Dropping a future should release the resources it holds.
 
@@ -38,6 +38,6 @@ Tests live next to the code or in `tests/` as the crate already does. Cover the 
 
 - `unwrap` on input or I/O.
 - `unsafe` to silence the borrow checker.
-- A lock held across `.await`.
+- A `std::sync::Mutex` or `parking_lot` guard held across `.await`.
 - A blocking call on the async executor.
 - An MSRV bump hidden in an unrelated change.

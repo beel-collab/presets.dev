@@ -14,7 +14,7 @@ Nuxt 4.6.4 is the npm `latest` release checked on 11 November 2026. Current apps
 
 ## Project shape
 
-Pages and layouts live in the project's app directory. Server routes live under `server/`. A Vue component follows the Vue 3 rune or composition style the repo uses. Do not import `server/` code into a component that renders in the browser.
+Pages and layouts live in the project's app directory. Server routes live under `server/`. A Vue component follows the script-setup style the repo uses. Do not import `server/` code into a component that renders in the browser.
 
 `runtimeConfig` holds public and private keys. Only `runtimeConfig.public` is sent to the client. A secret in `public` is a leak. Read private config in a server route or a server plugin.
 

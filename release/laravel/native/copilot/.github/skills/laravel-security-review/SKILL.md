@@ -15,6 +15,17 @@ Run this review for a Laravel controller, Form Request, policy, Eloquent write, 
 
 Stop for PHP that is not Laravel. Do not upgrade Laravel or migrate production.
 
+## What to check
+
+- Injection: `DB::raw`, `whereRaw`, and `selectRaw` with concatenated user input. Bindings are the safe form.
+- XSS: `{!! !!}` on user text.
+- CSRF: a web route that disables `ValidateCsrfToken`.
+- Secrets: a key in `.env` that was committed, or a token written to the log.
+- IDOR: a route-model binding or `find($id)` that never calls a policy.
+- SSRF: `Http::get($request->input('url'))` with no allow-list.
+- Mass assignment: `$request->all()` into `create` or `update`, or a model `$guarded = []` on a public write.
+- Uploads: `storeAs` with the client filename and no mime or size rule.
+
 ## Steps
 
 1. Read the Laravel and PHP constraints in `composer.json`. An incompatible package is a high finding.

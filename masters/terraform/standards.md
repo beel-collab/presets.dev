@@ -16,7 +16,7 @@ Read the plan JSON or the plan output for replaces, destroys, and IAM changes. A
 
 ## Security
 
-IAM actions are the verbs the resource needs, on the ARN it needs. `*` on action or resource is a finding. A security group does not open `0.0.0.0/0` on an admin port.
+IAM actions are the verbs the resource needs. Some AWS actions have no resource-level permission and the resource element must be `"*"`. That star is not, by itself, a finding. A finding is a permission wider than the action requires: extra actions, a star on an action that does support resource ARNs, or `0.0.0.0/0` on an admin port.
 
 Secrets are not in `.tfvars` committed to git and not in outputs. Mark sensitive outputs. A variable default that contains a key is a bug. Use the project's secret manager or a write-only input.
 

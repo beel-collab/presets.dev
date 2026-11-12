@@ -20,7 +20,13 @@ Use the project's auth decorators or mixins. A class-based view and a function v
 
 `select_related` and `prefetch_related` match the template or serializer that walks relations. A loop that queries per row is an N+1. Assert the query count in a test when the project already does that.
 
-A queryset is filtered before it is evaluated. Do not `list(Model.objects.all())` and filter in Python. `update()` and `delete()` on a queryset are SQL. They do not run model `save()` or signals unless the project is on a path that does. A database `ON DELETE CASCADE` does not run Django's `delete()` signals. If you need the signal, delete through the model instance or the collector the project uses.
+A queryset is filtered before it is evaluated. Do not `list(Model.objects.all())` and filter in Python. `QuerySet.update()` is SQL. It does not call `save()` and it does not send signals. `QuerySet.delete()` does send `pre_delete` and `post_delete`, including for rows Django cascades in Python. It does not call your model's `delete()` method, so an override there does not run. A database `ON DELETE CASCADE` is separate: the database removes the row and Django does not send a signal for that child. If the override must run, iterate instances and call `delete()` on each.
+
+```python
+Note.objects.filter(tenant=tenant).delete()  # signals fire, Note.delete() does not
+for note in Note.objects.filter(tenant=tenant):
+    note.delete()  # the override runs
+```
 
 Fetch modes in 6.1 are explicit. `FETCH_RAISE` is how you stop a lazy query you did not expect. Do not add it blindly to every relation. Read what the view actually touches.
 
@@ -39,7 +45,7 @@ The test client covers an anonymous user, a user without the permission, and the
 ## Mistakes to avoid
 
 - An N+1 in a list view.
-- Assuming a database cascade runs `post_delete`.
+- Assuming `QuerySet.delete()` runs `Model.delete()`, or that a database cascade sends `post_delete`.
 - `fields = "__all__"` on a public form.
 - A sync query inside an async view.
 - A shipped migration rewritten in place.

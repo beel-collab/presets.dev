@@ -55,7 +55,7 @@ test("a session-scoped validated write has no action findings", () => {
 test("tenant rows with a shared notes tag are a high finding", () => {
   const ids = reviewCache({
     tenantScopedData: true,
-    tagIncludesTenant: false,
+    keyIncludesTenant: false,
     readsCookiesInside: true,
     alsoWrappedInUnstableCache: true,
     binaryIdentity: true,
@@ -63,7 +63,7 @@ test("tenant rows with a shared notes tag are a high finding", () => {
     directive: "use cache",
   }).map((item) => item.id)
   assert.deepEqual(ids, [
-    "shared-tenant-tag",
+    "shared-cache-key",
     "request-api-in-cache",
     "mixed-unstable-cache",
     "binary-cache-identity",
@@ -71,11 +71,11 @@ test("tenant rows with a shared notes tag are a high finding", () => {
   ])
 })
 
-test("public tenant-tagged cache with no request data has no cache findings", () => {
+test("a shared tag is safe when the cache key includes the tenant", () => {
   assert.deepEqual(
     reviewCache({
       tenantScopedData: true,
-      tagIncludesTenant: true,
+      keyIncludesTenant: true,
       readsCookiesInside: false,
       alsoWrappedInUnstableCache: false,
       binaryIdentity: false,
@@ -90,7 +90,7 @@ test("a marketing cache with no tenant data is not a shared-tag finding", () => 
   assert.deepEqual(
     reviewCache({
       tenantScopedData: false,
-      tagIncludesTenant: false,
+      keyIncludesTenant: false,
       readsCookiesInside: false,
       alsoWrappedInUnstableCache: false,
       binaryIdentity: false,

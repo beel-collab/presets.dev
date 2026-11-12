@@ -6,7 +6,7 @@ Section to append to `AGENTS.md` for Flutter. This is project guidance, not a cu
 
 ## Updated for Flutter 3.47, Nov 2026
 
-Write for the Flutter version in `pubspec.yaml` and the SDK constraint. The 3.47 stable line is the series to follow when the project is already on it, including its split of Material and Cupertino packages and the Kotlin migration for Android. Do not bump Flutter or change the Android embedding unless the task asks. Do not edit generated files under `.dart_tool` or plugin registries.
+Write for the Flutter version in `pubspec.yaml` and the SDK constraint. Flutter 3.50, with Dart 3.14, is the stable release announced on 11 November 2026. Direct native interop is stable there, and new projects use the standalone `material_ui` and `cupertino_ui` packages. Do not bump a 3.47 app unless the task asks. Do not edit generated files under `.dart_tool` or plugin registries.
 
 ## Project shape
 

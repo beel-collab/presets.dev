@@ -20,13 +20,13 @@ A list page eager-loads the relations it displays. A loop that queries is an N+1
 
 ## Jobs and errors
 
-A job that retries is idempotent. The database write uses a unique key or a transaction so a second run does not double-charge. A job accepts the model id, not a huge serialized graph, unless the project already does that.
+A job that retries is idempotent. The database write uses a unique key or a transaction so a second run does not double-charge. `SerializesModels` already stores the model identifier and reloads the row when the job runs. Passing the model is the normal shape. Do not rewrite it into a hand-rolled id unless the job must not use that trait.
 
 Exceptions render through the project's handler. Do not `dd()` or return a stack to the user. Log the context without the password or the token.
 
 ## Security and tests
 
-Every state-changing route has middleware and a policy. A route missing `auth` is a review. CSRF stays on for session forms. Do not disable `VerifyCsrfToken` for a web route to make a test pass.
+Every state-changing route has middleware and a policy. A route missing `auth` is a review. CSRF stays on for session forms. Since Laravel 11 the middleware class is `ValidateCsrfToken`, not `VerifyCsrfToken`. Do not disable it for a web route to make a test pass.
 
 Feature tests hit the endpoint as a guest, as the wrong user, and as the owner. Assert the status and the database. Run `php artisan test` or the project's Pest command for the file you touched. Record the output.
 
