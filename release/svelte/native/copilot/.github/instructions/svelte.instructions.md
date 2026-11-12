@@ -60,3 +60,7 @@ Run the project's `vite` test or `npm test`.
 import { page } from '$app/state'
 const id = page.params.id
 ```
+
+## Agent tooling
+
+The Svelte team publishes an MCP server at https://mcp.svelte.dev/mcp, and a local server via `npx -y @sveltejs/mcp`. Setup is documented at https://svelte.dev/docs/ai/mcp. Use it when the project already has it. Do not add the server as a side effect of a review.

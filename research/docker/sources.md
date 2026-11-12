@@ -1,5 +1,6 @@
 # Docker sources
 
-Fetched 12 November 2026 from the Engine 29 release-note index linked by the release plan: https://docs.docker.com/engine/release-notes/29/
+Fetched 12 November 2026.
 
-Engine, BuildKit, and Compose are separate version lines. The standards reject `latest` base tags, root runtime users, secrets in `ARG`/`ENV`, and mounting the Docker socket. This session confirmed the URL is the Engine 29 notes entry point. Patch 29.9.3 was not re-listed as a newer tag in this pass.
+- https://docs.docker.com/engine/release-notes/29/ is the Engine 29 notes. The newest patch on that page is 29.9.3, dated 3 November 2026. It includes Engine, SwarmKit, and BuildKit security fixes. Engine, BuildKit, and Compose stay on separate version lines.
+- The standards reject `latest` base tags, a root runtime user, secrets in `ARG` or `ENV`, and a mounted Docker socket. Those are operating rules, not a 29.9.3 language change.
