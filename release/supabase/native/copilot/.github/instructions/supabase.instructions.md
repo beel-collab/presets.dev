@@ -7,6 +7,7 @@ applyTo: "**/*supabase*,**/*.sql"
 Path-specific Copilot instructions for Supabase. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for supabase-js 2.119.0, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

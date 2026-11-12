@@ -8,6 +8,7 @@ trigger: "model_decision"
 Devin rule for Express. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for Express 5.3.0, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

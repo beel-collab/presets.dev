@@ -7,6 +7,7 @@ applyTo: "**/*.spec.ts,**/*playwright*"
 Path-specific Copilot instructions for Playwright. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for Playwright 1.65.0, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

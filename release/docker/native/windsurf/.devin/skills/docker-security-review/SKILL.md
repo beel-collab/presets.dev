@@ -13,6 +13,8 @@ Run this review for a Dockerfile, a Compose file, or a request to "check the ima
 
 ## When to leave it
 
+Do not upgrade dependencies or the framework version unless the user asked.
+
 Stop for a change that does not touch containers. Do not push an image or log into a registry.
 
 ## Steps

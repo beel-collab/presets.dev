@@ -7,6 +7,7 @@ applyTo: "**/*.py,pyproject.toml"
 Path-specific Copilot instructions for Python. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for uv 0.13.7 and Ruff 0.17.4, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

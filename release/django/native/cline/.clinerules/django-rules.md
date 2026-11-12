@@ -9,6 +9,7 @@ paths:
 Conditional Cline rule for Django. Install it under `.clinerules/` only.
 
 ## Updated for Django 6.1.3, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

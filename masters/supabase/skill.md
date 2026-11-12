@@ -4,6 +4,8 @@ Run this review for a Supabase change: a new table, a policy, a client call, or 
 
 ## When to leave it
 
+Do not upgrade dependencies or the framework version unless the user asked.
+
 Stop for a repository that does not use Supabase. Do not run SQL against a hosted production database. Do not print keys.
 
 ## Steps

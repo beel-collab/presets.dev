@@ -7,6 +7,7 @@ applyTo: "**/*.py"
 Path-specific Copilot instructions for FastAPI. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for FastAPI 0.162.5, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

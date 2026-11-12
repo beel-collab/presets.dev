@@ -41,6 +41,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 Path-specific Copilot instructions for Terraform. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for Terraform 1.17, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 Stay on the Terraform version in `.terraform-version` or the CI image. Terraform 1.17 is the current line to write for when CI is already on it. Do not invent a provider argument. Read the locked provider schema. Required version constraints and the lock file are committed. Do not bump a provider because a plan failed on an unknown attribute you guessed.
 

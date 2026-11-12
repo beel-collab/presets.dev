@@ -7,6 +7,7 @@ applyTo: "Dockerfile,Dockerfile.*,docker-compose*.yml,docker-compose*.yaml,compo
 Path-specific Copilot instructions for Docker. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for Docker Engine 29, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 Keep Engine, BuildKit, and Compose versions as the project already pins them. Engine 29 is the current major to write for when the host is already on it. Do not assume a Compose feature from a newer file works on an older plugin. Read the existing Dockerfile before you add a stage.
 

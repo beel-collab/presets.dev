@@ -7,6 +7,7 @@ applyTo: "**/*.ts,**/*.tsx,tsconfig.json"
 Path-specific Copilot instructions for TypeScript. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for TypeScript 7.0.2, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

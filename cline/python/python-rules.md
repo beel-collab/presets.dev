@@ -43,6 +43,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 Conditional Cline rule for Python. Install it under `.clinerules/` only.
 
 ## Updated for uv 0.13.7 and Ruff 0.17.4, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

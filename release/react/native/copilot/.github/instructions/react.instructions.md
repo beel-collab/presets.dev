@@ -7,6 +7,7 @@ applyTo: "**/*.tsx,**/*.jsx"
 Path-specific Copilot instructions for React. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for React 19.3.1, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

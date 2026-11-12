@@ -5,6 +5,7 @@
 Section to append to `AGENTS.md` for MCP. This is project guidance, not a custom agent.
 
 ## Updated for the 2026-07-28 MCP spec, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 The spec this file follows is the 2026-07-28 revision. `@modelcontextprotocol/sdk` 1.32.2 is still the v1 package on npm, and a server that calls `server.connect(new StdioServerTransport())` or hands requests to a Streamable HTTP transport from that package speaks the 2025-era protocol only. A client pinned to 2026-07-28 cannot complete a session with it.
 

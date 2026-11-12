@@ -10,6 +10,7 @@ paths:
 Conditional Cline rule for Nuxt. Install it under `.clinerules/` only.
 
 ## Updated for Nuxt 4.6.4, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

@@ -7,6 +7,7 @@ applyTo: "**/*.java"
 Path-specific Copilot instructions for Spring Boot. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for Spring Boot 4.1, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 Stay on the Spring Boot and JDK the build already uses. For a new service, Boot 4.1 is the stable line to write for. Do not adopt a 4.2 release candidate because a blog shows it. A lazy DataSource connection is an option you turn on for a reason, not a default you copy into every app. Read `pom.xml` or `build.gradle` before you add a starter.
 

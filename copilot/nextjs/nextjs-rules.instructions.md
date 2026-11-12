@@ -43,6 +43,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 Path-specific Copilot instructions for Next.js. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for Next.js 16.4.6, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 Read `package.json`, the lockfile, and `next.config` before editing. Match the directories and helpers the app already uses.
 

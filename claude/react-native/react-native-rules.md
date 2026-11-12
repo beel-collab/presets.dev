@@ -41,6 +41,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 Path-scoped Claude Code rule for React Native. It loads when a matching file is read. It does not replace `CLAUDE.md`.
 
 ## Updated for React Native 0.88.1, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

@@ -5,6 +5,7 @@
 Section to append to `AGENTS.md` for NestJS. This is project guidance, not a custom agent.
 
 ## Updated for NestJS 12.4.2, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

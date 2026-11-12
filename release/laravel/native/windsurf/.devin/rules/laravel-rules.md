@@ -8,6 +8,7 @@ trigger: "model_decision"
 Devin rule for Laravel. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for Laravel 13, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 Laravel 13 requires PHP 8.3 through 8.5. Read `composer.json` and stay inside that range. Do not add a package that only supports an older PHP, and do not bump Laravel unless the task asks. Use the app's existing structure: controllers, Form Requests, policies, and jobs.
 

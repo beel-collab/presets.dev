@@ -8,6 +8,7 @@ trigger: "model_decision"
 Devin rule for Python. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for uv 0.13.7 and Ruff 0.17.4, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

@@ -9,6 +9,7 @@ paths:
 Conditional Cline rule for React. Install it under `.clinerules/` only.
 
 ## Updated for React 19.3.1, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

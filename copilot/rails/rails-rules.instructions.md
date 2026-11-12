@@ -41,6 +41,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 Path-specific Copilot instructions for Rails. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for Rails 8.1.4.1, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 Rails 8.1.4.1 is the security release the November 2026 notes describe. Stay on the version in the Gemfile. 8.1's job continuations, structured events, and local CI are available when the app is already on 8.1. Do not upgrade a 7.x app as a side effect. Read an existing model and controller before you add one.
 

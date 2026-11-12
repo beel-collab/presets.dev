@@ -7,6 +7,7 @@ applyTo: "**/*.vue,**/*.ts"
 Path-specific Copilot instructions for Vue. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for Vue 3.5.45, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

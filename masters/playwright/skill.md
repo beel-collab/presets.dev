@@ -4,6 +4,8 @@ Run this when the user wants a Playwright test, a regression for a UI bug, or an
 
 ## When to leave it
 
+Do not upgrade dependencies or the framework version unless the user asked.
+
 Stop for a unit-test request in pytest, Jest, or another runner, or when the repository has no Playwright config and the user did not ask to add Playwright.
 
 ## Steps

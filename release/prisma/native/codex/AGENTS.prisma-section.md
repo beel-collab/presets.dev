@@ -5,6 +5,7 @@
 Section to append to `AGENTS.md` for Prisma. This is project guidance, not a custom agent.
 
 ## Updated for Prisma 7.10.1 stable, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 On 11 November 2026 the npm `latest` tag for `prisma` was 8.0.0-rc.33, a release candidate. The `prev` tag was 7.10.1, the stable line. Stay on the major the repository installs. Do not bump a project to Prisma 8 because `latest` resolved to the RC. Postgres stays on the major the project runs. Do not assume a newer Postgres major is what this app uses.
 

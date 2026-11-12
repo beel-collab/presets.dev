@@ -41,6 +41,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 Devin rule for Django. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for Django 6.1.3, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

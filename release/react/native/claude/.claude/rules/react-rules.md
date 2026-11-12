@@ -9,6 +9,7 @@ paths:
 Path-scoped Claude Code rule for React. It loads when a matching file is read. It does not replace `CLAUDE.md`.
 
 ## Updated for React 19.3.1, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

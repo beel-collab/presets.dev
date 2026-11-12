@@ -9,6 +9,7 @@ paths:
 Conditional Cline rule for Angular. Install it under `.clinerules/` only.
 
 ## Updated for Angular 22.2.6, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

@@ -7,6 +7,7 @@ applyTo: "**/routes/**/*.ts,**/routes/**/*.js,**/app.ts,**/server.ts,src/index.t
 Path-specific Copilot instructions for Express. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for Express 5.3.0, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

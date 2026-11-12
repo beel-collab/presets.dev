@@ -9,6 +9,7 @@ paths:
 Conditional Cline rule for Vue. Install it under `.clinerules/` only.
 
 ## Updated for Vue 3.5.45, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

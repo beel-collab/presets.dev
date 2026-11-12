@@ -4,6 +4,8 @@ Run this review for an MCP server: a new tool, a transport, a spec bump, or "wha
 
 ## When to leave it
 
+Do not upgrade dependencies or the framework version unless the user asked.
+
 Stop for a plain HTTP API that is not MCP. Do not deploy the server or call a production tool.
 
 ## Steps

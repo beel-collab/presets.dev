@@ -8,6 +8,7 @@ trigger: "model_decision"
 Devin rule for Docker. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for Docker Engine 29, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 Keep Engine, BuildKit, and Compose versions as the project already pins them. Engine 29 is the current major to write for when the host is already on it. Do not assume a Compose feature from a newer file works on an older plugin. Read the existing Dockerfile before you add a stage.
 

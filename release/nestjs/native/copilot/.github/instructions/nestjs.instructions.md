@@ -7,6 +7,7 @@ applyTo: "**/*.controller.ts,**/*.module.ts,**/*.dto.ts,**/*.guard.ts"
 Path-specific Copilot instructions for NestJS. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for NestJS 12.4.2, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

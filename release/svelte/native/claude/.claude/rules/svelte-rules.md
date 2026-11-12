@@ -10,6 +10,7 @@ paths:
 Path-scoped Claude Code rule for Svelte. It loads when a matching file is read. It does not replace `CLAUDE.md`.
 
 ## Updated for Svelte 5.57.3 and SvelteKit 3.2.0, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 Svelte 5.57.3 and `@sveltejs/kit` 3.2.0 are the npm latest versions read for this release. Svelte 5 uses runes. On SvelteKit 3, configuration is the `sveltekit()` Vite plugin in `vite.config.js`. `svelte.config.js` is not read. `$app/stores` is gone. Import `page` from `$app/state` and read `page`, not `$page`. `$lib` is not generated. Declare `#lib` and `#lib/*` in `package.json` `imports`, and include the file extension. Kit 3 wants Node 22.17 or newer, TypeScript 6, and Vite 8. A Kit 2 app keeps `svelte.config.js` and `$lib` until the task is the migration. Do not convert a Svelte 4 component to runes unless the task asks.
 

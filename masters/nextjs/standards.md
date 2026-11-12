@@ -1,4 +1,5 @@
 ## Updated for Next.js 16.4.6, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 Read `package.json`, the lockfile, and `next.config` before editing. Match the directories and helpers the app already uses.
 

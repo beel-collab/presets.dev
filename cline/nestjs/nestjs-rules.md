@@ -41,6 +41,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 Conditional Cline rule for NestJS. Install it under `.clinerules/` only.
 
 ## Updated for NestJS 12.4.2, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

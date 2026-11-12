@@ -7,6 +7,7 @@ applyTo: "**/*.tsx,app.json,app.config.ts"
 Path-specific Copilot instructions for React Native. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for React Native 0.88.1, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

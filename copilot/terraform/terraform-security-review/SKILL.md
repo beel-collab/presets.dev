@@ -46,6 +46,8 @@ Run this review for a Terraform change or a request to "review the plan". The wo
 
 ## When to leave it
 
+Do not upgrade dependencies or the framework version unless the user asked.
+
 Stop if the user asks you to apply or destroy. Explain that a person runs those. Do not run them.
 
 ## Steps

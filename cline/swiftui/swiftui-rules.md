@@ -41,6 +41,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 Conditional Cline rule for SwiftUI. Install it under `.clinerules/` only.
 
 ## Updated for Swift 6.4, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 Write for the Swift tools version and the deployment target in the project. Swift 6.4 adds async `defer` and cancellation shields, and Swift Build is the default build system on that line. Use those only when the toolchain is 6.4. Do not lower a deployment target, and do not mark a type `@unchecked Sendable` to quiet the compiler.
 

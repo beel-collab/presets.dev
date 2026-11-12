@@ -41,6 +41,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 Section to append to `GEMINI.md` for Flutter. Antigravity CLI also reads `AGENTS.md`. Confirm the loaded rules before you rely on them.
 
 ## Updated for Flutter 3.50, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 Write for the Flutter version in `pubspec.yaml` and the SDK constraint. Flutter 3.50, with Dart 3.14, is the stable release announced on 11 November 2026. Direct native interop is stable there, and new projects use the standalone `material_ui` and `cupertino_ui` packages. Do not bump a 3.47 app unless the task asks. Do not edit generated files under `.dart_tool` or plugin registries.
 

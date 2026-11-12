@@ -41,6 +41,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 Path-specific Copilot instructions for .NET. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for .NET 10 LTS and .NET 11, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 .NET 11 shipped in November 2026, with C# 15 unions and closed hierarchies. A project that still targets .NET 10 LTS does not get that syntax. Read the `TargetFramework` before you write a language feature. Do not retarget the project unless the task asks. Nullable reference types stay enabled when the project has them on.
 

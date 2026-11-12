@@ -9,6 +9,7 @@ alwaysApply: false
 File-scoped Cursor rule for Playwright. It attaches when a matching file is in context.
 
 ## Updated for Playwright 1.65.0, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

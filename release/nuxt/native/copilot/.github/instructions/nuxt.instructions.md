@@ -7,6 +7,7 @@ applyTo: "**/*.vue,nuxt.config.ts,server/**/*.ts"
 Path-specific Copilot instructions for Nuxt. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for Nuxt 4.6.4, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

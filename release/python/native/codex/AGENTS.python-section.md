@@ -5,6 +5,7 @@
 Section to append to `AGENTS.md` for Python. This is project guidance, not a custom agent.
 
 ## Updated for uv 0.13.7 and Ruff 0.17.4, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 ## Project shape
 

@@ -8,6 +8,7 @@ trigger: "model_decision"
 Devin rule for .NET. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for .NET 10 LTS and .NET 11, Nov 2026
+Do not upgrade dependencies or the framework version unless the task asks.
 
 .NET 11 shipped in November 2026, with C# 15 unions and closed hierarchies. A project that still targets .NET 10 LTS does not get that syntax. Read the `TargetFramework` before you write a language feature. Do not retarget the project unless the task asks. Nullable reference types stay enabled when the project has them on.
 
