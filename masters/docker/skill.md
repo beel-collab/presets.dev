@@ -30,7 +30,7 @@ Say "No findings" and list the files you opened. A search you skipped is not a c
 
 ## Example
 Input: a runtime stage ends with `USER root` and `ENV DATABASE_URL=postgres://app:secret@db/app`.
-Output: high | Dockerfile:18 | the process runs as root and the secret is in the image | `USER node` and a BuildKit secret mount, not `ENV`.
+Output: high | Dockerfile:18 | the process runs as root and the database URL is baked into the image | `USER node`. Pass `DATABASE_URL` when the container starts, from Compose, Kubernetes, or the runtime environment. A BuildKit secret mount exists only during the build. Use it for a build-time credential, not for this URL.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
