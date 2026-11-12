@@ -76,7 +76,7 @@ New presets, and any preset a pull request edits, start with YAML frontmatter th
 | `license` | `MIT` |
 | `origin` | `original` |
 | `version` | Semver, such as `1.0.0`. |
-| `tested_with` | The tool builds you tried, such as `Cursor 2.1`. |
+| `tested_with` | A run you actually made. Either say the client was not run, name a fixture, or use `client: Cursor; version: 2.1.0; date: 2026-11-12; result: pass`. |
 | `created` | `YYYY-MM-DD` |
 | `updated` | `YYYY-MM-DD`, same day or later than `created`. |
 

@@ -10,6 +10,7 @@ enforces the same per-stack contract for every stack that is complete.
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -147,6 +148,20 @@ def check_native(rel: str, errors: list[str]) -> None:
         errors.append(f"{rel}: native export still contains the catalog marker")
 
 
+# A real run records the client, its version, an ISO date, and pass, fail, or not-run.
+REAL_TEST = re.compile(
+    r"^client: \S.*; version: \S.*; date: \d{4}-\d{2}-\d{2}; result: (?:pass|fail|not-run)\b",
+    re.IGNORECASE,
+)
+
+
+def tested_with_ok(claim: str) -> bool:
+    lowered = claim.lower()
+    if "not " in lowered or "fixture" in lowered:
+        return True
+    return REAL_TEST.match(claim) is not None
+
+
 def check_source_urls(complete: list[dict], errors: list[str]) -> None:
     """A release stack must cite at least one fetched https URL."""
     for stack in complete:
@@ -229,9 +244,11 @@ def main() -> int:
             if not data.get("title") or not data.get("description") or not data.get("slug"):
                 errors.append(f"{rel}: missing title, description, or slug for a catalog page")
             for claim in data.get("tested_with", []):
-                lowered = str(claim).lower()
-                if "not " not in lowered and "fixture" not in lowered:
-                    errors.append(f"{rel}: tested_with must say the client was not run, or name a fixture")
+                if not tested_with_ok(str(claim)):
+                    errors.append(
+                        f"{rel}: tested_with must say the client was not run, name a fixture, "
+                        "or use 'client: NAME; version: X; date: YYYY-MM-DD; result: pass|fail|not-run'"
+                    )
             exports = row.get("exports") or []
             if not exports:
                 errors.append(f"{rel}: missing native exports")
