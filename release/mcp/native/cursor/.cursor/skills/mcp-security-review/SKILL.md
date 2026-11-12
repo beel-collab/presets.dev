@@ -4,7 +4,6 @@ description: "Review an MCP server for spec compatibility, schema checks, and to
 paths:
   - "**/*mcp*.ts"
   - "**/mcp/**/*.ts"
-  - "**/server.ts"
 ---
 
 # MCP Security Review Skill for Cursor

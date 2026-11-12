@@ -68,6 +68,19 @@ Run the server package tests against a fixture directory.
 ## Example
 
 ```ts
-await serveStdio(() => createServer())
+import { McpServer, serveStdio } from "@modelcontextprotocol/server"
+import { StdioServerTransport } from "@modelcontextprotocol/server/stdio"
+
+const notes = new McpServer({ name: "notes", version: "1.0.0" })
+notes.registerTool(
+  "read_note",
+  { description: "Read one note by id" },
+  async (args: { id: string }) => ({
+    content: [{ type: "text", text: args.id }],
+  }),
+)
+
+await serveStdio(() => notes)
 ```
-That entry can speak 2026-07-28. `server.connect(new StdioServerTransport())` from the 1.32 package cannot.
+
+`registerTool` is the v2 name for `.tool()`. `serveStdio` and `McpServer` come from `@modelcontextprotocol/server`. `StdioServerTransport` comes from `@modelcontextprotocol/server/stdio`, not from the package root. A handler that receives Node's `IncomingMessage` imports its HTTP transport from `@modelcontextprotocol/node`. Do not import `createServer` from `node:http` to build this server. `server.connect(new StdioServerTransport())` from `@modelcontextprotocol/sdk` 1.32 cannot speak 2026-07-28.
