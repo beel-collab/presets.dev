@@ -4,9 +4,20 @@
   "product": "NestJS",
   "focus": "Modules, DTOs and Guards",
   "updated_for": "NestJS 12.4.2, Nov 2026",
-  "libs": ["@nestjs/core@12.4.2"],
-  "tags": ["nestjs", "typescript", "dto"],
-  "paths": ["**/*.ts", "**/*.module.ts"],
+  "libs": [
+    "@nestjs/core@12.4.2"
+  ],
+  "tags": [
+    "nestjs",
+    "typescript",
+    "dto"
+  ],
+  "paths": [
+    "**/*.controller.ts",
+    "**/*.module.ts",
+    "**/*.dto.ts",
+    "**/*.guard.ts"
+  ],
   "skill_name": "nestjs-security-review",
   "skill_label": "Security Review",
   "skill_tag": "security",

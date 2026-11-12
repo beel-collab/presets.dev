@@ -7,9 +7,9 @@
     "windsurf",
     "cline",
     "codex",
-    "gemini-cli"
+    "antigravity"
   ],
-  "note": "Each complete stack has one standards file and one SKILL.md for every tool. Support files and native exports are not catalog entries. gemini-cli is Gemini CLI, not antigravity. The index is stacks.json because manifest.json is gitignored.",
+  "note": "Each complete stack has one standards file and one SKILL.md for every tool. Support files and native exports are not catalog entries. antigravity is Antigravity CLI, which replaced Gemini CLI for personal accounts. The index is stacks.json because manifest.json is gitignored.",
   "stacks": [
     {
       "id": "nextjs",
@@ -75,8 +75,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/nextjs/native/windsurf/.devin/rules/nextjs-rules.md",
-            "release/nextjs/native/windsurf/.windsurf/rules/nextjs-rules.md"
+            "release/nextjs/native/windsurf/.devin/rules/nextjs-rules.md"
           ]
         },
         {
@@ -85,8 +84,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nextjs/native/windsurf/.devin/skills/nextjs-code-review/SKILL.md",
-            "release/nextjs/native/windsurf/.windsurf/skills/nextjs-code-review/SKILL.md"
+            "release/nextjs/native/windsurf/.devin/skills/nextjs-code-review/SKILL.md"
           ]
         },
         {
@@ -126,21 +124,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/nextjs/nextjs-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/nextjs/nextjs-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/nextjs/native/gemini-cli/GEMINI.nextjs-section.md"
+            "release/nextjs/native/antigravity/GEMINI.nextjs-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/nextjs/nextjs-code-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/nextjs/nextjs-code-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nextjs/native/gemini-cli/.gemini/skills/nextjs-code-review/SKILL.md"
+            "release/nextjs/native/antigravity/.agents/skills/nextjs-code-review/SKILL.md"
           ]
         }
       ]
@@ -209,8 +207,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/react/native/windsurf/.devin/rules/react-rules.md",
-            "release/react/native/windsurf/.windsurf/rules/react-rules.md"
+            "release/react/native/windsurf/.devin/rules/react-rules.md"
           ]
         },
         {
@@ -219,8 +216,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/react/native/windsurf/.devin/skills/react-performance-audit/SKILL.md",
-            "release/react/native/windsurf/.windsurf/skills/react-performance-audit/SKILL.md"
+            "release/react/native/windsurf/.devin/skills/react-performance-audit/SKILL.md"
           ]
         },
         {
@@ -260,21 +256,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/react/react-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/react/react-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/react/native/gemini-cli/GEMINI.react-section.md"
+            "release/react/native/antigravity/GEMINI.react-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/react/react-performance-audit/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/react/react-performance-audit/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/react/native/gemini-cli/.gemini/skills/react-performance-audit/SKILL.md"
+            "release/react/native/antigravity/.agents/skills/react-performance-audit/SKILL.md"
           ]
         }
       ]
@@ -343,8 +339,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/python/native/windsurf/.devin/rules/python-rules.md",
-            "release/python/native/windsurf/.windsurf/rules/python-rules.md"
+            "release/python/native/windsurf/.devin/rules/python-rules.md"
           ]
         },
         {
@@ -353,8 +348,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/python/native/windsurf/.devin/skills/python-test-writer/SKILL.md",
-            "release/python/native/windsurf/.windsurf/skills/python-test-writer/SKILL.md"
+            "release/python/native/windsurf/.devin/skills/python-test-writer/SKILL.md"
           ]
         },
         {
@@ -394,21 +388,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/python/python-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/python/python-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/python/native/gemini-cli/GEMINI.python-section.md"
+            "release/python/native/antigravity/GEMINI.python-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/python/python-test-writer/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/python/python-test-writer/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/python/native/gemini-cli/.gemini/skills/python-test-writer/SKILL.md"
+            "release/python/native/antigravity/.agents/skills/python-test-writer/SKILL.md"
           ]
         }
       ]
@@ -477,8 +471,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/typescript/native/windsurf/.devin/rules/typescript-rules.md",
-            "release/typescript/native/windsurf/.windsurf/rules/typescript-rules.md"
+            "release/typescript/native/windsurf/.devin/rules/typescript-rules.md"
           ]
         },
         {
@@ -487,8 +480,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/typescript/native/windsurf/.devin/skills/typescript-code-review/SKILL.md",
-            "release/typescript/native/windsurf/.windsurf/skills/typescript-code-review/SKILL.md"
+            "release/typescript/native/windsurf/.devin/skills/typescript-code-review/SKILL.md"
           ]
         },
         {
@@ -528,21 +520,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/typescript/typescript-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/typescript/typescript-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/typescript/native/gemini-cli/GEMINI.typescript-section.md"
+            "release/typescript/native/antigravity/GEMINI.typescript-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/typescript/typescript-code-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/typescript/typescript-code-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/typescript/native/gemini-cli/.gemini/skills/typescript-code-review/SKILL.md"
+            "release/typescript/native/antigravity/.agents/skills/typescript-code-review/SKILL.md"
           ]
         }
       ]
@@ -611,8 +603,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/supabase/native/windsurf/.devin/rules/supabase-rules.md",
-            "release/supabase/native/windsurf/.windsurf/rules/supabase-rules.md"
+            "release/supabase/native/windsurf/.devin/rules/supabase-rules.md"
           ]
         },
         {
@@ -621,8 +612,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/supabase/native/windsurf/.devin/skills/supabase-security-review/SKILL.md",
-            "release/supabase/native/windsurf/.windsurf/skills/supabase-security-review/SKILL.md"
+            "release/supabase/native/windsurf/.devin/skills/supabase-security-review/SKILL.md"
           ]
         },
         {
@@ -662,21 +652,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/supabase/supabase-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/supabase/supabase-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/supabase/native/gemini-cli/GEMINI.supabase-section.md"
+            "release/supabase/native/antigravity/GEMINI.supabase-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/supabase/supabase-security-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/supabase/supabase-security-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/supabase/native/gemini-cli/.gemini/skills/supabase-security-review/SKILL.md"
+            "release/supabase/native/antigravity/.agents/skills/supabase-security-review/SKILL.md"
           ]
         }
       ]
@@ -745,8 +735,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/tailwind/native/windsurf/.devin/rules/tailwind-rules.md",
-            "release/tailwind/native/windsurf/.windsurf/rules/tailwind-rules.md"
+            "release/tailwind/native/windsurf/.devin/rules/tailwind-rules.md"
           ]
         },
         {
@@ -755,8 +744,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/tailwind/native/windsurf/.devin/skills/tailwind-code-review/SKILL.md",
-            "release/tailwind/native/windsurf/.windsurf/skills/tailwind-code-review/SKILL.md"
+            "release/tailwind/native/windsurf/.devin/skills/tailwind-code-review/SKILL.md"
           ]
         },
         {
@@ -796,21 +784,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/tailwind/tailwind-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/tailwind/tailwind-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/tailwind/native/gemini-cli/GEMINI.tailwind-section.md"
+            "release/tailwind/native/antigravity/GEMINI.tailwind-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/tailwind/tailwind-code-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/tailwind/tailwind-code-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/tailwind/native/gemini-cli/.gemini/skills/tailwind-code-review/SKILL.md"
+            "release/tailwind/native/antigravity/.agents/skills/tailwind-code-review/SKILL.md"
           ]
         }
       ]
@@ -879,8 +867,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/playwright/native/windsurf/.devin/rules/playwright-rules.md",
-            "release/playwright/native/windsurf/.windsurf/rules/playwright-rules.md"
+            "release/playwright/native/windsurf/.devin/rules/playwright-rules.md"
           ]
         },
         {
@@ -889,8 +876,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/playwright/native/windsurf/.devin/skills/playwright-test-writer/SKILL.md",
-            "release/playwright/native/windsurf/.windsurf/skills/playwright-test-writer/SKILL.md"
+            "release/playwright/native/windsurf/.devin/skills/playwright-test-writer/SKILL.md"
           ]
         },
         {
@@ -930,21 +916,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/playwright/playwright-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/playwright/playwright-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/playwright/native/gemini-cli/GEMINI.playwright-section.md"
+            "release/playwright/native/antigravity/GEMINI.playwright-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/playwright/playwright-test-writer/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/playwright/playwright-test-writer/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/playwright/native/gemini-cli/.gemini/skills/playwright-test-writer/SKILL.md"
+            "release/playwright/native/antigravity/.agents/skills/playwright-test-writer/SKILL.md"
           ]
         }
       ]
@@ -1013,8 +999,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/nodejs/native/windsurf/.devin/rules/nodejs-rules.md",
-            "release/nodejs/native/windsurf/.windsurf/rules/nodejs-rules.md"
+            "release/nodejs/native/windsurf/.devin/rules/nodejs-rules.md"
           ]
         },
         {
@@ -1023,8 +1008,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nodejs/native/windsurf/.devin/skills/nodejs-performance-audit/SKILL.md",
-            "release/nodejs/native/windsurf/.windsurf/skills/nodejs-performance-audit/SKILL.md"
+            "release/nodejs/native/windsurf/.devin/skills/nodejs-performance-audit/SKILL.md"
           ]
         },
         {
@@ -1064,21 +1048,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/nodejs/nodejs-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/nodejs/nodejs-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/nodejs/native/gemini-cli/GEMINI.nodejs-section.md"
+            "release/nodejs/native/antigravity/GEMINI.nodejs-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/nodejs/nodejs-performance-audit/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/nodejs/nodejs-performance-audit/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nodejs/native/gemini-cli/.gemini/skills/nodejs-performance-audit/SKILL.md"
+            "release/nodejs/native/antigravity/.agents/skills/nodejs-performance-audit/SKILL.md"
           ]
         }
       ]
@@ -1147,8 +1131,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/react-native/native/windsurf/.devin/rules/react-native-rules.md",
-            "release/react-native/native/windsurf/.windsurf/rules/react-native-rules.md"
+            "release/react-native/native/windsurf/.devin/rules/react-native-rules.md"
           ]
         },
         {
@@ -1157,8 +1140,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/react-native/native/windsurf/.devin/skills/react-native-code-review/SKILL.md",
-            "release/react-native/native/windsurf/.windsurf/skills/react-native-code-review/SKILL.md"
+            "release/react-native/native/windsurf/.devin/skills/react-native-code-review/SKILL.md"
           ]
         },
         {
@@ -1198,21 +1180,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/react-native/react-native-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/react-native/react-native-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/react-native/native/gemini-cli/GEMINI.react-native-section.md"
+            "release/react-native/native/antigravity/GEMINI.react-native-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/react-native/react-native-code-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/react-native/react-native-code-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/react-native/native/gemini-cli/.gemini/skills/react-native-code-review/SKILL.md"
+            "release/react-native/native/antigravity/.agents/skills/react-native-code-review/SKILL.md"
           ]
         }
       ]
@@ -1281,8 +1263,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/vue/native/windsurf/.devin/rules/vue-rules.md",
-            "release/vue/native/windsurf/.windsurf/rules/vue-rules.md"
+            "release/vue/native/windsurf/.devin/rules/vue-rules.md"
           ]
         },
         {
@@ -1291,8 +1272,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/vue/native/windsurf/.devin/skills/vue-code-review/SKILL.md",
-            "release/vue/native/windsurf/.windsurf/skills/vue-code-review/SKILL.md"
+            "release/vue/native/windsurf/.devin/skills/vue-code-review/SKILL.md"
           ]
         },
         {
@@ -1332,21 +1312,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/vue/vue-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/vue/vue-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/vue/native/gemini-cli/GEMINI.vue-section.md"
+            "release/vue/native/antigravity/GEMINI.vue-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/vue/vue-code-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/vue/vue-code-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/vue/native/gemini-cli/.gemini/skills/vue-code-review/SKILL.md"
+            "release/vue/native/antigravity/.agents/skills/vue-code-review/SKILL.md"
           ]
         }
       ]
@@ -1415,8 +1395,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/angular/native/windsurf/.devin/rules/angular-rules.md",
-            "release/angular/native/windsurf/.windsurf/rules/angular-rules.md"
+            "release/angular/native/windsurf/.devin/rules/angular-rules.md"
           ]
         },
         {
@@ -1425,8 +1404,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/angular/native/windsurf/.devin/skills/angular-code-review/SKILL.md",
-            "release/angular/native/windsurf/.windsurf/skills/angular-code-review/SKILL.md"
+            "release/angular/native/windsurf/.devin/skills/angular-code-review/SKILL.md"
           ]
         },
         {
@@ -1466,21 +1444,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/angular/angular-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/angular/angular-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/angular/native/gemini-cli/GEMINI.angular-section.md"
+            "release/angular/native/antigravity/GEMINI.angular-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/angular/angular-code-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/angular/angular-code-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/angular/native/gemini-cli/.gemini/skills/angular-code-review/SKILL.md"
+            "release/angular/native/antigravity/.agents/skills/angular-code-review/SKILL.md"
           ]
         }
       ]
@@ -1549,8 +1527,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/fastapi/native/windsurf/.devin/rules/fastapi-rules.md",
-            "release/fastapi/native/windsurf/.windsurf/rules/fastapi-rules.md"
+            "release/fastapi/native/windsurf/.devin/rules/fastapi-rules.md"
           ]
         },
         {
@@ -1559,8 +1536,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/fastapi/native/windsurf/.devin/skills/fastapi-security-review/SKILL.md",
-            "release/fastapi/native/windsurf/.windsurf/skills/fastapi-security-review/SKILL.md"
+            "release/fastapi/native/windsurf/.devin/skills/fastapi-security-review/SKILL.md"
           ]
         },
         {
@@ -1600,21 +1576,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/fastapi/fastapi-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/fastapi/fastapi-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/fastapi/native/gemini-cli/GEMINI.fastapi-section.md"
+            "release/fastapi/native/antigravity/GEMINI.fastapi-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/fastapi/fastapi-security-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/fastapi/fastapi-security-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/fastapi/native/gemini-cli/.gemini/skills/fastapi-security-review/SKILL.md"
+            "release/fastapi/native/antigravity/.agents/skills/fastapi-security-review/SKILL.md"
           ]
         }
       ]
@@ -1683,8 +1659,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/prisma/native/windsurf/.devin/rules/prisma-rules.md",
-            "release/prisma/native/windsurf/.windsurf/rules/prisma-rules.md"
+            "release/prisma/native/windsurf/.devin/rules/prisma-rules.md"
           ]
         },
         {
@@ -1693,8 +1668,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/prisma/native/windsurf/.devin/skills/prisma-code-review/SKILL.md",
-            "release/prisma/native/windsurf/.windsurf/skills/prisma-code-review/SKILL.md"
+            "release/prisma/native/windsurf/.devin/skills/prisma-code-review/SKILL.md"
           ]
         },
         {
@@ -1734,21 +1708,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/prisma/prisma-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/prisma/prisma-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/prisma/native/gemini-cli/GEMINI.prisma-section.md"
+            "release/prisma/native/antigravity/GEMINI.prisma-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/prisma/prisma-code-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/prisma/prisma-code-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/prisma/native/gemini-cli/.gemini/skills/prisma-code-review/SKILL.md"
+            "release/prisma/native/antigravity/.agents/skills/prisma-code-review/SKILL.md"
           ]
         }
       ]
@@ -1817,8 +1791,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/go/native/windsurf/.devin/rules/go-rules.md",
-            "release/go/native/windsurf/.windsurf/rules/go-rules.md"
+            "release/go/native/windsurf/.devin/rules/go-rules.md"
           ]
         },
         {
@@ -1827,8 +1800,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/go/native/windsurf/.devin/skills/go-code-review/SKILL.md",
-            "release/go/native/windsurf/.windsurf/skills/go-code-review/SKILL.md"
+            "release/go/native/windsurf/.devin/skills/go-code-review/SKILL.md"
           ]
         },
         {
@@ -1868,21 +1840,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/go/go-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/go/go-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/go/native/gemini-cli/GEMINI.go-section.md"
+            "release/go/native/antigravity/GEMINI.go-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/go/go-code-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/go/go-code-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/go/native/gemini-cli/.gemini/skills/go-code-review/SKILL.md"
+            "release/go/native/antigravity/.agents/skills/go-code-review/SKILL.md"
           ]
         }
       ]
@@ -1951,8 +1923,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/spring/native/windsurf/.devin/rules/spring-rules.md",
-            "release/spring/native/windsurf/.windsurf/rules/spring-rules.md"
+            "release/spring/native/windsurf/.devin/rules/spring-rules.md"
           ]
         },
         {
@@ -1961,8 +1932,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/spring/native/windsurf/.devin/skills/spring-security-review/SKILL.md",
-            "release/spring/native/windsurf/.windsurf/skills/spring-security-review/SKILL.md"
+            "release/spring/native/windsurf/.devin/skills/spring-security-review/SKILL.md"
           ]
         },
         {
@@ -2002,21 +1972,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/spring/spring-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/spring/spring-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/spring/native/gemini-cli/GEMINI.spring-section.md"
+            "release/spring/native/antigravity/GEMINI.spring-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/spring/spring-security-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/spring/spring-security-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/spring/native/gemini-cli/.gemini/skills/spring-security-review/SKILL.md"
+            "release/spring/native/antigravity/.agents/skills/spring-security-review/SKILL.md"
           ]
         }
       ]
@@ -2085,8 +2055,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/dotnet/native/windsurf/.devin/rules/dotnet-rules.md",
-            "release/dotnet/native/windsurf/.windsurf/rules/dotnet-rules.md"
+            "release/dotnet/native/windsurf/.devin/rules/dotnet-rules.md"
           ]
         },
         {
@@ -2095,8 +2064,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/dotnet/native/windsurf/.devin/skills/dotnet-code-review/SKILL.md",
-            "release/dotnet/native/windsurf/.windsurf/skills/dotnet-code-review/SKILL.md"
+            "release/dotnet/native/windsurf/.devin/skills/dotnet-code-review/SKILL.md"
           ]
         },
         {
@@ -2136,21 +2104,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/dotnet/dotnet-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/dotnet/dotnet-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/dotnet/native/gemini-cli/GEMINI.dotnet-section.md"
+            "release/dotnet/native/antigravity/GEMINI.dotnet-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/dotnet/dotnet-code-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/dotnet/dotnet-code-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/dotnet/native/gemini-cli/.gemini/skills/dotnet-code-review/SKILL.md"
+            "release/dotnet/native/antigravity/.agents/skills/dotnet-code-review/SKILL.md"
           ]
         }
       ]
@@ -2219,8 +2187,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/flutter/native/windsurf/.devin/rules/flutter-rules.md",
-            "release/flutter/native/windsurf/.windsurf/rules/flutter-rules.md"
+            "release/flutter/native/windsurf/.devin/rules/flutter-rules.md"
           ]
         },
         {
@@ -2229,8 +2196,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/flutter/native/windsurf/.devin/skills/flutter-test-writer/SKILL.md",
-            "release/flutter/native/windsurf/.windsurf/skills/flutter-test-writer/SKILL.md"
+            "release/flutter/native/windsurf/.devin/skills/flutter-test-writer/SKILL.md"
           ]
         },
         {
@@ -2270,21 +2236,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/flutter/flutter-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/flutter/flutter-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/flutter/native/gemini-cli/GEMINI.flutter-section.md"
+            "release/flutter/native/antigravity/GEMINI.flutter-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/flutter/flutter-test-writer/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/flutter/flutter-test-writer/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/flutter/native/gemini-cli/.gemini/skills/flutter-test-writer/SKILL.md"
+            "release/flutter/native/antigravity/.agents/skills/flutter-test-writer/SKILL.md"
           ]
         }
       ]
@@ -2353,8 +2319,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/swiftui/native/windsurf/.devin/rules/swiftui-rules.md",
-            "release/swiftui/native/windsurf/.windsurf/rules/swiftui-rules.md"
+            "release/swiftui/native/windsurf/.devin/rules/swiftui-rules.md"
           ]
         },
         {
@@ -2363,8 +2328,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/swiftui/native/windsurf/.devin/skills/swiftui-code-review/SKILL.md",
-            "release/swiftui/native/windsurf/.windsurf/skills/swiftui-code-review/SKILL.md"
+            "release/swiftui/native/windsurf/.devin/skills/swiftui-code-review/SKILL.md"
           ]
         },
         {
@@ -2404,21 +2368,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/swiftui/swiftui-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/swiftui/swiftui-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/swiftui/native/gemini-cli/GEMINI.swiftui-section.md"
+            "release/swiftui/native/antigravity/GEMINI.swiftui-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/swiftui/swiftui-code-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/swiftui/swiftui-code-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/swiftui/native/gemini-cli/.gemini/skills/swiftui-code-review/SKILL.md"
+            "release/swiftui/native/antigravity/.agents/skills/swiftui-code-review/SKILL.md"
           ]
         }
       ]
@@ -2487,8 +2451,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/django/native/windsurf/.devin/rules/django-rules.md",
-            "release/django/native/windsurf/.windsurf/rules/django-rules.md"
+            "release/django/native/windsurf/.devin/rules/django-rules.md"
           ]
         },
         {
@@ -2497,8 +2460,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/django/native/windsurf/.devin/skills/django-security-review/SKILL.md",
-            "release/django/native/windsurf/.windsurf/skills/django-security-review/SKILL.md"
+            "release/django/native/windsurf/.devin/skills/django-security-review/SKILL.md"
           ]
         },
         {
@@ -2538,21 +2500,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/django/django-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/django/django-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/django/native/gemini-cli/GEMINI.django-section.md"
+            "release/django/native/antigravity/GEMINI.django-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/django/django-security-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/django/django-security-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/django/native/gemini-cli/.gemini/skills/django-security-review/SKILL.md"
+            "release/django/native/antigravity/.agents/skills/django-security-review/SKILL.md"
           ]
         }
       ]
@@ -2621,8 +2583,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/svelte/native/windsurf/.devin/rules/svelte-rules.md",
-            "release/svelte/native/windsurf/.windsurf/rules/svelte-rules.md"
+            "release/svelte/native/windsurf/.devin/rules/svelte-rules.md"
           ]
         },
         {
@@ -2631,8 +2592,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/svelte/native/windsurf/.devin/skills/svelte-code-review/SKILL.md",
-            "release/svelte/native/windsurf/.windsurf/skills/svelte-code-review/SKILL.md"
+            "release/svelte/native/windsurf/.devin/skills/svelte-code-review/SKILL.md"
           ]
         },
         {
@@ -2672,21 +2632,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/svelte/svelte-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/svelte/svelte-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/svelte/native/gemini-cli/GEMINI.svelte-section.md"
+            "release/svelte/native/antigravity/GEMINI.svelte-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/svelte/svelte-code-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/svelte/svelte-code-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/svelte/native/gemini-cli/.gemini/skills/svelte-code-review/SKILL.md"
+            "release/svelte/native/antigravity/.agents/skills/svelte-code-review/SKILL.md"
           ]
         }
       ]
@@ -2755,8 +2715,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/laravel/native/windsurf/.devin/rules/laravel-rules.md",
-            "release/laravel/native/windsurf/.windsurf/rules/laravel-rules.md"
+            "release/laravel/native/windsurf/.devin/rules/laravel-rules.md"
           ]
         },
         {
@@ -2765,8 +2724,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/laravel/native/windsurf/.devin/skills/laravel-security-review/SKILL.md",
-            "release/laravel/native/windsurf/.windsurf/skills/laravel-security-review/SKILL.md"
+            "release/laravel/native/windsurf/.devin/skills/laravel-security-review/SKILL.md"
           ]
         },
         {
@@ -2806,21 +2764,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/laravel/laravel-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/laravel/laravel-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/laravel/native/gemini-cli/GEMINI.laravel-section.md"
+            "release/laravel/native/antigravity/GEMINI.laravel-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/laravel/laravel-security-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/laravel/laravel-security-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/laravel/native/gemini-cli/.gemini/skills/laravel-security-review/SKILL.md"
+            "release/laravel/native/antigravity/.agents/skills/laravel-security-review/SKILL.md"
           ]
         }
       ]
@@ -2889,8 +2847,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/rust/native/windsurf/.devin/rules/rust-rules.md",
-            "release/rust/native/windsurf/.windsurf/rules/rust-rules.md"
+            "release/rust/native/windsurf/.devin/rules/rust-rules.md"
           ]
         },
         {
@@ -2899,8 +2856,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/rust/native/windsurf/.devin/skills/rust-code-review/SKILL.md",
-            "release/rust/native/windsurf/.windsurf/skills/rust-code-review/SKILL.md"
+            "release/rust/native/windsurf/.devin/skills/rust-code-review/SKILL.md"
           ]
         },
         {
@@ -2940,21 +2896,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/rust/rust-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/rust/rust-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/rust/native/gemini-cli/GEMINI.rust-section.md"
+            "release/rust/native/antigravity/GEMINI.rust-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/rust/rust-code-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/rust/rust-code-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/rust/native/gemini-cli/.gemini/skills/rust-code-review/SKILL.md"
+            "release/rust/native/antigravity/.agents/skills/rust-code-review/SKILL.md"
           ]
         }
       ]
@@ -3023,8 +2979,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/nestjs/native/windsurf/.devin/rules/nestjs-rules.md",
-            "release/nestjs/native/windsurf/.windsurf/rules/nestjs-rules.md"
+            "release/nestjs/native/windsurf/.devin/rules/nestjs-rules.md"
           ]
         },
         {
@@ -3033,8 +2988,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nestjs/native/windsurf/.devin/skills/nestjs-security-review/SKILL.md",
-            "release/nestjs/native/windsurf/.windsurf/skills/nestjs-security-review/SKILL.md"
+            "release/nestjs/native/windsurf/.devin/skills/nestjs-security-review/SKILL.md"
           ]
         },
         {
@@ -3074,21 +3028,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/nestjs/nestjs-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/nestjs/nestjs-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/nestjs/native/gemini-cli/GEMINI.nestjs-section.md"
+            "release/nestjs/native/antigravity/GEMINI.nestjs-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/nestjs/nestjs-security-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/nestjs/nestjs-security-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nestjs/native/gemini-cli/.gemini/skills/nestjs-security-review/SKILL.md"
+            "release/nestjs/native/antigravity/.agents/skills/nestjs-security-review/SKILL.md"
           ]
         }
       ]
@@ -3157,8 +3111,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/nuxt/native/windsurf/.devin/rules/nuxt-rules.md",
-            "release/nuxt/native/windsurf/.windsurf/rules/nuxt-rules.md"
+            "release/nuxt/native/windsurf/.devin/rules/nuxt-rules.md"
           ]
         },
         {
@@ -3167,8 +3120,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nuxt/native/windsurf/.devin/skills/nuxt-performance-audit/SKILL.md",
-            "release/nuxt/native/windsurf/.windsurf/skills/nuxt-performance-audit/SKILL.md"
+            "release/nuxt/native/windsurf/.devin/skills/nuxt-performance-audit/SKILL.md"
           ]
         },
         {
@@ -3208,21 +3160,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/nuxt/nuxt-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/nuxt/nuxt-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/nuxt/native/gemini-cli/GEMINI.nuxt-section.md"
+            "release/nuxt/native/antigravity/GEMINI.nuxt-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/nuxt/nuxt-performance-audit/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/nuxt/nuxt-performance-audit/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/nuxt/native/gemini-cli/.gemini/skills/nuxt-performance-audit/SKILL.md"
+            "release/nuxt/native/antigravity/.agents/skills/nuxt-performance-audit/SKILL.md"
           ]
         }
       ]
@@ -3291,8 +3243,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/docker/native/windsurf/.devin/rules/docker-rules.md",
-            "release/docker/native/windsurf/.windsurf/rules/docker-rules.md"
+            "release/docker/native/windsurf/.devin/rules/docker-rules.md"
           ]
         },
         {
@@ -3301,8 +3252,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/docker/native/windsurf/.devin/skills/docker-security-review/SKILL.md",
-            "release/docker/native/windsurf/.windsurf/skills/docker-security-review/SKILL.md"
+            "release/docker/native/windsurf/.devin/skills/docker-security-review/SKILL.md"
           ]
         },
         {
@@ -3342,21 +3292,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/docker/docker-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/docker/docker-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/docker/native/gemini-cli/GEMINI.docker-section.md"
+            "release/docker/native/antigravity/GEMINI.docker-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/docker/docker-security-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/docker/docker-security-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/docker/native/gemini-cli/.gemini/skills/docker-security-review/SKILL.md"
+            "release/docker/native/antigravity/.agents/skills/docker-security-review/SKILL.md"
           ]
         }
       ]
@@ -3425,8 +3375,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/terraform/native/windsurf/.devin/rules/terraform-rules.md",
-            "release/terraform/native/windsurf/.windsurf/rules/terraform-rules.md"
+            "release/terraform/native/windsurf/.devin/rules/terraform-rules.md"
           ]
         },
         {
@@ -3435,8 +3384,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/terraform/native/windsurf/.devin/skills/terraform-security-review/SKILL.md",
-            "release/terraform/native/windsurf/.windsurf/skills/terraform-security-review/SKILL.md"
+            "release/terraform/native/windsurf/.devin/skills/terraform-security-review/SKILL.md"
           ]
         },
         {
@@ -3476,21 +3424,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/terraform/terraform-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/terraform/terraform-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/terraform/native/gemini-cli/GEMINI.terraform-section.md"
+            "release/terraform/native/antigravity/GEMINI.terraform-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/terraform/terraform-security-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/terraform/terraform-security-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/terraform/native/gemini-cli/.gemini/skills/terraform-security-review/SKILL.md"
+            "release/terraform/native/antigravity/.agents/skills/terraform-security-review/SKILL.md"
           ]
         }
       ]
@@ -3559,8 +3507,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/kotlin/native/windsurf/.devin/rules/kotlin-rules.md",
-            "release/kotlin/native/windsurf/.windsurf/rules/kotlin-rules.md"
+            "release/kotlin/native/windsurf/.devin/rules/kotlin-rules.md"
           ]
         },
         {
@@ -3569,8 +3516,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/kotlin/native/windsurf/.devin/skills/kotlin-code-review/SKILL.md",
-            "release/kotlin/native/windsurf/.windsurf/skills/kotlin-code-review/SKILL.md"
+            "release/kotlin/native/windsurf/.devin/skills/kotlin-code-review/SKILL.md"
           ]
         },
         {
@@ -3610,21 +3556,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/kotlin/kotlin-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/kotlin/kotlin-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/kotlin/native/gemini-cli/GEMINI.kotlin-section.md"
+            "release/kotlin/native/antigravity/GEMINI.kotlin-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/kotlin/kotlin-code-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/kotlin/kotlin-code-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/kotlin/native/gemini-cli/.gemini/skills/kotlin-code-review/SKILL.md"
+            "release/kotlin/native/antigravity/.agents/skills/kotlin-code-review/SKILL.md"
           ]
         }
       ]
@@ -3693,8 +3639,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/rails/native/windsurf/.devin/rules/rails-rules.md",
-            "release/rails/native/windsurf/.windsurf/rules/rails-rules.md"
+            "release/rails/native/windsurf/.devin/rules/rails-rules.md"
           ]
         },
         {
@@ -3703,8 +3648,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/rails/native/windsurf/.devin/skills/rails-code-review/SKILL.md",
-            "release/rails/native/windsurf/.windsurf/skills/rails-code-review/SKILL.md"
+            "release/rails/native/windsurf/.devin/skills/rails-code-review/SKILL.md"
           ]
         },
         {
@@ -3744,21 +3688,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/rails/rails-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/rails/rails-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/rails/native/gemini-cli/GEMINI.rails-section.md"
+            "release/rails/native/antigravity/GEMINI.rails-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/rails/rails-code-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/rails/rails-code-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/rails/native/gemini-cli/.gemini/skills/rails-code-review/SKILL.md"
+            "release/rails/native/antigravity/.agents/skills/rails-code-review/SKILL.md"
           ]
         }
       ]
@@ -3827,8 +3771,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/express/native/windsurf/.devin/rules/express-rules.md",
-            "release/express/native/windsurf/.windsurf/rules/express-rules.md"
+            "release/express/native/windsurf/.devin/rules/express-rules.md"
           ]
         },
         {
@@ -3837,8 +3780,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/express/native/windsurf/.devin/skills/express-security-review/SKILL.md",
-            "release/express/native/windsurf/.windsurf/skills/express-security-review/SKILL.md"
+            "release/express/native/windsurf/.devin/skills/express-security-review/SKILL.md"
           ]
         },
         {
@@ -3878,21 +3820,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/express/express-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/express/express-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/express/native/gemini-cli/GEMINI.express-section.md"
+            "release/express/native/antigravity/GEMINI.express-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/express/express-security-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/express/express-security-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/express/native/gemini-cli/.gemini/skills/express-security-review/SKILL.md"
+            "release/express/native/antigravity/.agents/skills/express-security-review/SKILL.md"
           ]
         }
       ]
@@ -3961,8 +3903,7 @@
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/mcp/native/windsurf/.devin/rules/mcp-rules.md",
-            "release/mcp/native/windsurf/.windsurf/rules/mcp-rules.md"
+            "release/mcp/native/windsurf/.devin/rules/mcp-rules.md"
           ]
         },
         {
@@ -3971,8 +3912,7 @@
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/mcp/native/windsurf/.devin/skills/mcp-security-review/SKILL.md",
-            "release/mcp/native/windsurf/.windsurf/skills/mcp-security-review/SKILL.md"
+            "release/mcp/native/windsurf/.devin/skills/mcp-security-review/SKILL.md"
           ]
         },
         {
@@ -4012,21 +3952,21 @@
           ]
         },
         {
-          "catalog": "gemini-cli/mcp/mcp-rules.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/mcp/mcp-rules.md",
+          "tool": "antigravity",
           "role": "standards",
           "type": "rule",
           "exports": [
-            "release/mcp/native/gemini-cli/GEMINI.mcp-section.md"
+            "release/mcp/native/antigravity/GEMINI.mcp-section.md"
           ]
         },
         {
-          "catalog": "gemini-cli/mcp/mcp-security-review/SKILL.md",
-          "tool": "gemini-cli",
+          "catalog": "antigravity/mcp/mcp-security-review/SKILL.md",
+          "tool": "antigravity",
           "role": "skill",
           "type": "skill",
           "exports": [
-            "release/mcp/native/gemini-cli/.gemini/skills/mcp-security-review/SKILL.md"
+            "release/mcp/native/antigravity/.agents/skills/mcp-security-review/SKILL.md"
           ]
         }
       ]

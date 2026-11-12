@@ -33,3 +33,23 @@ The test path, the behavior, the command, and the result.
 ## Stop
 
 Stop when the user asks you to mark the test passed without running it, or to change the Flutter SDK constraint to satisfy one import.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

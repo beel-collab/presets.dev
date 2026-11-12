@@ -2,7 +2,7 @@
 id: "claude-dotnet-code-review"
 slug: "claude/skills/dotnet/dotnet-code-review/SKILL"
 title: ".NET Code Review Skill for Claude Code"
-description: "Claude Code skill for a .NET code review. Use when you want that code review on a .NET change. Do not use it for a different stack."
+description: "Review a .NET change for async cancellation, endpoint authorization, and C# syntax the target framework does not have. Use for a .NET code review. Do not use for a non-.NET repository or to retarget the TFM unasked."
 type: "skill"
 tools:
   - "claude"
@@ -65,3 +65,23 @@ Findings with severity, file, line, the TFM, and a fix that compiles on that TFM
 ## Stop
 
 Stop when the user asks you to suppress nullable warnings project-wide or to block on async to "keep it simple".
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

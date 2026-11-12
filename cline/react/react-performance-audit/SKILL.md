@@ -2,7 +2,7 @@
 id: "cline-react-performance-audit"
 slug: "cline/react/react-performance-audit/SKILL"
 title: "React Performance Audit Skill for Cline"
-description: "Cline skill for a React performance audit. Use when you want that performance audit on a React change. Do not use it for a different stack."
+description: "Audit a React UI for wasted renders, effect loops, hydration mismatches, and heavy client work. Use for a React performance audit or a slow-page review. Do not use for a non-React codebase or a styling-only tweak."
 type: "skill"
 tools:
   - "cline"
@@ -67,3 +67,23 @@ Each finding has severity, file, line, the render or network cost you can point 
 ## Stop
 
 Stop when the project is not React, or when the user asks you to rewrite the UI without a measured hotspot.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

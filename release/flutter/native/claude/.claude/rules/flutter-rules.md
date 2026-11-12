@@ -6,7 +6,7 @@ paths:
 
 # Flutter Claude Code Rules: Widgets, Async UI and Platform Builds
 
-Path-scoped Claude Code rule for Flutter. It loads when a matching file is read. It does not replace `CLAUDE.md`. Use `flutter-test-writer` for a review.
+Path-scoped Claude Code rule for Flutter. It loads when a matching file is read. It does not replace `CLAUDE.md`.
 
 ## Updated for Flutter 3.47, Nov 2026
 
@@ -43,3 +43,23 @@ Widget tests pump the widget, find by text or key, and tap. A unit test covers a
 - A generated plugin file edited by hand.
 - An Android build change copied from an old embedding.
 - A test that never pumps a frame and still claims the widget works.
+
+## What changed in this major
+
+Flutter 3.50 makes direct native interop stable. New projects use standalone `material_ui` and `cupertino_ui`.
+
+## Deprecated APIs to never generate
+
+Do not generate `RaisedButton` or edit files under `.dart_tool`.
+
+## Commands
+
+Run `flutter test` for the new file.
+
+## Example
+
+```dart
+final name = await lookup();
+if (!context.mounted) return;
+Navigator.of(context).pop(name);
+```

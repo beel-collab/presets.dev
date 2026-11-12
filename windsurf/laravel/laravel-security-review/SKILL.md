@@ -2,7 +2,7 @@
 id: "windsurf-laravel-security-review"
 slug: "windsurf/laravel/laravel-security-review/SKILL"
 title: "Laravel Security Review Skill for Windsurf"
-description: "Windsurf skill for a Laravel security review. Use when you want that security review on a Laravel change. Do not use it for a different stack."
+description: "Review a Laravel change for policies, Form Request validation, and mass assignment. Use for a Laravel security review. Do not use for a non-Laravel PHP script or to run a migration against production."
 type: "skill"
 tools:
   - "windsurf"
@@ -31,7 +31,7 @@ updated_for: "Laravel 13, Nov 2026"
 
 ## Install
 
-Install the native export at `.devin/skills/laravel-security-review/SKILL.md` and `.windsurf/skills/laravel-security-review/SKILL.md`.
+Install the native export at `.devin/skills/laravel-security-review/SKILL.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
@@ -39,7 +39,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Laravel Security Review Skill for Windsurf
 
-Skill `laravel-security-review` for Devin CLI and the legacy Windsurf skills folder. Invoke it with `/laravel-security-review`. This file is not a subagent.
+Devin skill `laravel-security-review` for Laravel. Invoke it with `/laravel-security-review`. Install only `.devin/skills`. This file is not a subagent.
 
 ## When to run
 
@@ -48,6 +48,17 @@ Run this review for a Laravel controller, Form Request, policy, Eloquent write, 
 ## When to leave it
 
 Stop for PHP that is not Laravel. Do not upgrade Laravel or migrate production.
+
+## What to check
+
+- Injection: `DB::raw`, `whereRaw`, and `selectRaw` with concatenated user input. Bindings are the safe form.
+- XSS: `{!! !!}` on user text.
+- CSRF: a web route that disables `ValidateCsrfToken`.
+- Secrets: a key in `.env` that was committed, or a token written to the log.
+- IDOR: a route-model binding or `find($id)` that never calls a policy.
+- SSRF: `Http::get($request->input('url'))` with no allow-list.
+- Mass assignment: `$request->all()` into `create` or `update`, or a model `$guarded = []` on a public write.
+- Uploads: `storeAs` with the client filename and no mime or size rule.
 
 ## Steps
 
@@ -65,3 +76,23 @@ Findings with severity, file, line, the missing check, and a fix. Production was
 ## Stop
 
 Stop when the user asks you to turn CSRF off or to mass-assign for speed.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

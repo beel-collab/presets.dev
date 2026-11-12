@@ -5,11 +5,9 @@ trigger: "model_decision"
 
 # Angular Windsurf Rules: Standalone Components, Signals and Forms
 
-Rule for Angular on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `angular-code-review` for a review.
+Devin rule for Angular. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for Angular 22.2.5, Nov 2026
-
-`@angular/core` 22.2.6 is the npm `latest` release checked on 12 November 2026. Signal Forms are stable in v22. Zoneless change detection has been the default since v21. Read the installed major before you generate a component. Do not scaffold a new NgModule-first app. Do not add `zone.js` back because an old example imported it.
 
 ## Project shape
 
@@ -50,3 +48,27 @@ Test with the project's TestBed or the newer test API it already uses. A compone
 - `zone.js` added back to silence a stale example.
 - A form value submitted while invalid.
 - `bypassSecurityTrustHtml` on a user string.
+
+## What changed in this major
+
+Angular 22 defaults to OnPush (`Eager` is the old Default). New services use `@Service()` and `inject()`. Signal Forms are stable.
+
+## Deprecated APIs to never generate
+
+Do not generate `*ngIf` or `*ngFor` in a new template, or constructor injection on a new `@Service`.
+
+## Commands
+
+Run `ng test` or the workspace test target.
+
+## Example
+
+```ts
+@Service()
+export class Notes {
+  private http = inject(HttpClient)
+}
+```
+## Agent tooling
+
+The Angular CLI MCP server is `npx @angular/cli mcp`. It can search docs, list projects, and run targets. See https://angular.dev/ai/mcp .

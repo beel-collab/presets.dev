@@ -1,3 +1,6 @@
 # Rails sources
 
-Rails 8.1.4.1 was taken from the release plan's November 2026 security note, and 8.1 job continuations from the 8.1 feature note. This session did not re-fetch rubyonrails.org. A Gemfile stays on its current Rails. Jobs that retry must be idempotent. Clients were not launched.
+Fetched 12 November 2026.
+
+- https://rubyonrails.org/2025/10/22/rails-8-1 describes Active Job continuations as resume-from-last-step, not as an idempotency key. The same post covers structured events and local CI.
+- Passing an Active Record object to a job uses GlobalID, which stores the class and id. See https://guides.rubyonrails.org/active_job_basics.html

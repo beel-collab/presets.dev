@@ -2,7 +2,7 @@
 id: "windsurf-react-native-code-review"
 slug: "windsurf/react-native/react-native-code-review/SKILL"
 title: "React Native Code Review Skill for Windsurf"
-description: "Windsurf skill for a React Native code review. Use when you want that code review on a React Native change. Do not use it for a different stack."
+description: "Review a React Native or Expo change for platform APIs, navigation, and lifecycle safety. Use for a React Native code review. Do not use for a web-only React bug or an Expo upgrade nobody asked for."
 type: "skill"
 tools:
   - "windsurf"
@@ -31,7 +31,7 @@ updated_for: "React Native 0.88.1, Nov 2026"
 
 ## Install
 
-Install the native export at `.devin/skills/react-native-code-review/SKILL.md` and `.windsurf/skills/react-native-code-review/SKILL.md`.
+Install the native export at `.devin/skills/react-native-code-review/SKILL.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
@@ -39,7 +39,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # React Native Code Review Skill for Windsurf
 
-Skill `react-native-code-review` for Devin CLI and the legacy Windsurf skills folder. Invoke it with `/react-native-code-review`. This file is not a subagent.
+Devin skill `react-native-code-review` for React Native. Invoke it with `/react-native-code-review`. Install only `.devin/skills`. This file is not a subagent.
 
 ## When to run
 
@@ -52,7 +52,7 @@ Stop for a web-only React repository. Do not upgrade Expo or React Native unless
 ## Steps
 
 1. Read the React Native version and the Expo SDK field if it exists. A mismatch with the SDK's supported React Native is a high finding. A DOM API (`window`, `document`, View Transitions) in native code is a high finding.
-2. Review effects that set state after `await`. A missing focus or mounted check is a finding.
+2. Review effects that set state after `await`. A stack screen that is covered is still mounted. Work that should stop on blur belongs in `useFocusEffect`, not in an unmount cleanup. Missing that split is a finding.
 3. Review navigation params and cache keys. A secret in a param, or a private cache with no user id, is a high finding.
 4. Review permissions. A request with no denial path is a finding.
 5. Note how the change was run: device, simulator, or not run. Do not call a release ready from a simulator-only look.
@@ -64,3 +64,23 @@ Findings with severity, file, line, the platform assumption, and a fix. Include 
 ## Stop
 
 Stop when the user asks you to ship a store build or to change the SDK as part of a review.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

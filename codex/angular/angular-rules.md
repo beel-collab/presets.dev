@@ -2,7 +2,7 @@
 id: "codex-angular-rules"
 slug: "codex/angular/angular-rules"
 title: "Angular Codex Instructions: Standalone Components, Signals and Forms"
-description: "Codex instructions for Angular: Standalone Components, Signals and Forms. Append to AGENTS.md. Structure, security, and tests. Angular 22.2.5, Nov 2026."
+description: "Codex instructions for Angular: Standalone Components, Signals and Forms. Append to AGENTS.md. Structure, security, and tests. Angular 22.2.6, Nov 2026."
 type: "rule"
 tools:
   - "codex"
@@ -22,8 +22,8 @@ tested_with:
 created: "2026-11-11"
 updated: "2026-11-11"
 libs:
-  - "@angular/core@22.2.5"
-updated_for: "Angular 22.2.5, Nov 2026"
+  - "@angular/core@22.2.6"
+updated_for: "Angular 22.2.6, Nov 2026"
 ---
 
 # Angular Codex Instructions: Standalone Components, Signals and Forms
@@ -38,15 +38,15 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Angular Codex Instructions: Standalone Components, Signals and Forms
 
-Section to append to `AGENTS.md` for Angular. This is project guidance, not a custom agent. Use `$angular-code-review` for a review.
+Section to append to `AGENTS.md` for Angular. This is project guidance, not a custom agent.
 
 ## Updated for Angular 22.2.5, Nov 2026
 
-`@angular/core` 22.2.5 is the npm `latest` release checked on 11 November 2026. Signal Forms are stable in v22. Zoneless change detection has been the default since v21. Read the installed major before you generate a component. Do not scaffold a new NgModule-first app. Do not add `zone.js` back because an old example imported it.
-
 ## Project shape
 
-New components are standalone. They declare `imports` for the directives they use. A feature is a set of standalone components and a route, not a new module, unless the repository is still on the module style and the task did not ask to convert it.
+New components are standalone. They declare `imports` for the directives they use. Templates use `@if`, `@for`, and `@switch`. That control flow has been the standard since v17. It is not a v22 feature. On v22, `OnPush` is the default change detection. The old `Default` strategy is named `Eager`. Do not set `ChangeDetectionStrategy.Default` on a new component. A feature is a set of standalone components and a route, not a new module, unless the repository is still on the module style and the task did not ask to convert it.
+
+A new service uses `@Service()` and `inject()`. That decorator does not support constructor injection. Keep `@Injectable` when you need a constructor, `useClass`, or a non-root scope. `injectAsync` is the async form of `inject()` when the project is on a version that exports it. Do not generate a constructor-injected `@Service`.
 
 Routes are lazy where the app already lazy-loads. Provide services at the route or the root the project already chose. Do not provide the same stateful service in every component.
 
@@ -81,3 +81,27 @@ Test with the project's TestBed or the newer test API it already uses. A compone
 - `zone.js` added back to silence a stale example.
 - A form value submitted while invalid.
 - `bypassSecurityTrustHtml` on a user string.
+
+## What changed in this major
+
+Angular 22 defaults to OnPush (`Eager` is the old Default). New services use `@Service()` and `inject()`. Signal Forms are stable.
+
+## Deprecated APIs to never generate
+
+Do not generate `*ngIf` or `*ngFor` in a new template, or constructor injection on a new `@Service`.
+
+## Commands
+
+Run `ng test` or the workspace test target.
+
+## Example
+
+```ts
+@Service()
+export class Notes {
+  private http = inject(HttpClient)
+}
+```
+## Agent tooling
+
+The Angular CLI MCP server is `npx @angular/cli mcp`. It can search docs, list projects, and run targets. See https://angular.dev/ai/mcp .

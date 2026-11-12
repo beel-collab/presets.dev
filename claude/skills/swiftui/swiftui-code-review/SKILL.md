@@ -2,7 +2,7 @@
 id: "claude-swiftui-code-review"
 slug: "claude/skills/swiftui/swiftui-code-review/SKILL"
 title: "SwiftUI Code Review Skill for Claude Code"
-description: "Claude Code skill for a SwiftUI code review. Use when you want that code review on a SwiftUI change. Do not use it for a different stack."
+description: "Review a SwiftUI change for actor isolation, observation, and main-actor UI updates. Use for a SwiftUI code review. Do not use for a non-Swift repository or to silence isolation with unchecked Sendable."
 type: "skill"
 tools:
   - "claude"
@@ -54,7 +54,7 @@ Stop for a non-Swift repository. Do not change the deployment target or the Swif
 1. Read the Swift tools version and the deployment target. An API used below that target is a high finding. `@unchecked Sendable` added in the diff is a high finding unless a comment proves the invariant.
 2. Check UI updates. A published property written from a non-main-actor task is a high finding.
 3. Search for `try?` and `!` on decoded or optional values. Each one that hides a failure is a finding.
-4. Check `Task` lifetime. A task stored without cancellation when the view goes away is a finding.
+4. Check task lifetime. `.task` is cancelled with the view. A plain `Task { }` with no stored handle and no `cancel()` is a finding. A task that never checks cancellation during a long loop is a finding.
 5. Note tests. Run the project's test action only if the user asked. Otherwise write `not run`.
 
 ## Output
@@ -64,3 +64,23 @@ Findings with severity, file, line, the isolation or availability issue, and a f
 ## Stop
 
 Stop when the user asks you to disable strict concurrency to get a green build.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

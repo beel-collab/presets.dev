@@ -5,7 +5,7 @@ trigger: "model_decision"
 
 # Docker Windsurf Rules: Images, Runtime Users and Build Secrets
 
-Rule for Docker on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `docker-security-review` for a review.
+Devin rule for Docker. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for Docker Engine 29, Nov 2026
 
@@ -40,3 +40,22 @@ Build the image and scan the history for `ENV` secrets and a root user when the 
 - A root `USER` in the runtime stage.
 - The Docker socket mounted into the app.
 - A single-stage image that ships the toolchain.
+
+## What changed in this major
+
+Engine 29 is the current major. BuildKit secrets and a non-root `USER` are the defaults to write.
+
+## Deprecated APIs to never generate
+
+Do not generate `latest` as a base image, or `USER root` in the runtime stage.
+
+## Commands
+
+Run `docker build` only when asked. Do not push.
+
+## Example
+
+```dockerfile
+FROM node:22-bookworm-slim
+USER node
+```

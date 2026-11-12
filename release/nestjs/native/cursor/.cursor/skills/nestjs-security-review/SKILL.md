@@ -2,8 +2,10 @@
 name: "nestjs-security-review"
 description: "Review a NestJS change for unregistered providers, DTO validation, and unguarded routes. Use for a NestJS security review. Do not use for a non-NestJS TypeScript API or to treat a TypeScript interface as runtime validation."
 paths:
-  - "**/*.ts"
+  - "**/*.controller.ts"
   - "**/*.module.ts"
+  - "**/*.dto.ts"
+  - "**/*.guard.ts"
 ---
 
 # NestJS Security Review Skill for Cursor
@@ -34,3 +36,32 @@ Findings with severity, file, line, the missing provider or guard, and a fix.
 ## Stop
 
 Stop when the user asks you to disable the validation pipe or to leave a route unguarded for a demo.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## What to check
+
+- Injection: concatenated SQL, shell, or HTML.
+- XSS: unescaped user text in HTML.
+- CSRF: a browser state change with the framework check disabled.
+- Secrets: a key in the repo or in a log line.
+- IDOR: an id from the client with no owner or permission check.
+- SSRF: a user-supplied URL fetched with no allow-list.

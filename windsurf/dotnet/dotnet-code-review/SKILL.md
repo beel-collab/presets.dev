@@ -2,7 +2,7 @@
 id: "windsurf-dotnet-code-review"
 slug: "windsurf/dotnet/dotnet-code-review/SKILL"
 title: ".NET Code Review Skill for Windsurf"
-description: "Windsurf skill for a .NET code review. Use when you want that code review on a .NET change. Do not use it for a different stack."
+description: "Review a .NET change for async cancellation, endpoint authorization, and C# syntax the target framework does not have. Use for a .NET code review. Do not use for a non-.NET repository or to retarget the TFM unasked."
 type: "skill"
 tools:
   - "windsurf"
@@ -31,7 +31,7 @@ updated_for: ".NET 10 LTS and .NET 11, Nov 2026"
 
 ## Install
 
-Install the native export at `.devin/skills/dotnet-code-review/SKILL.md` and `.windsurf/skills/dotnet-code-review/SKILL.md`.
+Install the native export at `.devin/skills/dotnet-code-review/SKILL.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
@@ -39,7 +39,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # .NET Code Review Skill for Windsurf
 
-Skill `dotnet-code-review` for Devin CLI and the legacy Windsurf skills folder. Invoke it with `/dotnet-code-review`. This file is not a subagent.
+Devin skill `dotnet-code-review` for .NET. Invoke it with `/dotnet-code-review`. Install only `.devin/skills`. This file is not a subagent.
 
 ## When to run
 
@@ -65,3 +65,23 @@ Findings with severity, file, line, the TFM, and a fix that compiles on that TFM
 ## Stop
 
 Stop when the user asks you to suppress nullable warnings project-wide or to block on async to "keep it simple".
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

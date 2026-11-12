@@ -4,9 +4,21 @@
   "product": "Express",
   "focus": "Middleware, Routing and Validation",
   "updated_for": "Express 5.3.0, Nov 2026",
-  "libs": ["express@5.3.0"],
-  "tags": ["express", "nodejs", "middleware"],
-  "paths": ["**/*.js", "**/*.ts"],
+  "libs": [
+    "express@5.3.0"
+  ],
+  "tags": [
+    "express",
+    "nodejs",
+    "middleware"
+  ],
+  "paths": [
+    "**/routes/**/*.ts",
+    "**/routes/**/*.js",
+    "**/app.ts",
+    "**/server.ts",
+    "src/index.ts"
+  ],
   "skill_name": "express-security-review",
   "skill_label": "Security Review",
   "skill_tag": "security",

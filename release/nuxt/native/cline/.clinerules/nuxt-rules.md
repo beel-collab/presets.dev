@@ -7,11 +7,9 @@ paths:
 
 # Nuxt Cline Rules: SSR Data, Nitro and Runtime Config
 
-Conditional Cline rule for Nuxt. Install it under `.clinerules/` only. Use `nuxt-performance-audit` for a review.
+Conditional Cline rule for Nuxt. Install it under `.clinerules/` only.
 
 ## Updated for Nuxt 4.6.4, Nov 2026
-
-Nuxt 4.6.4 is the npm `latest` release checked on 11 November 2026. Current apps import server utilities from the Nuxt server paths the project already uses, and typed fetch has been rebuilt. `routeTypedFetch` is still experimental. Do not turn it on unless the task asks. Read `nuxt.config` and the installed major before you copy a Nuxt 3 snippet into a Nuxt 4 app.
 
 ## Project shape
 
@@ -48,3 +46,21 @@ Test a page with the project's Vitest or Playwright setup. Assert one network ca
 - A private key under `runtimeConfig.public`.
 - `routeTypedFetch` enabled as an experiment nobody asked for.
 - A Nuxt 3 config alias pasted into Nuxt 4 without reading the installed major.
+
+## What changed in this major
+
+Nuxt 4.6 keeps private `runtimeConfig` off the client. `routeTypedFetch` is experimental.
+
+## Deprecated APIs to never generate
+
+Do not generate a private key under `runtimeConfig.public`, or experimental `routeTypedFetch` unasked.
+
+## Commands
+
+Run the Nuxt test script. Do not print `runtimeConfig`.
+
+## Example
+
+```ts
+const { data } = await useAsyncData(() => $fetch(`/api/notes/${id}`), { watch: [id] })
+```

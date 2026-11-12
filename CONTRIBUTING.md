@@ -39,11 +39,10 @@ claude/         Claude Code
 windsurf/       Windsurf
 cline/          Cline
 codex/          OpenAI Codex
-gemini-cli/     Gemini CLI
-antigravity/    Antigravity
+antigravity/    Antigravity CLI
 ```
 
-`gemini-cli` is Gemini CLI. It is not Antigravity, and Antigravity files stay under `antigravity/`.
+`antigravity` is Antigravity CLI. Gemini CLI stopped serving personal accounts on 18 June 2026, and Antigravity CLI reads `GEMINI.md` and `AGENTS.md`. Workspace skills install at `.agents/skills/<name>/SKILL.md`. Do not add a separate `gemini-cli` directory.
 
 | Type | Where to put it |
 | --- | --- |
@@ -71,7 +70,7 @@ New presets, and any preset a pull request edits, start with YAML frontmatter th
 | `title` | Short name shown to people. |
 | `description` | One or two sentences, 20 to 400 characters. |
 | `type` | `rule`, `instruction`, `agent`, or `skill`. |
-| `tools` | One or more of `copilot`, `cursor`, `claude`, `windsurf`, `cline`, `codex`, `gemini-cli`, `antigravity`. Include the directory the file lives in. |
+| `tools` | One or more of `copilot`, `cursor`, `claude`, `windsurf`, `cline`, `codex`, `antigravity`. Include the directory the file lives in. `antigravity` is Antigravity CLI. |
 | `tags` | One to twelve short tags. |
 | `author` | Object. `name` is required and is the person or organization who wrote the preset (`Community` is rejected). `github` is optional: a GitHub username, or `https://github.com/<username>`. The site indexer reads `author.name`. |
 | `license` | `MIT` |
@@ -336,7 +335,7 @@ GitHub Actions runs [`.github/workflows/ci.yml`](.github/workflows/ci.yml) on pu
 | Length | 40,000 characters for a changed preset or supporting file under a tool directory. `README.md` and `CONTRIBUTING.md` are exempt. |
 | Secret scan | Files added or modified in the pull request. Private keys and common live token shapes fail the check. A line that is clearly an example is ignored. |
 | DCO | Every non-merge commit in the pull request has `Signed-off-by` matching the commit author. |
-| Release counts | Each stack listed as complete in `release/original-2026-11/stacks.json` has 14 catalog entries: one standards file and one `SKILL.md` for each of the seven release tools, including `gemini-cli`. The index is not named `manifest.json` because that filename is gitignored. |
+| Release counts | Each stack listed as complete in `release/original-2026-11/stacks.json` has 14 catalog entries: one standards file and one `SKILL.md` for each of the seven release tools, including `antigravity`. The index is not named `manifest.json` because that filename is gitignored. |
 | Native export | `scripts/assemble_release.py --check` rebuilds catalog files and native install files from `masters/` and fails on drift. |
 | Similarity | Release prose is compared with the copied catalog. A long shared run, or a very high shingle overlap, fails the check. |
 | Next.js fixture | `node --test fixtures/nextjs/tenant-cache/policy.test.mjs` runs the decision table used by the Next.js audit skill. |

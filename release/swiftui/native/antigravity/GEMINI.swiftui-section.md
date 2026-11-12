@@ -1,0 +1,60 @@
+<!-- Append this section to GEMINI.md. Do not replace the existing file. Confirm with /memory show. -->
+
+# SwiftUI Antigravity CLI Rules: State, Concurrency and Availability
+
+Section to append to `GEMINI.md` for SwiftUI. Antigravity CLI also reads `AGENTS.md`. Confirm the loaded rules before you rely on them.
+
+## Updated for Swift 6.4, Nov 2026
+
+Write for the Swift tools version and the deployment target in the project. Swift 6.4 adds async `defer` and cancellation shields, and Swift Build is the default build system on that line. Use those only when the toolchain is 6.4. Do not lower a deployment target, and do not mark a type `@unchecked Sendable` to quiet the compiler.
+
+## Project shape
+
+A view is a function of state. `@State` owns view-local value. `@Binding` edits a parent's value. A reference model uses the Observation macro the project already adopted, `@Observable`, rather than a new `ObservableObject` in fresh code. Follow the existing choice if the app has not moved.
+
+Views stay small. A feature folder holds the view, the model, and the tests when that is the local layout.
+
+## Concurrency
+
+UI updates hop to the main actor. A view model that publishes to a view is `@MainActor`. The `.task` modifier is tied to the view: SwiftUI cancels it after the view disappears. A plain `Task { }` is unstructured. It keeps running if you drop the handle. Store that handle and call `cancel()` when the view goes away. Cancellation is cooperative: the work checks `Task.isCancelled` or `Task.checkCancellation()`. Do not capture `self` strongly in a task that outlives the view.
+
+`await` a throwing call and surface the error. `try?` that becomes `nil` with no message hides a failure. Structured tasks have a parent. A detached task needs a reason. A cancellation shield is for the short cleanup that must finish, not for a whole network call you do not want to cancel.
+
+## Availability and data
+
+An API newer than the deployment target is wrapped in `if #available` or marked with the availability attribute. Do not call it unconditionally because the simulator is new.
+
+Decode JSON with `Codable` and an explicit strategy for dates and keys. A failed decode is an error state, not an empty screen that looks successful. Do not force-unwrap a network payload.
+
+## Errors, accessibility, and tests
+
+Show the error in the view. A button has a label. Images that mean something have accessibility text. Dynamic type is not clipped by a fixed frame unless the design says so.
+
+Prefer Swift Testing when the project has adopted it. Otherwise use XCTest the way the neighbors do. A test builds the model, drives the action, and asserts the state. Run the test action. Record the output. Say when you did not run a simulator.
+
+## Mistakes to avoid
+
+- `@unchecked Sendable` to silence isolation.
+- `try?` that drops the error.
+- A UI property written off the main actor.
+- An API used below the deployment target.
+- A force unwrap on decoded data.
+
+## What changed in this major
+
+Swift 6.4 adds async `defer` and cancellation shields. `.task` is the view-scoped task. Plain `Task` is not.
+
+## Deprecated APIs to never generate
+
+Do not generate `@unchecked Sendable` to silence isolation, or `try?` on a failing load.
+
+## Commands
+
+Run the project's Swift test action.
+
+## Example
+
+```swift
+.task { await model.load() }
+```
+That task is cancelled when the view disappears.

@@ -5,11 +5,9 @@ trigger: "model_decision"
 
 # React Native Windsurf Rules: Expo, Navigation and Native Lifecycle
 
-Rule for React Native on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `react-native-code-review` for a review.
+Devin rule for React Native. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for React Native 0.88.1, Nov 2026
-
-React Native 0.88.1 is the npm `latest` release checked on 11 November 2026. Expo's current SDK that day was 58. Do not change the Expo SDK or the React Native version unless the task asks, and do not mix an SDK with a React Native version the SDK does not support. Web-only DOM APIs, including React 19.3 `browser()` and View Transitions, are not available here.
 
 ## Project shape
 
@@ -52,3 +50,25 @@ Run the project's Jest or Maestro target for the logic you changed. A device che
 - An Expo SDK bump that does not match the React Native version.
 - A route param that contains a secret or a function.
 - Calling the work done without a device or a clearly labeled simulator run.
+
+## What changed in this major
+
+React Native 0.88 is the current line. Expo SDK 58 is current npm latest. Do not mix an SDK with an unsupported React Native.
+
+## Deprecated APIs to never generate
+
+Do not generate `componentWillMount`, or `document` / `window` in a native screen.
+
+## Commands
+
+Run the unit test script. Say when no device was used.
+
+## Example
+
+```tsx
+useFocusEffect(useCallback(() => {
+  const ac = new AbortController()
+  load(ac.signal)
+  return () => ac.abort()
+}, []))
+```

@@ -4,7 +4,7 @@
 [![CI](https://github.com/beel-collab/presets.dev/actions/workflows/ci.yml/badge.svg)](https://github.com/beel-collab/presets.dev/actions/workflows/ci.yml)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-presets.dev is a public catalog of AI coding presets. A preset is a rule, instruction, agent, or skill that shapes an assistant while you write software. The catalog covers GitHub Copilot, Cursor, Claude Code, Windsurf, Cline, OpenAI Codex, Gemini CLI, and Antigravity. Gemini CLI uses the `gemini-cli` id. Antigravity is a separate target.
+presets.dev is a public catalog of AI coding presets. A preset is a rule, instruction, agent, or skill that shapes an assistant while you write software. The catalog covers GitHub Copilot, Cursor, Claude Code, Windsurf, Cline, OpenAI Codex, and Antigravity CLI. Antigravity CLI replaced Gemini CLI for personal accounts and uses the `antigravity` id.
 
 This repository is the content source for [presets.dev](https://presets.dev). A file under a tool directory is a preset.
 
@@ -26,8 +26,15 @@ The clean-room rule, the frontmatter schema, and the starters are in [CONTRIBUTI
 | `windsurf/` | Windsurf | `.md`, `AGENTS.md`, `SKILL.md` |
 | `cline/` | Cline | `.md`, `SKILL.md` |
 | `codex/` | OpenAI Codex | `AGENTS.md`, `SKILL.md`, and standards files that install as an `AGENTS.md` section |
-| `gemini-cli/` | Gemini CLI | standards files that install as a `GEMINI.md` section, `SKILL.md` |
-| `antigravity/` | Antigravity | `AGENTS.md`, `SKILL.md` |
+| `antigravity/` | Antigravity CLI | standards files that install as a `GEMINI.md` or `AGENTS.md` section, `SKILL.md` |
+
+## Original release
+
+`masters/` holds one standards file and one skill file for each of 30 stacks. `python scripts/assemble_release.py` writes 420 catalog entries (seven tools, two files each) and the native install files under `release/<stack>/native/`.
+
+Install one tool. Copy the native file into the path named in `release/README.md`. Append Codex sections to `AGENTS.md` and Antigravity CLI sections to `GEMINI.md`. Do not replace a file the repo already has. Windsurf installs only the `.devin/` copy.
+
+The index of those entries is `release/original-2026-11/stacks.json`.
 
 ## Demo
 

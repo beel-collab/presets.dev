@@ -5,7 +5,7 @@ description: "Review a SwiftUI change for actor isolation, observation, and main
 
 # SwiftUI Code Review Skill for Windsurf
 
-Skill `swiftui-code-review` for Devin CLI and the legacy Windsurf skills folder. Invoke it with `/swiftui-code-review`. This file is not a subagent.
+Devin skill `swiftui-code-review` for SwiftUI. Invoke it with `/swiftui-code-review`. Install only `.devin/skills`. This file is not a subagent.
 
 ## When to run
 
@@ -30,3 +30,23 @@ Findings with severity, file, line, the isolation or availability issue, and a f
 ## Stop
 
 Stop when the user asks you to disable strict concurrency to get a green build.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

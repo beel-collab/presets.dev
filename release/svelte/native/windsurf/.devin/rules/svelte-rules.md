@@ -5,7 +5,7 @@ trigger: "model_decision"
 
 # Svelte Windsurf Rules: Runes, Load Functions and SSR
 
-Rule for Svelte on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `svelte-code-review` for a review.
+Devin rule for Svelte. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for Svelte 5.57.3 and SvelteKit 3.2.0, Nov 2026
 
@@ -42,3 +42,22 @@ Use the project's Vitest and Playwright setup. A component test renders the rune
 - Module-scope state that leaks across requests.
 - `{@html}` on user content.
 - A database import in a file that runs in the browser.
+
+## What changed in this major
+
+SvelteKit 3 reads the `sveltekit()` Vite plugin, not `svelte.config.js`. Use `$app/state` and `#lib`.
+
+## Deprecated APIs to never generate
+
+Do not generate `svelte.config.js`, `$app/stores`, or `$lib` in a Kit 3 app.
+
+## Commands
+
+Run the project's `vite` test or `npm test`.
+
+## Example
+
+```ts
+import { page } from '$app/state'
+const id = page.params.id
+```

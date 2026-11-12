@@ -5,7 +5,7 @@ description: "Review a Tailwind change for version fit, detectable class names, 
 
 # Tailwind CSS Code Review Skill for Windsurf
 
-Skill `tailwind-code-review` for Devin CLI and the legacy Windsurf skills folder. Invoke it with `/tailwind-code-review`. This file is not a subagent.
+Devin skill `tailwind-code-review` for Tailwind CSS. Invoke it with `/tailwind-code-review`. Install only `.devin/skills`. This file is not a subagent.
 
 ## When to run
 
@@ -30,3 +30,23 @@ Findings with severity, file, line, and the class or token to change. End with t
 ## Stop
 
 Stop when the user asks you to upgrade v3 to v4 as part of an unrelated review.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

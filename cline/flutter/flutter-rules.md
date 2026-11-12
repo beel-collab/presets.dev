@@ -2,7 +2,7 @@
 id: "cline-flutter-rules"
 slug: "cline/flutter/flutter-rules"
 title: "Flutter Cline Rules: Widgets, Async UI and Platform Builds"
-description: "Cline rules for Flutter: Widgets, Async UI and Platform Builds. Structure, data, errors, security, performance, and tests. Flutter 3.47 stable line, Nov 2026."
+description: "Cline rules for Flutter: Widgets, Async UI and Platform Builds. Structure, data, errors, security, performance, and tests. Flutter 3.50, Nov 2026."
 type: "rule"
 tools:
   - "cline"
@@ -22,8 +22,8 @@ tested_with:
 created: "2026-11-11"
 updated: "2026-11-11"
 libs:
-  - "flutter@3.47"
-updated_for: "Flutter 3.47 stable line, Nov 2026"
+  - "flutter@3.50"
+updated_for: "Flutter 3.50, Nov 2026"
 ---
 
 # Flutter Cline Rules: Widgets, Async UI and Platform Builds
@@ -38,11 +38,11 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Flutter Cline Rules: Widgets, Async UI and Platform Builds
 
-Conditional Cline rule for Flutter. Install it under `.clinerules/` only. Use `flutter-test-writer` for a review.
+Conditional Cline rule for Flutter. Install it under `.clinerules/` only.
 
 ## Updated for Flutter 3.47, Nov 2026
 
-Write for the Flutter version in `pubspec.yaml` and the SDK constraint. The 3.47 stable line is the series to follow when the project is already on it, including its split of Material and Cupertino packages and the Kotlin migration for Android. Do not bump Flutter or change the Android embedding unless the task asks. Do not edit generated files under `.dart_tool` or plugin registries.
+Write for the Flutter version in `pubspec.yaml` and the SDK constraint. Flutter 3.50, with Dart 3.14, is the stable release announced on 11 November 2026. Direct native interop is stable there, and new projects use the standalone `material_ui` and `cupertino_ui` packages. Do not bump a 3.47 app unless the task asks. Do not edit generated files under `.dart_tool` or plugin registries.
 
 ## Project shape
 
@@ -75,3 +75,23 @@ Widget tests pump the widget, find by text or key, and tap. A unit test covers a
 - A generated plugin file edited by hand.
 - An Android build change copied from an old embedding.
 - A test that never pumps a frame and still claims the widget works.
+
+## What changed in this major
+
+Flutter 3.50 makes direct native interop stable. New projects use standalone `material_ui` and `cupertino_ui`.
+
+## Deprecated APIs to never generate
+
+Do not generate `RaisedButton` or edit files under `.dart_tool`.
+
+## Commands
+
+Run `flutter test` for the new file.
+
+## Example
+
+```dart
+final name = await lookup();
+if (!context.mounted) return;
+Navigator.of(context).pop(name);
+```

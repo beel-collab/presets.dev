@@ -1,12 +1,13 @@
 ---
 paths:
-  - "**/*mcp*"
-  - "**/*.ts"
+  - "**/*mcp*.ts"
+  - "**/mcp/**/*.ts"
+  - "src/server/**/*.ts"
 ---
 
 # MCP Claude Code Rules: Tools, Schemas and Permissions
 
-Path-scoped Claude Code rule for MCP. It loads when a matching file is read. It does not replace `CLAUDE.md`. Use `mcp-security-review` for a review.
+Path-scoped Claude Code rule for MCP. It loads when a matching file is read. It does not replace `CLAUDE.md`.
 
 ## Updated for the 2026-07-28 MCP spec, Nov 2026
 
@@ -54,3 +55,22 @@ A destructive tool says so in its description. Do not treat a `confirm: true` ar
 - The user's token forwarded to another service.
 - A tool result written as instructions that outrank the user.
 - An open network or filesystem tool on a remote server with no authentication.
+
+## What changed in this major
+
+The 2026-07-28 spec removes `initialize` and `Mcp-Session-Id`. Serve it with `@modelcontextprotocol/server` 2.x via `serveStdio` or `createMcpHandler`.
+
+## Deprecated APIs to never generate
+
+Do not generate `server.connect(new StdioServerTransport())` from `@modelcontextprotocol/sdk` 1.32 for a 2026-07-28 server, or a `confirm` argument as consent.
+
+## Commands
+
+Run the server package tests against a fixture directory.
+
+## Example
+
+```ts
+await serveStdio(() => createServer())
+```
+That entry can speak 2026-07-28. `server.connect(new StdioServerTransport())` from the 1.32 package cannot.

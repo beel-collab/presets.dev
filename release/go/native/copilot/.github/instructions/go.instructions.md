@@ -4,7 +4,7 @@ applyTo: "**/*.go,go.mod"
 
 # Go Copilot Instructions: Errors, Context and Goroutines
 
-Path-specific Copilot instructions for Go. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place. Use `go-code-review` for a review.
+Path-specific Copilot instructions for Go. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for Go 1.27.4, Nov 2026
 
@@ -43,3 +43,23 @@ Table tests cover the success and the error. Use `t.Helper` in a helper. A test 
 - `context.Background()` inside a request instead of the request context.
 - `GOEXPERIMENT=simd` turned on as a default. `encoding/json` already uses the v2 implementation.
 - A retry that ignores `ctx.Done()`.
+
+## What changed in this major
+
+Go 1.27 backs `encoding/json` with v2. Opt out with `GOEXPERIMENT=nojsonv2`. SIMD is `GOEXPERIMENT=simd` only.
+
+## Deprecated APIs to never generate
+
+Do not generate `ioutil`, or `GOEXPERIMENT=simd` as a default.
+
+## Commands
+
+Run `go test ./...` for the touched package.
+
+## Example
+
+```go
+if err != nil {
+    return fmt.Errorf("save note: %w", err)
+}
+```

@@ -4,11 +4,9 @@ applyTo: "**/*supabase*,**/*.sql"
 
 # Supabase Copilot Instructions: Auth, RLS and Typed Queries
 
-Path-specific Copilot instructions for Supabase. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place. Use `supabase-security-review` for a review.
+Path-specific Copilot instructions for Supabase. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for supabase-js 2.119.0, Nov 2026
-
-`@supabase/supabase-js` 2.119.0 is the npm `latest` release checked on 11 November 2026. Realtime broadcast persistence and per-request fetch options are on this line. Read the installed version before using them. Do not upgrade the client as a side effect of another edit.
 
 ## Project shape
 
@@ -53,3 +51,24 @@ Test a policy with two users. The second user cannot read or write the first use
 - Trusting `user_id` from the request body.
 - Treating a Realtime filter as the security boundary.
 - A generated types file edited by hand.
+
+## What changed in this major
+
+New keys are `sb_publishable_...` and `sb_secret_...`. Legacy `anon` and `service_role` JWTs still work until you disable them.
+
+## Deprecated APIs to never generate
+
+Do not generate a new `service_role` client in browser code. Prefer `sb_publishable_` and `sb_secret_`.
+
+## Commands
+
+Run the local policy test. Do not apply SQL to production.
+
+## Example
+
+```sql
+create policy notes_delete on notes
+  for delete to authenticated
+  using (auth.uid() = user_id);
+```
+That delete policy is complete. It has no `WITH CHECK`.

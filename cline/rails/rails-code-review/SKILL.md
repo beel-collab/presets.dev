@@ -2,7 +2,7 @@
 id: "cline-rails-code-review"
 slug: "cline/rails/rails-code-review/SKILL"
 title: "Rails Code Review Skill for Cline"
-description: "Cline skill for a Rails code review. Use when you want that code review on a Rails change. Do not use it for a different stack."
+description: "Review a Rails change for authorization, strong parameters, query counts, and job retries. Use for a Rails code review. Do not use for a non-Rails Ruby script or to migrate production."
 type: "skill"
 tools:
   - "cline"
@@ -64,3 +64,23 @@ Findings with severity, file, line, the missing permit or the query, and a fix. 
 ## Stop
 
 Stop when the user asks you to skip CSRF or to permit every column.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

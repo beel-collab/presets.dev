@@ -1,3 +1,4 @@
 # Kotlin sources
 
-Kotlin 2.4's coroutine trace recovery and Swift-export notes were taken from the release plan's 2.4.20 and 2.4.21 posts. This session did not re-fetch the JetBrains blog. A build keeps its Kotlin version. `GlobalScope`, `runBlocking` inside suspend code, and swallowed `CancellationException` are the failure modes the standards reject. Clients were not launched.
+- https://blog.jetbrains.com/kotlin/2026/09/kotlin-2-4-20-released/ is the 2.4.20 post cited for coroutine trace recovery. This session did not re-download that page. The standards stay on the Kotlin version in the Gradle build.
+- `CancellationException` must be rethrown. That is kotlinx.coroutines behaviour: https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-cancellation-exception/

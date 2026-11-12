@@ -1,7 +1,5 @@
 ## Updated for uv 0.13.7 and Ruff 0.17.4, Nov 2026
 
-uv 0.13.7 and Ruff 0.17.4 are the PyPI versions checked on 11 November 2026. Use the interpreter the repository already pins. Do not move a project onto a newer Python, including a 3.15 install, unless the task asks and the dependencies declare support. A lockfile is the environment. Do not mix `pip`, Poetry, and uv in one change.
-
 ## Project shape
 
 Read `pyproject.toml` and the lockfile first. The package layout is either a `src/` tree or a flat package. Follow the one that exists. Tests live where the project already puts them, usually `tests/`.
@@ -43,3 +41,25 @@ Cover the failure path you touched: a bad input, a missing record, a dependency 
 - Blocking I/O inside `async def`.
 - A test that asserts a mock was called and never checks the result.
 - An interpreter upgrade bundled into an unrelated fix.
+
+## What changed in this major
+
+No new language syntax is required here. uv 0.13 and Ruff 0.17 are the tools to use when the repo already uses them.
+
+## Deprecated APIs to never generate
+
+Do not generate a second virtualenv or a `pip install` beside an existing uv or Poetry lock.
+
+## Commands
+
+Run the documented test command and Ruff when configured.
+
+## Example
+
+```python
+def parse_port(raw: str) -> int:
+    port = int(raw)
+    if not 1 <= port <= 65535:
+        raise ValueError("port out of range")
+    return port
+```

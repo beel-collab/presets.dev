@@ -38,7 +38,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # SwiftUI Codex Instructions: State, Concurrency and Availability
 
-Section to append to `AGENTS.md` for SwiftUI. This is project guidance, not a custom agent. Use `$swiftui-code-review` for a review.
+Section to append to `AGENTS.md` for SwiftUI. This is project guidance, not a custom agent.
 
 ## Updated for Swift 6.4, Nov 2026
 
@@ -52,7 +52,7 @@ Views stay small. A feature folder holds the view, the model, and the tests when
 
 ## Concurrency
 
-UI updates hop to the main actor. A view model that publishes to a view is `@MainActor`. `Task { }` in a view is canceled when the view disappears. Do not capture `self` strongly in a task that outlives the view.
+UI updates hop to the main actor. A view model that publishes to a view is `@MainActor`. The `.task` modifier is tied to the view: SwiftUI cancels it after the view disappears. A plain `Task { }` is unstructured. It keeps running if you drop the handle. Store that handle and call `cancel()` when the view goes away. Cancellation is cooperative: the work checks `Task.isCancelled` or `Task.checkCancellation()`. Do not capture `self` strongly in a task that outlives the view.
 
 `await` a throwing call and surface the error. `try?` that becomes `nil` with no message hides a failure. Structured tasks have a parent. A detached task needs a reason. A cancellation shield is for the short cleanup that must finish, not for a whole network call you do not want to cancel.
 
@@ -75,3 +75,22 @@ Prefer Swift Testing when the project has adopted it. Otherwise use XCTest the w
 - A UI property written off the main actor.
 - An API used below the deployment target.
 - A force unwrap on decoded data.
+
+## What changed in this major
+
+Swift 6.4 adds async `defer` and cancellation shields. `.task` is the view-scoped task. Plain `Task` is not.
+
+## Deprecated APIs to never generate
+
+Do not generate `@unchecked Sendable` to silence isolation, or `try?` on a failing load.
+
+## Commands
+
+Run the project's Swift test action.
+
+## Example
+
+```swift
+.task { await model.load() }
+```
+That task is cancelled when the view disappears.

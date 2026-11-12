@@ -38,7 +38,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Laravel Copilot Instructions: Requests, Policies and Eloquent
 
-Path-specific Copilot instructions for Laravel. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place. Use `laravel-security-review` for a review.
+Path-specific Copilot instructions for Laravel. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for Laravel 13, Nov 2026
 
@@ -56,13 +56,13 @@ A list page eager-loads the relations it displays. A loop that queries is an N+1
 
 ## Jobs and errors
 
-A job that retries is idempotent. The database write uses a unique key or a transaction so a second run does not double-charge. A job accepts the model id, not a huge serialized graph, unless the project already does that.
+A job that retries is idempotent. The database write uses a unique key or a transaction so a second run does not double-charge. `SerializesModels` already stores the model identifier and reloads the row when the job runs. Passing the model is the normal shape. Do not rewrite it into a hand-rolled id unless the job must not use that trait.
 
 Exceptions render through the project's handler. Do not `dd()` or return a stack to the user. Log the context without the password or the token.
 
 ## Security and tests
 
-Every state-changing route has middleware and a policy. A route missing `auth` is a review. CSRF stays on for session forms. Do not disable `VerifyCsrfToken` for a web route to make a test pass.
+Every state-changing route has middleware and a policy. A route missing `auth` is a review. CSRF stays on for session forms. Since Laravel 11 the middleware class is `ValidateCsrfToken`, not `VerifyCsrfToken`. Do not disable it for a web route to make a test pass.
 
 Feature tests hit the endpoint as a guest, as the wrong user, and as the owner. Assert the status and the database. Run `php artisan test` or the project's Pest command for the file you touched. Record the output.
 
@@ -73,3 +73,24 @@ Feature tests hit the endpoint as a guest, as the wrong user, and as the owner. 
 - An N+1 on a list.
 - A job that is not safe to run twice.
 - A package that does not support the project's PHP.
+
+## What changed in this major
+
+Laravel 13 runs on PHP 8.3 through 8.5. CSRF middleware is `ValidateCsrfToken`.
+
+## Deprecated APIs to never generate
+
+Do not generate `VerifyCsrfToken`, or `$request->all()` into `create`.
+
+## Commands
+
+Run `php artisan test` for the file you changed.
+
+## Example
+
+```php
+Note::create($request->validated());
+```
+## Agent tooling
+
+Laravel Boost (`composer require laravel/boost --dev`, then `php artisan boost:install`) installs guidelines and an MCP server. It edits only its own block in an existing `AGENTS.md`. See https://laravel.com/docs/13.x/boost .

@@ -38,15 +38,13 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Nuxt Copilot Instructions: SSR Data, Nitro and Runtime Config
 
-Path-specific Copilot instructions for Nuxt. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place. Use `nuxt-performance-audit` for a review.
+Path-specific Copilot instructions for Nuxt. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for Nuxt 4.6.4, Nov 2026
 
-Nuxt 4.6.4 is the npm `latest` release checked on 11 November 2026. Current apps import server utilities from the Nuxt server paths the project already uses, and typed fetch has been rebuilt. `routeTypedFetch` is still experimental. Do not turn it on unless the task asks. Read `nuxt.config` and the installed major before you copy a Nuxt 3 snippet into a Nuxt 4 app.
-
 ## Project shape
 
-Pages and layouts live in the project's app directory. Server routes live under `server/`. A Vue component follows the Vue 3 rune or composition style the repo uses. Do not import `server/` code into a component that renders in the browser.
+Pages and layouts live in the project's app directory. Server routes live under `server/`. A Vue component follows the script-setup style the repo uses. Do not import `server/` code into a component that renders in the browser.
 
 `runtimeConfig` holds public and private keys. Only `runtimeConfig.public` is sent to the client. A secret in `public` is a leak. Read private config in a server route or a server plugin.
 
@@ -79,3 +77,21 @@ Test a page with the project's Vitest or Playwright setup. Assert one network ca
 - A private key under `runtimeConfig.public`.
 - `routeTypedFetch` enabled as an experiment nobody asked for.
 - A Nuxt 3 config alias pasted into Nuxt 4 without reading the installed major.
+
+## What changed in this major
+
+Nuxt 4.6 keeps private `runtimeConfig` off the client. `routeTypedFetch` is experimental.
+
+## Deprecated APIs to never generate
+
+Do not generate a private key under `runtimeConfig.public`, or experimental `routeTypedFetch` unasked.
+
+## Commands
+
+Run the Nuxt test script. Do not print `runtimeConfig`.
+
+## Example
+
+```ts
+const { data } = await useAsyncData(() => $fetch(`/api/notes/${id}`), { watch: [id] })
+```

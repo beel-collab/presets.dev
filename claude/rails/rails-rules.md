@@ -38,7 +38,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Rails Claude Code Rules: Models, Strong Params and Jobs
 
-Path-scoped Claude Code rule for Rails. It loads when a matching file is read. It does not replace `CLAUDE.md`. Use `rails-code-review` for a review.
+Path-scoped Claude Code rule for Rails. It loads when a matching file is read. It does not replace `CLAUDE.md`.
 
 ## Updated for Rails 8.1.4.1, Nov 2026
 
@@ -58,7 +58,9 @@ A callback that hides a write is hard to test. Prefer an explicit method when th
 
 ## Jobs
 
-A job that retries must be safe to run twice. Use a continuation or an idempotency key when 8.1 continuations fit the existing job style. Do not enqueue a job with a huge Active Record object if the project passes ids. Structured events follow the logger the app already configured.
+Passing an Active Record instance to a job is normal. GlobalID stores the model name and id, and the job loads the record again when it runs. Do not tell the author to pass only ids when the app already passes records.
+
+A retry can run the same side effect twice. A continuation resumes interrupted work. It does not make a charge or a mail idempotent. Guard those effects with a key or a state check the app already uses. Structured events follow the logger the app already configured.
 
 ## Security and tests
 
@@ -73,3 +75,21 @@ A request spec covers a guest, the wrong user, and the owner. A job spec runs th
 - A job that double-sends when retried.
 - Authorization only in the view.
 - A Rails upgrade inside an unrelated bugfix.
+
+## What changed in this major
+
+Rails 8.1.4.1 is the security line. Job continuations resume work. They do not make a job idempotent.
+
+## Deprecated APIs to never generate
+
+Do not generate `permit!`, or a job continuation described as an idempotency key.
+
+## Commands
+
+Run the project's test command for the file you changed.
+
+## Example
+
+```ruby
+params.require(:note).permit(:body)
+```

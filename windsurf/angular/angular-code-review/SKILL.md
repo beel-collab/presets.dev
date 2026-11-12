@@ -2,7 +2,7 @@
 id: "windsurf-angular-code-review"
 slug: "windsurf/angular/angular-code-review/SKILL"
 title: "Angular Code Review Skill for Windsurf"
-description: "Windsurf skill for a Angular code review. Use when you want that code review on a Angular change. Do not use it for a different stack."
+description: "Review an Angular change for standalone components, signals, zoneless updates, and Signal Forms. Use for an Angular code review. Do not use for a new NgModule-first app or a non-Angular repository."
 type: "skill"
 tools:
   - "windsurf"
@@ -23,15 +23,15 @@ tested_with:
 created: "2026-11-11"
 updated: "2026-11-11"
 libs:
-  - "@angular/core@22.2.5"
-updated_for: "Angular 22.2.5, Nov 2026"
+  - "@angular/core@22.2.6"
+updated_for: "Angular 22.2.6, Nov 2026"
 ---
 
 # Angular Code Review Skill for Windsurf
 
 ## Install
 
-Install the native export at `.devin/skills/angular-code-review/SKILL.md` and `.windsurf/skills/angular-code-review/SKILL.md`.
+Install the native export at `.devin/skills/angular-code-review/SKILL.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
@@ -39,7 +39,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Angular Code Review Skill for Windsurf
 
-Skill `angular-code-review` for Devin CLI and the legacy Windsurf skills folder. Invoke it with `/angular-code-review`. This file is not a subagent.
+Devin skill `angular-code-review` for Angular. Invoke it with `/angular-code-review`. Install only `.devin/skills`. This file is not a subagent.
 
 ## When to run
 
@@ -64,3 +64,23 @@ Findings with severity, file, line, the outdated or unsafe pattern, and the curr
 ## Stop
 
 Stop when the user asks you to turn Zone back on globally to match a blog post.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

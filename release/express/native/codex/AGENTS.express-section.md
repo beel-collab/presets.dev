@@ -2,11 +2,9 @@
 
 # Express Codex Instructions: Middleware, Routing and Validation
 
-Section to append to `AGENTS.md` for Express. This is project guidance, not a custom agent. Use `$express-security-review` for a review.
+Section to append to `AGENTS.md` for Express. This is project guidance, not a custom agent.
 
 ## Updated for Express 5.3.0, Nov 2026
-
-Express 5.3.0 is the npm `latest` release checked on 11 November 2026. Express 5 forwards rejected promises to the error handler. Route patterns changed. A `/*` wildcard from an Express 4 app is not the Express 5 syntax. Read the installed major. Do not upgrade 4 to 5 unless the task asks, and do not leave old wildcards in a 5 app.
 
 ## Project shape
 
@@ -37,3 +35,21 @@ A test hits the route with supertest or the project's client. Cover no token, a 
 - A write route with no auth and no schema.
 - An unbounded `express.json()` body.
 - A second error handler that runs after the first already sent the body.
+
+## What changed in this major
+
+Express 5 forwards rejected promises. Replace Express 4 `/*` wildcards. Do not call `next(err)` after `res.send`.
+
+## Deprecated APIs to never generate
+
+Do not generate an Express 4 `app.get('/*')` on Express 5, or `next(err)` after the body was sent.
+
+## Commands
+
+Run the package test script.
+
+## Example
+
+```ts
+app.use(express.json({ limit: "100kb" }))
+```

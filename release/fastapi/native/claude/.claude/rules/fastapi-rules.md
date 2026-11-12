@@ -5,11 +5,9 @@ paths:
 
 # FastAPI Claude Code Rules: Pydantic Models, Dependencies and Async
 
-Path-scoped Claude Code rule for FastAPI. It loads when a matching file is read. It does not replace `CLAUDE.md`. Use `fastapi-security-review` for a review.
+Path-scoped Claude Code rule for FastAPI. It loads when a matching file is read. It does not replace `CLAUDE.md`.
 
 ## Updated for FastAPI 0.162.4, Nov 2026
-
-FastAPI 0.162.5 is the PyPI version checked on 12 November 2026. Current releases expect AnyIO 4.1 or newer and Pydantic v2. Do not write Pydantic v1 `validator` / `orm_mode` syntax in a v2 project. Read `pyproject.toml` before you add a pattern. Use the uv or pip workflow the repo already uses.
 
 ## Project shape
 
@@ -46,3 +44,22 @@ Test with the project's `TestClient` or async client. Cover a missing token, a f
 - `body.model_dump()` spread into a database write.
 - Blocking I/O in an `async def` route.
 - A route with no auth dependency that still changes data.
+
+## What changed in this major
+
+FastAPI 0.162 requires Pydantic v2 and AnyIO >= 4.1. `orm_mode` and v1 `@validator` are gone.
+
+## Deprecated APIs to never generate
+
+Do not generate Pydantic v1 `@validator` or `orm_mode = True`.
+
+## Commands
+
+Run `pytest` for the changed routes.
+
+## Example
+
+```python
+class NoteIn(BaseModel):
+    body: str = Field(min_length=1, max_length=2000)
+```

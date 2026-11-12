@@ -4,11 +4,9 @@ applyTo: "**/*.css,**/*.tsx,**/*.html"
 
 # Tailwind CSS Copilot Instructions: CSS-First Tokens and Accessible UI
 
-Path-specific Copilot instructions for Tailwind CSS. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place. Use `tailwind-code-review` for a review.
+Path-specific Copilot instructions for Tailwind CSS. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for Tailwind CSS 4.3.5, Nov 2026
-
-Tailwind CSS 4.3.5 is the npm `latest` release checked on 11 November 2026. v4 is CSS-first: theme tokens live in CSS, and the v3 `tailwind.config.js` plugin style is not the v4 setup. If the project is on v3, stay on v3. Do not paste a v3 config into a v4 app, and do not upgrade v3 to v4 unless the task asks.
 
 ## Project shape
 
@@ -47,3 +45,22 @@ When you change a visible component, look at it at the project's mobile and desk
 - Conflicting utilities left in the same class string.
 - Focus rings removed, or meaning carried by color alone.
 - A new palette that ignores the existing `@theme` tokens.
+
+## What changed in this major
+
+Tailwind v4 configures tokens with `@theme` in CSS. A v3 `tailwind.config.js` is not the v4 setup.
+
+## Deprecated APIs to never generate
+
+Do not generate `@tailwind base` in a v4 project, or a class built by string concatenation.
+
+## Commands
+
+Run the project's build so undetected classes fail. Do not upgrade v3 to v4 unasked.
+
+## Example
+
+```html
+<button class="px-3 py-2 bg-surface text-ink">Save</button>
+```
+Write the whole class. Do not build `bg-${name}`.

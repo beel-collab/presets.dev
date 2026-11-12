@@ -2,7 +2,7 @@
 id: "windsurf-fastapi-rules"
 slug: "windsurf/fastapi/fastapi-rules"
 title: "FastAPI Windsurf Rules: Pydantic Models, Dependencies and Async"
-description: "Windsurf rules for FastAPI: Pydantic Models, Dependencies and Async. Structure, data, errors, security, performance, and tests. FastAPI 0.162.4, Nov 2026."
+description: "Windsurf rules for FastAPI: Pydantic Models, Dependencies and Async. Structure, data, errors, security, performance, and tests. FastAPI 0.162.5, Nov 2026."
 type: "rule"
 tools:
   - "windsurf"
@@ -22,15 +22,15 @@ tested_with:
 created: "2026-11-11"
 updated: "2026-11-11"
 libs:
-  - "fastapi@0.162.4"
-updated_for: "FastAPI 0.162.4, Nov 2026"
+  - "fastapi@0.162.5"
+updated_for: "FastAPI 0.162.5, Nov 2026"
 ---
 
 # FastAPI Windsurf Rules: Pydantic Models, Dependencies and Async
 
 ## Install
 
-Install the native export at `.devin/rules/fastapi-rules.md` and, for legacy Cascade, `.windsurf/rules/fastapi-rules.md`.
+Install the native export at `.devin/rules/fastapi-rules.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
@@ -38,11 +38,9 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # FastAPI Windsurf Rules: Pydantic Models, Dependencies and Async
 
-Rule for FastAPI on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `fastapi-security-review` for a review.
+Devin rule for FastAPI. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for FastAPI 0.162.4, Nov 2026
-
-FastAPI 0.162.4 is the PyPI version checked on 11 November 2026. Current releases expect AnyIO 4.1 or newer and Pydantic v2. Do not write Pydantic v1 `validator` / `orm_mode` syntax in a v2 project. Read `pyproject.toml` before you add a pattern. Use the uv or pip workflow the repo already uses.
 
 ## Project shape
 
@@ -79,3 +77,22 @@ Test with the project's `TestClient` or async client. Cover a missing token, a f
 - `body.model_dump()` spread into a database write.
 - Blocking I/O in an `async def` route.
 - A route with no auth dependency that still changes data.
+
+## What changed in this major
+
+FastAPI 0.162 requires Pydantic v2 and AnyIO >= 4.1. `orm_mode` and v1 `@validator` are gone.
+
+## Deprecated APIs to never generate
+
+Do not generate Pydantic v1 `@validator` or `orm_mode = True`.
+
+## Commands
+
+Run `pytest` for the changed routes.
+
+## Example
+
+```python
+class NoteIn(BaseModel):
+    body: str = Field(min_length=1, max_length=2000)
+```

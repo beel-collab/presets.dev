@@ -30,7 +30,7 @@ updated_for: "Node.js 26.13.1 LTS, Nov 2026"
 
 ## Install
 
-Install the native export at `.devin/rules/nodejs-rules.md` and, for legacy Cascade, `.windsurf/rules/nodejs-rules.md`.
+Install the native export at `.devin/rules/nodejs-rules.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
@@ -38,7 +38,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Node.js Windsurf Rules: ESM, Cancellation and Streams
 
-Rule for Node.js on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `nodejs-performance-audit` for a review.
+Devin rule for Node.js. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for Node.js 26.13.1 LTS, Nov 2026
 
@@ -83,3 +83,21 @@ Use the runner the project already has. Cover a timeout, an aborted request, and
 - A swallowed rejection.
 - A synchronous filesystem or CPU call inside a request handler.
 - Targeting the v27 alpha, or upgrading the LTS line unasked.
+
+## What changed in this major
+
+Stay on the 26.13 LTS line. Do not target the v27 alpha. `AbortSignal` and timeouts are the cancellation tools.
+
+## Deprecated APIs to never generate
+
+Do not generate `url.parse` or an unbounded `retry` without an `AbortSignal`.
+
+## Commands
+
+Run the package test script. Do not target the v27 alpha.
+
+## Example
+
+```ts
+const res = await fetch(url, { signal: AbortSignal.timeout(5_000) })
+```

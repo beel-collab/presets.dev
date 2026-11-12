@@ -5,7 +5,7 @@ paths:
 
 # Rails Claude Code Rules: Models, Strong Params and Jobs
 
-Path-scoped Claude Code rule for Rails. It loads when a matching file is read. It does not replace `CLAUDE.md`. Use `rails-code-review` for a review.
+Path-scoped Claude Code rule for Rails. It loads when a matching file is read. It does not replace `CLAUDE.md`.
 
 ## Updated for Rails 8.1.4.1, Nov 2026
 
@@ -42,3 +42,21 @@ A request spec covers a guest, the wrong user, and the owner. A job spec runs th
 - A job that double-sends when retried.
 - Authorization only in the view.
 - A Rails upgrade inside an unrelated bugfix.
+
+## What changed in this major
+
+Rails 8.1.4.1 is the security line. Job continuations resume work. They do not make a job idempotent.
+
+## Deprecated APIs to never generate
+
+Do not generate `permit!`, or a job continuation described as an idempotency key.
+
+## Commands
+
+Run the project's test command for the file you changed.
+
+## Example
+
+```ruby
+params.require(:note).permit(:body)
+```

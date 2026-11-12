@@ -38,11 +38,9 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Vue Codex Instructions: Script Setup, Composables and SSR
 
-Section to append to `AGENTS.md` for Vue. This is project guidance, not a custom agent. Use `$vue-code-review` for a review.
+Section to append to `AGENTS.md` for Vue. This is project guidance, not a custom agent.
 
 ## Updated for Vue 3.5.45, Nov 2026
-
-Vue 3.5.45 is the npm `latest` release checked on 11 November 2026. Recent 3.5 fixes touched hydration, Suspense, KeepAlive, and reactivity. Read the installed version. Do not rewrite a Vue 2 codebase in Composition API unless the task asks.
 
 ## Project shape
 
@@ -54,7 +52,7 @@ Do not mix Options API and Composition API in a new component. An old Options co
 
 `ref` and `reactive` are the state. A `computed` derives a value. Do not copy a prop into a `ref` unless you need a local editable copy, and then say so.
 
-Destructuring a `reactive` object into plain variables drops the reactivity. Destructure from `props` only with `toRefs`, or read `props.field` in the template and in computeds. `storeToRefs` is the same rule for a Pinia store, when the project uses Pinia.
+Since Vue 3.5, destructuring `defineProps()` in `<script setup>` stays reactive. The compiler rewrites those bindings. Do not flag that. Destructuring a `reactive()` object, or a Pinia store without `storeToRefs`, still copies plain values and drops reactivity. On 3.4 and earlier, `defineProps()` destructure is also a plain copy unless the project turned the transform on.
 
 A watcher has a cleanup. Stop a timer, an observer, and a request when the scope disposes. `watchEffect` is for a side effect you can rerun. It is not a place to derive state you could compute.
 
@@ -85,3 +83,24 @@ Test a component with the project's Vue Test Utils or Testing Library setup. Ass
 - A prop mutated in the child.
 - A watcher with no cleanup.
 - A Vue 2 pattern pasted into a script-setup component.
+
+## What changed in this major
+
+Vue 3.5 compiles destructured `defineProps()` so the bindings stay reactive.
+
+## Deprecated APIs to never generate
+
+Do not generate `Vue.filter`, or a Vue 2 `new Vue()` app.
+
+## Commands
+
+Run the Vue unit test script.
+
+## Example
+
+```vue
+<script setup lang="ts">
+const { label = "Save" } = defineProps<{ label?: string }>()
+</script>
+```
+On Vue 3.5 that binding stays reactive.

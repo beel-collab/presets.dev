@@ -6,11 +6,9 @@ paths:
 
 # Playwright Cline Rules: Locators, Fixtures and Assertions
 
-Conditional Cline rule for Playwright. Install it under `.clinerules/` only. Use `playwright-test-writer` for a review.
+Conditional Cline rule for Playwright. Install it under `.clinerules/` only.
 
 ## Updated for Playwright 1.65.0, Nov 2026
-
-Playwright 1.65.0 is the npm `latest` release checked on 11 November 2026. That line includes the Bun runner option, a failures reporter, and exclusive test locks. Use a feature only when the installed version has it. Do not upgrade Playwright as a side effect of adding one test. Read `playwright.config` and an existing spec before you write a new one.
 
 ## Project shape
 
@@ -51,3 +49,24 @@ Reproduce the bug with a test that fails for the right reason. Then change the p
 - Shared mutable auth or data across workers.
 - A test that passes when the feature is broken because it only checks that a locator exists.
 - An upgrade of Playwright bundled into a single new spec.
+
+## What changed in this major
+
+Playwright 1.65 adds the failures reporter, exclusive locks, and a Bun runner. Use them only when that version is installed.
+
+## Deprecated APIs to never generate
+
+Do not generate `waitForTimeout` or `page.$`.
+
+## Commands
+
+Run `npx playwright test` on the new spec.
+
+## Example
+
+```ts
+await expect(page.getByRole("button", { name: "Save" })).toBeVisible()
+```
+## Agent tooling
+
+Playwright publishes an MCP server (`@playwright/mcp`) and, for coding agents, a CLI plus skills that spend fewer tokens than the full accessibility tree. See https://playwright.dev/docs/getting-started-mcp .

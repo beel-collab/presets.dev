@@ -20,7 +20,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lint_presets import ROOT, load_schema, parse_frontmatter, validate_data
 
 MANIFEST = ROOT / "release" / "original-2026-11" / "stacks.json"
-RELEASE_TOOLS = ("cursor", "copilot", "claude", "windsurf", "cline", "codex", "gemini-cli")
+RELEASE_TOOLS = ("cursor", "copilot", "claude", "windsurf", "cline", "codex", "antigravity")
 ALLOWED_NATIVE = {
     "cursor-rule": {"description", "globs", "alwaysApply"},
     "copilot-instructions": {"applyTo"},
@@ -154,7 +154,7 @@ def main() -> int:
         return 1
     document = json.loads(MANIFEST.read_text(encoding="utf-8"))
     if document.get("tools") != list(RELEASE_TOOLS):
-        errors.append("manifest tools must be the seven release tools, including gemini-cli")
+        errors.append("manifest tools must be the seven release tools, including antigravity")
     schema = load_schema()
     complete = [stack for stack in document.get("stacks", []) if stack.get("status") == "complete"]
     if not complete:
@@ -207,8 +207,17 @@ def main() -> int:
                 errors.append(f"{rel}: author.name must be presets.dev")
             if "updated_for" not in data:
                 errors.append(f"{rel}: updated_for is required for a release entry")
-            if "<!-- native:start -->" not in (ROOT / rel).read_text(encoding="utf-8"):
+            text = (ROOT / rel).read_text(encoding="utf-8")
+            if "<!-- native:start -->" not in text:
                 errors.append(f"{rel}: missing native:start marker")
+            if not rel.split("/", 1)[0] in RELEASE_TOOLS:
+                errors.append(f"{rel}: not under a release tool directory, so it would not become a page")
+            if not data.get("title") or not data.get("description") or not data.get("slug"):
+                errors.append(f"{rel}: missing title, description, or slug for a catalog page")
+            for claim in data.get("tested_with", []):
+                lowered = str(claim).lower()
+                if "not " not in lowered and "fixture" not in lowered:
+                    errors.append(f"{rel}: tested_with must say the client was not run, or name a fixture")
             exports = row.get("exports") or []
             if not exports:
                 errors.append(f"{rel}: missing native exports")

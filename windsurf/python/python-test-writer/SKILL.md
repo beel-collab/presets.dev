@@ -2,7 +2,7 @@
 id: "windsurf-python-test-writer"
 slug: "windsurf/python/python-test-writer/SKILL"
 title: "Python Test Writer Skill for Windsurf"
-description: "Windsurf skill for a Python test writer. Use when you want that test writer on a Python change. Do not use it for a different stack."
+description: "Add or extend pytest coverage for a Python change, using the project's uv environment and Ruff. Use when the user asks for Python tests or a failing case. Do not use for a non-Python repository or to upgrade the interpreter unasked."
 type: "skill"
 tools:
   - "windsurf"
@@ -33,7 +33,7 @@ updated_for: "uv 0.13.7 and Ruff 0.17.4, Nov 2026"
 
 ## Install
 
-Install the native export at `.devin/skills/python-test-writer/SKILL.md` and `.windsurf/skills/python-test-writer/SKILL.md`.
+Install the native export at `.devin/skills/python-test-writer/SKILL.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
@@ -41,7 +41,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Python Test Writer Skill for Windsurf
 
-Skill `python-test-writer` for Devin CLI and the legacy Windsurf skills folder. Invoke it with `/python-test-writer`. This file is not a subagent.
+Devin skill `python-test-writer` for Python. Invoke it with `/python-test-writer`. Install only `.devin/skills`. This file is not a subagent.
 
 ## When to run
 
@@ -57,7 +57,7 @@ Stop for a non-Python repository, or when the user asked for production code and
 2. Name the behavior that is missing. One test, one behavior. Include the failure case: empty input, a missing row, or a dependency error.
 3. Reuse fixtures. Build only the data the assertion needs. Call the real function. Assert the return value, the raised error, or the persisted row.
 4. If the bug is not reproduced by the new test, stop and say so. Do not weaken the assertion to go green.
-5. Run the narrowest pytest command through `uv run`, then Ruff if the project configures it. Record both outputs. If a command cannot run, write `not run` and the reason.
+5. Run the test command the repository documents. If it uses uv, that is `uv run pytest`. If it uses Poetry, Hatch, tox, or a venv, use that command. Do not force uv onto a project that does not use it. Run Ruff only when the project configures it. Record the outputs. If a command cannot run, write `not run` and the reason.
 
 ## Output
 
@@ -66,3 +66,23 @@ List the test files, the behavior each one locks, the commands, and the results.
 ## Stop
 
 Stop when there is no Python project, when adding a test would require a new framework, or when the user asks you to mark tests passed without running them.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

@@ -4,11 +4,9 @@ applyTo: "app/**/*.ts,app/**/*.tsx,src/app/**/*.ts,src/app/**/*.tsx,next.config.
 
 # Next.js Copilot Instructions: App Router, TypeScript and Server Actions
 
-Path-specific Copilot instructions for Next.js. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place. Use `nextjs-code-review` for a review.
+Path-specific Copilot instructions for Next.js. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for Next.js 16.4.6, Nov 2026
-
-16.4.6 is the npm `latest` release checked on 11 November 2026. It is a bugfix backport and includes the security fixes from 16.4.5 (3 November 2026). The 15.5 patch for those fixes is 15.5.29. Keep a 15.x app on that patch unless the task asks for a major upgrade. This line wants Node 20.9 or newer and accepts React 19. Do not aim at a canary, and do not rewrite an app for the 16.4.6 compression or Turbopack fixes.
 
 Read `package.json`, the lockfile, and `next.config` before editing. Match the directories and helpers the app already uses.
 
@@ -90,3 +88,23 @@ Add a case for a signed-out caller, a payload that fails validation, and a read 
 - A `'use cache'` key that omits the tenant while the stored rows belong to one tenant. A shared tag on a correctly keyed function is fine.
 - `any` or `as` used to quiet a type error at a trust boundary.
 - A major `next` upgrade, or `cacheComponents: true`, added as a side effect of another task.
+
+## What changed in this major
+
+Next 16 uses `proxy.ts` exporting `proxy` (Node runtime). `middleware.ts` remains only for the deprecated Edge case. `revalidateTag` takes a tag and a cache profile.
+
+## Deprecated APIs to never generate
+
+Do not generate `middleware.ts` on a Next 16 app, one-argument `revalidateTag(tag)`, or `images.domains`.
+
+## Commands
+
+Run `npx tsc --noEmit` and the repo's test script. Do not deploy.
+
+## Example
+
+The Server Action in the data section is the worked example: session first, validated text, `updateTag` after the write.
+
+## Agent tooling
+
+Next.js 16 ships a Devtools MCP server and tells agents to read project instructions from `AGENTS.md`. Use them when they are installed. See https://nextjs.org/blog/next-16 .

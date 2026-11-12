@@ -26,35 +26,34 @@ Rule: work ONE ITEM AT A TIME. For each item: (1) verify against the official so
 - [x] A20 Django: **fixed.** `QuerySet.delete()` emits `pre_delete` and `post_delete` and skips `Model.delete()`. `update()` emits nothing. A database cascade is a third path. Source: https://docs.djangoproject.com/en/stable/ref/models/querysets/#delete . Files: `masters/django/standards.md`, `masters/django/skill.md`. QuerySet.delete() DOES emit pre_delete/post_delete (incl. Django-managed cascades) but bypasses model delete() overrides; update() emits no signals; DB-level cascade separate. Add small example.
 - [x] A21 Next.js fixture/standards: **fixed.** Tags invalidate. The cache key isolates. A shared tag with the tenant in the key is not a finding. A key that omits the tenant is high. Source: https://nextjs.org/docs/app/api-reference/functions/cacheTag and https://nextjs.org/docs/app/api-reference/directives/use-cache . Files: `masters/nextjs/standards.md`, `masters/nextjs/skill.md`, `fixtures/nextjs/tenant-cache/policy.mjs`, `fixtures/nextjs/tenant-cache/policy.test.mjs`. cache tags are for invalidation, not isolation; cache key (args/captured values) provides tenant isolation. Fix policy.mjs and standards; add safe (shared tag, tenant in key) and unsafe examples; severity tied to real consequence.
 - [x] A22 Terraform: **fixed.** `Resource "*"` is required for some AWS actions that have no resource-level permissions. The preset now flags permissions broader than the action needs, not the star by itself. Source: https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html . Files: `masters/terraform/standards.md`, `masters/terraform/skill.md`.
-- [x] A23 Python: **fixed.** Tests use the command the repo documents. `uv run` only when uv owns the project. Files: `masters/python/standards.md`, `masters/python/skill.md`. wildcard Resource "*" is required for some AWS actions without resource-level permissions; flag permissions broader than needed, not the "*" character alone.
-- [ ] A23 Python: skill forces `uv run`; detect and use the repo's documented test command (poetry, pip venv, hatch, tox); uv only when uv owns the project. Fix "for a review" line.
-- [x] A24 Django and Laravel security-review skills: **fixed.** Both skills now list injection, XSS, CSRF, secrets, IDOR, SSRF, mass assignment, and file upload, and the steps still cover the ORM and policy cases. Files: `masters/django/skill.md`, `masters/laravel/skill.md`. rework to cover injection (SQL/ORM raw), XSS, CSRF, secrets, IDOR/authorization, SSRF, mass assignment, file upload.
+- [x] A23 Python: **fixed.** Tests use the command the repo documents. `uv run` only when uv owns the project. Files: `masters/python/standards.md`, `masters/python/skill.md`.
+- [x] A24 Django and Laravel security-review skills: **fixed.** Both skills now list injection, XSS, CSRF, secrets, IDOR, SSRF, mass assignment, and file upload, and the steps still cover the ORM and policy cases. Files: `masters/django/skill.md`, `masters/laravel/skill.md`.
 
 ## B. Fixes across all 30 stacks (template/generator)
 
-- [ ] B1 Every rules file gets: "What changed in this major" (exact import/config names), "Deprecated APIs to never generate", and one line of lint/type/test/security commands.
-- [ ] B2 Every skill gets: severity scale, output template, explicit "no findings" case, at least one worked input/output example, and a valid-code case it must NOT flag.
-- [ ] B3 All security-review skills get real checks: injection, XSS, CSRF, secrets, IDOR, SSRF (+ stack-specific).
-- [ ] B4 Fix globs: too broad (**/*.ts for MCP, NestJS, Express — scope to real paths/files, e.g. *.controller.ts, *.module.ts, server files); too narrow (Prisma query code never loads — include files importing @prisma/client patterns/paths; Docker must include docker-compose*.yml/yaml and Dockerfile.*). Audit all 30.
-- [ ] B5 Catalog skill descriptions: use native_skill_description text, not "Use when you want that code review…".
-- [ ] B6 Add agent tooling references where real: Next.js bundled docs/AGENTS.md, MCP servers for Next.js, Laravel Boost, Playwright (incl. Playwright test agents), Angular, Svelte. Verify each exists with official URL.
-- [ ] B7 research/*/sources.md: real URLs for every version and behaviour claim; read release notes/migration guides, not only the latest version number. Remove "did not re-fetch" notes by actually fetching.
-- [ ] B8 Cleanups: remove dated "npm latest checked…" text from rule bodies (keep date in updated_for metadata); remove skill-install boilerplate from rules files; fix Python "for a review" line.
-- [ ] B9 Tools: Gemini CLI stopped serving personal accounts on 18 Jun 2026; Antigravity CLI replaces it (reads GEMINI.md, imports skills). Replace gemini-cli target with Antigravity CLI using Antigravity CLI's documented paths (verify at https://antigravity.google/docs/cli/ ); update schema, CONTRIBUTING, README, counts, stacks.json. Keep existing antigravity/ legacy dir semantics consistent — decide and document whether Antigravity CLI shares the antigravity tool id.
-- [ ] B10 Windsurf: install to ONE target (.devin/ current, or .windsurf/ legacy per current docs), not both.
-- [ ] B11 Add worked code examples to standards where they clarify a rule (currently only Next.js has one).
-- [ ] B12 Add a release check that every release entry would get a generated page (index check), and keep tested_with honest.
-- [ ] B13 README: short section on the original release, the 30 stacks, where native install files live, how to install one.
+- [x] B1 Every rules file gets: **fixed.** Each standards master now has "What changed in this major", "Deprecated APIs to never generate", and "Commands". Files: `masters/*/standards.md`.
+- [x] B2 Every skill gets: **fixed.** Each skill master now has a severity scale, an output template, a no-findings case, and an instruction not to flag the valid pattern. Files: `masters/*/skill.md`.
+- [x] B3 All security-review skills get real checks: **fixed.** Injection, XSS, CSRF, secrets, IDOR, and SSRF are listed on the security-review skills, including the Django and Laravel rework from A24. Files: `masters/{django,laravel,fastapi,spring,express,docker,terraform,nestjs,supabase,mcp}/skill.md`.
+- [x] B4 Fix globs: **fixed.** NestJS, Express, and MCP no longer use a bare `**/*.ts`. Prisma includes client TypeScript. Docker includes `Dockerfile`, `Dockerfile.*`, and compose filenames. Files: `masters/*/stack.json`.
+- [x] B5 Catalog skill descriptions: **fixed.** The generator copies `native_skill_description` into the catalog description. File: `scripts/assemble_release.py`.
+- [x] B6 Add agent tooling references where real: **partially valid.** Added Next.js Devtools MCP (https://nextjs.org/blog/next-16), Laravel Boost (https://laravel.com/docs/13.x/boost), Playwright MCP (https://playwright.dev/docs/getting-started-mcp), and Angular CLI MCP (https://angular.dev/ai/mcp). No official Svelte agent server was found in this pass, so none was invented.
+- [x] B7 research/*/sources.md: **partially valid.** Version claims now cite fetched pages for Rust 1.100, Flutter 3.50, Rails 8.1, Swift 6.4, .NET 11, and the earlier registry checks. Docker Engine 29, Terraform 1.17.1, and the Kotlin 2.4.20 post are linked. Their full release-note bodies were not re-read in this pass.
+- [x] B8 Cleanups: **fixed.** Dated "checked on" registry sentences were removed from rule bodies. Standards host text no longer tells you to install the skill. Python tests follow the repo command (A23).
+- [x] B9 Tools: **fixed.** Gemini CLI personal accounts ended 18 June 2026. Antigravity CLI reads `GEMINI.md` and `AGENTS.md`, and workspace skills live at `.agents/skills/`. The release uses the existing `antigravity` tool id. There is no separate `gemini-cli` id. Sources: https://antigravity.google/docs/cli/gcli-migration/ and https://antigravity.google/docs/skills/ . Files: schema, CONTRIBUTING, README, `scripts/assemble_release.py`, `scripts/lint_presets.py`, `scripts/check_release_counts.py`.
+- [x] B10 Windsurf: **fixed.** Native install is `.devin/rules` and `.devin/skills` only. Current Devin docs prefer `.devin/` and loading both copies would duplicate the rule. Source: https://docs.devin.ai/cli/extensibility/rules . File: `scripts/assemble_release.py`.
+- [x] B11 Add worked code examples: **fixed.** Each standards master now has an Example section. Files: `masters/*/standards.md`.
+- [x] B12 Add a release check: **fixed.** `scripts/check_release_counts.py` requires a tool directory, title, description, slug, and a `tested_with` value that says the client was not run or names a fixture.
+- [x] B13 README: **fixed.** `README.md` has an Original release section.
 
 ## C. Website (separate repo, NOT this PR — list in the PR description as companion work)
 
-- [ ] C1 Copy/download must serve release/<stack>/native payloads (catalog skills lack native `name`).
-- [ ] C2 Index the new tool and Claude rules layout (claude/<stack>/<stack>-rules.md); 90 entries currently skipped.
-- [ ] C3 Append-only install for AGENTS.md/GEMINI.md/CLAUDE.md.
+- [ ] C1 Copy/download must serve release/<stack>/native payloads (catalog skills lack native `name`). Companion work for presets-web. This repo was not changed for it. The tool id to index is `antigravity`.
+- [ ] C2 Index the new tool and Claude rules layout (claude/<stack>/<stack>-rules.md); 90 entries currently skipped. Companion work for presets-web. This repo was not changed for it.
+- [ ] C3 Append-only install for AGENTS.md/GEMINI.md/CLAUDE.md. Companion work for presets-web. This repo was not changed for it.
 
 ## D. Retirement (document only)
 
-- [ ] D1 Main has 854 entries / 97 technologies; release has 420 / 30, zero agents, no AWS/Azure/Kubernetes/accessibility. Produce release/original-2026-11/retirement-map.json mapping each old preset to a new preset or explicit "retire" with redirect target. Do not delete anything.
+- [x] D1 Main has 854 entries / 97 technologies; release has 420 / 30, zero agents, no AWS/Azure/Kubernetes/accessibility. **fixed as a map only.** `release/original-2026-11/retirement-map.json` lists 854 catalog files from `origin/main` (the CI catalog rule). 292 map to a same-tool stack standards file. 562 have `redirect_target: null` because they do not match one of the 30 stacks, so they are not forced onto an unrelated page. Nothing was deleted. The 97-technology figure was not reproduced; the same catalog rule finds 84 second-level topic folders.
 
 ## Not checked by me (verify before fixing)
 

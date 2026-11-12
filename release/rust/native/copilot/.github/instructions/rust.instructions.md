@@ -4,7 +4,7 @@ applyTo: "**/*.rs,Cargo.toml"
 
 # Rust Copilot Instructions: Ownership, Errors and Async
 
-Path-specific Copilot instructions for Rust. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place. Use `rust-code-review` for a review.
+Path-specific Copilot instructions for Rust. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for Rust 1.99, Nov 2026
 
@@ -39,3 +39,23 @@ Tests live next to the code or in `tests/` as the crate already does. Cover the 
 - A `std::sync::Mutex` or `parking_lot` guard held across `.await`.
 - A blocking call on the async executor.
 - An MSRV bump hidden in an unrelated change.
+
+## What changed in this major
+
+Rust 1.100 stabilizes the never type and custom allocators. `unwrap` on I/O is still a bug.
+
+## Deprecated APIs to never generate
+
+Do not generate `unwrap()` on `Result` from I/O, or `unsafe` to skip the borrow checker.
+
+## Commands
+
+Run `cargo test -p` for the package you changed.
+
+## Example
+
+```rust
+fn read_port(raw: &str) -> Result<u16, ParseError> {
+    raw.parse().map_err(|_| ParseError::Port)
+}
+```

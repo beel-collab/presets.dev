@@ -2,7 +2,7 @@
 id: "codex-prisma-code-review"
 slug: "codex/prisma/prisma-code-review/SKILL"
 title: "Prisma Code Review Skill for Codex"
-description: "Codex skill for a Prisma code review. Use when you want that code review on a Prisma change. Do not use it for a different stack."
+description: "Review a Prisma schema, migration, or query for data loss, N+1 reads, and unsafe raw SQL. Use for a Prisma code review. Do not use to apply a migration to production or to upgrade onto the Prisma 8 release candidate."
 type: "skill"
 tools:
   - "codex"
@@ -65,3 +65,23 @@ Findings with severity, file, line, the schema or query risk, and a safer change
 ## Stop
 
 Stop when the user asks for `migrate reset`, a production deploy, or a silent jump to Prisma 8.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

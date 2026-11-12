@@ -10,7 +10,7 @@ paths:
 
 # Prisma Claude Code Rules: Schema, Migrations and Query Shape
 
-Path-scoped Claude Code rule for Prisma. It loads when a matching file is read. It does not replace `CLAUDE.md`. Use `prisma-code-review` for a review.
+Path-scoped Claude Code rule for Prisma. It loads when a matching file is read. It does not replace `CLAUDE.md`.
 
 ## Updated for Prisma 7.10.1 stable, Nov 2026
 
@@ -65,3 +65,22 @@ A migration test runs on a disposable database. Assert the column, the index, an
 - Editing a shipped migration.
 - An N+1 loop of `findUnique`.
 - String-built raw SQL.
+
+## What changed in this major
+
+Prisma 7 reads `prisma.config.ts`, requires a driver adapter, and emits the client to the generator `output`.
+
+## Deprecated APIs to never generate
+
+Do not generate `new PrismaClient()` without an adapter on Prisma 7, or a hosted Accelerate URL passed to `PrismaPg`.
+
+## Commands
+
+Run `prisma validate` against a disposable database. Do not `migrate` production.
+
+## Example
+
+```ts
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL })
+export const prisma = new PrismaClient({ adapter })
+```

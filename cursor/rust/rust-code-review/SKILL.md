@@ -2,7 +2,7 @@
 id: "cursor-rust-code-review"
 slug: "cursor/rust/rust-code-review/SKILL"
 title: "Rust Code Review Skill for Cursor"
-description: "Cursor skill for a Rust code review. Use when you want that code review on a Rust change. Do not use it for a different stack."
+description: "Review a Rust change for unwrap on library paths, needless unsafe, and async cancellation. Use for a Rust code review. Do not use for a non-Rust repository or to raise the MSRV without a reason."
 type: "skill"
 tools:
   - "cursor"
@@ -23,8 +23,8 @@ tested_with:
 created: "2026-11-11"
 updated: "2026-11-11"
 libs:
-  - "rust@1.99"
-updated_for: "Rust 1.99 stable line, Nov 2026"
+  - "rust@1.100"
+updated_for: "Rust 1.100.0, Nov 2026"
 ---
 
 # Rust Code Review Skill for Cursor
@@ -53,7 +53,7 @@ Stop for a non-Rust repository. Do not bump the MSRV or the toolchain unless the
 
 1. Read the MSRV and the toolchain file. A feature from a newer Rust used without a bump, or a silent MSRV bump, is a high finding.
 2. Search the diff for `unwrap`, `expect`, and `unsafe`. `unwrap` on I/O or parsed input is a high finding. `unsafe` without an invariant comment is a high finding.
-3. Search for `.await` while a mutex guard is in scope, and for `std::thread::sleep` or blocking I/O inside an async function. Each is a high finding.
+3. Search for `.await` while a `std::sync::Mutex` or `parking_lot` guard is in scope, and for `std::thread::sleep` or blocking I/O inside an async function. Each is a high finding. A `tokio::sync::Mutex` held across `.await` is valid. Do not flag it.
 4. Check that a spawned task can finish when the parent is canceled.
 5. Run `cargo test` for the package only if the user asked. Otherwise write `not run`.
 
@@ -64,3 +64,23 @@ Findings with severity, file, line, the panic or safety hole, and a `Result`-bas
 ## Stop
 
 Stop when the user asks you to `allow` a clippy lint project-wide or to `unwrap` so the example is shorter.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

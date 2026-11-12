@@ -38,7 +38,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Docker Claude Code Rules: Images, Runtime Users and Build Secrets
 
-Path-scoped Claude Code rule for Docker. It loads when a matching file is read. It does not replace `CLAUDE.md`. Use `docker-security-review` for a review.
+Path-scoped Claude Code rule for Docker. It loads when a matching file is read. It does not replace `CLAUDE.md`.
 
 ## Updated for Docker Engine 29, Nov 2026
 
@@ -73,3 +73,22 @@ Build the image and scan the history for `ENV` secrets and a root user when the 
 - A root `USER` in the runtime stage.
 - The Docker socket mounted into the app.
 - A single-stage image that ships the toolchain.
+
+## What changed in this major
+
+Engine 29 is the current major. BuildKit secrets and a non-root `USER` are the defaults to write.
+
+## Deprecated APIs to never generate
+
+Do not generate `latest` as a base image, or `USER root` in the runtime stage.
+
+## Commands
+
+Run `docker build` only when asked. Do not push.
+
+## Example
+
+```dockerfile
+FROM node:22-bookworm-slim
+USER node
+```

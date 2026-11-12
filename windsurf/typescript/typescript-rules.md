@@ -30,7 +30,7 @@ updated_for: "TypeScript 7.0.2, Nov 2026"
 
 ## Install
 
-Install the native export at `.devin/rules/typescript-rules.md` and, for legacy Cascade, `.windsurf/rules/typescript-rules.md`.
+Install the native export at `.devin/rules/typescript-rules.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
@@ -38,11 +38,9 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # TypeScript Windsurf Rules: Strict Types and Runtime Checks
 
-Rule for TypeScript on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `typescript-code-review` for a review.
+Devin rule for TypeScript. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for TypeScript 7.0.2, Nov 2026
-
-TypeScript 7.0.2 is the npm `latest` release checked on 11 November 2026. The 7.0 line is the native compiler. Its compiler API is not the TypeScript 6 API. Do not import an old `typescript` programmatic API and assume the methods still exist. Read the installed version in `package.json` before you write a compiler script or a migration. Leave a TS 5 or TS 6 project on that major unless the task asks to move.
 
 ## Project shape
 
@@ -72,7 +70,7 @@ Return a result or throw a typed error the caller catches. Do not `catch (e) {}`
 
 Do not enable a slower project-wide flag to type one file. Fix the file. A giant union built from string concatenation is a compile-time cost. Prefer a map of known keys.
 
-A native TypeScript 7 compiler script is new code. Porting a TS 6 `ts.createProgram` helper means reading the 7.0 API, not pasting the old sample. If the project has not upgraded, do not rewrite its lint or codegen pipeline.
+Do not port a `ts.createProgram` helper onto the `typescript` 7.0 package. That package has no stable compiler API. Keep the programmatic calls on `@typescript/typescript6` until the project adopts the 7.1 API on purpose. If the project has not upgraded, do not rewrite its lint or codegen pipeline.
 
 ## Tests
 
@@ -82,6 +80,30 @@ Type tests belong next to the function when the project uses `expectType` or `ts
 
 - `any` or `as` to silence an error at a trust boundary.
 - A TypeScript interface treated as proof that JSON has that shape.
-- An old compiler API call copied into a TypeScript 7 toolchain.
+- Assuming TypeScript 7.0 exports the old compiler API, or a new one.
 - A `strict` flag turned off to make a branch compile.
 - A non-null assertion on a value that can be missing.
+
+## What changed in this major
+
+TypeScript 7.0 is the native `tsc` and ships no stable compiler API. Programmatic imports stay on `@typescript/typescript6` until 7.1.
+
+## Deprecated APIs to never generate
+
+Do not generate `enum` where a union is enough, or `import typescript` against the 7.0 package for the compiler API.
+
+## Commands
+
+Run `npx tsc --noEmit` with the project's compiler.
+
+## Example
+
+```ts
+type Shape = { kind: "circle"; r: number } | { kind: "square"; s: number }
+function area(shape: Shape): number {
+  switch (shape.kind) {
+    case "circle": return Math.PI * shape.r ** 2
+    case "square": return shape.s ** 2
+  }
+}
+```

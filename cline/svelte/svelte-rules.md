@@ -39,11 +39,11 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Svelte Cline Rules: Runes, Load Functions and SSR
 
-Conditional Cline rule for Svelte. Install it under `.clinerules/` only. Use `svelte-code-review` for a review.
+Conditional Cline rule for Svelte. Install it under `.clinerules/` only.
 
 ## Updated for Svelte 5.57.3 and SvelteKit 3.2.0, Nov 2026
 
-Svelte 5.57.3 and `@sveltejs/kit` 3.2.0 are the npm `latest` versions checked on 11 November 2026. Svelte 5 uses runes. SvelteKit 3 changes config and aliases compared with Kit 2. Read both majors before you edit. Do not apply a Kit 2 alias snippet to a Kit 3 app, and do not convert a Svelte 4 component to runes unless the task asks.
+Svelte 5.57.3 and `@sveltejs/kit` 3.2.0 are the npm latest versions read for this release. Svelte 5 uses runes. On SvelteKit 3, configuration is the `sveltekit()` Vite plugin in `vite.config.js`. `svelte.config.js` is not read. `$app/stores` is gone. Import `page` from `$app/state` and read `page`, not `$page`. `$lib` is not generated. Declare `#lib` and `#lib/*` in `package.json` `imports`, and include the file extension. Kit 3 wants Node 22.17 or newer, TypeScript 6, and Vite 8. A Kit 2 app keeps `svelte.config.js` and `$lib` until the task is the migration. Do not convert a Svelte 4 component to runes unless the task asks.
 
 ## Project shape
 
@@ -72,7 +72,26 @@ Use the project's Vitest and Playwright setup. A component test renders the rune
 ## Mistakes to avoid
 
 - Svelte 4 syntax in a new runes file.
-- A Kit 2 alias or config key pasted into Kit 3.
+- A new `svelte.config.js`, `$app/stores` import, or `$lib` alias in a Kit 3 app.
 - Module-scope state that leaks across requests.
 - `{@html}` on user content.
 - A database import in a file that runs in the browser.
+
+## What changed in this major
+
+SvelteKit 3 reads the `sveltekit()` Vite plugin, not `svelte.config.js`. Use `$app/state` and `#lib`.
+
+## Deprecated APIs to never generate
+
+Do not generate `svelte.config.js`, `$app/stores`, or `$lib` in a Kit 3 app.
+
+## Commands
+
+Run the project's `vite` test or `npm test`.
+
+## Example
+
+```ts
+import { page } from '$app/state'
+const id = page.params.id
+```

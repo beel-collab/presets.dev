@@ -5,7 +5,7 @@ trigger: "model_decision"
 
 # Laravel Windsurf Rules: Requests, Policies and Eloquent
 
-Rule for Laravel on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `laravel-security-review` for a review.
+Devin rule for Laravel. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for Laravel 13, Nov 2026
 
@@ -40,3 +40,24 @@ Feature tests hit the endpoint as a guest, as the wrong user, and as the owner. 
 - An N+1 on a list.
 - A job that is not safe to run twice.
 - A package that does not support the project's PHP.
+
+## What changed in this major
+
+Laravel 13 runs on PHP 8.3 through 8.5. CSRF middleware is `ValidateCsrfToken`.
+
+## Deprecated APIs to never generate
+
+Do not generate `VerifyCsrfToken`, or `$request->all()` into `create`.
+
+## Commands
+
+Run `php artisan test` for the file you changed.
+
+## Example
+
+```php
+Note::create($request->validated());
+```
+## Agent tooling
+
+Laravel Boost (`composer require laravel/boost --dev`, then `php artisan boost:install`) installs guidelines and an MCP server. It edits only its own block in an existing `AGENTS.md`. See https://laravel.com/docs/13.x/boost .

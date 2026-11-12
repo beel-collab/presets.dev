@@ -5,11 +5,9 @@ trigger: "model_decision"
 
 # Vue Windsurf Rules: Script Setup, Composables and SSR
 
-Rule for Vue on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `vue-code-review` for a review.
+Devin rule for Vue. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for Vue 3.5.45, Nov 2026
-
-Vue 3.5.45 is the npm `latest` release checked on 11 November 2026. Recent 3.5 fixes touched hydration, Suspense, KeepAlive, and reactivity. Read the installed version. Do not rewrite a Vue 2 codebase in Composition API unless the task asks.
 
 ## Project shape
 
@@ -52,3 +50,24 @@ Test a component with the project's Vue Test Utils or Testing Library setup. Ass
 - A prop mutated in the child.
 - A watcher with no cleanup.
 - A Vue 2 pattern pasted into a script-setup component.
+
+## What changed in this major
+
+Vue 3.5 compiles destructured `defineProps()` so the bindings stay reactive.
+
+## Deprecated APIs to never generate
+
+Do not generate `Vue.filter`, or a Vue 2 `new Vue()` app.
+
+## Commands
+
+Run the Vue unit test script.
+
+## Example
+
+```vue
+<script setup lang="ts">
+const { label = "Save" } = defineProps<{ label?: string }>()
+</script>
+```
+On Vue 3.5 that binding stays reactive.

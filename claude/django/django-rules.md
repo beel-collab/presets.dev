@@ -38,11 +38,9 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Django Claude Code Rules: ORM, Permissions and Migrations
 
-Path-scoped Claude Code rule for Django. It loads when a matching file is read. It does not replace `CLAUDE.md`. Use `django-security-review` for a review.
+Path-scoped Claude Code rule for Django. It loads when a matching file is read. It does not replace `CLAUDE.md`.
 
 ## Updated for Django 6.1.3, Nov 2026
-
-Django 6.1.3 is the PyPI version checked on 11 November 2026. Django 6.1 adds fetch modes such as `FETCH_PEERS` and `FETCH_RAISE`, database-level delete options, and `MAILERS`. Use a 6.1 API only when the installed Django is 6.1. Read `settings` and an existing view before you add one. Do not upgrade Django as a side effect.
 
 ## Project shape
 
@@ -54,7 +52,13 @@ Use the project's auth decorators or mixins. A class-based view and a function v
 
 `select_related` and `prefetch_related` match the template or serializer that walks relations. A loop that queries per row is an N+1. Assert the query count in a test when the project already does that.
 
-A queryset is filtered before it is evaluated. Do not `list(Model.objects.all())` and filter in Python. `update()` and `delete()` on a queryset are SQL. They do not run model `save()` or signals unless the project is on a path that does. A database `ON DELETE CASCADE` does not run Django's `delete()` signals. If you need the signal, delete through the model instance or the collector the project uses.
+A queryset is filtered before it is evaluated. Do not `list(Model.objects.all())` and filter in Python. `QuerySet.update()` is SQL. It does not call `save()` and it does not send signals. `QuerySet.delete()` does send `pre_delete` and `post_delete`, including for rows Django cascades in Python. It does not call your model's `delete()` method, so an override there does not run. A database `ON DELETE CASCADE` is separate: the database removes the row and Django does not send a signal for that child. If the override must run, iterate instances and call `delete()` on each.
+
+```python
+Note.objects.filter(tenant=tenant).delete()  # signals fire, Note.delete() does not
+for note in Note.objects.filter(tenant=tenant):
+    note.delete()  # the override runs
+```
 
 Fetch modes in 6.1 are explicit. `FETCH_RAISE` is how you stop a lazy query you did not expect. Do not add it blindly to every relation. Read what the view actually touches.
 
@@ -73,7 +77,23 @@ The test client covers an anonymous user, a user without the permission, and the
 ## Mistakes to avoid
 
 - An N+1 in a list view.
-- Assuming a database cascade runs `post_delete`.
+- Assuming `QuerySet.delete()` runs `Model.delete()`, or that a database cascade sends `post_delete`.
 - `fields = "__all__"` on a public form.
 - A sync query inside an async view.
 - A shipped migration rewritten in place.
+
+## What changed in this major
+
+Django 6.1 adds `FETCH_PEERS` and `FETCH_RAISE`. `QuerySet.delete()` sends delete signals and skips `Model.delete()`.
+
+## Deprecated APIs to never generate
+
+Do not generate `mark_safe` on user text, or `@csrf_exempt` on a browser form.
+
+## Commands
+
+Run `python manage.py test` for the app you changed.
+
+## Example
+
+The `Note.objects.filter(...).delete()` example above sends signals and skips `Note.delete()`.

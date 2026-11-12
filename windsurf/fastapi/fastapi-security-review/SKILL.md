@@ -2,7 +2,7 @@
 id: "windsurf-fastapi-security-review"
 slug: "windsurf/fastapi/fastapi-security-review/SKILL"
 title: "FastAPI Security Review Skill for Windsurf"
-description: "Windsurf skill for a FastAPI security review. Use when you want that security review on a FastAPI change. Do not use it for a different stack."
+description: "Review a FastAPI change for Pydantic validation, auth dependencies, and blocking work in async routes. Use for a FastAPI security review. Do not use for a non-FastAPI Python script or to expose a hidden field in a response model."
 type: "skill"
 tools:
   - "windsurf"
@@ -23,15 +23,15 @@ tested_with:
 created: "2026-11-11"
 updated: "2026-11-11"
 libs:
-  - "fastapi@0.162.4"
-updated_for: "FastAPI 0.162.4, Nov 2026"
+  - "fastapi@0.162.5"
+updated_for: "FastAPI 0.162.5, Nov 2026"
 ---
 
 # FastAPI Security Review Skill for Windsurf
 
 ## Install
 
-Install the native export at `.devin/skills/fastapi-security-review/SKILL.md` and `.windsurf/skills/fastapi-security-review/SKILL.md`.
+Install the native export at `.devin/skills/fastapi-security-review/SKILL.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
@@ -39,7 +39,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # FastAPI Security Review Skill for Windsurf
 
-Skill `fastapi-security-review` for Devin CLI and the legacy Windsurf skills folder. Invoke it with `/fastapi-security-review`. This file is not a subagent.
+Devin skill `fastapi-security-review` for FastAPI. Invoke it with `/fastapi-security-review`. Install only `.devin/skills`. This file is not a subagent.
 
 ## When to run
 
@@ -65,3 +65,32 @@ Findings with severity, file, line, the route, and a fix. Do not include secrets
 ## Stop
 
 Stop when the user asks you to disable auth on a route to make a test pass, or to point the suite at production.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## What to check
+
+- Injection: concatenated SQL, shell, or HTML.
+- XSS: unescaped user text in HTML.
+- CSRF: a browser state change with the framework check disabled.
+- Secrets: a key in the repo or in a log line.
+- IDOR: an id from the client with no owner or permission check.
+- SSRF: a user-supplied URL fetched with no allow-list.

@@ -2,7 +2,7 @@
 id: "cursor-playwright-test-writer"
 slug: "cursor/playwright/playwright-test-writer/SKILL"
 title: "Playwright Test Writer Skill for Cursor"
-description: "Cursor skill for a Playwright test writer. Use when you want that test writer on a Playwright change. Do not use it for a different stack."
+description: "Write a Playwright regression test that reproduces a bug with locators and web-first assertions. Use when the user asks for a Playwright test or an end-to-end case. Do not use for unit tests in another runner or a non-browser bug."
 type: "skill"
 tools:
   - "cursor"
@@ -63,3 +63,23 @@ The spec path, the behavior it locks, the command, and the output. No production
 ## Stop
 
 Stop when the user asks you to hit production, to commit a live session, or to add `waitForTimeout` so the suite looks green.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

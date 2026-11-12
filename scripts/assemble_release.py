@@ -16,7 +16,9 @@ ROOT = Path(__file__).resolve().parents[1]
 CREATED = "2026-11-11"
 MARKER = "<!-- native:start -->"
 AUTHOR = {"name": "presets.dev", "github": "beel-collab"}
-TOOLS = ("cursor", "copilot", "claude", "windsurf", "cline", "codex", "gemini-cli")
+TOOLS = ("cursor", "copilot", "claude", "windsurf", "cline", "codex", "antigravity")
+# Gemini CLI catalog files from the earlier draft. Orphan cleanup removes them.
+RETIRED_TOOLS = ("gemini-cli",)
 TOOL_LABEL = {
     "cursor": "Cursor",
     "copilot": "Copilot",
@@ -24,7 +26,7 @@ TOOL_LABEL = {
     "windsurf": "Windsurf",
     "cline": "Cline",
     "codex": "Codex",
-    "gemini-cli": "Gemini CLI",
+    "antigravity": "Antigravity CLI",
 }
 TESTED = {
     "cursor": "Cursor docs 2026-11-11; app not executed",
@@ -33,7 +35,7 @@ TESTED = {
     "windsurf": "Devin and Cascade docs 2026-11-11; not run",
     "cline": "Cline docs 2026-11-11; app not executed",
     "codex": "Codex docs 2026-11-11; CLI not executed",
-    "gemini-cli": "Gemini CLI docs 2026-11-11; CLI not run",
+    "antigravity": "Antigravity CLI docs 2026-11-12; CLI not run",
 }
 FIXTURE = "node v22.23.4 fixture 2026-11-11"
 CATALOG_FRONT_ORDER = [
@@ -144,7 +146,7 @@ def standards_title(tool: str, spec: dict) -> str:
         "windsurf": f"{product} Windsurf Rules: {focus}",
         "cline": f"{product} Cline Rules: {focus}",
         "codex": f"{product} Codex Instructions: {focus}",
-        "gemini-cli": f"{product} Gemini CLI Rules: {focus}",
+        "antigravity": f"{product} Antigravity CLI Rules: {focus}",
     }
     return titles[tool]
 
@@ -177,8 +179,8 @@ def standards_description(tool: str, spec: dict) -> str:
             f"Codex instructions for {product}: {focus}. "
             f"Append to AGENTS.md. Structure, security, and tests. {spec['updated_for']}."
         ),
-        "gemini-cli": (
-            f"Gemini CLI rules for {product}: {focus}. "
+        "antigravity": (
+            f"Antigravity CLI rules for {product}: {focus}. "
             f"Append to GEMINI.md. Structure, security, and tests. {spec['updated_for']}."
         ),
     }
@@ -190,22 +192,10 @@ def skill_title(tool: str, spec: dict) -> str:
 
 
 def skill_catalog_description(tool: str, spec: dict) -> str:
-    label = spec["skill_label"].lower()
-    product = spec["product"]
-    lead = {
-        "cursor": "Cursor skill",
-        "copilot": "Copilot skill",
-        "claude": "Claude Code skill",
-        "windsurf": "Windsurf skill",
-        "cline": "Cline skill",
-        "codex": "Codex skill",
-        "gemini-cli": "Gemini CLI skill",
-    }[tool]
-    return (
-        f"{lead} for a {product} {label}. "
-        f"Use when you want that {label} on a {product} change. "
-        f"Do not use it for a different stack."
-    )
+    text = spec["native_skill_description"]
+    if len(text) > 400:
+        raise SystemExit(f"{spec['id']}: native skill description exceeds the catalog limit")
+    return text
 
 
 def host_line(tool: str, spec: dict, role: str) -> str:
@@ -215,33 +205,31 @@ def host_line(tool: str, spec: dict, role: str) -> str:
         return {
             "cursor": (
                 f"File-scoped Cursor rule for {product}. "
-                f"It attaches when a matching file is in context. Use `{skill}` for a review."
+                f"It attaches when a matching file is in context."
             ),
             "copilot": (
                 f"Path-specific Copilot instructions for {product}. "
-                f"They apply through `applyTo` and leave `.github/copilot-instructions.md` in place. "
-                f"Use `{skill}` for a review."
+                f"They apply through `applyTo` and leave `.github/copilot-instructions.md` in place."
             ),
             "claude": (
                 f"Path-scoped Claude Code rule for {product}. "
-                f"It loads when a matching file is read. It does not replace `CLAUDE.md`. "
-                f"Use `{skill}` for a review."
+                f"It loads when a matching file is read. It does not replace `CLAUDE.md`."
             ),
             "windsurf": (
-                f"Rule for {product} on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). "
-                f"The trigger is model decision. Use `{skill}` for a review."
+                f"Devin rule for {product}. Install the `.devin/rules` file. "
+                f"The trigger is model decision. Do not also copy it into `.windsurf/rules`."
             ),
             "cline": (
                 f"Conditional Cline rule for {product}. "
-                f"Install it under `.clinerules/` only. Use `{skill}` for a review."
+                f"Install it under `.clinerules/` only."
             ),
             "codex": (
                 f"Section to append to `AGENTS.md` for {product}. "
-                f"This is project guidance, not a custom agent. Use `${skill}` for a review."
+                f"This is project guidance, not a custom agent."
             ),
-            "gemini-cli": (
+            "antigravity": (
                 f"Section to append to `GEMINI.md` for {product}. "
-                f"Confirm with `/memory show`. The review skill waits for consent before it runs."
+                f"Antigravity CLI also reads `AGENTS.md`. Confirm the loaded rules before you rely on them."
             ),
         }[tool]
     return {
@@ -259,8 +247,8 @@ def host_line(tool: str, spec: dict, role: str) -> str:
             f"The command is `/{skill}`. Leave the normal permission prompts on."
         ),
         "windsurf": (
-            f"Skill `{skill}` for Devin CLI and the legacy Windsurf skills folder. "
-            f"Invoke it with `/{skill}`. This file is not a subagent."
+            f"Devin skill `{skill}` for {product}. "
+            f"Invoke it with `/{skill}`. Install only `.devin/skills`. This file is not a subagent."
         ),
         "cline": (
             f"Cline skill `{skill}` for {product}. "
@@ -270,10 +258,10 @@ def host_line(tool: str, spec: dict, role: str) -> str:
             f"Codex skill `{skill}` for {product}. "
             f"Call it with `${skill}` or `/skills`. Do not install the other tools' copies beside it."
         ),
-        "gemini-cli": (
-            f"Gemini CLI skill `{skill}` for {product}. "
-            f"Activation calls `activate_skill` and waits for consent. "
-            f"Keep this copy under `.gemini/skills`."
+        "antigravity": (
+            f"Antigravity CLI skill `{skill}` for {product}. "
+            f"The workspace path is `.agents/skills/{skill}/SKILL.md`. "
+            f"Reload skills before you expect the new command."
         ),
     }[tool]
 
@@ -287,20 +275,20 @@ def install_section(tool: str, spec: dict, role: str) -> str:
             "cursor": f"`.cursor/rules/{rules}.mdc`",
             "copilot": f"`.github/instructions/{stack}.instructions.md`",
             "claude": f"`.claude/rules/{rules}.md`",
-            "windsurf": f"`.devin/rules/{rules}.md` and, for legacy Cascade, `.windsurf/rules/{rules}.md`",
+            "windsurf": f"`.devin/rules/{rules}.md`",
             "cline": f"`.clinerules/{rules}.md` (do not also copy it to `.cline/rules/`)",
             "codex": "`AGENTS.md` as an appended section, not a replacement and not a custom agent",
-            "gemini-cli": "`GEMINI.md` as an appended section, then check `/memory show`",
+            "antigravity": "`GEMINI.md` or `AGENTS.md` as an appended section",
         }[tool]
     else:
         target = {
             "cursor": f"`.cursor/skills/{skill}/SKILL.md`",
             "copilot": f"`.github/skills/{skill}/SKILL.md`",
             "claude": f"`.claude/skills/{skill}/SKILL.md`",
-            "windsurf": f"`.devin/skills/{skill}/SKILL.md` and `.windsurf/skills/{skill}/SKILL.md`",
+            "windsurf": f"`.devin/skills/{skill}/SKILL.md`",
             "cline": f"`.cline/skills/{skill}/SKILL.md`",
             "codex": f"`.agents/skills/{skill}/SKILL.md`",
-            "gemini-cli": f"`.gemini/skills/{skill}/SKILL.md`",
+            "antigravity": f"`.agents/skills/{skill}/SKILL.md`",
         }[tool]
     return "\n".join(
         [
@@ -331,7 +319,7 @@ def catalog_paths(spec: dict) -> dict[str, dict[str, str]]:
             "windsurf": f"windsurf/{stack}/{stack}-rules.md",
             "cline": f"cline/{stack}/{stack}-rules.md",
             "codex": f"codex/{stack}/{stack}-rules.md",
-            "gemini-cli": f"gemini-cli/{stack}/{stack}-rules.md",
+            "antigravity": f"antigravity/{stack}/{stack}-rules.md",
         },
         "skill": {
             "cursor": f"cursor/{stack}/{skill}/SKILL.md",
@@ -340,7 +328,7 @@ def catalog_paths(spec: dict) -> dict[str, dict[str, str]]:
             "windsurf": f"windsurf/{stack}/{skill}/SKILL.md",
             "cline": f"cline/{stack}/{skill}/SKILL.md",
             "codex": f"codex/{stack}/{skill}/SKILL.md",
-            "gemini-cli": f"gemini-cli/{stack}/{skill}/SKILL.md",
+            "antigravity": f"antigravity/{stack}/{skill}/SKILL.md",
         },
     }
 
@@ -390,11 +378,6 @@ def native_exports(spec: dict) -> dict[str, dict[str, list[dict]]]:
                     "format": "windsurf-rule",
                     "frontmatter": {"description": description, "trigger": "model_decision"},
                 },
-                {
-                    "path": f"{base}/windsurf/.windsurf/rules/{rules}.md",
-                    "format": "windsurf-rule",
-                    "frontmatter": {"description": description, "trigger": "model_decision"},
-                },
             ],
             "cline": [
                 {
@@ -411,9 +394,9 @@ def native_exports(spec: dict) -> dict[str, dict[str, list[dict]]]:
                     "frontmatter": {},
                 }
             ],
-            "gemini-cli": [
+            "antigravity": [
                 {
-                    "path": f"{base}/gemini-cli/GEMINI.{stack}-section.md",
+                    "path": f"{base}/antigravity/GEMINI.{stack}-section.md",
                     "format": "plain",
                     "banner": "<!-- Append this section to GEMINI.md. Do not replace the existing file. Confirm with /memory show. -->",
                     "frontmatter": {},
@@ -448,11 +431,6 @@ def native_exports(spec: dict) -> dict[str, dict[str, list[dict]]]:
                     "format": "skill",
                     "frontmatter": skill_front,
                 },
-                {
-                    "path": f"{base}/windsurf/.windsurf/skills/{skill}/SKILL.md",
-                    "format": "skill",
-                    "frontmatter": skill_front,
-                },
             ],
             "cline": [
                 {
@@ -468,9 +446,9 @@ def native_exports(spec: dict) -> dict[str, dict[str, list[dict]]]:
                     "frontmatter": skill_front,
                 }
             ],
-            "gemini-cli": [
+            "antigravity": [
                 {
-                    "path": f"{base}/gemini-cli/.gemini/skills/{skill}/SKILL.md",
+                    "path": f"{base}/antigravity/.agents/skills/{skill}/SKILL.md",
                     "format": "skill",
                     "frontmatter": skill_front,
                 }
@@ -624,8 +602,8 @@ def mapping_markdown(rows: list[tuple[dict, dict]]) -> str:
         "Generated from `masters/*/stack.json`. Install the native file, not the catalog source.",
         "Catalog frontmatter is presets.dev metadata.",
         "",
-        "Windsurf ships the same text to `.devin/` (current Devin) and `.windsurf/` (legacy Cascade).",
-        "Codex and Gemini CLI standards are sections to append. Do not replace `AGENTS.md` or `GEMINI.md`.",
+        "Windsurf installs only under `.devin/` for current Devin. Do not also copy the file into `.windsurf/`.",
+        "Codex standards append to `AGENTS.md`. Antigravity CLI standards append to `GEMINI.md` or `AGENTS.md`. Do not replace those files.",
         "Install one skill per checkout. Shared `.agents/skills` names collide across Cursor, Codex, and Gemini CLI.",
         "",
         "| Stack | Tool | Role | Catalog | Install |",
@@ -647,7 +625,7 @@ def stacks_document(groups: list[tuple[dict, list[dict]]]) -> dict:
         "note": (
             "Each complete stack has one standards file and one SKILL.md for every tool. "
             "Support files and native exports are not catalog entries. "
-            "gemini-cli is Gemini CLI, not antigravity. "
+            "antigravity is Antigravity CLI, which replaced Gemini CLI for personal accounts. "
             "The index is stacks.json because manifest.json is gitignored."
         ),
         "stacks": [
@@ -718,6 +696,10 @@ def native_body_from_catalog(catalog: str) -> str:
     return catalog[index + len(marker) :]
 
 
+# Written by the retirement pass, not by the generator.
+KEEP_RELEASE = {"release/original-2026-11/retirement-map.json"}
+
+
 def managed_orphans(expected: set[str]) -> list[str]:
     orphans: list[str] = []
     release = ROOT / "release"
@@ -725,9 +707,9 @@ def managed_orphans(expected: set[str]) -> list[str]:
         for path in release.rglob("*"):
             if path.is_file():
                 rel = path.relative_to(ROOT).as_posix()
-                if rel not in expected:
+                if rel not in expected and rel not in KEEP_RELEASE:
                     orphans.append(rel)
-    for tool in TOOLS:
+    for tool in (*TOOLS, *RETIRED_TOOLS):
         base = ROOT / tool
         if not base.is_dir():
             continue
@@ -784,7 +766,7 @@ def main() -> int:
         if path.is_file():
             path.unlink()
     remove_empty_dirs(ROOT / "release")
-    for tool in TOOLS:
+    for tool in (*TOOLS, *RETIRED_TOOLS):
         remove_empty_dirs(ROOT / tool)
     print(f"release wrote: {len(files)} file(s); removed {len(orphans)} orphan(s)")
     return 0

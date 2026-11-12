@@ -2,7 +2,7 @@
 id: "copilot-nuxt-performance-audit"
 slug: "copilot/nuxt/nuxt-performance-audit/SKILL"
 title: "Nuxt Performance Audit Skill for Copilot"
-description: "Copilot skill for a Nuxt performance audit. Use when you want that performance audit on a Nuxt change. Do not use it for a different stack."
+description: "Audit a Nuxt app for duplicate SSR fetches, unstable payload keys, and private runtime config leaking to the client. Use for a Nuxt performance audit. Do not use for a non-Nuxt Vue app or to enable experimental routeTypedFetch unasked."
 type: "skill"
 tools:
   - "copilot"
@@ -65,3 +65,23 @@ Findings with severity, file, line, the extra fetch or the leaked key, and a fix
 ## Stop
 
 Stop when the user asks you to log `runtimeConfig` or to disable SSR to hide a hydration bug.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

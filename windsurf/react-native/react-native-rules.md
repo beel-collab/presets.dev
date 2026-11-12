@@ -30,7 +30,7 @@ updated_for: "React Native 0.88.1, Nov 2026"
 
 ## Install
 
-Install the native export at `.devin/rules/react-native-rules.md` and, for legacy Cascade, `.windsurf/rules/react-native-rules.md`.
+Install the native export at `.devin/rules/react-native-rules.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
@@ -38,11 +38,9 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # React Native Windsurf Rules: Expo, Navigation and Native Lifecycle
 
-Rule for React Native on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `react-native-code-review` for a review.
+Devin rule for React Native. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for React Native 0.88.1, Nov 2026
-
-React Native 0.88.1 is the npm `latest` release checked on 11 November 2026. Expo's current SDK that day was 58. Do not change the Expo SDK or the React Native version unless the task asks, and do not mix an SDK with a React Native version the SDK does not support. Web-only DOM APIs, including React 19.3 `browser()` and View Transitions, are not available here.
 
 ## Project shape
 
@@ -52,9 +50,9 @@ A new native module or config plugin is a product decision. Do not add one to so
 
 ## Components and state
 
-The React rules still apply: derive values during render, clean up effects, and do not store props in state. A screen unmounts when the user navigates away. Cancel the request and the subscription in the cleanup.
+The React rules still apply: derive values during render, clean up effects, and do not store props in state. In a native stack, pushing another screen does not unmount the one underneath. Focus-owned work uses `useFocusEffect` and returns a cleanup that runs on blur. Effect cleanup runs when the screen actually unmounts, which is later, often after it is popped. Do not treat blur as unmount.
 
-Do not touch a navigation ref or a screen's state after the screen has blurred unless the API you call is documented to allow it. Check `mounted` or the navigation focus hook the project already uses before you set state after `await`.
+After `await`, check that the screen is still focused before you set state or navigate. A request started on focus is cancelled in the focus cleanup.
 
 ## Platform behavior
 
@@ -85,3 +83,25 @@ Run the project's Jest or Maestro target for the logic you changed. A device che
 - An Expo SDK bump that does not match the React Native version.
 - A route param that contains a secret or a function.
 - Calling the work done without a device or a clearly labeled simulator run.
+
+## What changed in this major
+
+React Native 0.88 is the current line. Expo SDK 58 is current npm latest. Do not mix an SDK with an unsupported React Native.
+
+## Deprecated APIs to never generate
+
+Do not generate `componentWillMount`, or `document` / `window` in a native screen.
+
+## Commands
+
+Run the unit test script. Say when no device was used.
+
+## Example
+
+```tsx
+useFocusEffect(useCallback(() => {
+  const ac = new AbortController()
+  load(ac.signal)
+  return () => ac.abort()
+}, []))
+```

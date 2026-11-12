@@ -30,7 +30,7 @@ updated_for: "Spring Boot 4.1 stable line, Nov 2026"
 
 ## Install
 
-Install the native export at `.devin/rules/spring-rules.md` and, for legacy Cascade, `.windsurf/rules/spring-rules.md`.
+Install the native export at `.devin/rules/spring-rules.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
@@ -38,7 +38,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Spring Boot Windsurf Rules: Injection, Transactions and Validation
 
-Rule for Spring Boot on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `spring-security-review` for a review.
+Devin rule for Spring Boot. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for Spring Boot 4.1, Nov 2026
 
@@ -58,7 +58,7 @@ Return the status the API already uses. A not-found and a forbidden are differen
 
 ## Transactions and data
 
-`@Transactional` sits on the service method that must commit or roll back together. Do not annotate a private method and expect a proxy to see it. Do not call a remote HTTP API inside the transaction. Keep the transaction short.
+`@Transactional` sits on the service method that must commit or roll back together. Spring applies it with a proxy. A call from another method in the same class, `this.save()`, does not pass through that proxy, so `@Transactional` and `@Async` on the callee do not run. The same is true for a private method. Call through an injected bean, or move the boundary to the method that is actually invoked from outside. Do not call a remote HTTP API inside the transaction. Keep the transaction short.
 
 A JPA query fetches what it needs. An open session that lazy-loads a collection in a loop is an N+1. Use a fetch join or a projection the project already prefers. Pagination has a page size cap.
 
@@ -79,3 +79,24 @@ A slice test covers a controller or a repository when the project uses slices. A
 - `@Transactional` on a private self-invoked method.
 - An N+1 lazy load in a loop.
 - `permitAll` added to hide a failing test.
+
+## What changed in this major
+
+Boot 4.1 is the stable line. Do not take a 4.2 release candidate. `@Transactional` still needs a proxy.
+
+## Deprecated APIs to never generate
+
+Do not generate field `@Autowired`, or a Boot 4.2 RC dependency.
+
+## Commands
+
+Run the Gradle or Maven test task.
+
+## Example
+
+```java
+public Note create(CreateNote req) {
+    return notes.save(req);
+}
+```
+Call that method from another bean. `this.create()` skips `@Transactional`.

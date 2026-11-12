@@ -21,7 +21,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from ci_common import ROOT, changed_files, resolve_base
 
-TOOLS = ("copilot", "cursor", "claude", "windsurf", "cline", "codex", "gemini-cli", "antigravity")
+TOOLS = ("copilot", "cursor", "claude", "windsurf", "cline", "codex", "antigravity")
 SUPPORTING_DIRS = {"references", "assets", "scripts"}
 DOC_NAMES = {"README.md", "CONTRIBUTING.md"}
 TEMPLATE_FILES = (
@@ -339,11 +339,11 @@ def self_test(schema: dict) -> list[str]:
             if not validate_data(starter_path, candidate, schema, require_tool_dir=False):
                 errors.append(f"self-test: {message}")
         accepted = dict(starter)
-        accepted["tools"] = ["gemini-cli"]
+        accepted["tools"] = ["antigravity"]
         accepted["stack"] = "nextjs"
         accepted["updated_for"] = "Next.js 16.4.6"
         if validate_data(starter_path, accepted, schema, require_tool_dir=False):
-            errors.append("self-test: gemini-cli stack metadata was rejected")
+            errors.append("self-test: antigravity stack metadata was rejected")
         full_list = dict(starter)
         full_list["tools"] = list(TOOLS)
         if validate_data(starter_path, full_list, schema, require_tool_dir=False):

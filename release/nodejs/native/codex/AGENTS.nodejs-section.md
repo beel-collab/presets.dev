@@ -2,7 +2,7 @@
 
 # Node.js Codex Instructions: ESM, Cancellation and Streams
 
-Section to append to `AGENTS.md` for Node.js. This is project guidance, not a custom agent. Use `$nodejs-performance-audit` for a review.
+Section to append to `AGENTS.md` for Node.js. This is project guidance, not a custom agent.
 
 ## Updated for Node.js 26.13.1 LTS, Nov 2026
 
@@ -47,3 +47,21 @@ Use the runner the project already has. Cover a timeout, an aborted request, and
 - A swallowed rejection.
 - A synchronous filesystem or CPU call inside a request handler.
 - Targeting the v27 alpha, or upgrading the LTS line unasked.
+
+## What changed in this major
+
+Stay on the 26.13 LTS line. Do not target the v27 alpha. `AbortSignal` and timeouts are the cancellation tools.
+
+## Deprecated APIs to never generate
+
+Do not generate `url.parse` or an unbounded `retry` without an `AbortSignal`.
+
+## Commands
+
+Run the package test script. Do not target the v27 alpha.
+
+## Example
+
+```ts
+const res = await fetch(url, { signal: AbortSignal.timeout(5_000) })
+```

@@ -30,7 +30,7 @@ updated_for: ".NET 10 LTS and .NET 11, Nov 2026"
 
 ## Install
 
-Install the native export at `.devin/rules/dotnet-rules.md` and, for legacy Cascade, `.windsurf/rules/dotnet-rules.md`.
+Install the native export at `.devin/rules/dotnet-rules.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
@@ -38,7 +38,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # .NET Windsurf Rules: Nullable Contracts, Async and Endpoints
 
-Rule for .NET on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `dotnet-code-review` for a review.
+Devin rule for .NET. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for .NET 10 LTS and .NET 11, Nov 2026
 
@@ -79,3 +79,24 @@ Use the project's `WebApplicationFactory` or unit style. Cover a canceled token,
 - A `CancellationToken` that stops at the first method.
 - An endpoint with no authorization on a write.
 - An EF query that loads the table and filters in memory.
+
+## What changed in this major
+
+.NET 11 can use C# 15 unions. A `net10.0` project cannot. Pass `CancellationToken` through.
+
+## Deprecated APIs to never generate
+
+Do not generate C# 15 union syntax in a `net10.0` project, or `.Result` on a request path.
+
+## Commands
+
+Run `dotnet test` for the touched project.
+
+## Example
+
+```csharp
+app.MapPost("/notes", async (Note body, ClaimsPrincipal user, CancellationToken ct) =>
+{
+    return Results.Ok(await store.AddAsync(body, user, ct));
+}).RequireAuthorization();
+```

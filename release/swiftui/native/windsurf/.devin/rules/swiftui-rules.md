@@ -5,7 +5,7 @@ trigger: "model_decision"
 
 # SwiftUI Windsurf Rules: State, Concurrency and Availability
 
-Rule for SwiftUI on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `swiftui-code-review` for a review.
+Devin rule for SwiftUI. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for Swift 6.4, Nov 2026
 
@@ -42,3 +42,22 @@ Prefer Swift Testing when the project has adopted it. Otherwise use XCTest the w
 - A UI property written off the main actor.
 - An API used below the deployment target.
 - A force unwrap on decoded data.
+
+## What changed in this major
+
+Swift 6.4 adds async `defer` and cancellation shields. `.task` is the view-scoped task. Plain `Task` is not.
+
+## Deprecated APIs to never generate
+
+Do not generate `@unchecked Sendable` to silence isolation, or `try?` on a failing load.
+
+## Commands
+
+Run the project's Swift test action.
+
+## Example
+
+```swift
+.task { await model.load() }
+```
+That task is cancelled when the view disappears.

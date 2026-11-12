@@ -38,7 +38,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Terraform Codex Instructions: Providers, State and Plan Review
 
-Section to append to `AGENTS.md` for Terraform. This is project guidance, not a custom agent. Use `$terraform-security-review` for a review.
+Section to append to `AGENTS.md` for Terraform. This is project guidance, not a custom agent.
 
 ## Updated for Terraform 1.17, Nov 2026
 
@@ -58,7 +58,7 @@ Read the plan JSON or the plan output for replaces, destroys, and IAM changes. A
 
 ## Security
 
-IAM actions are the verbs the resource needs, on the ARN it needs. `*` on action or resource is a finding. A security group does not open `0.0.0.0/0` on an admin port.
+IAM actions are the verbs the resource needs. Some AWS actions have no resource-level permission and the resource element must be `"*"`. That star is not, by itself, a finding. A finding is a permission wider than the action requires: extra actions, a star on an action that does support resource ARNs, or `0.0.0.0/0` on an admin port.
 
 Secrets are not in `.tfvars` committed to git and not in outputs. Mark sensitive outputs. A variable default that contains a key is a bug. Use the project's secret manager or a write-only input.
 
@@ -75,3 +75,24 @@ Provider aliases and regions match the environment. Do not point a dev workspace
 - Broad IAM or an open admin port.
 - A secret in state outputs or committed tfvars.
 - A state file committed to the repository.
+
+## What changed in this major
+
+Terraform 1.17 plans are the review artifact. Do not invent provider arguments.
+
+## Deprecated APIs to never generate
+
+Do not generate an invented provider argument, or `terraform apply` from an agent.
+
+## Commands
+
+Run `terraform fmt` and `terraform validate`. Do not apply.
+
+## Example
+
+```hcl
+resource "aws_s3_bucket" "logs" {
+  bucket = var.logs_bucket
+}
+```
+Plan this. Do not apply it from the agent.

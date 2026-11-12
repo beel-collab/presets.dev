@@ -5,7 +5,7 @@ trigger: "model_decision"
 
 # Kotlin Windsurf Rules: Coroutines, Null Safety and Compose
 
-Rule for Kotlin on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `kotlin-code-review` for a review.
+Devin rule for Kotlin. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for Kotlin 2.4, Nov 2026
 
@@ -42,3 +42,24 @@ A coroutine test uses `runTest` and a test dispatcher. Advance time instead of s
 - `!!` on a value that can be null.
 - A Flow collected without a lifecycle stop.
 - A Kotlin upgrade bundled into a UI fix.
+
+## What changed in this major
+
+Kotlin 2.4 keeps `CancellationException` special. `GlobalScope` is still the wrong scope.
+
+## Deprecated APIs to never generate
+
+Do not generate `GlobalScope.launch`, or `!!` on a value that can be null.
+
+## Commands
+
+Run the Gradle unit test task.
+
+## Example
+
+```kotlin
+viewModelScope.launch {
+  try { repo.refresh() }
+  catch (e: CancellationException) { throw e }
+}
+```

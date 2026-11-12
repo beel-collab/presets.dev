@@ -5,11 +5,9 @@ trigger: "model_decision"
 
 # NestJS Windsurf Rules: Modules, DTOs and Guards
 
-Rule for NestJS on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `nestjs-security-review` for a review.
+Devin rule for NestJS. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for NestJS 12.4.2, Nov 2026
-
-`@nestjs/core` 12.4.2 is the npm `latest` release checked on 11 November 2026. Read the installed major and the Node engine it requires before you add a pattern. Do not upgrade Nest as a side effect. A provider that is not registered in a module is not injectable.
 
 ## Project shape
 
@@ -40,3 +38,25 @@ A unit test builds the service with mocks for its collaborators. An e2e test boo
 - A DTO spread into a database write.
 - A new route with no guard.
 - A global pipe turned off to accept a sloppy client.
+
+## What changed in this major
+
+Nest 12 adds `@Body({ schema })` plus `StandardSchemaValidationPipe`. Class DTOs and `ValidationPipe` still work.
+
+## Deprecated APIs to never generate
+
+Do not generate an unregistered provider, or `@Body()` typed only as an interface.
+
+## Commands
+
+Run the package test script.
+
+## Example
+
+```ts
+@Post()
+create(@Body({ schema: createNoteSchema }) body: CreateNote) {
+  return this.notes.create(body)
+}
+```
+Register `StandardSchemaValidationPipe` or this schema is metadata only.

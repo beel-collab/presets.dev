@@ -37,3 +37,24 @@ Use the project's `WebApplicationFactory` or unit style. Cover a canceled token,
 - A `CancellationToken` that stops at the first method.
 - An endpoint with no authorization on a write.
 - An EF query that loads the table and filters in memory.
+
+## What changed in this major
+
+.NET 11 can use C# 15 unions. A `net10.0` project cannot. Pass `CancellationToken` through.
+
+## Deprecated APIs to never generate
+
+Do not generate C# 15 union syntax in a `net10.0` project, or `.Result` on a request path.
+
+## Commands
+
+Run `dotnet test` for the touched project.
+
+## Example
+
+```csharp
+app.MapPost("/notes", async (Note body, ClaimsPrincipal user, CancellationToken ct) =>
+{
+    return Results.Ok(await store.AddAsync(body, user, ct));
+}).RequireAuthorization();
+```

@@ -39,11 +39,9 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # React Copilot Instructions: Components, State and Effects
 
-Path-specific Copilot instructions for React. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place. Use `react-performance-audit` for a review.
+Path-specific Copilot instructions for React. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for React 19.3.1, Nov 2026
-
-React 19.3.1 is the npm `latest` release checked on 11 November 2026. Stable View Transitions, Fragment refs, and `browser()` landed on the 19.3 line. Those DOM APIs belong in the browser. Do not call them from React Native. Read the installed `react` version before using a 19.3 API, and leave a React 18 app on 18 unless the task asks for an upgrade.
 
 ## Project shape
 
@@ -96,3 +94,22 @@ Test what the user sees. Query by role or label. Fire events through the testing
 - A suppressed hydration warning.
 - A 19.3 DOM API used in React Native or in a React 18 app.
 - `memo` and new context providers added without a measurement.
+
+## What changed in this major
+
+React 19.3 stabilizes View Transitions, Fragment refs, and `browser()`. Those are DOM APIs. `ref` is a normal prop, so new components skip `forwardRef`.
+
+## Deprecated APIs to never generate
+
+Do not generate `forwardRef` on a React 19 function component, or `componentWillMount`.
+
+## Commands
+
+Run the repo's test script and, when asked, the React profiler. Do not upgrade React.
+
+## Example
+
+```tsx
+const fullName = first + " " + last
+```
+Compute `fullName` during render. Do not copy `first` into state from an effect.

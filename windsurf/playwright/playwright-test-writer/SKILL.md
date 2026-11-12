@@ -2,7 +2,7 @@
 id: "windsurf-playwright-test-writer"
 slug: "windsurf/playwright/playwright-test-writer/SKILL"
 title: "Playwright Test Writer Skill for Windsurf"
-description: "Windsurf skill for a Playwright test writer. Use when you want that test writer on a Playwright change. Do not use it for a different stack."
+description: "Write a Playwright regression test that reproduces a bug with locators and web-first assertions. Use when the user asks for a Playwright test or an end-to-end case. Do not use for unit tests in another runner or a non-browser bug."
 type: "skill"
 tools:
   - "windsurf"
@@ -30,7 +30,7 @@ updated_for: "Playwright 1.65.0, Nov 2026"
 
 ## Install
 
-Install the native export at `.devin/skills/playwright-test-writer/SKILL.md` and `.windsurf/skills/playwright-test-writer/SKILL.md`.
+Install the native export at `.devin/skills/playwright-test-writer/SKILL.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
@@ -38,7 +38,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Playwright Test Writer Skill for Windsurf
 
-Skill `playwright-test-writer` for Devin CLI and the legacy Windsurf skills folder. Invoke it with `/playwright-test-writer`. This file is not a subagent.
+Devin skill `playwright-test-writer` for Playwright. Invoke it with `/playwright-test-writer`. Install only `.devin/skills`. This file is not a subagent.
 
 ## When to run
 
@@ -63,3 +63,23 @@ The spec path, the behavior it locks, the command, and the output. No production
 ## Stop
 
 Stop when the user asks you to hit production, to commit a live session, or to add `waitForTimeout` so the suite looks green.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

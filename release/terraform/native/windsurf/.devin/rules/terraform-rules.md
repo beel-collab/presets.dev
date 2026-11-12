@@ -5,7 +5,7 @@ trigger: "model_decision"
 
 # Terraform Windsurf Rules: Providers, State and Plan Review
 
-Rule for Terraform on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `terraform-security-review` for a review.
+Devin rule for Terraform. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for Terraform 1.17, Nov 2026
 
@@ -42,3 +42,24 @@ Provider aliases and regions match the environment. Do not point a dev workspace
 - Broad IAM or an open admin port.
 - A secret in state outputs or committed tfvars.
 - A state file committed to the repository.
+
+## What changed in this major
+
+Terraform 1.17 plans are the review artifact. Do not invent provider arguments.
+
+## Deprecated APIs to never generate
+
+Do not generate an invented provider argument, or `terraform apply` from an agent.
+
+## Commands
+
+Run `terraform fmt` and `terraform validate`. Do not apply.
+
+## Example
+
+```hcl
+resource "aws_s3_bucket" "logs" {
+  bucket = var.logs_bucket
+}
+```
+Plan this. Do not apply it from the agent.

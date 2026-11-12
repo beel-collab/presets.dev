@@ -5,7 +5,7 @@ description: "Audit a Nuxt app for duplicate SSR fetches, unstable payload keys,
 
 # Nuxt Performance Audit Skill for Windsurf
 
-Skill `nuxt-performance-audit` for Devin CLI and the legacy Windsurf skills folder. Invoke it with `/nuxt-performance-audit`. This file is not a subagent.
+Devin skill `nuxt-performance-audit` for Nuxt. Invoke it with `/nuxt-performance-audit`. Install only `.devin/skills`. This file is not a subagent.
 
 ## When to run
 
@@ -31,3 +31,23 @@ Findings with severity, file, line, the extra fetch or the leaked key, and a fix
 ## Stop
 
 Stop when the user asks you to log `runtimeConfig` or to disable SSR to hide a hydration bug.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.

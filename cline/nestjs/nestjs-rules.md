@@ -38,11 +38,9 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # NestJS Cline Rules: Modules, DTOs and Guards
 
-Conditional Cline rule for NestJS. Install it under `.clinerules/` only. Use `nestjs-security-review` for a review.
+Conditional Cline rule for NestJS. Install it under `.clinerules/` only.
 
 ## Updated for NestJS 12.4.2, Nov 2026
-
-`@nestjs/core` 12.4.2 is the npm `latest` release checked on 11 November 2026. Read the installed major and the Node engine it requires before you add a pattern. Do not upgrade Nest as a side effect. A provider that is not registered in a module is not injectable.
 
 ## Project shape
 
@@ -52,7 +50,7 @@ Controllers take DTOs. Services own the use case and the transaction. Repositori
 
 ## DTOs and validation
 
-A DTO is a class with the project's validation decorators, and the global validation pipe is on. A TypeScript `interface` disappears at runtime and does not validate. Do not use an interface as the `@Body()` type and call it safe.
+Nest 12 validates in two supported ways. A class DTO with `class-validator` decorators needs `ValidationPipe`. A Standard Schema (Zod, Valibot, ArkType) passed as `@Body({ schema })` needs `StandardSchemaValidationPipe`. The decorator only stores the schema. Without that pipe, nothing is checked. A TypeScript `interface` disappears at runtime and does not validate. Do not flag `@Body({ schema })` when the pipe is registered. Do not use an interface as the `@Body()` type and call it safe.
 
 The validation pipe rejects unknown fields when the project has `whitelist` and `forbidNonWhitelisted`. Keep that on. A write copies the DTO fields the entity is allowed to store. Do not spread the DTO into a save if the DTO contains a role or an owner id the client must not set.
 
@@ -73,3 +71,25 @@ A unit test builds the service with mocks for its collaborators. An e2e test boo
 - A DTO spread into a database write.
 - A new route with no guard.
 - A global pipe turned off to accept a sloppy client.
+
+## What changed in this major
+
+Nest 12 adds `@Body({ schema })` plus `StandardSchemaValidationPipe`. Class DTOs and `ValidationPipe` still work.
+
+## Deprecated APIs to never generate
+
+Do not generate an unregistered provider, or `@Body()` typed only as an interface.
+
+## Commands
+
+Run the package test script.
+
+## Example
+
+```ts
+@Post()
+create(@Body({ schema: createNoteSchema }) body: CreateNote) {
+  return this.notes.create(body)
+}
+```
+Register `StandardSchemaValidationPipe` or this schema is metadata only.

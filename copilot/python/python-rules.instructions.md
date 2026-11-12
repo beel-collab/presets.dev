@@ -40,11 +40,9 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Python Copilot Instructions: Environments, Types and pytest
 
-Path-specific Copilot instructions for Python. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place. Use `python-test-writer` for a review.
+Path-specific Copilot instructions for Python. They apply through `applyTo` and leave `.github/copilot-instructions.md` in place.
 
 ## Updated for uv 0.13.7 and Ruff 0.17.4, Nov 2026
-
-uv 0.13.7 and Ruff 0.17.4 are the PyPI versions checked on 11 November 2026. Use the interpreter the repository already pins. Do not move a project onto a newer Python, including a 3.15 install, unless the task asks and the dependencies declare support. A lockfile is the environment. Do not mix `pip`, Poetry, and uv in one change.
 
 ## Project shape
 
@@ -78,7 +76,7 @@ Stream large files instead of `read()` into a string. Paginate a query that can 
 
 pytest is the default when the repo already uses it. A test names the behavior: `test_rejects_empty_name`. Arrange the inputs, act once, assert the outcome. Use the existing fixtures. Do not mock the function you are testing.
 
-Cover the failure path you touched: a bad input, a missing record, a dependency that raises. Run `uv run pytest` for the node you changed, and `uv run ruff check` when Ruff is configured. Paste the output. Do not claim a run you did not do.
+Cover the failure path you touched: a bad input, a missing record, a dependency that raises. Run the test command the repo documents: `uv run pytest` only when uv owns the project, otherwise Poetry, Hatch, tox, or the venv the README names. Run Ruff when the project configures it. Paste the output. Do not claim a run you did not do.
 
 ## Mistakes to avoid
 
@@ -87,3 +85,25 @@ Cover the failure path you touched: a bad input, a missing record, a dependency 
 - Blocking I/O inside `async def`.
 - A test that asserts a mock was called and never checks the result.
 - An interpreter upgrade bundled into an unrelated fix.
+
+## What changed in this major
+
+No new language syntax is required here. uv 0.13 and Ruff 0.17 are the tools to use when the repo already uses them.
+
+## Deprecated APIs to never generate
+
+Do not generate a second virtualenv or a `pip install` beside an existing uv or Poetry lock.
+
+## Commands
+
+Run the documented test command and Ruff when configured.
+
+## Example
+
+```python
+def parse_port(raw: str) -> int:
+    port = int(raw)
+    if not 1 <= port <= 65535:
+        raise ValueError("port out of range")
+    return port
+```

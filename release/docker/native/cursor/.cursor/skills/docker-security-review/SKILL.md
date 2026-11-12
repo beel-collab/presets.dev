@@ -2,9 +2,12 @@
 name: "docker-security-review"
 description: "Review a Dockerfile or Compose file for root runtime, latest tags, secrets in layers, and the Docker socket. Use for a Docker security review. Do not use for a non-container change or to mount the Docker socket into an app container."
 paths:
-  - "**/Dockerfile"
-  - "**/compose*.yml"
-  - "**/compose*.yaml"
+  - "Dockerfile"
+  - "Dockerfile.*"
+  - "docker-compose*.yml"
+  - "docker-compose*.yaml"
+  - "compose.yml"
+  - "compose.yaml"
 ---
 
 # Docker Security Review Skill for Cursor
@@ -35,3 +38,32 @@ Findings with severity, file, line, the insecure instruction, and the replacemen
 ## Stop
 
 Stop when the user asks you to mount the Docker socket or to commit a `.env` into the build context.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## What to check
+
+- Injection: concatenated SQL, shell, or HTML.
+- XSS: unescaped user text in HTML.
+- CSRF: a browser state change with the framework check disabled.
+- Secrets: a key in the repo or in a log line.
+- IDOR: an id from the client with no owner or permission check.
+- SSRF: a user-supplied URL fetched with no allow-list.

@@ -5,11 +5,9 @@ trigger: "model_decision"
 
 # Django Windsurf Rules: ORM, Permissions and Migrations
 
-Rule for Django on current Devin (`.devin/rules`) and legacy Cascade (`.windsurf/rules`). The trigger is model decision. Use `django-security-review` for a review.
+Devin rule for Django. Install the `.devin/rules` file. The trigger is model decision. Do not also copy it into `.windsurf/rules`.
 
 ## Updated for Django 6.1.3, Nov 2026
-
-Django 6.1.3 is the PyPI version checked on 11 November 2026. Django 6.1 adds fetch modes such as `FETCH_PEERS` and `FETCH_RAISE`, database-level delete options, and `MAILERS`. Use a 6.1 API only when the installed Django is 6.1. Read `settings` and an existing view before you add one. Do not upgrade Django as a side effect.
 
 ## Project shape
 
@@ -50,3 +48,19 @@ The test client covers an anonymous user, a user without the permission, and the
 - `fields = "__all__"` on a public form.
 - A sync query inside an async view.
 - A shipped migration rewritten in place.
+
+## What changed in this major
+
+Django 6.1 adds `FETCH_PEERS` and `FETCH_RAISE`. `QuerySet.delete()` sends delete signals and skips `Model.delete()`.
+
+## Deprecated APIs to never generate
+
+Do not generate `mark_safe` on user text, or `@csrf_exempt` on a browser form.
+
+## Commands
+
+Run `python manage.py test` for the app you changed.
+
+## Example
+
+The `Note.objects.filter(...).delete()` example above sends signals and skips `Note.delete()`.

@@ -2,7 +2,7 @@
 id: "windsurf-express-security-review"
 slug: "windsurf/express/express-security-review/SKILL"
 title: "Express Security Review Skill for Windsurf"
-description: "Windsurf skill for a Express security review. Use when you want that security review on a Express change. Do not use it for a different stack."
+description: "Review an Express app for middleware order, Express 5 route syntax, validation, and auth. Use for an Express security review. Do not use for a Fastify or NestJS app, or to forward errors twice."
 type: "skill"
 tools:
   - "windsurf"
@@ -31,7 +31,7 @@ updated_for: "Express 5.3.0, Nov 2026"
 
 ## Install
 
-Install the native export at `.devin/skills/express-security-review/SKILL.md` and `.windsurf/skills/express-security-review/SKILL.md`.
+Install the native export at `.devin/skills/express-security-review/SKILL.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
 Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
 
@@ -39,7 +39,7 @@ Install one tool's skill for a checkout. Do not drop every tool's copy into `.ag
 
 # Express Security Review Skill for Windsurf
 
-Skill `express-security-review` for Devin CLI and the legacy Windsurf skills folder. Invoke it with `/express-security-review`. This file is not a subagent.
+Devin skill `express-security-review` for Express. Invoke it with `/express-security-review`. Install only `.devin/skills`. This file is not a subagent.
 
 ## When to run
 
@@ -65,3 +65,32 @@ Findings with severity, file, line, the route, and a fix. Include the Express ma
 ## Stop
 
 Stop when the user asks you to remove auth middleware to debug a route.
+
+## Severity
+
+`high` is a bug a caller can hit or a secret that leaks. `medium` is a broken contract that needs a specific input. `low` is a cleanup that does not change behaviour.
+
+## Output
+
+```
+## Findings
+- high | path:line | what is wrong | what to do instead
+
+## No findings
+Say "No findings" and list the files you opened. A search you skipped is not a clean result.
+
+## Example
+Input: a one-line change that matches a rule in the standards.
+Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+```
+
+Do not flag the valid pattern named in the standards. Flag the mistake next to it.
+
+## What to check
+
+- Injection: concatenated SQL, shell, or HTML.
+- XSS: unescaped user text in HTML.
+- CSRF: a browser state change with the framework check disabled.
+- Secrets: a key in the repo or in a log line.
+- IDOR: an id from the client with no owner or permission check.
+- SSRF: a user-supplied URL fetched with no allow-list.

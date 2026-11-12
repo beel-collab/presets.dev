@@ -2,11 +2,9 @@
 
 # TypeScript Codex Instructions: Strict Types and Runtime Checks
 
-Section to append to `AGENTS.md` for TypeScript. This is project guidance, not a custom agent. Use `$typescript-code-review` for a review.
+Section to append to `AGENTS.md` for TypeScript. This is project guidance, not a custom agent.
 
 ## Updated for TypeScript 7.0.2, Nov 2026
-
-TypeScript 7.0.2 is the npm `latest` release checked on 11 November 2026. It is the native compiler. It does not ship a stable programmatic API. TypeScript 7.1 is the release expected to add a new, different API. Until that API is stable, tools that import `typescript` (typescript-eslint, Vue, Svelte, Angular language service) stay on the 6.0 API from `@typescript/typescript6`. You can run `tsc` from 7.0 beside that package. Do not rewrite a compiler script against a 7.0 API that is not there. Leave a TS 5 or TS 6 project on that major unless the task asks to move.
 
 ## Project shape
 
@@ -49,3 +47,27 @@ Type tests belong next to the function when the project uses `expectType` or `ts
 - Assuming TypeScript 7.0 exports the old compiler API, or a new one.
 - A `strict` flag turned off to make a branch compile.
 - A non-null assertion on a value that can be missing.
+
+## What changed in this major
+
+TypeScript 7.0 is the native `tsc` and ships no stable compiler API. Programmatic imports stay on `@typescript/typescript6` until 7.1.
+
+## Deprecated APIs to never generate
+
+Do not generate `enum` where a union is enough, or `import typescript` against the 7.0 package for the compiler API.
+
+## Commands
+
+Run `npx tsc --noEmit` with the project's compiler.
+
+## Example
+
+```ts
+type Shape = { kind: "circle"; r: number } | { kind: "square"; s: number }
+function area(shape: Shape): number {
+  switch (shape.kind) {
+    case "circle": return Math.PI * shape.r ** 2
+    case "square": return shape.s ** 2
+  }
+}
+```

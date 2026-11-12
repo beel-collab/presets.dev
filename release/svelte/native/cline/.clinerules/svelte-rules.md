@@ -7,7 +7,7 @@ paths:
 
 # Svelte Cline Rules: Runes, Load Functions and SSR
 
-Conditional Cline rule for Svelte. Install it under `.clinerules/` only. Use `svelte-code-review` for a review.
+Conditional Cline rule for Svelte. Install it under `.clinerules/` only.
 
 ## Updated for Svelte 5.57.3 and SvelteKit 3.2.0, Nov 2026
 
@@ -44,3 +44,22 @@ Use the project's Vitest and Playwright setup. A component test renders the rune
 - Module-scope state that leaks across requests.
 - `{@html}` on user content.
 - A database import in a file that runs in the browser.
+
+## What changed in this major
+
+SvelteKit 3 reads the `sveltekit()` Vite plugin, not `svelte.config.js`. Use `$app/state` and `#lib`.
+
+## Deprecated APIs to never generate
+
+Do not generate `svelte.config.js`, `$app/stores`, or `$lib` in a Kit 3 app.
+
+## Commands
+
+Run the project's `vite` test or `npm test`.
+
+## Example
+
+```ts
+import { page } from '$app/state'
+const id = page.params.id
+```

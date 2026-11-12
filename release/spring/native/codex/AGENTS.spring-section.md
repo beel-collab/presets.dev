@@ -2,7 +2,7 @@
 
 # Spring Boot Codex Instructions: Injection, Transactions and Validation
 
-Section to append to `AGENTS.md` for Spring Boot. This is project guidance, not a custom agent. Use `$spring-security-review` for a review.
+Section to append to `AGENTS.md` for Spring Boot. This is project guidance, not a custom agent.
 
 ## Updated for Spring Boot 4.1, Nov 2026
 
@@ -43,3 +43,24 @@ A slice test covers a controller or a repository when the project uses slices. A
 - `@Transactional` on a private self-invoked method.
 - An N+1 lazy load in a loop.
 - `permitAll` added to hide a failing test.
+
+## What changed in this major
+
+Boot 4.1 is the stable line. Do not take a 4.2 release candidate. `@Transactional` still needs a proxy.
+
+## Deprecated APIs to never generate
+
+Do not generate field `@Autowired`, or a Boot 4.2 RC dependency.
+
+## Commands
+
+Run the Gradle or Maven test task.
+
+## Example
+
+```java
+public Note create(CreateNote req) {
+    return notes.save(req);
+}
+```
+Call that method from another bean. `this.create()` skips `@Transactional`.
