@@ -2,9 +2,12 @@
 name: "prisma-code-review"
 description: "Review a Prisma schema, migration, or query for data loss, N+1 reads, and unsafe raw SQL. Use for a Prisma code review. Do not use to apply a migration to production or to upgrade onto the Prisma 8 release candidate."
 paths:
-  - "**/schema.prisma"
-  - "**/migrations/**"
   - "**/*.prisma"
+  - "**/migrations/**/*.sql"
+  - "prisma.config.ts"
+  - "**/*prisma*.ts"
+  - "src/**/*.ts"
+  - "app/**/*.ts"
 ---
 
 # Prisma Code Review Skill for Cursor

@@ -1,8 +1,11 @@
 ---
 paths:
-  - "**/schema.prisma"
-  - "**/migrations/**"
   - "**/*.prisma"
+  - "**/migrations/**/*.sql"
+  - "prisma.config.ts"
+  - "**/*prisma*.ts"
+  - "src/**/*.ts"
+  - "app/**/*.ts"
 ---
 
 # Prisma Claude Code Rules: Schema, Migrations and Query Shape
@@ -13,9 +16,19 @@ Path-scoped Claude Code rule for Prisma. It loads when a matching file is read. 
 
 On 11 November 2026 the npm `latest` tag for `prisma` was 8.0.0-rc.33, a release candidate. The `prev` tag was 7.10.1, the stable line. Stay on the major the repository installs. Do not bump a project to Prisma 8 because `latest` resolved to the RC. Postgres stays on the major the project runs. Do not assume a newer Postgres major is what this app uses.
 
+## ORM 7 shape
+
+On Prisma 7 the CLI reads `prisma.config.ts`. `defineConfig` from `prisma/config` points `datasource.url` at the direct database URL used for migrations. The schema file no longer owns that URL.
+
+The client is created with a driver adapter. For Postgres on Node, that is `PrismaPg` from `@prisma/adapter-pg` and `new PrismaClient({ adapter })`. Do not pass a `prisma://` or hosted `prisma+postgres://` Accelerate URL to `PrismaPg`. Those strings are not TCP connection strings.
+
+The generator is `prisma-client` with an `output` directory. Import `PrismaClient` from that generated path, not from `@prisma/client` as if v6 still re-exported it. Do not hand-edit the generated files.
+
+Hosted Accelerate URLs, including `prisma+postgres://accelerate.prisma-data.net`, retire on 1 December 2026. Local `prisma+postgres://localhost` URLs are not that retirement. Move CLI config to a direct URL before that date. If the app still uses the Accelerate extension, keep that temporary and do not mix it with a driver adapter on the same URL.
+
 ## Project shape
 
-`schema.prisma` is the model. Migrations in `prisma/migrations` are the history. Do not edit a migration that has already shipped. Add a new one. The client is generated. Do not hand-edit generated files.
+`schema.prisma` is the model. Migrations in `prisma/migrations` are the history. Do not edit a migration that has already shipped. Add a new one.
 
 The shadow database is a disposable database. Never point `shadowDatabaseUrl` at production. A migrate command against production is something a person runs on purpose. Do not run `migrate dev` or `migrate reset` against a shared database.
 
@@ -46,6 +59,8 @@ A migration test runs on a disposable database. Assert the column, the index, an
 ## Mistakes to avoid
 
 - Upgrading to the Prisma 8 RC because it was tagged `latest`.
+- A Prisma 7 client constructed without a driver adapter, or with an Accelerate URL passed to `PrismaPg`.
+- Importing `PrismaClient` from the old path after the generator `output` moved.
 - `migrate dev` or a shadow database pointed at production.
 - Editing a shipped migration.
 - An N+1 loop of `findUnique`.
