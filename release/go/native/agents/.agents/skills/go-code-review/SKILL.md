@@ -5,7 +5,7 @@ description: "Review a Go change for ignored errors, goroutine leaks, and contex
 
 # Go Code Review
 
-Shared skill `go-code-review` for Go. Codex and Antigravity CLI both read `.agents/skills/go-code-review/SKILL.md`. Install this one file. Codex calls it with `$go-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `go-code-review` for Go. Codex and Antigravity CLI both read `.agents/skills/go-code-review/SKILL.md`. Install this one file. Codex calls it with `$go-code-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

@@ -1,8 +1,8 @@
-<!-- Append this section to GEMINI.md. Do not replace the existing file. /context lists loaded GEMINI.md files. -->
+<!-- Append this section to GEMINI.md. Do not replace the existing file. Antigravity CLI also loads AGENTS.md, so do not paste this section into both. /context lists the loaded files. -->
 
 # React Native Antigravity CLI Rules: Expo, Navigation and Native Lifecycle
 
-Section to append to `GEMINI.md` for React Native. Antigravity CLI also reads `AGENTS.md`. Confirm the loaded rules before you rely on them.
+Section to append to `GEMINI.md` for React Native. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
 
 ## Updated for React Native 0.88.1, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.

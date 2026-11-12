@@ -5,7 +5,7 @@ description: "Review a Supabase change for RLS gaps, service-role keys in client
 
 # Supabase Security Review
 
-Shared skill `supabase-security-review` for Supabase. Codex and Antigravity CLI both read `.agents/skills/supabase-security-review/SKILL.md`. Install this one file. Codex calls it with `$supabase-security-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `supabase-security-review` for Supabase. Codex and Antigravity CLI both read `.agents/skills/supabase-security-review/SKILL.md`. Install this one file. Codex calls it with `$supabase-security-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

@@ -5,7 +5,7 @@ description: "Review a Django change for permission checks, ORM query shape, and
 
 # Django Security Review
 
-Shared skill `django-security-review` for Django. Codex and Antigravity CLI both read `.agents/skills/django-security-review/SKILL.md`. Install this one file. Codex calls it with `$django-security-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `django-security-review` for Django. Codex and Antigravity CLI both read `.agents/skills/django-security-review/SKILL.md`. Install this one file. Codex calls it with `$django-security-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

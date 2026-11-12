@@ -204,7 +204,8 @@ def shared_skill_host(spec: dict) -> str:
         f"Shared skill `{skill}` for {spec['product']}. "
         f"Codex and Antigravity CLI both read `.agents/skills/{skill}/SKILL.md`. "
         f"Install this one file. Codex calls it with `${skill}` or `/skills`. "
-        f"Do not also copy the Cursor skill to that path."
+        f"Cursor, GitHub Copilot, and Devin also read `.agents/skills`. "
+        f"A second copy with the same name collides. Do not install another tool's file there."
     )
 
 
@@ -239,7 +240,8 @@ def host_line(tool: str, spec: dict, role: str) -> str:
             ),
             "antigravity": (
                 f"Section to append to `GEMINI.md` for {product}. "
-                f"Antigravity CLI also reads `AGENTS.md`. Confirm the loaded rules before you rely on them."
+                f"Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. "
+                f"Do not put this same section in both files. Confirm with `/context`."
             ),
         }[tool]
     return {
@@ -299,7 +301,7 @@ def install_section(tool: str, spec: dict, role: str) -> str:
             "",
             f"Install the native export at {target}.",
             "Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.",
-            "Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.",
+            "Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI, and Devin can all read `.agents/skills`, so a second copy with the same name collides.",
         ]
     )
 
@@ -401,7 +403,7 @@ def native_exports(spec: dict) -> dict[str, dict[str, list[dict]]]:
                 {
                     "path": f"{base}/antigravity/GEMINI.{stack}-section.md",
                     "format": "plain",
-                    "banner": "<!-- Append this section to GEMINI.md. Do not replace the existing file. /context lists loaded GEMINI.md files. -->",
+                    "banner": "<!-- Append this section to GEMINI.md. Do not replace the existing file. Antigravity CLI also loads AGENTS.md, so do not paste this section into both. /context lists the loaded files. -->",
                     "frontmatter": {},
                 }
             ],
@@ -639,7 +641,8 @@ def mapping_markdown(rows: list[tuple[dict, dict]]) -> str:
         "",
         "Windsurf installs only under `.devin/` for current Devin. Do not also copy the file into `.windsurf/`.",
         "Codex standards append to `AGENTS.md`. Antigravity CLI standards append to `GEMINI.md` or `AGENTS.md`. Do not replace those files.",
-        "Codex and Antigravity CLI share one skill file at `release/<stack>/native/agents/.agents/skills/<skill>/SKILL.md`. Install it once. Do not also put the Cursor copy at `.agents/skills` under the same name.",
+        "Codex and Antigravity CLI share one skill file at `release/<stack>/native/agents/.agents/skills/<skill>/SKILL.md`. Install it once. Cursor, GitHub Copilot, and Devin also read `.agents/skills`, so do not add another copy under the same name.",
+        "Antigravity CLI loads both `GEMINI.md` and `AGENTS.md`. Append a standards section to one of them, not both.",
         "",
         "| Stack | Tool | Role | Catalog | Install |",
         "| --- | --- | --- | --- | --- |",

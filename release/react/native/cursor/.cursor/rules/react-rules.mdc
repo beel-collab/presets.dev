@@ -74,7 +74,7 @@ React 19.3 stabilizes View Transitions, Fragment refs, and `browser()`. Those ar
 
 ## Commands
 
-Run the repo's test script and, when asked, the React profiler. Do not upgrade React.
+Run the repo's test script and, when asked, the React profiler.
 
 ## Example
 

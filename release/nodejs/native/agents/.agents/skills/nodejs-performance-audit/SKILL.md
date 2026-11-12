@@ -5,7 +5,7 @@ description: "Audit a Node.js service for event-loop blocking, missing cancellat
 
 # Node.js Performance Audit
 
-Shared skill `nodejs-performance-audit` for Node.js. Codex and Antigravity CLI both read `.agents/skills/nodejs-performance-audit/SKILL.md`. Install this one file. Codex calls it with `$nodejs-performance-audit` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `nodejs-performance-audit` for Node.js. Codex and Antigravity CLI both read `.agents/skills/nodejs-performance-audit/SKILL.md`. Install this one file. Codex calls it with `$nodejs-performance-audit` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

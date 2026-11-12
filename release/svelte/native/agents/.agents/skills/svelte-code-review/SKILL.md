@@ -5,7 +5,7 @@ description: "Review a Svelte or SvelteKit change for runes, load and action bou
 
 # Svelte Code Review
 
-Shared skill `svelte-code-review` for Svelte. Codex and Antigravity CLI both read `.agents/skills/svelte-code-review/SKILL.md`. Install this one file. Codex calls it with `$svelte-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `svelte-code-review` for Svelte. Codex and Antigravity CLI both read `.agents/skills/svelte-code-review/SKILL.md`. Install this one file. Codex calls it with `$svelte-code-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

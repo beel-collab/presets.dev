@@ -5,7 +5,7 @@ description: "Review a NestJS change for unregistered providers, DTO validation,
 
 # NestJS Security Review
 
-Shared skill `nestjs-security-review` for NestJS. Codex and Antigravity CLI both read `.agents/skills/nestjs-security-review/SKILL.md`. Install this one file. Codex calls it with `$nestjs-security-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `nestjs-security-review` for NestJS. Codex and Antigravity CLI both read `.agents/skills/nestjs-security-review/SKILL.md`. Install this one file. Codex calls it with `$nestjs-security-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

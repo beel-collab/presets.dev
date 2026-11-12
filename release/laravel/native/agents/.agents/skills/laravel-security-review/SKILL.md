@@ -5,7 +5,7 @@ description: "Review a Laravel change for policies, Form Request validation, and
 
 # Laravel Security Review
 
-Shared skill `laravel-security-review` for Laravel. Codex and Antigravity CLI both read `.agents/skills/laravel-security-review/SKILL.md`. Install this one file. Codex calls it with `$laravel-security-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `laravel-security-review` for Laravel. Codex and Antigravity CLI both read `.agents/skills/laravel-security-review/SKILL.md`. Install this one file. Codex calls it with `$laravel-security-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

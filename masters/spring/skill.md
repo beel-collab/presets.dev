@@ -4,11 +4,11 @@ Run this review for a Spring Boot controller, service, security matcher, or JPA 
 
 ## When to leave it
 
-Stop for a Java program that is not Spring. Do not upgrade Boot or the JDK unless the user asked. Do not take a 4.2 RC.
+Stop for a Java program that is not Spring. Do not upgrade Boot or the JDK unless the user asked. Do not add an M, RC, or SNAPSHOT version.
 
 ## Steps
 
-1. Read the Boot version in the build file. A bump to a release candidate is a high finding unless the user asked for it.
+1. Read the Boot version in the build file. A bump to an M, RC, or SNAPSHOT version is a high finding unless the user asked for it.
 2. Review new endpoints for an authorization rule. A missing matcher or `permitAll` on a write is a high finding.
 3. Review `@Transactional` and `@Async`. A transaction that wraps an HTTP call is a finding. A self-call (`this.method()`) onto a `@Transactional` or `@Async` method in the same class is a high finding, because the proxy never sees it.
 4. Review JPA. A loop that triggers lazy loads is a finding. A query that returns entities the controller then mutates across requests is a finding.

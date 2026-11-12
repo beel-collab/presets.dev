@@ -5,7 +5,7 @@ description: "Audit a Nuxt app for duplicate SSR fetches, unstable payload keys,
 
 # Nuxt Performance Audit
 
-Shared skill `nuxt-performance-audit` for Nuxt. Codex and Antigravity CLI both read `.agents/skills/nuxt-performance-audit/SKILL.md`. Install this one file. Codex calls it with `$nuxt-performance-audit` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `nuxt-performance-audit` for Nuxt. Codex and Antigravity CLI both read `.agents/skills/nuxt-performance-audit/SKILL.md`. Install this one file. Codex calls it with `$nuxt-performance-audit` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

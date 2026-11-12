@@ -5,7 +5,7 @@ description: "Review a Tailwind change for version fit, detectable class names, 
 
 # Tailwind CSS Code Review
 
-Shared skill `tailwind-code-review` for Tailwind CSS. Codex and Antigravity CLI both read `.agents/skills/tailwind-code-review/SKILL.md`. Install this one file. Codex calls it with `$tailwind-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `tailwind-code-review` for Tailwind CSS. Codex and Antigravity CLI both read `.agents/skills/tailwind-code-review/SKILL.md`. Install this one file. Codex calls it with `$tailwind-code-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

@@ -5,7 +5,7 @@ description: "Review a SwiftUI change for actor isolation, observation, and main
 
 # SwiftUI Code Review
 
-Shared skill `swiftui-code-review` for SwiftUI. Codex and Antigravity CLI both read `.agents/skills/swiftui-code-review/SKILL.md`. Install this one file. Codex calls it with `$swiftui-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `swiftui-code-review` for SwiftUI. Codex and Antigravity CLI both read `.agents/skills/swiftui-code-review/SKILL.md`. Install this one file. Codex calls it with `$swiftui-code-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

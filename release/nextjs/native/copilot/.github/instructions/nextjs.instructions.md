@@ -62,7 +62,7 @@ export async function saveNote(input: { body?: unknown }) {
 }
 ```
 
-`requireSession`, `db`, and `updateTag` stand in for the app's own imports. The cached reader stays in a Server Component, reads the tenant inside `'use cache'` so the key differs per tenant, and calls `cacheTag(`tenant:${tenantId}:notes`)`. That is the same string `updateTag` expires. A shared `notes` tag on the reader would not be refreshed by this action.
+`requireSession`, `db`, and `updateTag` stand in for the app's own imports. The cached reader stays in a Server Component, reads the tenant inside `'use cache'` so the key differs per tenant, and calls `cacheTag` with `tenant:${tenantId}:notes`. That is the same string `updateTag` expires. A shared `notes` tag on the reader would not be refreshed by this action.
 
 ## Errors
 
@@ -108,4 +108,4 @@ The Server Action in the data section is the worked example: session first, vali
 
 ## Agent tooling
 
-Next.js 16 ships a Devtools MCP server and tells agents to read project instructions from `AGENTS.md`. Use them when they are installed. See https://nextjs.org/blog/next-16 .
+Next.js 16.2 and later point agents at the docs bundled with the installed `next` package through a managed block in `AGENTS.md`. `next dev` refreshes that block from 16.3. The dev server also exposes an MCP endpoint. Use them when they are installed. See https://nextjs.org/docs/app/guides/ai-agents .

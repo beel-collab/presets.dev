@@ -5,7 +5,7 @@ description: "Audit a React UI for wasted renders, effect loops, hydration misma
 
 # React Performance Audit
 
-Shared skill `react-performance-audit` for React. Codex and Antigravity CLI both read `.agents/skills/react-performance-audit/SKILL.md`. Install this one file. Codex calls it with `$react-performance-audit` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `react-performance-audit` for React. Codex and Antigravity CLI both read `.agents/skills/react-performance-audit/SKILL.md`. Install this one file. Codex calls it with `$react-performance-audit` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

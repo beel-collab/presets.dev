@@ -32,13 +32,13 @@ updated_for: "Laravel 13, Nov 2026"
 
 Install the native export at `GEMINI.md` or `AGENTS.md` as an appended section.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
-Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
+Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI, and Devin can all read `.agents/skills`, so a second copy with the same name collides.
 
 <!-- native:start -->
 
 # Laravel Antigravity CLI Rules: Requests, Policies and Eloquent
 
-Section to append to `GEMINI.md` for Laravel. Antigravity CLI also reads `AGENTS.md`. Confirm the loaded rules before you rely on them.
+Section to append to `GEMINI.md` for Laravel. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
 
 ## Updated for Laravel 13, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.

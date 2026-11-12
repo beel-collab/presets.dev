@@ -5,7 +5,7 @@ description: "Review a TypeScript change for unsafe assertions, missing runtime 
 
 # TypeScript Code Review
 
-Shared skill `typescript-code-review` for TypeScript. Codex and Antigravity CLI both read `.agents/skills/typescript-code-review/SKILL.md`. Install this one file. Codex calls it with `$typescript-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `typescript-code-review` for TypeScript. Codex and Antigravity CLI both read `.agents/skills/typescript-code-review/SKILL.md`. Install this one file. Codex calls it with `$typescript-code-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

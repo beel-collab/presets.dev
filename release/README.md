@@ -5,7 +5,8 @@ Catalog frontmatter is presets.dev metadata.
 
 Windsurf installs only under `.devin/` for current Devin. Do not also copy the file into `.windsurf/`.
 Codex standards append to `AGENTS.md`. Antigravity CLI standards append to `GEMINI.md` or `AGENTS.md`. Do not replace those files.
-Codex and Antigravity CLI share one skill file at `release/<stack>/native/agents/.agents/skills/<skill>/SKILL.md`. Install it once. Do not also put the Cursor copy at `.agents/skills` under the same name.
+Codex and Antigravity CLI share one skill file at `release/<stack>/native/agents/.agents/skills/<skill>/SKILL.md`. Install it once. Cursor, GitHub Copilot, and Devin also read `.agents/skills`, so do not add another copy under the same name.
+Antigravity CLI loads both `GEMINI.md` and `AGENTS.md`. Append a standards section to one of them, not both.
 
 | Stack | Tool | Role | Catalog | Install |
 | --- | --- | --- | --- | --- |

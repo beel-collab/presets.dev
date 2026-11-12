@@ -5,7 +5,7 @@ description: "Review a Rust change for unwrap on library paths, needless unsafe,
 
 # Rust Code Review
 
-Shared skill `rust-code-review` for Rust. Codex and Antigravity CLI both read `.agents/skills/rust-code-review/SKILL.md`. Install this one file. Codex calls it with `$rust-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `rust-code-review` for Rust. Codex and Antigravity CLI both read `.agents/skills/rust-code-review/SKILL.md`. Install this one file. Codex calls it with `$rust-code-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

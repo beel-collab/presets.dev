@@ -33,7 +33,7 @@ updated_for: "FastAPI 0.162.5, Nov 2026"
 
 Install the native export at `.cline/skills/fastapi-security-review/SKILL.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
-Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
+Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI, and Devin can all read `.agents/skills`, so a second copy with the same name collides.
 
 <!-- native:start -->
 
@@ -51,7 +51,7 @@ Stop for a Python script that is not a FastAPI app. Do not upgrade FastAPI or Py
 
 ## Steps
 
-1. Read the FastAPI and Pydantic majors. v1 syntax in a v2 app is a high finding.
+1. Read the FastAPI and Pydantic majors. v1 syntax in a v2 app is a medium finding. It still runs. A missing response model or a missing auth check stays high.
 2. For each changed route, confirm a response model. A secret or password field on that model is a high finding. A `model_dump()` spread into a write is a high finding.
 3. For each write, confirm an auth dependency and an owner check. A client-supplied user id that is stored is a high finding.
 4. For each `async def`, confirm it does not call a blocking client. That is a high finding on a request path.

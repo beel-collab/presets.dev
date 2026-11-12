@@ -32,7 +32,7 @@ updated_for: "Kotlin 2.4 stable line, Nov 2026"
 
 Install the native export at `.github/instructions/kotlin.instructions.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
-Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
+Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI, and Devin can all read `.agents/skills`, so a second copy with the same name collides.
 
 <!-- native:start -->
 
@@ -43,7 +43,7 @@ Path-specific Copilot instructions for Kotlin. They apply through `applyTo` and 
 ## Updated for Kotlin 2.4, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 
-Stay on the Kotlin version the Gradle build uses. Kotlin 2.4.20 adds `StackTraceRecoverable` for coroutine stack traces. That API is experimental and requires `@OptIn(ExperimentalStdlibCoroutineSupportApi::class)`. It is not on by default. Swift export is the other 2.4.20 change. Use either only when the compiler is already on 2.4. Do not upgrade Kotlin, Compose, or the Android Gradle Plugin unless the task asks. A multiplatform target is added only when the project is already multiplatform.
+Stay on the Kotlin version the Gradle build uses. Kotlin 2.4.20 adds `StackTraceRecoverable` for coroutine stack traces. That API is experimental and requires `@OptIn(ExperimentalStdlibCoroutineSupportApi::class)`. It is not on by default. Swift export is the other 2.4.20 change. Use either only when the compiler is already on 2.4. A multiplatform target is added only when the project is already multiplatform.
 
 ## Project shape
 

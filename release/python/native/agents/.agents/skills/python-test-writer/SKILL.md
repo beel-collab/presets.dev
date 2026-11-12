@@ -5,7 +5,7 @@ description: "Add or extend pytest coverage for a Python change, using the proje
 
 # Python Test Writer
 
-Shared skill `python-test-writer` for Python. Codex and Antigravity CLI both read `.agents/skills/python-test-writer/SKILL.md`. Install this one file. Codex calls it with `$python-test-writer` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `python-test-writer` for Python. Codex and Antigravity CLI both read `.agents/skills/python-test-writer/SKILL.md`. Install this one file. Codex calls it with `$python-test-writer` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

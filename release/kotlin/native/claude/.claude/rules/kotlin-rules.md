@@ -11,7 +11,7 @@ Path-scoped Claude Code rule for Kotlin. It loads when a matching file is read. 
 ## Updated for Kotlin 2.4, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 
-Stay on the Kotlin version the Gradle build uses. Kotlin 2.4.20 adds `StackTraceRecoverable` for coroutine stack traces. That API is experimental and requires `@OptIn(ExperimentalStdlibCoroutineSupportApi::class)`. It is not on by default. Swift export is the other 2.4.20 change. Use either only when the compiler is already on 2.4. Do not upgrade Kotlin, Compose, or the Android Gradle Plugin unless the task asks. A multiplatform target is added only when the project is already multiplatform.
+Stay on the Kotlin version the Gradle build uses. Kotlin 2.4.20 adds `StackTraceRecoverable` for coroutine stack traces. That API is experimental and requires `@OptIn(ExperimentalStdlibCoroutineSupportApi::class)`. It is not on by default. Swift export is the other 2.4.20 change. Use either only when the compiler is already on 2.4. A multiplatform target is added only when the project is already multiplatform.
 
 ## Project shape
 

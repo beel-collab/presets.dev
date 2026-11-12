@@ -5,7 +5,7 @@ description: "Review a Next.js App Router change for structure, Server Actions, 
 
 # Next.js Code Review
 
-Shared skill `nextjs-code-review` for Next.js. Codex and Antigravity CLI both read `.agents/skills/nextjs-code-review/SKILL.md`. Install this one file. Codex calls it with `$nextjs-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `nextjs-code-review` for Next.js. Codex and Antigravity CLI both read `.agents/skills/nextjs-code-review/SKILL.md`. Install this one file. Codex calls it with `$nextjs-code-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

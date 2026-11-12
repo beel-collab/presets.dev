@@ -32,7 +32,7 @@ updated_for: "Express 5.3.0, Nov 2026"
 
 Install the native export at `.devin/rules/express-rules.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
-Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
+Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI, and Devin can all read `.agents/skills`, so a second copy with the same name collides.
 
 <!-- native:start -->
 

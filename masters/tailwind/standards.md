@@ -49,7 +49,7 @@ Tailwind v4 removed the `@tailwind base` directive. Use `@import "tailwindcss"` 
 
 ## Commands
 
-Run the project's build so undetected classes fail. Do not upgrade v3 to v4 unasked.
+Run the project's build so undetected classes fail.
 
 ## Example
 

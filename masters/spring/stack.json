@@ -10,5 +10,5 @@
   "skill_name": "spring-security-review",
   "skill_label": "Security Review",
   "skill_tag": "security",
-  "native_skill_description": "Review a Spring Boot change for authorization, transaction boundaries, and query shape. Use for a Spring Boot security review. Do not use for a non-Spring Java program or to adopt a Boot 4.2 release candidate."
+  "native_skill_description": "Review a Spring Boot change for authorization, transaction boundaries, and query shape. Use for a Spring Boot security review. Do not use for a non-Spring Java program or to add an M, RC, or SNAPSHOT version."
 }

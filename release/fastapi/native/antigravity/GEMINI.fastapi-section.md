@@ -1,8 +1,8 @@
-<!-- Append this section to GEMINI.md. Do not replace the existing file. /context lists loaded GEMINI.md files. -->
+<!-- Append this section to GEMINI.md. Do not replace the existing file. Antigravity CLI also loads AGENTS.md, so do not paste this section into both. /context lists the loaded files. -->
 
 # FastAPI Antigravity CLI Rules: Pydantic Models, Dependencies and Async
 
-Section to append to `GEMINI.md` for FastAPI. Antigravity CLI also reads `AGENTS.md`. Confirm the loaded rules before you rely on them.
+Section to append to `GEMINI.md` for FastAPI. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
 
 ## Updated for FastAPI 0.162.5, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
@@ -58,6 +58,9 @@ Run `pytest` for the changed routes.
 ## Example
 
 ```python
+from pydantic import BaseModel, ConfigDict, Field
+
 class NoteIn(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
     body: str = Field(min_length=1, max_length=2000)
 ```

@@ -7,7 +7,7 @@ Section to append to `AGENTS.md` for Spring Boot. This is project guidance, not 
 ## Updated for Spring Boot 4.1, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 
-Stay on the Spring Boot and JDK the build already uses. For a new service, Boot 4.1 is the stable line to write for. Do not adopt a 4.2 release candidate because a blog shows it. A lazy DataSource connection is an option you turn on for a reason, not a default you copy into every app. Read `pom.xml` or `build.gradle` before you add a starter.
+Stay on the Spring Boot and JDK the build already uses. For a new service, Boot 4.1 is the stable line to write for. Do not add an M, RC, or SNAPSHOT version because a blog shows it. A lazy DataSource connection is an option you turn on for a reason, not a default you copy into every app. Read `pom.xml` or `build.gradle` before you add a starter.
 
 ## Project shape
 
@@ -44,11 +44,11 @@ A slice test covers a controller or a repository when the project uses slices. A
 - `@Transactional` on a private self-invoked method.
 - An N+1 lazy load in a loop.
 - `permitAll` added to hide a failing test.
-- A Spring Boot 4.2 release candidate added to a 4.1 project.
+- An M, RC, or SNAPSHOT Boot version added to the build.
 
 ## What changed in this major
 
-Boot 4.1 is the stable line. Do not take a 4.2 release candidate. `@Transactional` still needs a proxy.
+Boot 4.1 is the stable line. Do not add an M, RC, or SNAPSHOT version. `@Transactional` still needs a proxy.
 
 ## Deprecated APIs to never generate
 

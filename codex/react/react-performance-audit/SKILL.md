@@ -34,13 +34,13 @@ updated_for: "React 19.3.1, Nov 2026"
 
 Install the native export at `.agents/skills/react-performance-audit/SKILL.md` (one file shared with Antigravity CLI).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
-Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
+Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI, and Devin can all read `.agents/skills`, so a second copy with the same name collides.
 
 <!-- native:start -->
 
 # React Performance Audit
 
-Shared skill `react-performance-audit` for React. Codex and Antigravity CLI both read `.agents/skills/react-performance-audit/SKILL.md`. Install this one file. Codex calls it with `$react-performance-audit` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `react-performance-audit` for React. Codex and Antigravity CLI both read `.agents/skills/react-performance-audit/SKILL.md`. Install this one file. Codex calls it with `$react-performance-audit` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

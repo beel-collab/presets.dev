@@ -5,7 +5,7 @@ description: "Review an Express app for middleware order, Express 5 route syntax
 
 # Express Security Review
 
-Shared skill `express-security-review` for Express. Codex and Antigravity CLI both read `.agents/skills/express-security-review/SKILL.md`. Install this one file. Codex calls it with `$express-security-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `express-security-review` for Express. Codex and Antigravity CLI both read `.agents/skills/express-security-review/SKILL.md`. Install this one file. Codex calls it with `$express-security-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

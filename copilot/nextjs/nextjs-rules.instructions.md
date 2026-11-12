@@ -34,7 +34,7 @@ updated_for: "Next.js 16.4.6, Nov 2026"
 
 Install the native export at `.github/instructions/nextjs.instructions.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
-Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
+Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI, and Devin can all read `.agents/skills`, so a second copy with the same name collides.
 
 <!-- native:start -->
 
@@ -98,7 +98,7 @@ export async function saveNote(input: { body?: unknown }) {
 }
 ```
 
-`requireSession`, `db`, and `updateTag` stand in for the app's own imports. The cached reader stays in a Server Component, reads the tenant inside `'use cache'` so the key differs per tenant, and calls `cacheTag(`tenant:${tenantId}:notes`)`. That is the same string `updateTag` expires. A shared `notes` tag on the reader would not be refreshed by this action.
+`requireSession`, `db`, and `updateTag` stand in for the app's own imports. The cached reader stays in a Server Component, reads the tenant inside `'use cache'` so the key differs per tenant, and calls `cacheTag` with `tenant:${tenantId}:notes`. That is the same string `updateTag` expires. A shared `notes` tag on the reader would not be refreshed by this action.
 
 ## Errors
 
@@ -144,4 +144,4 @@ The Server Action in the data section is the worked example: session first, vali
 
 ## Agent tooling
 
-Next.js 16 ships a Devtools MCP server and tells agents to read project instructions from `AGENTS.md`. Use them when they are installed. See https://nextjs.org/blog/next-16 .
+Next.js 16.2 and later point agents at the docs bundled with the installed `next` package through a managed block in `AGENTS.md`. `next dev` refreshes that block from 16.3. The dev server also exposes an MCP endpoint. Use them when they are installed. See https://nextjs.org/docs/app/guides/ai-agents .

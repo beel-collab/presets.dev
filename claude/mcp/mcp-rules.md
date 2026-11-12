@@ -32,7 +32,7 @@ updated_for: "MCP spec 2026-07-28, server SDK 2.4.0, Nov 2026"
 
 Install the native export at `.claude/rules/mcp-rules.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
-Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
+Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI, and Devin can all read `.agents/skills`, so a second copy with the same name collides.
 
 <!-- native:start -->
 
@@ -45,7 +45,7 @@ Do not upgrade dependencies or the framework version unless the task asks.
 
 The spec this file follows is the 2026-07-28 revision. `@modelcontextprotocol/sdk` 1.32.2 is still the v1 package on npm, and a server that calls `server.connect(new StdioServerTransport())` or hands requests to a Streamable HTTP transport from that package speaks the 2025-era protocol only. A client pinned to 2026-07-28 cannot complete a session with it.
 
-To serve 2026-07-28, use the v2 packages. `@modelcontextprotocol/server` 2.4.0 and `@modelcontextprotocol/client` 2.4.0 are the v2 packages that speak this revision. A Node stdio or HTTP entry uses `@modelcontextprotocol/node` when the handler sees Node `IncomingMessage`. Start with `serveStdio(() => createServer())` or `createMcpHandler(() => createServer())`. Read the installed package names before editing. Do not upgrade a v1 server as a side effect of another change, and do not import `@modelcontextprotocol/core-internal`.
+To serve 2026-07-28, use the v2 packages. `@modelcontextprotocol/server` 2.4.0 and `@modelcontextprotocol/client` 2.4.0 are the v2 packages that speak this revision. A Node stdio or HTTP entry uses `@modelcontextprotocol/node` when the handler sees Node `IncomingMessage`. Start with `serveStdio(() => createServer())` or `createMcpHandler(() => createServer())`. Read the installed package names before editing. Leave a v1 server on v1 unless the task is the move to v2, and do not import `@modelcontextprotocol/core-internal`.
 
 ## What this revision removed
 

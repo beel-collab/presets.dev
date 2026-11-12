@@ -62,6 +62,9 @@ Run `pytest` for the changed routes.
 ## Example
 
 ```python
+from pydantic import BaseModel, ConfigDict, Field
+
 class NoteIn(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
     body: str = Field(min_length=1, max_length=2000)
 ```

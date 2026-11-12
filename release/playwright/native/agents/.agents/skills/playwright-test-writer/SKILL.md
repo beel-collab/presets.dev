@@ -5,7 +5,7 @@ description: "Write a Playwright regression test that reproduces a bug with loca
 
 # Playwright Test Writer
 
-Shared skill `playwright-test-writer` for Playwright. Codex and Antigravity CLI both read `.agents/skills/playwright-test-writer/SKILL.md`. Install this one file. Codex calls it with `$playwright-test-writer` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `playwright-test-writer` for Playwright. Codex and Antigravity CLI both read `.agents/skills/playwright-test-writer/SKILL.md`. Install this one file. Codex calls it with `$playwright-test-writer` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

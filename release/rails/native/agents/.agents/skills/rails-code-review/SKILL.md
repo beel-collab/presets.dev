@@ -5,7 +5,7 @@ description: "Review a Rails change for authorization, strong parameters, query 
 
 # Rails Code Review
 
-Shared skill `rails-code-review` for Rails. Codex and Antigravity CLI both read `.agents/skills/rails-code-review/SKILL.md`. Install this one file. Codex calls it with `$rails-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `rails-code-review` for Rails. Codex and Antigravity CLI both read `.agents/skills/rails-code-review/SKILL.md`. Install this one file. Codex calls it with `$rails-code-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

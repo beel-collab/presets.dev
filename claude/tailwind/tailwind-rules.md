@@ -32,7 +32,7 @@ updated_for: "Tailwind CSS 4.3.5, Nov 2026"
 
 Install the native export at `.claude/rules/tailwind-rules.md`.
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
-Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
+Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI, and Devin can all read `.agents/skills`, so a second copy with the same name collides.
 
 <!-- native:start -->
 
@@ -91,7 +91,7 @@ Tailwind v4 removed the `@tailwind base` directive. Use `@import "tailwindcss"` 
 
 ## Commands
 
-Run the project's build so undetected classes fail. Do not upgrade v3 to v4 unasked.
+Run the project's build so undetected classes fail.
 
 ## Example
 

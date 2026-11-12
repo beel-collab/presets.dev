@@ -5,7 +5,7 @@ description: "Review a Kotlin change for coroutine cancellation, lifecycle-aware
 
 # Kotlin Code Review
 
-Shared skill `kotlin-code-review` for Kotlin. Codex and Antigravity CLI both read `.agents/skills/kotlin-code-review/SKILL.md`. Install this one file. Codex calls it with `$kotlin-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `kotlin-code-review` for Kotlin. Codex and Antigravity CLI both read `.agents/skills/kotlin-code-review/SKILL.md`. Install this one file. Codex calls it with `$kotlin-code-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

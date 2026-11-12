@@ -35,13 +35,13 @@ updated_for: "Next.js 16.4.6, Nov 2026"
 
 Install the native export at `.agents/skills/nextjs-code-review/SKILL.md` (one file shared with Codex).
 Copy that export, not this catalog file. Catalog fields such as `tools` and `author` are for presets.dev.
-Install one tool's skill for a checkout. Do not drop every tool's copy into `.agents/skills` under the same name.
+Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI, and Devin can all read `.agents/skills`, so a second copy with the same name collides.
 
 <!-- native:start -->
 
 # Next.js Code Review
 
-Shared skill `nextjs-code-review` for Next.js. Codex and Antigravity CLI both read `.agents/skills/nextjs-code-review/SKILL.md`. Install this one file. Codex calls it with `$nextjs-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `nextjs-code-review` for Next.js. Codex and Antigravity CLI both read `.agents/skills/nextjs-code-review/SKILL.md`. Install this one file. Codex calls it with `$nextjs-code-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

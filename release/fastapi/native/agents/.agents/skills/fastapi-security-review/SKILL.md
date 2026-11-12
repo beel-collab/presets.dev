@@ -5,7 +5,7 @@ description: "Review a FastAPI change for Pydantic validation, auth dependencies
 
 # FastAPI Security Review
 
-Shared skill `fastapi-security-review` for FastAPI. Codex and Antigravity CLI both read `.agents/skills/fastapi-security-review/SKILL.md`. Install this one file. Codex calls it with `$fastapi-security-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `fastapi-security-review` for FastAPI. Codex and Antigravity CLI both read `.agents/skills/fastapi-security-review/SKILL.md`. Install this one file. Codex calls it with `$fastapi-security-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 
@@ -17,7 +17,7 @@ Stop for a Python script that is not a FastAPI app. Do not upgrade FastAPI or Py
 
 ## Steps
 
-1. Read the FastAPI and Pydantic majors. v1 syntax in a v2 app is a high finding.
+1. Read the FastAPI and Pydantic majors. v1 syntax in a v2 app is a medium finding. It still runs. A missing response model or a missing auth check stays high.
 2. For each changed route, confirm a response model. A secret or password field on that model is a high finding. A `model_dump()` spread into a write is a high finding.
 3. For each write, confirm an auth dependency and an owner check. A client-supplied user id that is stored is a high finding.
 4. For each `async def`, confirm it does not call a blocking client. That is a high finding on a request path.

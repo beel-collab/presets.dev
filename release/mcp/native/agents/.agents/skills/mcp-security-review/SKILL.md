@@ -5,7 +5,7 @@ description: "Review an MCP server for spec compatibility, schema checks, and to
 
 # MCP Security Review
 
-Shared skill `mcp-security-review` for MCP. Codex and Antigravity CLI both read `.agents/skills/mcp-security-review/SKILL.md`. Install this one file. Codex calls it with `$mcp-security-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `mcp-security-review` for MCP. Codex and Antigravity CLI both read `.agents/skills/mcp-security-review/SKILL.md`. Install this one file. Codex calls it with `$mcp-security-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

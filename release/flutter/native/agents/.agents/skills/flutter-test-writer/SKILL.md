@@ -5,7 +5,7 @@ description: "Write a Flutter widget or unit test for a behavior, including the 
 
 # Flutter Test Writer
 
-Shared skill `flutter-test-writer` for Flutter. Codex and Antigravity CLI both read `.agents/skills/flutter-test-writer/SKILL.md`. Install this one file. Codex calls it with `$flutter-test-writer` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `flutter-test-writer` for Flutter. Codex and Antigravity CLI both read `.agents/skills/flutter-test-writer/SKILL.md`. Install this one file. Codex calls it with `$flutter-test-writer` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 

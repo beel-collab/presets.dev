@@ -5,7 +5,7 @@ description: "Review a React Native or Expo change for platform APIs, navigation
 
 # React Native Code Review
 
-Shared skill `react-native-code-review` for React Native. Codex and Antigravity CLI both read `.agents/skills/react-native-code-review/SKILL.md`. Install this one file. Codex calls it with `$react-native-code-review` or `/skills`. Do not also copy the Cursor skill to that path.
+Shared skill `react-native-code-review` for React Native. Codex and Antigravity CLI both read `.agents/skills/react-native-code-review/SKILL.md`. Install this one file. Codex calls it with `$react-native-code-review` or `/skills`. Cursor, GitHub Copilot, and Devin also read `.agents/skills`. A second copy with the same name collides. Do not install another tool's file there.
 
 ## When to run
 
