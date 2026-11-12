@@ -97,8 +97,30 @@ Run the Gradle or Maven test task.
 ## Example
 
 ```java
-public Note create(CreateNote req) {
-    return notes.save(req);
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+record CreateNote(String body) {}
+
+record Note(String body) {}
+
+interface NoteRepository {
+    Note save(Note note);
+}
+
+@Service
+class NoteService {
+    private final NoteRepository notes;
+
+    NoteService(NoteRepository notes) {
+        this.notes = notes;
+    }
+
+    @Transactional
+    public Note create(CreateNote req) {
+        return notes.save(new Note(req.body()));
+    }
 }
 ```
-Call that method from another bean. `this.create()` skips `@Transactional`.
+
+Call `create` from another bean. `this.create()` inside `NoteService` skips `@Transactional`.

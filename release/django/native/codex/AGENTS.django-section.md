@@ -50,7 +50,7 @@ The test client covers an anonymous user, a user without the permission, and the
 
 ## What changed in this major
 
-Django 6.1 adds `FETCH_PEERS` and `FETCH_RAISE`. `QuerySet.delete()` sends delete signals and skips `Model.delete()`.
+Django 6.1 adds the fetch modes `FETCH_PEERS` and `FETCH_RAISE`. `QuerySet.delete()` sending `pre_delete` and `post_delete` while skipping `Model.delete()` is older queryset behavior, not a 6.1 change.
 
 ## Deprecated APIs to never generate
 
