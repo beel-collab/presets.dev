@@ -11,7 +11,7 @@ Path-scoped Claude Code rule for Rust. It loads when a matching file is read. It
 ## Updated for Rust 1.100.0, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 
-Stay on the rust-toolchain and the MSRV in `Cargo.toml`. Rust 1.100.0 shipped on 12 November 2026 and stabilizes the never type and custom allocators. The 1.99 C-ABI variadics and raw-pointer layout APIs are already stable. Those FFI and layout APIs are not a reason to rewrite safe Rust. Do not raise the MSRV just because 1.100 exists. Read `Cargo.toml` before you add a crate.
+Stay on the rust-toolchain and the MSRV in `Cargo.toml`. Rust 1.100.0 stabilizes the never type and custom allocators. The 1.99 C-ABI variadics and raw-pointer layout APIs are already stable. Those FFI and layout APIs are not a reason to rewrite safe Rust. Do not raise the MSRV just because 1.100 exists. Read `Cargo.toml` before you add a crate.
 
 ## Project shape
 

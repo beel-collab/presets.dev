@@ -10,7 +10,7 @@ Devin rule for Node.js. Install the `.devin/rules` file. The trigger is model de
 ## Updated for Node.js 26.13.1 LTS, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 
-Node.js 26.13.1 Lithium is the active LTS reported by nodejs.org on 11 November 2026. The newest dist tag that day was a v27 alpha. Do not target the alpha. Read `engines` and `.nvmrc` and stay on the line the project already runs. Do not bump Node because a newer LTS exists unless the task asks.
+Node.js 26.13.1 Lithium is the active LTS on nodejs.org. The newest dist tag is a v27 alpha. Do not target the alpha. Read `engines` and `.nvmrc` and stay on the line the project already runs. Do not bump Node because a newer LTS exists unless the task asks.
 
 ## Project shape
 

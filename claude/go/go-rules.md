@@ -43,7 +43,7 @@ Path-scoped Claude Code rule for Go. It loads when a matching file is read. It d
 ## Updated for Go 1.27.4, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 
-Go 1.27.4 was the current stable release reported by `go.dev/dl` on 11 November 2026. Go 1.26.11 was also listed as stable. Stay on the version in `go.mod`. Go 1.27 adds generic methods. `encoding/json` is backed by `encoding/json/v2` on this release. Behavior of the v1 API is preserved. `GOEXPERIMENT=nojsonv2` restores the old implementation and is a temporary opt-out, not the default. The `simd` package stays experimental and turns on only with `GOEXPERIMENT=simd`. Do not set that flag because it exists. Import `encoding/json/v2` only when the task asks for the new API.
+Go 1.27.4 is the current stable release on `go.dev/dl`. Go 1.26.11 is the other stable line. Stay on the version in `go.mod`. Go 1.27 adds generic methods. `encoding/json` is backed by `encoding/json/v2` on this release. Behavior of the v1 API is preserved. `GOEXPERIMENT=nojsonv2` restores the old implementation and is a temporary opt-out, not the default. The `simd` package stays experimental and turns on only with `GOEXPERIMENT=simd`. Do not set that flag because it exists. Import `encoding/json/v2` only when the task asks for the new API.
 
 ## Project shape
 

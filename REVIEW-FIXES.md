@@ -77,7 +77,8 @@ Rule: work ONE ITEM AT A TIME. For each item: (1) verify against the official so
   - MCP example `await serveStdio(() => createServer())` matches the v2 entry point, and the standards say 2026-07-28 has no `initialize` and no `Mcp-Session-Id` (`masters/mcp/standards.md`). No edit.
   - Django "What changed" listed `QuerySet.delete()` signal behavior beside `FETCH_PEERS` and `FETCH_RAISE`. Only the fetch modes are in https://docs.djangoproject.com/en/6.1/releases/6.1/. The delete sentence now says that behavior is older. The ORM section still explains it.
   - Kotlin sources are accurate. https://kotlinlang.org/docs/whatsnew2420.html says coroutine stack-trace recovery is stable and on by default in 2.4.20. No edit.
-  - Cursor install paths exist. The rules file points at `.cursor/rules/nextjs-rules.mdc` (`cursor/nextjs/nextjs-rules.mdc` Install section). The skill file points at `.cursor/skills/nextjs-code-review/SKILL.md`. Both files are under `release/nextjs/native/cursor/`. No edit.
+  - Cursor install paths exist. The rules file points at `.cursor/rules/nextjs-rules.mdc` (`cursor/nextjs/nextjs-rules.mdc` Install section). The skill file points at `.cursor/skills/nextjs-code-review/SKILL.md`. Both files are under `release/nextjs/native/cursor/`. No edit. Commit `2b0be48`.
+- [x] R3-15 Dated registry sentences. **fixed.** Removed "11 November 2026" and "12 November 2026" from standards bodies: Prisma, Node, Go, Flutter, MCP, Rust, plus "November 2026" in .NET and Rails. Grep of `masters/*/{standards,skill}.md` for `November 2026` is now empty. After re-render, no catalog or native file contains `November 2026`. The check dates remain in `research/*/sources.md` (Prisma sources still starts "Fetched 12 November 2026."). `tested_with` and `updated` frontmatter still use `2026-11-11`. That is catalog metadata, not the registry sentence. `Updated for ..., Nov 2026` headers stay.
 
 ## Not checked by me (verify before fixing)
 
