@@ -69,8 +69,8 @@ Findings with severity, file, line, the tool name, the capability that is too wi
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: a tool handler treats `arguments.confirm === true` as the user's approval to delete a row.
+Output: high | src/tools/delete.ts:12 | the model writes `confirm`, so it is not consent | return `input_required` and let the host UI collect the decision.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

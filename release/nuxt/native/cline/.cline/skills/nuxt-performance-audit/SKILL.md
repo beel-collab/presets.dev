@@ -36,8 +36,8 @@ Findings with severity, file, line, the extra fetch or the leaked key, and a fix
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: `nuxt.config.ts` sets `runtimeConfig.public.apiSecret`.
+Output: high | nuxt.config.ts:6 | a secret under `public` is sent to the browser | keep `apiSecret` outside `public`.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

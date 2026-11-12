@@ -26,8 +26,8 @@ The test path, the behavior, the command, and the result.
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: `profile_page.dart` does `await lookup()` and then `Navigator.of(context).pop()` with no `mounted` check.
+Output: high | profile_page.dart:22 | the context may be unmounted after the await | return when `!context.mounted`.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

@@ -69,8 +69,8 @@ Findings with severity, file, line, the ignored error or the leaked goroutine, a
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: `handlers/note.go` returns `err` from `os.ReadFile` with no wrap and no context check.
+Output: medium | handlers/note.go:20 | the caller cannot see which step failed | return `fmt.Errorf("read note: %w", err)` and honor `ctx.Err()`.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

@@ -35,8 +35,8 @@ Findings with severity, file, line, the missing permit or the query, and a fix. 
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: a job comment says `include ActiveJob::Continuable` makes the import idempotent.
+Output: medium | app/jobs/process_import_job.rb:3 | continuations resume the last step; they do not dedupe side effects | make each step safe to run again, separately from the continuation.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

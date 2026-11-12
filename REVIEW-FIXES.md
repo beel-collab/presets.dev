@@ -57,7 +57,8 @@ Rule: work ONE ITEM AT A TIME. For each item: (1) verify against the official so
 
 ## Round 3
 
-- [x] R3-1 Every skill.md has two "## Output" sections. **fixed.** Merged the prose and the fenced template under one `## Output` in all 30 `masters/*/skill.md` files, then re-rendered. Evidence: `rg -c '^## Output$' masters/*/skill.md` is 1 for each of the 30 masters. Release catalog skills plus native exports: 210 catalog skills, 0 files with a heading count other than 1 (headings inside fences ignored). Example: `masters/nextjs/skill.md` line 19.
+- [x] R3-1 Every skill.md has two "## Output" sections. **fixed.** Merged the prose and the fenced template under one `## Output` in all 30 `masters/*/skill.md` files, then re-rendered. Evidence: `rg -c '^## Output$' masters/*/skill.md` is 1 for each of the 30 masters. Release catalog skills plus native exports: 210 catalog skills, 0 files with a heading count other than 1 (headings inside fences ignored). Example: `masters/nextjs/skill.md` line 19. Commit `54b3e0f`.
+- [x] R3-2 Replace the placeholder example. **fixed.** All 30 masters had `Input: a one-line change that matches a rule in the standards.` Each now has a stack-specific input and output. After re-render, `one-line change` is absent from masters and from every release skill catalog file and native export. Example: `masters/nextjs/skill.md` lines 33-34 (tenant omitted from a `'use cache'` key).
 
 ## Not checked by me (verify before fixing)
 

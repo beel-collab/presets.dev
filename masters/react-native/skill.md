@@ -26,8 +26,8 @@ Findings with severity, file, line, the platform assumption, and a fix. Include 
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: `HomeScreen.tsx` starts a request in `useEffect` and aborts it only in that effect's cleanup, while a stack push leaves the screen mounted.
+Output: medium | HomeScreen.tsx:18 | cleanup does not run on blur | load in `useFocusEffect` and abort in the focus cleanup.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

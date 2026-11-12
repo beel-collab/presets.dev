@@ -39,8 +39,8 @@ Findings with severity, file, line, and the class or token to change. End with t
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: a button class is `` `bg-${color}` `` in a Tailwind v4 component.
+Output: high | Button.tsx:8 | the class is built by concatenation, so the scanner never sees it | write the full class, such as `bg-surface`.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

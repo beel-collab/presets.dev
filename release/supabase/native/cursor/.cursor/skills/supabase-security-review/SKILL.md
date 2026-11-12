@@ -39,8 +39,8 @@ Findings with severity, file, line, the policy or key path, and a fix. End with 
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: `policies.sql` adds `create policy notes_delete on notes for delete using ((select auth.uid()) = user_id)` with no `WITH CHECK`.
+Output: No findings. A DELETE policy cannot have `WITH CHECK`. Flag a `service_role` client imported from a browser file.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

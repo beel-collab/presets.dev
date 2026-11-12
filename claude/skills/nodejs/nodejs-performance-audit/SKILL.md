@@ -70,8 +70,8 @@ Findings with severity, file, line, the blocking or unbounded call, and a bounde
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: `src/fetch-user.ts` calls `fetch(url)` with no `signal` and retries forever on failure.
+Output: high | src/fetch-user.ts:9 | the retry has no cancellation | pass `AbortSignal.timeout` and stop after a bounded number of tries.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

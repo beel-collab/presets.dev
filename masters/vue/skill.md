@@ -26,8 +26,8 @@ Findings with severity, file, line, the reactivity or SSR mistake, and a fix. In
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: a Vue 3.5 `<script setup>` does `const { label } = defineProps<{ label: string }>()`.
+Output: No findings. Vue 3.5 compiles that destructure so it stays reactive. Flag `const { count } = reactive(state)` without `toRefs`.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

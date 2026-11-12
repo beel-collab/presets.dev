@@ -27,8 +27,8 @@ Findings with severity, file, line, the missing auth or the transaction bug, and
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: `NoteService.create` is `@Transactional` and `NoteService.importAll` calls `this.create(row)`.
+Output: high | NoteService.java:28 | self-invocation skips the proxy, so the transaction does not start | call `create` through the injected bean.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

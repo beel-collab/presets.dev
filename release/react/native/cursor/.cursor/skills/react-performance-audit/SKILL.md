@@ -40,8 +40,8 @@ Each finding has severity, file, line, the render or network cost you can point 
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: a React 19 function component wraps itself in `forwardRef` only to pass `ref` to a button.
+Output: No findings. On React 19, `ref` is a normal prop. Do not flag `forwardRef` removal. Flag `componentWillMount`.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

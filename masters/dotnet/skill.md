@@ -27,8 +27,8 @@ Findings with severity, file, line, the TFM, and a fix that compiles on that TFM
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: a `net10.0` project adds a C# 15 union to a request DTO.
+Output: high | NoteDto.cs:3 | C# 15 unions are not available on `net10.0` | keep the DTO as a record, or retarget only if the user asked.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

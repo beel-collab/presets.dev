@@ -36,8 +36,8 @@ Findings with severity, file, line, the schema or query risk, and a safer change
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: `src/db.ts` on Prisma 7 does `new PrismaClient()` with no adapter.
+Output: high | src/db.ts:4 | Prisma 7 requires a driver adapter | construct `new PrismaClient({ adapter })` from `prisma.config.ts`.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

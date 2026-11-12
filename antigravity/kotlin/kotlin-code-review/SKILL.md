@@ -69,8 +69,8 @@ Findings with severity, file, line, the cancellation or null bug, and a fix.
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: `catch (e: Exception) { }` around a `viewModelScope.launch` body that can throw `CancellationException`.
+Output: high | NotesViewModel.kt:19 | the catch swallows cancellation | rethrow `CancellationException`, then handle the other failures.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

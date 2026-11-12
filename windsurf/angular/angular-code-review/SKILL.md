@@ -69,8 +69,8 @@ Findings with severity, file, line, the outdated or unsafe pattern, and the curr
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: a new Angular 22 service uses `@Service()` and `private http = inject(HttpClient)`.
+Output: No findings. Constructor injection on a new `@Service()` is the finding.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

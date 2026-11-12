@@ -35,8 +35,8 @@ The spec path, the behavior it locks, the command, and the output. No production
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: `login.spec.ts` waits with `await page.waitForTimeout(2000)` before clicking Save.
+Output: high | login.spec.ts:12 | a fixed sleep hides a missing assertion | use `getByRole` and `expect(...).toBeVisible()`.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

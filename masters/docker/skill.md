@@ -27,8 +27,8 @@ Findings with severity, file, line, the insecure instruction, and the replacemen
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: a runtime stage ends with `USER root` and `ENV DATABASE_URL=postgres://app:secret@db/app`.
+Output: high | Dockerfile:18 | the process runs as root and the secret is in the image | `USER node` and a BuildKit secret mount, not `ENV`.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

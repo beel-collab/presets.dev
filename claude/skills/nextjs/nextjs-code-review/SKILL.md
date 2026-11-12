@@ -75,8 +75,8 @@ A clean review says "No findings" and lists the files you opened. A search you s
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: `app/notes/page.tsx` stores one tenant's rows in `'use cache'` and never reads that tenant id.
+Output: high | app/notes/page.tsx:14 | the cache key omits the tenant | read the tenant inside the cached function so the key differs per tenant.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

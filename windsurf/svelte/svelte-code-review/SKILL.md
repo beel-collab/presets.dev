@@ -71,8 +71,8 @@ Findings with severity, file, line, the boundary that broke, and a fix. Include 
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: a SvelteKit 3 load function imports `page` from `$app/stores`.
+Output: high | src/routes/notes/+page.ts:1 | `$app/stores` is removed in Kit 3 | import from `$app/state`.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

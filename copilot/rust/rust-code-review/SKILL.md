@@ -69,8 +69,8 @@ Findings with severity, file, line, the panic or safety hole, and a `Result`-bas
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: an async function holds `std::sync::Mutex` across `.await`.
+Output: high | src/worker.rs:31 | a std mutex guard must not be held across `.await` | drop the guard first, or use `tokio::sync::Mutex` when the guard must span the await.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

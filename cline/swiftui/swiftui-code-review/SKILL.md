@@ -69,8 +69,8 @@ Findings with severity, file, line, the isolation or availability issue, and a f
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: a view starts work with `Task { await model.load() }` and never stores the handle.
+Output: high | ProfileView.swift:14 | an unstructured Task is not cancelled when the view disappears | use `.task { await model.load() }`.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

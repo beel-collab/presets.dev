@@ -40,8 +40,8 @@ Findings first, with file, line, the unsafe construct, and a narrower type or a 
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: `src/area.ts` imports `typescript` from the 7.0 package and calls `ts.createProgram`.
+Output: high | src/area.ts:1 | TypeScript 7.0 has no stable compiler API | import `@typescript/typescript6` until 7.1, or run `tsc --noEmit` instead.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

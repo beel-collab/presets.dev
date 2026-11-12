@@ -38,8 +38,8 @@ List the test files, the behavior each one locks, the commands, and the results.
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: `notes.py` adds `parse_port` and the repo's pytest suite has no case for `"0"` or `"99999"`.
+Output: add `tests/test_notes.py` asserting `ValueError` for both. Run the command in `pyproject.toml` (for example `uv run pytest tests/test_notes.py` only when uv owns the project).
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

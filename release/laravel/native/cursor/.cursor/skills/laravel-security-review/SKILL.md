@@ -49,8 +49,8 @@ Findings with severity, file, line, the missing check, and a fix. Production was
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: a controller does `Note::create($request->all())`.
+Output: high | app/Http/Controllers/NoteController.php:16 | mass assignment from the whole request | `Note::create($request->validated())`.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

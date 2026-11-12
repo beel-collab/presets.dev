@@ -68,8 +68,8 @@ Findings with severity, file, line, the risky action, and a narrower change. Sta
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: an `aws_security_group_rule` opens port 22 to `0.0.0.0/0`, and an IAM action that has no resource-level permission uses `Resource "*"`.
+Output: high | sg.tf:4 | admin SSH is open to the world | restrict the CIDR. No findings for the `Resource "*"` on the action that requires it.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

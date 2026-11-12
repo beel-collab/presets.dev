@@ -42,8 +42,8 @@ Findings with severity, file, line, the route, and a fix. Include the Express ma
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: an Express 5 router still has `app.get('/*', handler)`.
+Output: high | src/app.ts:22 | Express 5 rejects an unnamed `*` wildcard | use `/*splat`.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.

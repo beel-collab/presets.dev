@@ -41,8 +41,8 @@ Findings with severity, file, line, the missing provider or guard, and a fix.
 Say "No findings" and list the files you opened. A search you skipped is not a clean result.
 
 ## Example
-Input: a one-line change that matches a rule in the standards.
-Output: either one finding with file and line, or "No findings" when the change is the valid pattern named in the standards.
+Input: `@Post() create(@Body() body: CreateNote)` where `CreateNote` is only an interface.
+Output: high | notes.controller.ts:14 | an interface is erased and does not validate | use a class with `ValidationPipe`, or `@Body({ schema })` plus `StandardSchemaValidationPipe`.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
