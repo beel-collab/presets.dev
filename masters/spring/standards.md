@@ -46,7 +46,7 @@ Boot 4.1 is the stable line. Do not add an M, RC, or SNAPSHOT version. `@Transac
 
 ## Deprecated APIs to never generate
 
-`@MockBean` and `@SpyBean` were removed in Spring Boot 4. Use `@MockitoBean` and `@MockitoSpyBean`. `WebSecurityConfigurerAdapter` is deprecated. Declare a `SecurityFilterChain` bean and match paths with `requestMatchers`, not `antMatchers`.
+`@MockBean` and `@SpyBean` were removed in Spring Boot 4. Use `@MockitoBean` and `@MockitoSpyBean`. `WebSecurityConfigurerAdapter` was removed in Spring Security 6. Declare a `SecurityFilterChain` bean and match paths with `requestMatchers`, not `antMatchers`.
 
 ## Commands
 

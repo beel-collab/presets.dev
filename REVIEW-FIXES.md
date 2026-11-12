@@ -118,7 +118,8 @@ Rule: work ONE ITEM AT A TIME. For each item: (1) verify against the official so
   npm install --ignore-scripts --save-dev typescript@5.9.3 @types/node@24.10.1
   npx tsc --strict --module NodeNext --moduleResolution NodeNext --target ES2022 --noEmit example.ts
   ```
-  `package.json` has `"type": "module"`. `@types/node` is there because `stdio.d.mts` imports `node:stream`; without it, `tsc` exits 2 inside the SDK (TS2307, TS2580) before it judges the example. With it, exit code is 0.
+  `package.json` has `"type": "module"`. `@types/node` is there because `stdio.d.mts` imports `node:stream`; without it, `tsc` exits 2 inside the SDK (TS2307, TS2580) before it judges the example. With it, exit code is 0. Commit `78d654f`.
+- [x] R5-2 `WebSecurityConfigurerAdapter` wording. **fixed.** The 5.8.12 Javadoc still marks the class `@Deprecated` (https://docs.spring.io/spring-security/site/docs/5.8.12/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html). The Spring Security 6.0.0 configuration package does not list it (https://docs.spring.io/spring-security/site/docs/6.0.0/api/org/springframework/security/config/annotation/web/configuration/package-summary.html), and the source file 404s at tag 6.0.0. It was removed in Spring Security 6. `masters/spring/standards.md` now says that, and the replacement is still a `SecurityFilterChain` bean with `requestMatchers`. After re-render, the sentence `WebSecurityConfigurerAdapter` is deprecated is only in this log. The removal sentence is in the master, in all 14 rendered standards files (7 catalog, 7 native), and in `research/spring/sources.md`.
 
 ## Not checked by me (verify before fixing)
 
