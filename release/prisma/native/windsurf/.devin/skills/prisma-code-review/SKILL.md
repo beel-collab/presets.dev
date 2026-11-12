@@ -37,7 +37,7 @@ Say "No findings" and list the files you opened. A search you skipped is not a c
 
 ## Example
 Input: `src/db.ts` on Prisma 7 does `new PrismaClient()` with no adapter.
-Output: high | src/db.ts:4 | Prisma 7 requires a driver adapter | construct `new PrismaClient({ adapter })` from `prisma.config.ts`.
+Output: high | src/db.ts:4 | Prisma 7 requires a driver adapter | `new PrismaClient({ adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL }) })`. `prisma.config.ts` is only for the CLI.
 ```
 
 Do not flag the valid pattern named in the standards. Flag the mistake next to it.
