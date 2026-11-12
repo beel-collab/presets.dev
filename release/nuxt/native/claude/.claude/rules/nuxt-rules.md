@@ -63,6 +63,6 @@ Run the Nuxt test script. Do not print `runtimeConfig`.
 ## Example
 
 ```ts
-const id = ref(route.params.id)
-const { data } = await useAsyncData(() => $fetch(`/api/notes/${id.value}`), { watch: [id] })
+const route = useRoute()
+const { data } = await useFetch(() => `/api/notes/${route.params.id}`)
 ```
