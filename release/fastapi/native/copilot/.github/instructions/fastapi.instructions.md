@@ -47,7 +47,7 @@ Test with the project's `TestClient` or async client. Cover a missing token, a f
 
 ## What changed in this major
 
-FastAPI 0.162 requires Pydantic v2 and AnyIO >= 4.1. `orm_mode` and v1 `@validator` are gone.
+FastAPI 0.162 requires Pydantic v2 and AnyIO >= 4.1. `orm_mode` and v1 `@validator` are deprecated, not removed: use `from_attributes` and `@field_validator`.
 
 ## Deprecated APIs to never generate
 
