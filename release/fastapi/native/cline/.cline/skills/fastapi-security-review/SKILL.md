@@ -44,12 +44,12 @@ Do not flag the valid pattern named in the standards. Flag the mistake next to i
 
 ## What to check
 
-- Injection: concatenated SQL, shell, or HTML.
-- XSS: unescaped user text in HTML.
-- CSRF: a browser state change with the framework check disabled.
-- Secrets: a key in the repo or in a log line.
-- IDOR: an id from the client with no owner or permission check.
-- SSRF: a user-supplied URL fetched with no allow-list.
+- Injection: a SQL string built with an f-string from a query param.
+- XSS: an `HTMLResponse` that interpolates user text.
+- CSRF: cookie-authenticated browser writes with no CSRF token. Bearer tokens are not that finding.
+- Secrets: a password field on the response model, or a key in the repo.
+- IDOR: a path user id stored with no owner check.
+- SSRF: an outbound `httpx` call to a user-supplied URL with no allow-list.
 
 ## Stop
 

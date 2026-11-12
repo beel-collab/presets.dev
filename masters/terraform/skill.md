@@ -34,12 +34,11 @@ Do not flag the valid pattern named in the standards. Flag the mistake next to i
 
 ## What to check
 
-- Injection: concatenated SQL, shell, or HTML.
-- XSS: unescaped user text in HTML.
-- CSRF: a browser state change with the framework check disabled.
-- Secrets: a key in the repo or in a log line.
-- IDOR: an id from the client with no owner or permission check.
-- SSRF: a user-supplied URL fetched with no allow-list.
+- State: a state file committed to the repo, or a remote backend with no lock.
+- IAM: an action allowed more broadly than it needs. `Resource "*"` is required for some actions that have no resource-level permissions, so do not flag the star by itself.
+- Secrets: a password or key written in `.tf` or committed `.tfvars`.
+- Network: `0.0.0.0/0` on an admin port such as 22 or 3389.
+- Apply: do not plan an `apply` or `destroy` from the agent.
 
 ## Stop
 

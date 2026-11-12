@@ -35,12 +35,11 @@ Do not flag the valid pattern named in the standards. Flag the mistake next to i
 
 ## What to check
 
-- Injection: concatenated SQL, shell, or HTML.
-- XSS: unescaped user text in HTML.
-- CSRF: a browser state change with the framework check disabled.
-- Secrets: a key in the repo or in a log line.
-- IDOR: an id from the client with no owner or permission check.
-- SSRF: a user-supplied URL fetched with no allow-list.
+- Keys: `service_role` or `sb_secret_` in browser code. A publishable or `anon` key with RLS on is not a finding.
+- RLS: a table with no policy, or a policy that trusts a client-supplied user id.
+- Policy shape: `WITH CHECK` on `DELETE` or `SELECT`. `UPDATE` may omit `WITH CHECK` and reuse `USING`.
+- Realtime: a client filter treated as authorization.
+- Secrets: the secret key committed or logged.
 
 ## Stop
 

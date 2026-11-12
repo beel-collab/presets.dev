@@ -78,12 +78,13 @@ Do not flag the valid pattern named in the standards. Flag the mistake next to i
 
 ## What to check
 
-- Injection: concatenated SQL, shell, or HTML.
-- XSS: unescaped user text in HTML.
-- CSRF: a browser state change with the framework check disabled.
-- Secrets: a key in the repo or in a log line.
-- IDOR: an id from the client with no owner or permission check.
-- SSRF: a user-supplied URL fetched with no allow-list.
+- Injection: a native query built by concatenating a request parameter.
+- XSS: a template renders user text with the escape disabled.
+- CSRF: a browser state change with CSRF disabled on the security filter chain.
+- Secrets: a password in `application.yml` that is committed.
+- IDOR: a path id loaded with no authorization check.
+- SSRF: `RestClient` calls a URL from the request with no allow-list.
+- Transactions: `this.method()` on a `@Transactional` or `@Async` method, which skips the proxy.
 
 ## Stop
 

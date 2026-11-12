@@ -44,12 +44,12 @@ Do not flag the valid pattern named in the standards. Flag the mistake next to i
 
 ## What to check
 
-- Injection: concatenated SQL, shell, or HTML.
-- XSS: unescaped user text in HTML.
-- CSRF: a browser state change with the framework check disabled.
-- Secrets: a key in the repo or in a log line.
-- IDOR: an id from the client with no owner or permission check.
-- SSRF: a user-supplied URL fetched with no allow-list.
+- Injection: SQL or a shell command built by concatenating `req.body` or `req.query`.
+- XSS: `res.send` of user HTML with no escape.
+- CSRF: a cookie-session write with no CSRF check and a reflected `Origin`.
+- Secrets: `process.env` values written to the response or the log.
+- IDOR: `req.params.id` loaded with no owner check after auth.
+- SSRF: `fetch(req.body.url)` with no host allow-list.
 
 ## Stop
 

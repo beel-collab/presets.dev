@@ -44,12 +44,11 @@ Do not flag the valid pattern named in the standards. Flag the mistake next to i
 
 ## What to check
 
-- Injection: concatenated SQL, shell, or HTML.
-- XSS: unescaped user text in HTML.
-- CSRF: a browser state change with the framework check disabled.
-- Secrets: a key in the repo or in a log line.
-- IDOR: an id from the client with no owner or permission check.
-- SSRF: a user-supplied URL fetched with no allow-list.
+- Tool input: arguments used in a query, path, or shell command with no schema check.
+- Auth: a tool that acts for a user without a host-supplied identity.
+- Prompt injection: a tool description or resource body that tells the model to ignore the user's limits or to print secrets.
+- Consent: `arguments.confirm` treated as approval. Destructive tools return `input_required` for the host UI.
+- Secrets: a token copied into a tool result or a log line.
 
 ## Stop
 

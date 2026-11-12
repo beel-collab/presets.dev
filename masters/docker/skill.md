@@ -35,12 +35,11 @@ Do not flag the valid pattern named in the standards. Flag the mistake next to i
 
 ## What to check
 
-- Injection: concatenated SQL, shell, or HTML.
-- XSS: unescaped user text in HTML.
-- CSRF: a browser state change with the framework check disabled.
-- Secrets: a key in the repo or in a log line.
-- IDOR: an id from the client with no owner or permission check.
-- SSRF: a user-supplied URL fetched with no allow-list.
+- Image: a `latest` base tag, or a runtime stage that copies a secret file into the image.
+- Secrets: a token in `ARG`, `ENV`, or a committed `.env` in the build context.
+- User: the runtime stage leaves the process as root.
+- Socket: the Docker socket is mounted into a container.
+- Privileges: `--privileged` or a broad capability with no written reason.
 
 ## Stop
 
