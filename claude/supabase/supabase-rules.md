@@ -52,9 +52,9 @@ SQL lives in migrations. Generated database types are generated. Do not hand-edi
 
 ## Queries and RLS
 
-Every table that holds user data has row level security enabled. Write one policy per command. `INSERT` checks the new row with `WITH CHECK` and cannot take `USING`. `DELETE` filters existing rows with `USING` and cannot take `WITH CHECK`. `UPDATE` needs both: `USING` picks the rows that can change, and `WITH CHECK` accepts the new values. If an `UPDATE` policy omits `WITH CHECK`, Postgres reuses `USING` for the new row. That is valid. Do not flag it as missing. A `DELETE` policy that only has `USING (auth.uid() = user_id)` is also valid. A policy of `true` for every role is a bug unless the table is genuinely public.
+Every table that holds user data has row level security enabled. Write one policy per command. `INSERT` checks the new row with `WITH CHECK` and cannot take `USING`. `DELETE` filters existing rows with `USING` and cannot take `WITH CHECK`. `UPDATE` needs both: `USING` picks the rows that can change, and `WITH CHECK` accepts the new values. If an `UPDATE` policy omits `WITH CHECK`, Postgres reuses `USING` for the new row. That is valid. Do not flag it as missing. A `DELETE` policy that only has `USING ((select auth.uid()) = user_id)` is also valid. A policy of `true` for every role is a bug unless the table is genuinely public.
 
-The user id in a policy comes from `auth.uid()` or the project's equivalent. A column filled from a client-supplied id is not identity. Filter tenant rows in the policy, not only in the UI.
+The user id in a policy comes from `(select auth.uid())`, not from a client-supplied column. Postgres can cache that select for the statement. A bare `auth.uid()` call still runs, but it is evaluated per row. Filter tenant rows in the policy, not only in the UI.
 
 Use the typed client when the project generates types. Select the columns you need. Do not `select('*')` on a table that contains secrets and then return the row to the browser.
 
@@ -105,6 +105,6 @@ Run the local policy test. Do not apply SQL to production.
 ```sql
 create policy notes_delete on notes
   for delete to authenticated
-  using (auth.uid() = user_id);
+  using ((select auth.uid()) = user_id);
 ```
 That delete policy is complete. It has no `WITH CHECK`.
