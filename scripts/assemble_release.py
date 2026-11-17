@@ -9,6 +9,7 @@ frontmatter each tool actually reads.
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -48,6 +49,7 @@ CATALOG_FRONT_ORDER = [
     "stack",
     "tags",
     "author",
+    "contributors",
     "license",
     "origin",
     "version",
@@ -98,9 +100,14 @@ def emit_frontmatter(data: dict, order: list[str]) -> str:
         elif isinstance(value, list):
             lines.append(f"{key}:")
             for item in value:
-                if not isinstance(item, str):
-                    raise TypeError(f"{key} items must be strings")
-                lines.append(f"  - {q(item)}")
+                if isinstance(item, str):
+                    lines.append(f"  - {q(item)}")
+                elif isinstance(item, dict) and all(isinstance(v, str) for v in item.values()):
+                    for index, (sub_key, sub_value) in enumerate(item.items()):
+                        prefix = "  - " if index == 0 else "    "
+                        lines.append(f"{prefix}{sub_key}: {q(sub_value)}")
+                else:
+                    raise TypeError(f"{key} items must be strings or string mappings")
         elif isinstance(value, dict):
             lines.append(f"{key}:")
             for sub_key, sub_value in value.items():
@@ -467,6 +474,32 @@ def require(spec: dict, key: str) -> None:
         raise SystemExit(f"{spec.get('id', '?')}: missing {key}")
 
 
+GITHUB_NAME = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$")
+
+
+def validate_contributors(spec: dict) -> None:
+    """stack.json may list people who improved a stack's master files."""
+    contributors = spec.get("contributors")
+    if contributors is None:
+        return
+    if not isinstance(contributors, list) or not contributors:
+        raise SystemExit(f"{spec['id']}: contributors must be a non-empty list")
+    seen: set[str] = set()
+    for person in contributors:
+        if not isinstance(person, dict) or set(person) - {"name", "github"}:
+            raise SystemExit(f"{spec['id']}: each contributor has only name and an optional github")
+        name = person.get("name")
+        if not isinstance(name, str) or not 2 <= len(name.strip()) <= 80 or name.strip().casefold() == "community":
+            raise SystemExit(f"{spec['id']}: contributor name must name a person or organization")
+        github = person.get("github")
+        if github is not None and (not isinstance(github, str) or not GITHUB_NAME.match(github)):
+            raise SystemExit(f"{spec['id']}: contributor github must be a GitHub username")
+        key = (github or name).casefold()
+        if key in seen:
+            raise SystemExit(f"{spec['id']}: contributor {github or name} is listed twice")
+        seen.add(key)
+
+
 def validate_spec(spec: dict) -> None:
     for key in (
         "id",
@@ -486,6 +519,7 @@ def validate_spec(spec: dict) -> None:
         raise SystemExit(f"{spec['id']}: missing standards.md")
     if not spec["root"].joinpath("skill.md").is_file():
         raise SystemExit(f"{spec['id']}: missing skill.md")
+    validate_contributors(spec)
     if len(spec["tags"]) > 11:
         raise SystemExit(f"{spec['id']}: too many tags")
     if len(spec["native_skill_description"]) > 1024:
@@ -588,6 +622,7 @@ def render_entry(spec: dict, item: dict) -> str:
             "stack": spec["id"],
             "tags": item["tags"],
             "author": AUTHOR,
+            **({"contributors": spec["contributors"]} if spec.get("contributors") else {}),
             "license": "MIT",
             "origin": "original",
             "version": "1.0.0",

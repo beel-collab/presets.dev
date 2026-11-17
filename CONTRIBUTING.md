@@ -25,7 +25,7 @@ Signed-off-by: Your Name <you@example.com>
 ## How to add a preset
 
 1. Copy the starter for the type from [`templates/`](templates/).
-2. Move it to the path in the layout table below.
+2. Move it to the path in the layout table below. Start the file name, or the skill folder name, with the stack folder: `cursor/typescript/typescript-strict-null.mdc`, not `cursor/typescript/strict-null.mdc`.
 3. Replace `id`, `slug`, `title`, `description`, `author`, `tools`, `tags`, and the body.
 4. Set `tested_with` to the tool build you actually tried.
 5. Open a pull request. The template has an originality checkbox. Tick it only when it is true.
@@ -39,7 +39,8 @@ The 30 release stacks are generated. Their files under the tool folders and unde
 1. Edit the master in `masters/<stack>/`: `standards.md` for the coding standards, `skill.md` for the skill, or `stack.json` for metadata such as `paths`, `tags`, `libs`, and `updated_for`.
 2. Run `python scripts/assemble_release.py`. It rewrites the seven tool copies, the native install files under `release/<stack>/native/`, `release/README.md`, and `release/original-2026-11/stacks.json`.
 3. When the change rests on a library or tool fact, add the official source to `research/<stack>/sources.md`.
-4. Run the checks under [What CI checks](#what-ci-checks), then commit the master and the generated files together.
+4. Add yourself to `contributors` in `masters/<stack>/stack.json`, for example `"contributors": [{"name": "Your Name", "github": "your-name"}]`. Keep earlier contributors in the list. The site shows them under the author on every preset in the stack.
+5. Run the checks under [What CI checks](#what-ci-checks), then commit the master and the generated files together.
 
 ## Repository layout
 
@@ -69,6 +70,8 @@ A skill file is a skill: `SKILL.md` with `type: skill`. Do not use a second inst
 Optional notes that support a skill live in `references/` next to `SKILL.md`. Those files are not separate catalog entries. Write them yourself. `assets/` and `scripts/` are the same kind of supporting file.
 
 File names are lowercase, with hyphens. The filenames `SKILL.md`, `AGENTS.md`, and `CLAUDE.md` stay in that conventional case.
+
+A preset name starts with its stack folder: `typescript-strict-null.mdc` in `cursor/typescript/`, or `typescript-test-writer/SKILL.md` for a skill. The site builds a preset's id from the tool, the type, and that name, without the stack folder, so `strict-null.mdc` in two stacks would collide. `AGENTS.md` and `CLAUDE.md` are exempt. Do not reuse a release name such as `typescript-rules` or `typescript-code-review`.
 
 ## Frontmatter
 
@@ -110,6 +113,7 @@ Optional fields, when you need them:
 | `libs` | Libraries the preset assumes. |
 | `model` | A model hint for an agent. |
 | `also_for` | Other tools the same text was tried on. |
+| `contributors` | People who improved the preset after it was written: a list of `name` and optional `github`. For a release stack, set it in `masters/<stack>/stack.json` instead. |
 | `stack` | Short kebab-case stack id, such as `nextjs`. |
 | `updated_for` | The versions the preset was written against. Keep `version` as semver. |
 
@@ -342,6 +346,7 @@ GitHub Actions runs [`.github/workflows/ci.yml`](.github/workflows/ci.yml) on pu
 | --- | --- |
 | Frontmatter schema | Preset files added or modified in the pull request, plus the starters in `templates/`. Other existing files are left alone. |
 | `id` and `slug` uniqueness | The whole repository. A new or edited file whose id repeats an existing one fails. |
+| Stack prefix | Preset files added or modified in the pull request. The file or skill folder name starts with the stack folder. |
 | Markdown lint | Markdown added or modified in the pull request. |
 | Length | 40,000 characters for a changed preset or supporting file under a tool directory. `README.md` and `CONTRIBUTING.md` are exempt. |
 | Secret scan | Files added or modified in the pull request. Private keys and common live token shapes fail the check. A line that is clearly an example is ignored. |

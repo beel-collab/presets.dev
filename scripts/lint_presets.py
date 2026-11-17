@@ -128,6 +128,37 @@ def expected_type(rel: str) -> str | None:
     return None
 
 
+CLAUDE_LAYOUT_DIRS = {"skills", "agents", "instructions"}
+
+
+def stack_prefix_error(rel: str) -> str | None:
+    """A preset name starts with its stack folder, so ids stay unique across stacks.
+
+    The site id is tool-category-name and does not include the stack folder.
+    """
+    parts = rel.split("/")
+    name = parts[-1]
+    if parts[0] not in TOOLS or name in {"AGENTS.md", "CLAUDE.md"}:
+        return None
+    rest = parts[1:]
+    if parts[0] == "claude" and rest and rest[0] in CLAUDE_LAYOUT_DIRS:
+        rest = rest[1:]
+    if len(rest) < 2:
+        return None
+    stack = rest[0]
+    if name == "SKILL.md":
+        preset = rest[1]
+    else:
+        preset = name
+        for suffix in (".agent.md", ".instructions.md", ".prompt.md", ".mdc", ".md"):
+            if preset.endswith(suffix):
+                preset = preset[: -len(suffix)]
+                break
+    if preset == stack or preset.startswith(f"{stack}-"):
+        return None
+    return f"{rel}: name {preset!r} must start with the stack folder, for example {stack}-{preset}"
+
+
 def validate_data(rel: str, data: dict, schema: dict, *, require_tool_dir: bool) -> list[str]:
     errors: list[str] = []
     validator = Draft7Validator(schema)
@@ -153,6 +184,13 @@ def validate_data(rel: str, data: dict, schema: dict, *, require_tool_dir: bool)
         errors.append(
             f"{rel}: author.name must name the person or organization who wrote the preset"
         )
+    for person in data.get("contributors") or []:
+        if isinstance(person, dict) and str(person.get("name", "")).strip().casefold() == "community":
+            errors.append(f"{rel}: contributors must name the person or organization")
+    if require_tool_dir:
+        prefix_error = stack_prefix_error(rel)
+        if prefix_error:
+            errors.append(prefix_error)
     for key in ("created", "updated"):
         try:
             dt.datetime.strptime(data[key], "%Y-%m-%d")
@@ -312,6 +350,25 @@ def self_test(schema: dict) -> list[str]:
     assert expected_slug("templates/skill/SKILL.md") == "templates/skill/SKILL"
     assert expected_slug("cursor/react/rules.mdc") == "cursor/react/rules"
     assert expected_slug("copilot/go/go.instructions.md") == "copilot/go/go.instructions"
+    for ok in (
+        "cursor/typescript/typescript-rules.mdc",
+        "copilot/typescript/typescript-rules.instructions.md",
+        "cursor/typescript/typescript-code-review/SKILL.md",
+        "claude/skills/typescript/typescript-code-review/SKILL.md",
+        "claude/typescript/typescript-rules.md",
+        "codex/typescript/AGENTS.md",
+        "claude/instructions/typescript/CLAUDE.md",
+    ):
+        if stack_prefix_error(ok):
+            errors.append(f"self-test: stack prefix rejected {ok}")
+    for bad in (
+        "cursor/typescript/strict-mode.mdc",
+        "cursor/typescript/test-writer/SKILL.md",
+        "claude/skills/typescript/test-writer/SKILL.md",
+        "copilot/typescript/strict.instructions.md",
+    ):
+        if not stack_prefix_error(bad):
+            errors.append(f"self-test: stack prefix accepted {bad}")
     starter: dict | None = None
     starter_path = TEMPLATE_FILES[0]
     for rel in TEMPLATE_FILES:
