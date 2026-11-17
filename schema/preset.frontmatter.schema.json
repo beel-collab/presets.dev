@@ -109,7 +109,7 @@
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
-      "description": "People who improved the preset after it was written. The site lists them under the author.",
+      "description": "People who improved the preset after it was written. The site lists them after the original author under Contributors.",
       "items": {
         "type": "object",
         "additionalProperties": false,

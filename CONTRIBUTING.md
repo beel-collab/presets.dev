@@ -39,7 +39,7 @@ The 30 release stacks are generated. Their files under the tool folders and unde
 1. Edit the master in `masters/<stack>/`: `standards.md` for the coding standards, `skill.md` for the skill, or `stack.json` for metadata such as `paths`, `tags`, `libs`, and `updated_for`.
 2. Run `python scripts/assemble_release.py`. It rewrites the seven tool copies, the native install files under `release/<stack>/native/`, `release/README.md`, and `release/original-2026-11/stacks.json`.
 3. When the change rests on a library or tool fact, add the official source to `research/<stack>/sources.md`.
-4. Add yourself to `contributors` in `masters/<stack>/stack.json`, for example `"contributors": [{"name": "Your Name", "github": "your-name"}]`. Keep earlier contributors in the list. The site shows them under the author on every preset in the stack.
+4. Add yourself to `contributors` in `masters/<stack>/stack.json`, for example `"contributors": [{"name": "Your Name", "github": "your-name"}]`. Keep earlier contributors in the list. The site lists them after the original author in each preset's Contributors list, across the whole stack.
 5. Run the checks under [What CI checks](#what-ci-checks), then commit the master and the generated files together.
 
 ## Repository layout
