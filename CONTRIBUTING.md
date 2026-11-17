@@ -30,6 +30,17 @@ Signed-off-by: Your Name <you@example.com>
 4. Set `tested_with` to the tool build you actually tried.
 5. Open a pull request. The template has an originality checkbox. Tick it only when it is true.
 
+A new preset shows on the site once it is merged. The `presets-dev` CLI installs only the release stacks in `release/original-2026-11/stacks.json`, so a preset outside a release stack is not installable with `npx presets-dev`.
+
+## Fix or improve a release preset
+
+The 30 release stacks are generated. Their files under the tool folders and under `release/` come from `masters/<stack>/`, and CI rebuilds them and fails on any difference. Do not edit those generated files by hand.
+
+1. Edit the master in `masters/<stack>/`: `standards.md` for the coding standards, `skill.md` for the skill, or `stack.json` for metadata such as `paths`, `tags`, `libs`, and `updated_for`.
+2. Run `python scripts/assemble_release.py`. It rewrites the seven tool copies, the native install files under `release/<stack>/native/`, `release/README.md`, and `release/original-2026-11/stacks.json`.
+3. When the change rests on a library or tool fact, add the official source to `research/<stack>/sources.md`.
+4. Run the checks under [What CI checks](#what-ci-checks), then commit the master and the generated files together.
+
 ## Repository layout
 
 ```text
@@ -104,7 +115,7 @@ Optional fields, when you need them:
 
 Catalog frontmatter is for this repository. It is not the file a product loads. Cursor rules, Copilot instructions, Cline rules, and skill files each have their own small frontmatter. Rebuild that native file from the export map under `release/` instead of copying catalog keys such as `tools` or `author` into the install path. An `AGENTS.md` or `GEMINI.md` install target is still project guidance: do not set `type: agent` only because the install filename is `AGENTS.md`.
 
-Files already in the tree are not failed for this schema until a pull request edits them. An edit has to bring that file up to the schema in the same pull request.
+CI checks this schema on the files a pull request adds or edits. An edit has to bring that file up to the schema in the same pull request.
 
 ## Templates
 
@@ -330,14 +341,14 @@ GitHub Actions runs [`.github/workflows/ci.yml`](.github/workflows/ci.yml) on pu
 | Check | Scope |
 | --- | --- |
 | Frontmatter schema | Preset files added or modified in the pull request, plus the starters in `templates/`. Other existing files are left alone. |
-| `id` and `slug` uniqueness | The whole repository. A new id that repeats an existing one fails. Two untouched legacy files that happen to share an id do not fail the build. |
+| `id` and `slug` uniqueness | The whole repository. A new or edited file whose id repeats an existing one fails. |
 | Markdown lint | Markdown added or modified in the pull request. |
 | Length | 40,000 characters for a changed preset or supporting file under a tool directory. `README.md` and `CONTRIBUTING.md` are exempt. |
 | Secret scan | Files added or modified in the pull request. Private keys and common live token shapes fail the check. A line that is clearly an example is ignored. |
 | DCO | Every non-merge commit in the pull request has `Signed-off-by` matching the commit author. |
 | Release counts | Each stack listed as complete in `release/original-2026-11/stacks.json` has 14 catalog entries: one standards file and one `SKILL.md` for each of the seven release tools, including `antigravity`. The index is not named `manifest.json` because that filename is gitignored. |
 | Native export | `scripts/assemble_release.py --check` rebuilds catalog files and native install files from `masters/` and fails on drift. |
-| Similarity | Release prose is compared with the copied catalog. A long shared run, or a very high shingle overlap, fails the check. |
+| Similarity | Release prose is compared with every other preset under the tool folders. A preset that shares a 40-word run with a release preset, or overlaps one very closely, fails the check. |
 | Next.js fixture | `node --test fixtures/nextjs/tenant-cache/policy.test.mjs` runs the decision table used by the Next.js audit skill. |
 
 Markdown rules in force: no trailing whitespace (MD009), no hard tabs (MD010), no stacked blank lines (MD012), a space after `#` in headings (MD018), fenced code blocks closed, and a single trailing newline (MD047). Use Unix line endings.

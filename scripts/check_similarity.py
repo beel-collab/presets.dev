@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Compare original-release prose with the existing copied catalog.
+"""Compare original-release prose with every other preset in the catalog.
 
 The seven tool adaptations of one master are an intentional family and are not
 compared with each other. A release file fails when it shares a 40-word run
-with a legacy catalog file, or when its 8-word shingle Jaccard overlap with a
-legacy file is at least 0.80. Code fences are ignored so short API lines are
+with another catalog file, or when its 8-word shingle Jaccard overlap with
+another file is at least 0.80. Code fences are ignored so short API lines are
 not treated as copied prose.
 """
 
@@ -115,7 +115,7 @@ def main() -> int:
         print(f"similarity check failed ({len(unique)} issue(s)):")
         print("\n".join(unique[:50]))
         return 1
-    print(f"similarity check ok: {len(release_paths)} release file(s) against the copied catalog")
+    print(f"similarity check ok: {len(release_paths)} release file(s) against the rest of the catalog")
     return 0
 
 
