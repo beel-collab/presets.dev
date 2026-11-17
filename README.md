@@ -32,9 +32,21 @@ The clean-room rule, the frontmatter schema, and the starters are in [CONTRIBUTI
 
 `masters/` holds one standards file and one skill file for each of 30 stacks. `python scripts/assemble_release.py` writes 420 catalog entries (seven tools, two files each) and the native install files under `release/<stack>/native/`.
 
-Install one tool. Copy the native file into the path named in `release/README.md`. Append Codex sections to `AGENTS.md` and Antigravity CLI sections to `GEMINI.md`. Do not replace a file the repo already has. Windsurf installs only the `.devin/` copy.
-
 The index of those entries is `release/original-2026-11/stacks.json`.
+
+## Install
+
+Install a stack from your project directory with the [`presets-dev`](https://www.npmjs.com/package/presets-dev) CLI (Node.js 22+):
+
+```bash
+npx presets-dev list
+npx presets-dev add nextjs --tool cursor
+npx presets-dev add nextjs typescript --tool claude,codex --dry-run
+```
+
+The CLI reads `release/original-2026-11/stacks.json` from this repository and writes each tool's native files. Without `--tool`, it detects tools from your project.
+
+To install by hand, copy the native file into the path named in `release/README.md`. Append Codex sections to `AGENTS.md` and Antigravity CLI sections to `GEMINI.md`. Do not replace a file the repo already has. Windsurf installs only the `.devin/` copy.
 
 ## Demo
 
