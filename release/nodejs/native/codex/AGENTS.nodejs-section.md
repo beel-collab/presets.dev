@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Node.js Codex Instructions: ESM, Cancellation and Streams
 
 Section to append to `AGENTS.md` for Node.js. This is project guidance, not a custom agent.

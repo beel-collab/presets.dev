@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Terraform Codex Instructions: Providers, State and Plan Review
 
 Section to append to `AGENTS.md` for Terraform. This is project guidance, not a custom agent.

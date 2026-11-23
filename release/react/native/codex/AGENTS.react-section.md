@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # React Codex Instructions: Components, State and Effects
 
 Section to append to `AGENTS.md` for React. This is project guidance, not a custom agent.

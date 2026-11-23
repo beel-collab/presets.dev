@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Spring Boot Codex Instructions: Injection, Transactions and Validation
 
 Section to append to `AGENTS.md` for Spring Boot. This is project guidance, not a custom agent.

@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Nuxt Codex Instructions: SSR Data, Nitro and Runtime Config
 
 Section to append to `AGENTS.md` for Nuxt. This is project guidance, not a custom agent.

@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # FastAPI Codex Instructions: Pydantic Models, Dependencies and Async
 
 Section to append to `AGENTS.md` for FastAPI. This is project guidance, not a custom agent.

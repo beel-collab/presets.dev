@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Tailwind CSS Codex Instructions: CSS-First Tokens and Accessible UI
 
 Section to append to `AGENTS.md` for Tailwind CSS. This is project guidance, not a custom agent.

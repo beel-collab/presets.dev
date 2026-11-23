@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Next.js Codex Instructions: App Router, TypeScript and Server Actions
 
 Section to append to `AGENTS.md` for Next.js. This is project guidance, not a custom agent.

@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Supabase Codex Instructions: Auth, RLS and Typed Queries
 
 Section to append to `AGENTS.md` for Supabase. This is project guidance, not a custom agent.

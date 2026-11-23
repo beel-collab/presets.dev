@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Docker Codex Instructions: Images, Runtime Users and Build Secrets
 
 Section to append to `AGENTS.md` for Docker. This is project guidance, not a custom agent.

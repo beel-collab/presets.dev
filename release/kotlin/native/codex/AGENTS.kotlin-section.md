@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Kotlin Codex Instructions: Coroutines, Null Safety and Compose
 
 Section to append to `AGENTS.md` for Kotlin. This is project guidance, not a custom agent.

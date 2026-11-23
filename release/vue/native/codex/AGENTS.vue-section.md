@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Vue Codex Instructions: Script Setup, Composables and SSR
 
 Section to append to `AGENTS.md` for Vue. This is project guidance, not a custom agent.

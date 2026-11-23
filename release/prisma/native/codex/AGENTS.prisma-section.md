@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Prisma Codex Instructions: Schema, Migrations and Query Shape
 
 Section to append to `AGENTS.md` for Prisma. This is project guidance, not a custom agent.

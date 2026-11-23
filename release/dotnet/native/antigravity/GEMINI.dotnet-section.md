@@ -1,5 +1,3 @@
-<!-- Append this section to GEMINI.md. Do not replace the existing file. Antigravity CLI also loads AGENTS.md, so do not paste this section into both. /context lists the loaded files. -->
-
 # .NET Antigravity CLI Rules: Nullable Contracts, Async and Endpoints
 
 Section to append to `GEMINI.md` for .NET. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.

@@ -405,7 +405,6 @@ def native_exports(spec: dict) -> dict[str, dict[str, list[dict]]]:
                 {
                     "path": f"{base}/codex/AGENTS.{stack}-section.md",
                     "format": "plain",
-                    "banner": "<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->",
                     "frontmatter": {},
                 }
             ],
@@ -413,7 +412,6 @@ def native_exports(spec: dict) -> dict[str, dict[str, list[dict]]]:
                 {
                     "path": f"{base}/antigravity/GEMINI.{stack}-section.md",
                     "format": "plain",
-                    "banner": "<!-- Append this section to GEMINI.md. Do not replace the existing file. Antigravity CLI also loads AGENTS.md, so do not paste this section into both. /context lists the loaded files. -->",
                     "frontmatter": {},
                 }
             ],
@@ -758,7 +756,8 @@ def build() -> dict[str, str | bytes]:
                 if set(keys) != set(FORMAT_KEYS[kind]):
                     raise SystemExit(f"{exported['path']}: frontmatter keys {keys}")
                 if kind == "plain":
-                    body = join_sections([exported["banner"], native_body_from_catalog(catalog)])
+                    # Installed as-is into the user's AGENTS.md or GEMINI.md, so no authoring notes.
+                    body = native_body_from_catalog(catalog)
                 else:
                     body = emit_frontmatter(exported["frontmatter"], NATIVE_ORDER[kind])
                     body += "\n" + native_body_from_catalog(catalog)

@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Python Codex Instructions: Environments, Types and pytest
 
 Section to append to `AGENTS.md` for Python. This is project guidance, not a custom agent.

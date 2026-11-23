@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Rust Codex Instructions: Ownership, Errors and Async
 
 Section to append to `AGENTS.md` for Rust. This is project guidance, not a custom agent.

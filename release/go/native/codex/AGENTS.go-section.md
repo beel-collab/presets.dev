@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Go Codex Instructions: Errors, Context and Goroutines
 
 Section to append to `AGENTS.md` for Go. This is project guidance, not a custom agent.

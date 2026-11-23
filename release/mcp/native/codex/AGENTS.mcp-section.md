@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # MCP Codex Instructions: Tools, Schemas and Permissions
 
 Section to append to `AGENTS.md` for MCP. This is project guidance, not a custom agent.

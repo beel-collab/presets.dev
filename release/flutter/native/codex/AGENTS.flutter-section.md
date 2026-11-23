@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Flutter Codex Instructions: Widgets, Async UI and Platform Builds
 
 Section to append to `AGENTS.md` for Flutter. This is project guidance, not a custom agent.

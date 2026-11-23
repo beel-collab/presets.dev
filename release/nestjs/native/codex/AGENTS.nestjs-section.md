@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # NestJS Codex Instructions: Modules, DTOs and Guards
 
 Section to append to `AGENTS.md` for NestJS. This is project guidance, not a custom agent.

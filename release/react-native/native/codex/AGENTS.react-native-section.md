@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # React Native Codex Instructions: Expo, Navigation and Native Lifecycle
 
 Section to append to `AGENTS.md` for React Native. This is project guidance, not a custom agent.

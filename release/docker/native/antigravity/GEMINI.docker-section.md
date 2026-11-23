@@ -1,5 +1,3 @@
-<!-- Append this section to GEMINI.md. Do not replace the existing file. Antigravity CLI also loads AGENTS.md, so do not paste this section into both. /context lists the loaded files. -->
-
 # Docker Antigravity CLI Rules: Images, Runtime Users and Build Secrets
 
 Section to append to `GEMINI.md` for Docker. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.

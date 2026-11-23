@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Playwright Codex Instructions: Locators, Fixtures and Assertions
 
 Section to append to `AGENTS.md` for Playwright. This is project guidance, not a custom agent.

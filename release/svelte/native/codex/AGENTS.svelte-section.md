@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Svelte Codex Instructions: Runes, Load Functions and SSR
 
 Section to append to `AGENTS.md` for Svelte. This is project guidance, not a custom agent.

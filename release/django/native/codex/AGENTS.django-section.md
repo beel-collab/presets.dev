@@ -1,5 +1,3 @@
-<!-- Append this section to AGENTS.md. Do not replace the existing file. This is project guidance, not a custom agent. -->
-
 # Django Codex Instructions: ORM, Permissions and Migrations
 
 Section to append to `AGENTS.md` for Django. This is project guidance, not a custom agent.
