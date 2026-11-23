@@ -22,8 +22,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from ci_common import ROOT, changed_files, resolve_base
 
 TOOLS = ("copilot", "cursor", "claude", "windsurf", "cline", "codex", "antigravity")
-SUPPORTING_DIRS = {"references", "assets", "scripts"}
-DOC_NAMES = {"README.md", "CONTRIBUTING.md"}
+CATALOG_LAYOUT = json.loads((ROOT / "website/catalog-layout.json").read_text(encoding="utf-8"))
+SUPPORTING_DIRS = set(CATALOG_LAYOUT["supportDirectories"])
+DOC_NAMES = set(CATALOG_LAYOUT["documentationFiles"])
 TEMPLATE_FILES = (
     "templates/rule.md",
     "templates/instruction.md",
@@ -69,17 +70,14 @@ def is_supporting(rel: str) -> bool:
 
 def is_catalog(rel: str) -> bool:
     path = Path(rel)
+    if is_supporting(rel):
+        return False
     if path.suffix.lower() not in {".md", ".mdc"}:
         return False
     if path.name in DOC_NAMES:
         return False
     parts = path.parts
     if not parts or parts[0] not in TOOLS:
-        return False
-    conventional = path.name in {"SKILL.md", "AGENTS.md", "CLAUDE.md"} or path.name.endswith(
-        (".agent.md", ".instructions.md")
-    )
-    if is_supporting(rel) and not conventional:
         return False
     return True
 

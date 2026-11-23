@@ -9,10 +9,13 @@ frontmatter each tool actually reads.
 from __future__ import annotations
 
 import json
+import os
 import re
+import stat
 import sys
 from collections.abc import Collection
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 
 ROOT = Path(__file__).resolve().parents[1]
 CREATED = "2026-11-11"
@@ -20,8 +23,6 @@ MARKER = "<!-- native:start -->"
 CATALOG_INDEX = "release/original-2026-11/content-index.json"
 AUTHOR = {"name": "presets.dev", "github": "beel-collab"}
 TOOLS = ("cursor", "copilot", "claude", "windsurf", "cline", "codex", "antigravity")
-# Retired tool directory. Orphan cleanup deletes generated files still under this name.
-RETIRED_TOOLS = ("gemini-cli",)
 TOOL_LABEL = {
     "cursor": "Cursor",
     "copilot": "Copilot",
@@ -791,64 +792,104 @@ def native_body_from_catalog(catalog: str) -> str:
 KEEP_RELEASE = {"release/original-2026-11/retirement-map.json"}
 
 
+def checked_path(relative: str, *, directory: bool = False) -> Path:
+    parts = relative.split("/")
+    if any(part in {"", ".", ".."} or "\\" in part or ":" in part for part in parts):
+        raise SystemExit(f"{relative}: expected a path inside the content checkout")
+    path = ROOT
+    for index, part in enumerate(parts):
+        path /= part
+        try:
+            info = path.lstat()
+        except FileNotFoundError:
+            return ROOT.joinpath(*parts)
+        # Windows junctions and symbolic links can redirect an otherwise valid path.
+        reparse = getattr(info, "st_file_attributes", 0) & stat.FILE_ATTRIBUTE_REPARSE_POINT
+        expected = stat.S_ISDIR if directory or index < len(parts) - 1 else stat.S_ISREG
+        if reparse or not expected(info.st_mode):
+            raise SystemExit(f"{relative}: {path.relative_to(ROOT)} must be a regular checkout path without links")
+    return path
+
+
 def obsolete_catalog_files(expected: Collection[str]) -> set[str]:
     orphans: set[str] = set()
-    index = ROOT / CATALOG_INDEX
+    index = checked_path(CATALOG_INDEX)
     if index.is_file():
         previous = json.loads(index.read_text(encoding="utf-8"))["entries"]
         for entry in previous:
             rel = entry["catalog"]
             if rel in expected:
                 continue
-            path = ROOT / rel
-            if not path.is_relative_to(ROOT) or path.resolve() != path or not path.is_file():
-                continue
-            if MARKER in path.read_text(encoding="utf-8", errors="replace").splitlines():
+            path = checked_path(rel)
+            if path.is_file() and MARKER in path.read_text(encoding="utf-8", errors="replace").splitlines():
                 orphans.add(rel)
     return orphans
 
 
 def managed_orphans(expected: set[str]) -> list[str]:
+    def raise_scan_error(error: OSError) -> None:
+        raise error
+
     orphans = obsolete_catalog_files(expected)
-    release = ROOT / "release"
-    if release.is_dir():
-        for path in release.rglob("*"):
-            if path.is_file():
-                rel = path.relative_to(ROOT).as_posix()
-                if rel not in expected and rel not in KEEP_RELEASE:
-                    orphans.add(rel)
+    release = checked_path("release", directory=True)
+    if not release.exists():
+        return sorted(orphans)
+    for directory, folders, filenames in os.walk(release, onerror=raise_scan_error):
+        parent = Path(directory).relative_to(ROOT)
+        for folder in folders:
+            checked_path((parent / folder).as_posix(), directory=True)
+        for filename in filenames:
+            rel = (parent / filename).as_posix()
+            checked_path(rel)
+            if rel not in expected and rel not in KEEP_RELEASE:
+                orphans.add(rel)
     return sorted(orphans)
 
 
-def remove_empty_dirs(start: Path) -> None:
-    if not start.is_dir():
-        return
-    for path in sorted(start.rglob("*"), reverse=True):
-        if path.is_dir():
-            try:
-                path.rmdir()
-            except OSError:
-                pass
+def preflight(expected: set[str], orphans: list[str]) -> list[str]:
+    directories = {
+        parent.as_posix()
+        for rel in expected.union(orphans)
+        for parent in Path(rel).parents
+        if parent != Path(".")
+    }
+    conflicts = expected.intersection(directories)
+    if conflicts:
+        raise SystemExit(f"Generated file also used as a directory: {min(conflicts)}")
+    for rel in sorted(expected.union(orphans)):
+        checked_path(rel)
+    cleanup = {parent for rel in orphans for parent in Path(rel).parents if len(parent.parts) > 1}
+    return [parent.as_posix() for parent in sorted(cleanup, key=lambda path: (-len(path.parts), path))]
 
 
 def write_generated_file(rel: str, content: str | bytes) -> None:
-    path = ROOT / rel
+    path = checked_path(rel)
     path.parent.mkdir(parents=True, exist_ok=True)
-    if path.is_symlink():
-        raise SystemExit(f"{rel}: generated exports must be regular files")
-    path.write_bytes(content.encode("utf-8") if isinstance(content, str) else content)
+    mode = stat.S_IMODE(path.stat().st_mode) if path.exists() else 0o644
+    with NamedTemporaryFile(dir=path.parent, delete=False) as temp:
+        temporary = Path(temp.name)
+        try:
+            temp.write(content.encode("utf-8") if isinstance(content, str) else content)
+            temp.close()
+            temporary.chmod(mode)
+            os.replace(temporary, checked_path(rel))
+        finally:
+            temporary.unlink(missing_ok=True)
 
 
 def main() -> int:
     check = "--check" in sys.argv
+    for rel in KEEP_RELEASE:
+        checked_path(rel)
     files = build()
     expected = set(files)
     mismatches: list[str] = []
     orphans = managed_orphans(expected)
+    cleanup = preflight(expected, orphans)
     if check:
         for rel, content in files.items():
-            path = ROOT / rel
-            if not path.is_file() or path.is_symlink():
+            path = checked_path(rel)
+            if not path.is_file():
                 mismatches.append(rel)
                 continue
             current = path.read_text(encoding="utf-8") if isinstance(content, str) else path.read_bytes()
@@ -865,14 +906,14 @@ def main() -> int:
         if rel != CATALOG_INDEX:
             write_generated_file(rel, content)
     for rel in orphans:
-        path = ROOT / rel
-        if path.is_file():
-            path.unlink()
+        checked_path(rel).unlink(missing_ok=True)
     # Keep the previous catalog inventory available if cleanup is interrupted.
     write_generated_file(CATALOG_INDEX, files[CATALOG_INDEX])
-    remove_empty_dirs(ROOT / "release")
-    for tool in (*TOOLS, *RETIRED_TOOLS):
-        remove_empty_dirs(ROOT / tool)
+    for rel in cleanup:
+        try:
+            checked_path(rel, directory=True).rmdir()
+        except OSError:
+            pass  # A directory can still contain current output or contributor files.
     print(f"release wrote: {len(files)} file(s); removed {len(orphans)} orphan(s)")
     return 0
 

@@ -1,8 +1,10 @@
 import json
+import os
 import subprocess
+import sys
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from unittest import TestCase, main
+from unittest import TestCase, main, skipIf
 from unittest.mock import patch
 
 import yaml
@@ -64,6 +66,9 @@ class StandalonePresetsTest(TestCase):
             asset = skill.parent / "assets" / "fixture.bin"
             asset.parent.mkdir()
             asset.write_bytes(b"\xff\x00")
+            agent_reference = asset.parent / "AGENTS.md"
+            agent_reference.write_text("# Supporting notes\n", encoding="utf-8")
+            self.assertFalse(lint_presets.is_catalog(agent_reference.relative_to(root).as_posix()))
             (root / ".gitignore").write_text("*.pyc\n", encoding="utf-8")
             (asset.parent / "local.pyc").write_bytes(b"local cache")
             tracked = asset.parent / "committed.pyc"
@@ -86,7 +91,9 @@ class StandalonePresetsTest(TestCase):
         skill, = stacks["codex-astro-collection-review"]["entries"]
         self.assertIn("/native/agents/.agents/skills/astro-collection-review/SKILL.md", skill["exports"][0])
         assets = {Path(filename).name: exports[filename] for filename in skill["exports"][1:]}
-        self.assertEqual(assets, {"committed.pyc": b"tracked asset", "fixture.bin": b"\xff\x00"})
+        self.assertEqual(assets, {
+            "AGENTS.md": b"# Supporting notes\n", "committed.pyc": b"tracked asset", "fixture.bin": b"\xff\x00",
+        })
 
     def test_contribution_cannot_reuse_official_stack_id_or_skill_name(self):
         with TemporaryDirectory() as folder:
@@ -137,7 +144,31 @@ class StandalonePresetsTest(TestCase):
             root = Path(folder).resolve()
             write_preset(root, "copilot/astro/astro-collections.mdc", "astro-collections-rule", "rule")
             write_preset(root, "copilot/astro/astro-collections.md.prompt.md", "astro-collections-prompt", "rule")
-            with self.assertRaisesRegex(SystemExit, "public catalog ID conflicts"):
+            with self.assertRaisesRegex(SystemExit, "Public catalog ID .* conflicts"):
+                self.package(root)
+
+    def test_catalog_only_agent_cannot_collide_with_an_installable_rule(self):
+        with TemporaryDirectory() as folder:
+            root = Path(folder).resolve()
+            write_preset(root, "cursor/astro/astro-review.prompt.md", "cursor-astro-agent", "agent")
+            write_preset(root, "cursor/astro/astro-review.mdc", "cursor-astro-rule", "rule")
+            with self.assertRaisesRegex(SystemExit, "Public catalog ID cursor-rules-astro-review conflicts"):
+                self.package(root)
+
+    def test_catalog_only_agent_must_use_a_discoverable_location(self):
+        with TemporaryDirectory() as folder:
+            root = Path(folder).resolve()
+            write_preset(root, "claude/astro/astro-review.agent.md", "claude-astro-agent", "agent")
+            with self.assertRaisesRegex(SystemExit, "use a documented catalog path"):
+                self.package(root)
+
+    def test_website_parser_can_read_the_contribution(self):
+        with TemporaryDirectory() as folder:
+            root = Path(folder).resolve()
+            preset = write_preset(root, "cursor/astro/astro-review.mdc", "cursor-astro-review", "rule")
+            text = preset.read_text(encoding="utf-8").replace("\ntitle:", "\ntitle: Duplicate title\ntitle:")
+            preset.write_text(text, encoding="utf-8")
+            with self.assertRaisesRegex(SystemExit, "cursor/astro/astro-review.mdc: .*duplicated mapping key"):
                 self.package(root)
 
     def test_retired_catalog_path_requires_a_fresh_filename(self):
@@ -189,6 +220,54 @@ class StandalonePresetsTest(TestCase):
             with self.assertRaisesRegex(SystemExit, "generated install path"):
                 self.package(root)
 
+    @skipIf(os.name == "nt", "Windows cannot create this test fixture path.")
+    def test_rejects_nonportable_catalog_source_path(self):
+        with TemporaryDirectory() as folder:
+            root = Path(folder).resolve()
+            write_preset(root, "cursor/aux/aux-notes.mdc", "cursor-aux-notes", "rule")
+            with self.assertRaisesRegex(SystemExit, "use a source path that works on Windows"):
+                self.package(root)
+
+
+class ReleasePreflightTest(TestCase):
+    def test_preflight_rejects_linked_parents_before_writing_any_output(self):
+        with TemporaryDirectory() as folder:
+            root = Path(folder).resolve()
+            output = root / "release" / "README.md"
+            output.parent.mkdir()
+            output.write_text("previous output", encoding="utf-8")
+            actual = root / "other"
+            actual.mkdir()
+            try:
+                (root / "cursor").symlink_to(actual, target_is_directory=True)
+            except OSError as exc:
+                self.skipTest(f"Cannot create fixture symlink: {exc}")
+            planned = {"release/README.md": "new output", "cursor/astro/astro-notes.mdc": "new preset"}
+            with (
+                patch.object(assemble_release, "ROOT", root),
+                patch.object(assemble_release, "build", return_value=planned),
+                patch.object(sys, "argv", ["assemble_release.py"]),
+                self.assertRaisesRegex(SystemExit, "regular checkout path without links"),
+            ):
+                assemble_release.main()
+            self.assertEqual(output.read_text(encoding="utf-8"), "previous output")
+            self.assertEqual(list(actual.iterdir()), [])
+
+    def test_cleanup_scan_rejects_links_in_release_tree(self):
+        with TemporaryDirectory() as folder:
+            root = Path(folder).resolve()
+            release = root / "release"
+            release.mkdir()
+            other = root / "other"
+            other.mkdir()
+            (other / "keep.txt").write_text("keep", encoding="utf-8")
+            try:
+                (release / "old-output").symlink_to(other, target_is_directory=True)
+            except OSError as exc:
+                self.skipTest(f"Cannot create fixture symlink: {exc}")
+            with patch.object(assemble_release, "ROOT", root):
+                with self.assertRaisesRegex(SystemExit, "regular checkout path without links"):
+                    assemble_release.managed_orphans(set())
 
 if __name__ == "__main__":
     main()

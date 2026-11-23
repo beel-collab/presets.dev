@@ -4,17 +4,16 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
 from collections.abc import Callable
 from pathlib import Path
 
 from ci_common import git
 from lint_presets import (
-    CLAUDE_LAYOUT_DIRS,
     ROOT,
     SUPPORTING_DIRS,
     TOOLS,
     is_catalog,
-    is_supporting,
     load_schema,
     parse_frontmatter,
     split_frontmatter,
@@ -24,9 +23,7 @@ from lint_presets import (
 SAFE_SEGMENT = re.compile(r"[a-zA-Z0-9_.-]+")
 WINDOWS_DEVICE = re.compile(r"CON|PRN|AUX|NUL|(?:COM|LPT)[1-9]", re.IGNORECASE)
 SKILL_NAME = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
-WEB_CATEGORIES = {"rule": "rules", "instruction": "instructions", "agent": "agents", "skill": "skills"}
-WEB_SUBTYPE_SUFFIX = re.compile(r"\.(agent|instructions|prompt)\.md$")
-WEB_EXTENSION = re.compile(r"\.(md|mdc)$")
+CATALOG_CHECK = Path(__file__).resolve().parents[1] / "website/check-catalog.mjs"
 SKILL_ROOTS = {
     "cursor": "cursor/.cursor/skills",
     "copilot": "copilot/.github/skills",
@@ -59,33 +56,6 @@ def standards_export(tool: str, preset_id: str, data: dict) -> tuple[str, dict]:
         return f"cline/.clinerules/{preset_id}.md", {"paths": patterns} if patterns else {}
     filename = "AGENTS" if tool == "codex" else "GEMINI"
     return f"{tool}/{filename}.{preset_id}-section.md", {}
-
-
-def catalog_route(rel: str, kind: str) -> tuple[str, str, str, str]:
-    parts = Path(rel).parts
-    tool = parts[0]
-    tech = parts[2] if tool == "claude" and parts[1] in CLAUDE_LAYOUT_DIRS else parts[1]
-    filename = parts[-1]
-    category = WEB_CATEGORIES[kind]
-    # Catalog-only agents still use the website's original filename/folder categories.
-    if kind == "agent":
-        if tool == "claude" and parts[1] in CLAUDE_LAYOUT_DIRS:
-            category = parts[1]
-        elif tool != "claude" and filename != "AGENTS.md" and not filename.endswith(".agent.md"):
-            category = "instructions" if tool == "copilot" else "rules"
-    if kind == "skill":
-        slug = parts[-2]
-    elif filename == "CLAUDE.md" or (filename == "AGENTS.md" and tool != "claude"):
-        slug = tech
-    else:
-        slug = WEB_EXTENSION.sub("", WEB_SUBTYPE_SUFFIX.sub("", filename))
-    return tool, category, tech, slug
-
-
-def catalog_identity(route: tuple[str, str, str, str]) -> tuple[str, str, str]:
-    """Match the website's preset ID, which omits the technology."""
-    tool, category, _, slug = route
-    return tool, category, slug
 
 
 def portable_segment(segment: str) -> bool:
@@ -128,6 +98,22 @@ def retirement_paths() -> set[str]:
     return {row["old_file"] for row in json.loads(path.read_text(encoding="utf-8"))["entries"]}
 
 
+def validate_website_catalog(stacks: list[dict], obsolete: set[str], contributions: list[dict]) -> None:
+    payload = {
+        "entries": [entry for stack in stacks for entry in stack["entries"]],
+        "obsolete": sorted(obsolete),
+        "contributions": contributions,
+    }
+    try:
+        result = subprocess.run(
+            ["node", str(CATALOG_CHECK), str(ROOT)], input=json.dumps(payload), text=True, capture_output=True,
+        )
+    except FileNotFoundError:
+        raise SystemExit("Install Node.js 22 or later to validate the website catalog.") from None
+    if result.returncode:
+        raise SystemExit(result.stderr.strip() or "Website catalog validation failed")
+
+
 def build_standalone(
     files: dict[str, str | bytes],
     originals: list[dict],
@@ -136,24 +122,23 @@ def build_standalone(
 ) -> list[dict]:
     listed = git("-C", str(ROOT), "ls-files", "--cached", "--others", "--exclude-standard", "-z", "--", *TOOLS)
     eligible = {rel for rel in listed.split("\0") if rel and not rel.endswith("/")}
-    candidates = sorted(rel for rel in eligible - files.keys() - obsolete_catalog if is_catalog(rel) and not is_supporting(rel))
+    candidates = sorted(rel for rel in eligible - files.keys() - obsolete_catalog if is_catalog(rel))
     schema = load_schema() if candidates else {}
     retired = retirement_paths() if candidates else set()
-    redirects = json.loads((ROOT / "website/path-redirects.json").read_text(encoding="utf-8")) if candidates else {}
     original_entries = [entry for stack in originals for entry in stack["entries"]]
     seen_ids = {stack["id"] for stack in originals}
     skill_names = {Path(entry["catalog"]).parent.name for entry in original_entries if entry["role"] == "skill"}
-    catalog_ids = {
-        catalog_identity(catalog_route(entry["catalog"], entry["type"])): entry["catalog"] for entry in original_entries
-    }
     targets = {install_target(export): export for entry in original_entries for export in entry["exports"]}
     stacks = []
+    contributions = []
     for rel in candidates:
         source = ROOT / rel
         if source.resolve() != source:
             raise SystemExit(f"{rel}: a preset must be a regular file")
         if not source.is_file():
             continue  # A tracked preset can be removed in the same PR.
+        if not all(portable_segment(part) for part in Path(rel).parts):
+            raise SystemExit(f"{rel}: use a source path that works on Windows, macOS and Linux")
         if rel in retired:
             raise SystemExit(f"{rel}: this catalog path is retired. Choose a fresh filename.")
         data, errors = parse_frontmatter(rel)
@@ -162,17 +147,9 @@ def build_standalone(
         errors = validate_data(rel, data, schema, require_tool_dir=True)
         if errors:
             raise SystemExit("\n".join(errors))
-        route = catalog_route(rel, data["type"])
-        for depth in range(1, len(route) + 1):
-            url = "/" + "/".join(route[:depth])
-            if url in redirects:
-                raise SystemExit(f"{rel}: public route {url} is reserved by a permanent redirect. Choose a different path.")
+        contributions.append({"catalog": rel, "type": data["type"]})
         if data["type"] == "agent":
             continue
-        identity = catalog_identity(route)
-        if identity in catalog_ids:
-            raise SystemExit(f"{rel}: public catalog ID conflicts with {catalog_ids[identity]}")
-        catalog_ids[identity] = rel
 
         preset_id = data["id"]
         if preset_id in seen_ids:
@@ -230,4 +207,5 @@ def build_standalone(
                 "exports": [export, *support],
             }],
         })
+    validate_website_catalog(originals + stacks, obsolete_catalog, contributions)
     return stacks

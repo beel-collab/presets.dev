@@ -1,0 +1,4 @@
+{
+  "supportDirectories": ["references", "assets", "scripts"],
+  "documentationFiles": ["README.md", "CONTRIBUTING.md"]
+}

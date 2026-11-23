@@ -28,7 +28,7 @@ Signed-off-by: Your Name <you@example.com>
 2. Move it to the path in the layout table below. Start the file name, or the skill folder name, with the stack folder: `cursor/typescript/typescript-strict-null.mdc`, not `cursor/typescript/strict-null.mdc`.
 3. Replace `id`, `slug`, `title`, `description`, `author`, `tools`, `tags`, and the body.
 4. Set `tested_with` to the tool build you actually tried.
-5. Install the CI dependencies with `python -m pip install -r requirements-ci.txt`, then run `python scripts/assemble_release.py`.
+5. Install the CI dependencies with `python -m pip install -r requirements-ci.txt` and `npm ci --prefix website` (Node.js 22 or later), then run `python scripts/assemble_release.py`.
 6. Include the catalog file, the generated files under `release/<id>/native/`, and the updated release index and install map in your pull request. The template has an originality checkbox. Tick it only when it is true.
 
 Once the PR merges, install a contributed rule, instructions file, or skill by its frontmatter `id`:
@@ -38,6 +38,8 @@ npx presets-dev add <id> --tool <tool>
 ```
 
 The generator packages the preset for the tool named by its folder. The install command handles one preset, and the original stacks retain their whole-stack commands such as `npx presets-dev add nextjs --tool cursor`. Agent presets are distributed through the catalog.
+
+The website lists merged presets after its next deployment with the updated content revision.
 
 For standalone rules, use a YAML list in `globs` to scope Cursor, Copilot, Claude Code, or Cline. Cursor also accepts `alwaysApply`. The generator writes Devin rules with `trigger: model_decision`, and packages Codex and Antigravity instructions as sections to append. A skill carries its `references/`, `assets/`, and `scripts/` folders, so include everything the skill needs in the same PR.
 
@@ -366,13 +368,13 @@ GitHub Actions runs [`.github/workflows/ci.yml`](.github/workflows/ci.yml) on pu
 | Secret scan | Files added or modified in the pull request. Private keys and common live token shapes fail the check. A line that is clearly an example is ignored. |
 | DCO | Every non-merge commit in the pull request has `Signed-off-by` matching the commit author. |
 | Release counts | Each complete original stack in `release/original-2026-11/stacks.json` has one standards file and one `SKILL.md` for each of the seven release tools. Standalone entries carry their own install ID. |
-| Native export | `scripts/assemble_release.py --check` rebuilds the original catalog and all native install files, then checks for drift. |
+| Native export | `scripts/assemble_release.py --check` rebuilds the original catalog and all native install files, then checks for drift. It uses the website's catalog loader to check contribution paths, public IDs, redirects and frontmatter. |
 | Similarity | Release prose is compared with every other preset under the tool folders. A preset that shares a 40-word run with a release preset, or overlaps one very closely, fails the check. |
 | Next.js fixture | `node --test fixtures/nextjs/tenant-cache/policy.test.mjs` runs the decision table used by the Next.js audit skill. |
 
 Markdown rules in force: no trailing whitespace (MD009), no hard tabs (MD010), no stacked blank lines (MD012), a space after `#` in headings (MD018), fenced code blocks closed, and a single trailing newline (MD047). Use Unix line endings.
 
-Install the same checker locally with `pip install -r requirements-ci.txt`, then run:
+Install the same dependencies locally with `pip install -r requirements-ci.txt` and `npm ci --prefix website` (Node.js 22 or later), then run:
 
 ```text
 python scripts/lint_presets.py
