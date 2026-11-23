@@ -7,10 +7,13 @@ import re
 from collections.abc import Callable
 from pathlib import Path
 
+from ci_common import git
 from lint_presets import (
+    CLAUDE_LAYOUT_DIRS,
     ROOT,
     SUPPORTING_DIRS,
-    catalog_files,
+    TOOLS,
+    is_catalog,
     is_supporting,
     load_schema,
     parse_frontmatter,
@@ -20,6 +23,9 @@ from lint_presets import (
 
 SAFE_SEGMENT = re.compile(r"[a-zA-Z0-9_.-]+")
 SKILL_NAME = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
+WEB_CATEGORIES = {"rule": "rules", "instruction": "instructions", "skill": "skills"}
+WEB_SUBTYPE_SUFFIX = re.compile(r"\.(agent|instructions|prompt)\.md$")
+WEB_EXTENSION = re.compile(r"\.(md|mdc)$")
 SKILL_ROOTS = {
     "cursor": "cursor/.cursor/skills",
     "copilot": "copilot/.github/skills",
@@ -54,18 +60,45 @@ def standards_export(tool: str, preset_id: str, data: dict) -> tuple[str, dict]:
     return f"{tool}/{filename}.{preset_id}-section.md", {}
 
 
-def skill_support(source: Path, target: str) -> dict[str, bytes]:
+def catalog_identity(rel: str, kind: str) -> tuple[str, str, str]:
+    """Match the website's preset ID, which omits the technology."""
+    parts = Path(rel).parts
+    tool = parts[0]
+    filename = parts[-1]
+    if kind == "skill":
+        slug = parts[-2]
+    elif filename == "CLAUDE.md":
+        slug = parts[2] if tool == "claude" and parts[1] in CLAUDE_LAYOUT_DIRS else parts[1]
+    else:
+        slug = WEB_EXTENSION.sub("", WEB_SUBTYPE_SUFFIX.sub("", filename))
+    return tool, WEB_CATEGORIES[kind], slug
+
+
+def install_target(export: str) -> str:
+    # The CLI removes the release and tool prefix. Section exports retain
+    # their ID here because the installer uses that ID to mark their sections.
+    return export.split("/", 4)[4].casefold()
+
+
+def skill_support(source: Path, target: str, eligible: set[str]) -> dict[str, bytes]:
     files = {}
-    for folder in sorted(SUPPORTING_DIRS):
-        support = source / folder
-        if support.is_symlink():
-            raise SystemExit(f"{support.relative_to(ROOT)}: skill support may not be a symlink")
-        for child in sorted(support.rglob("*")):
-            relative = child.relative_to(source)
-            if child.is_symlink() or not all(SAFE_SEGMENT.fullmatch(part) for part in relative.parts):
-                raise SystemExit(f"{child.relative_to(ROOT)}: use plain filenames in skill support")
-            if child.is_file():
-                files[f"{target}/{relative.as_posix()}"] = child.read_bytes()
+    names: dict[str, str] = {}
+    prefix = source.relative_to(ROOT).as_posix() + "/"
+    for rel in sorted(path for path in eligible if path.startswith(prefix)):
+        relative = Path(rel[len(prefix):])
+        if relative.parts[0] not in SUPPORTING_DIRS:
+            continue
+        child = ROOT / rel
+        if child.resolve() != child or not all(SAFE_SEGMENT.fullmatch(part) for part in relative.parts):
+            raise SystemExit(f"{rel}: use regular files with plain filenames in skill support")
+        if not child.is_file():
+            continue
+        for path in (relative, *relative.parents):
+            spelling = path.as_posix()
+            previous = names.setdefault(spelling.casefold(), spelling)
+            if previous != spelling:
+                raise SystemExit(f"{rel}: skill paths {previous!r} and {spelling!r} differ only by case")
+        files[f"{target}/{relative.as_posix()}"] = child.read_bytes()
     return files
 
 
@@ -78,22 +111,28 @@ def retirement_paths() -> set[str]:
 
 def build_standalone(
     files: dict[str, str | bytes],
-    official_ids: set[str],
-    official_skills: set[str],
+    originals: list[dict],
     emit_frontmatter: Callable[[dict, list[str]], str],
 ) -> list[dict]:
-    excluded = retirement_paths() | files.keys()
-    candidates = sorted(set(catalog_files()) - excluded)
+    listed = git("-C", str(ROOT), "ls-files", "--cached", "--others", "--exclude-standard", "-z", "--", *TOOLS)
+    eligible = {rel for rel in listed.split("\0") if rel and not rel.endswith("/")}
+    candidates = sorted(rel for rel in eligible - files.keys() if is_catalog(rel) and not is_supporting(rel))
     schema = load_schema() if candidates else {}
-    seen_ids = set(official_ids)
-    seen_skill_targets = set()
+    retired = retirement_paths() if candidates else set()
+    original_entries = [entry for stack in originals for entry in stack["entries"]]
+    seen_ids = {stack["id"] for stack in originals}
+    skill_names = {Path(entry["catalog"]).parent.name for entry in original_entries if entry["role"] == "skill"}
+    catalog_ids = {catalog_identity(entry["catalog"], entry["type"]): entry["catalog"] for entry in original_entries}
+    targets = {install_target(export): export for entry in original_entries for export in entry["exports"]}
     stacks = []
     for rel in candidates:
-        if is_supporting(rel):
-            continue
         source = ROOT / rel
         if source.resolve() != source:
             raise SystemExit(f"{rel}: a preset must be a regular file")
+        if not source.is_file():
+            continue  # A tracked preset can be removed in the same PR.
+        if rel in retired:
+            raise SystemExit(f"{rel}: this catalog path is retired. Choose a fresh filename.")
         data, errors = parse_frontmatter(rel)
         if data is None:
             raise SystemExit("\n".join(errors))
@@ -102,6 +141,10 @@ def build_standalone(
             raise SystemExit("\n".join(errors))
         if data["type"] == "agent":
             continue
+        identity = catalog_identity(rel, data["type"])
+        if identity in catalog_ids:
+            raise SystemExit(f"{rel}: public catalog ID conflicts with {catalog_ids[identity]}")
+        catalog_ids[identity] = rel
 
         preset_id = data["id"]
         if preset_id in seen_ids:
@@ -118,12 +161,12 @@ def build_standalone(
             if len(skill_name) > 64 or not SKILL_NAME.fullmatch(skill_name):
                 raise SystemExit(f"{rel}: use a kebab-case skill name up to 64 characters")
             target = f"{SKILL_ROOTS[tool]}/{skill_name}"
-            if skill_name in official_skills or target in seen_skill_targets:
+            if skill_name in skill_names:
                 raise SystemExit(f"{rel}: skill install name {skill_name!r} is already in use")
-            seen_skill_targets.add(target)
+            skill_names.add(skill_name)
             native = f"{target}/SKILL.md"
             front = {"name": skill_name, "description": data["description"]}
-            support = skill_support(source.parent, f"{prefix}/{target}")
+            support = skill_support(source.parent, f"{prefix}/{target}", eligible)
         else:
             native, front = standards_export(tool, preset_id, data)
         _, body = split_frontmatter(source.read_text(encoding="utf-8"))
@@ -137,6 +180,11 @@ def build_standalone(
         if role == "standards" and tool == "windsurf" and len(text) > 12000:
             raise SystemExit(f"{rel}: the native rule exceeds 12000 characters")
         export = f"{prefix}/{native}"
+        for filename in (export, *support):
+            target = install_target(filename)
+            if target in targets:
+                raise SystemExit(f"{rel}: install path {target!r} conflicts with {targets[target]}")
+            targets[target] = filename
         files[export] = text
         files.update(support)
         stacks.append({

@@ -697,7 +697,7 @@ def mapping_markdown(rows: list[tuple[dict, dict]], standalone: list[dict]) -> s
     return "\n".join(lines)
 
 
-def stacks_document(groups: list[tuple[dict, list[dict]]], standalone: list[dict]) -> dict:
+def stacks_document(groups: list[tuple[dict, list[dict]]]) -> dict:
     return {
         "release": "original-2026-11",
         "tools": list(TOOLS),
@@ -724,7 +724,7 @@ def stacks_document(groups: list[tuple[dict, list[dict]]], standalone: list[dict
                 ],
             }
             for spec, items in groups
-        ] + standalone,
+        ],
     }
 
 
@@ -768,8 +768,10 @@ def build() -> dict[str, str | bytes]:
                     raise SystemExit(f"{exported['path']}: two tools wrote different contents")
                 files[exported["path"]] = body
             rows.append((spec, item))
-    standalone = build_standalone(files, seen_ids, seen_skills, emit_frontmatter)
-    files["release/original-2026-11/stacks.json"] = json.dumps(stacks_document(groups, standalone), indent=2) + "\n"
+    manifest = stacks_document(groups)
+    standalone = build_standalone(files, manifest["stacks"], emit_frontmatter)
+    manifest["stacks"].extend(standalone)
+    files["release/original-2026-11/stacks.json"] = json.dumps(manifest, indent=2) + "\n"
     files["release/original-2026-11/content-index.json"] = json.dumps(content_index(groups), indent=2) + "\n"
     files["release/README.md"] = mapping_markdown(rows, standalone)
     return files
