@@ -22,8 +22,9 @@ from lint_presets import (
 )
 
 SAFE_SEGMENT = re.compile(r"[a-zA-Z0-9_.-]+")
+WINDOWS_DEVICE = re.compile(r"CON|PRN|AUX|NUL|(?:COM|LPT)[1-9]", re.IGNORECASE)
 SKILL_NAME = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
-WEB_CATEGORIES = {"rule": "rules", "instruction": "instructions", "skill": "skills"}
+WEB_CATEGORIES = {"rule": "rules", "instruction": "instructions", "agent": "agents", "skill": "skills"}
 WEB_SUBTYPE_SUFFIX = re.compile(r"\.(agent|instructions|prompt)\.md$")
 WEB_EXTENSION = re.compile(r"\.(md|mdc)$")
 SKILL_ROOTS = {
@@ -60,18 +61,36 @@ def standards_export(tool: str, preset_id: str, data: dict) -> tuple[str, dict]:
     return f"{tool}/{filename}.{preset_id}-section.md", {}
 
 
-def catalog_identity(rel: str, kind: str) -> tuple[str, str, str]:
-    """Match the website's preset ID, which omits the technology."""
+def catalog_route(rel: str, kind: str) -> tuple[str, str, str, str]:
     parts = Path(rel).parts
     tool = parts[0]
+    tech = parts[2] if tool == "claude" and parts[1] in CLAUDE_LAYOUT_DIRS else parts[1]
     filename = parts[-1]
+    category = WEB_CATEGORIES[kind]
+    # Catalog-only agents still use the website's original filename/folder categories.
+    if kind == "agent":
+        if tool == "claude" and parts[1] in CLAUDE_LAYOUT_DIRS:
+            category = parts[1]
+        elif tool != "claude" and filename != "AGENTS.md" and not filename.endswith(".agent.md"):
+            category = "instructions" if tool == "copilot" else "rules"
     if kind == "skill":
         slug = parts[-2]
-    elif filename == "CLAUDE.md":
-        slug = parts[2] if tool == "claude" and parts[1] in CLAUDE_LAYOUT_DIRS else parts[1]
+    elif filename == "CLAUDE.md" or (filename == "AGENTS.md" and tool != "claude"):
+        slug = tech
     else:
         slug = WEB_EXTENSION.sub("", WEB_SUBTYPE_SUFFIX.sub("", filename))
-    return tool, WEB_CATEGORIES[kind], slug
+    return tool, category, tech, slug
+
+
+def catalog_identity(route: tuple[str, str, str, str]) -> tuple[str, str, str]:
+    """Match the website's preset ID, which omits the technology."""
+    tool, category, _, slug = route
+    return tool, category, slug
+
+
+def portable_segment(segment: str) -> bool:
+    stem = segment.split(".", 1)[0]
+    return bool(SAFE_SEGMENT.fullmatch(segment) and not segment.endswith(".") and not WINDOWS_DEVICE.fullmatch(stem))
 
 
 def install_target(export: str) -> str:
@@ -89,8 +108,8 @@ def skill_support(source: Path, target: str, eligible: set[str]) -> dict[str, by
         if relative.parts[0] not in SUPPORTING_DIRS:
             continue
         child = ROOT / rel
-        if child.resolve() != child or not all(SAFE_SEGMENT.fullmatch(part) for part in relative.parts):
-            raise SystemExit(f"{rel}: use regular files with plain filenames in skill support")
+        if child.resolve() != child or not all(portable_segment(part) for part in relative.parts):
+            raise SystemExit(f"{rel}: use regular files with filenames that work on Windows, macOS and Linux")
         if not child.is_file():
             continue
         for path in (relative, *relative.parents):
@@ -113,16 +132,20 @@ def build_standalone(
     files: dict[str, str | bytes],
     originals: list[dict],
     emit_frontmatter: Callable[[dict, list[str]], str],
+    obsolete_catalog: set[str],
 ) -> list[dict]:
     listed = git("-C", str(ROOT), "ls-files", "--cached", "--others", "--exclude-standard", "-z", "--", *TOOLS)
     eligible = {rel for rel in listed.split("\0") if rel and not rel.endswith("/")}
-    candidates = sorted(rel for rel in eligible - files.keys() if is_catalog(rel) and not is_supporting(rel))
+    candidates = sorted(rel for rel in eligible - files.keys() - obsolete_catalog if is_catalog(rel) and not is_supporting(rel))
     schema = load_schema() if candidates else {}
     retired = retirement_paths() if candidates else set()
+    redirects = json.loads((ROOT / "website/path-redirects.json").read_text(encoding="utf-8")) if candidates else {}
     original_entries = [entry for stack in originals for entry in stack["entries"]]
     seen_ids = {stack["id"] for stack in originals}
     skill_names = {Path(entry["catalog"]).parent.name for entry in original_entries if entry["role"] == "skill"}
-    catalog_ids = {catalog_identity(entry["catalog"], entry["type"]): entry["catalog"] for entry in original_entries}
+    catalog_ids = {
+        catalog_identity(catalog_route(entry["catalog"], entry["type"])): entry["catalog"] for entry in original_entries
+    }
     targets = {install_target(export): export for entry in original_entries for export in entry["exports"]}
     stacks = []
     for rel in candidates:
@@ -139,9 +162,14 @@ def build_standalone(
         errors = validate_data(rel, data, schema, require_tool_dir=True)
         if errors:
             raise SystemExit("\n".join(errors))
+        route = catalog_route(rel, data["type"])
+        for depth in range(1, len(route) + 1):
+            url = "/" + "/".join(route[:depth])
+            if url in redirects:
+                raise SystemExit(f"{rel}: public route {url} is reserved by a permanent redirect. Choose a different path.")
         if data["type"] == "agent":
             continue
-        identity = catalog_identity(rel, data["type"])
+        identity = catalog_identity(route)
         if identity in catalog_ids:
             raise SystemExit(f"{rel}: public catalog ID conflicts with {catalog_ids[identity]}")
         catalog_ids[identity] = rel
@@ -169,6 +197,9 @@ def build_standalone(
             support = skill_support(source.parent, f"{prefix}/{target}", eligible)
         else:
             native, front = standards_export(tool, preset_id, data)
+        export = f"{prefix}/{native}"
+        if not all(portable_segment(part) for part in export.split("/")):
+            raise SystemExit(f"{rel}: generated install path {export} needs a filename that works on Windows, macOS and Linux")
         _, body = split_frontmatter(source.read_text(encoding="utf-8"))
         if not body.strip():
             raise SystemExit(f"{rel}: add instructions to the preset")
@@ -179,7 +210,6 @@ def build_standalone(
         text = (emit_frontmatter(front, list(front)) + "\n" if front else "") + body.strip("\n") + "\n"
         if role == "standards" and tool == "windsurf" and len(text) > 12000:
             raise SystemExit(f"{rel}: the native rule exceeds 12000 characters")
-        export = f"{prefix}/{native}"
         for filename in (export, *support):
             target = install_target(filename)
             if target in targets:

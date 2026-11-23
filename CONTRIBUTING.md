@@ -78,9 +78,13 @@ A skill file is a skill: `SKILL.md` with `type: skill`. Do not use a second inst
 
 Optional notes that support a skill live in `references/` next to `SKILL.md`. Those files are not separate catalog entries. Write them yourself. `assets/` and `scripts/` are the same kind of supporting file.
 
+Use portable names for support files and folders. Windows device names such as `AUX` and names ending in a dot are reserved.
+
 File names are lowercase, with hyphens. The filenames `SKILL.md`, `AGENTS.md`, and `CLAUDE.md` stay in that conventional case.
 
 A preset name starts with its stack folder: `typescript-strict-null.mdc` in `cursor/typescript/`, or `typescript-test-writer/SKILL.md` for a skill. The site builds a preset's id from the tool, the type, and that name, without the stack folder, so `strict-null.mdc` in two stacks would collide. `AGENTS.md` and `CLAUDE.md` are exempt. Do not reuse a release name such as `typescript-rules` or `typescript-code-review`.
+
+Choose a path whose public URL is available. The release generator and website share the [permanent redirect map](website/path-redirects.json).
 
 ## Frontmatter
 

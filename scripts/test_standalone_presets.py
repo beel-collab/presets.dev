@@ -7,6 +7,7 @@ from unittest.mock import patch
 
 import yaml
 
+import assemble_release
 import lint_presets
 import standalone_presets
 from assemble_release import emit_frontmatter
@@ -39,9 +40,17 @@ def write_preset(root: Path, rel: str, preset_id: str, kind: str, **extra) -> Pa
 class StandalonePresetsTest(TestCase):
     def package(self, root, originals=None):
         subprocess.run(["git", "init", "--quiet", str(root)], check=True)
+        redirects = Path("website/path-redirects.json")
+        (root / redirects.parent).mkdir(exist_ok=True)
+        (root / redirects).write_bytes((standalone_presets.ROOT / redirects).read_bytes())
         exports = {}
-        with patch.object(lint_presets, "ROOT", root), patch.object(standalone_presets, "ROOT", root):
-            stacks = standalone_presets.build_standalone(exports, originals or [], emit_frontmatter)
+        with (
+            patch.object(lint_presets, "ROOT", root),
+            patch.object(standalone_presets, "ROOT", root),
+            patch.object(assemble_release, "ROOT", root),
+        ):
+            obsolete = assemble_release.obsolete_catalog_files(exports.keys())
+            stacks = standalone_presets.build_standalone(exports, originals or [], emit_frontmatter, obsolete)
         return {stack["id"]: stack for stack in stacks}, exports
 
     def test_catalog_ids_package_each_type_and_preserve_skill_assets(self):
@@ -140,6 +149,44 @@ class StandalonePresetsTest(TestCase):
             retirement_map.parent.mkdir(parents=True)
             retirement_map.write_text(json.dumps({"entries": [{"old_file": rel}]}), encoding="utf-8")
             with self.assertRaisesRegex(SystemExit, "catalog path is retired"):
+                self.package(root)
+
+    def test_contribution_cannot_claim_a_permanent_redirect(self):
+        with TemporaryDirectory() as folder:
+            root = Path(folder).resolve()
+            write_preset(root, "cursor/angular/angular.md", "cursor-angular-conventions", "rule")
+            with self.assertRaisesRegex(SystemExit, r"public route /cursor/rules/angular/angular is reserved"):
+                self.package(root)
+
+    def test_cleanup_only_removes_catalog_files_in_the_previous_index(self):
+        with TemporaryDirectory() as folder:
+            root = Path(folder).resolve()
+            skill = write_preset(root, "codex/astro/astro-review/SKILL.md", "codex-astro-review", "skill")
+            reference = skill.parent / "references" / "release-notes.md"
+            reference.parent.mkdir()
+            reference.write_text(f"# Release notes\n\n{assemble_release.MARKER}\n", encoding="utf-8")
+            previous = root / "cursor/astro/astro-old.mdc"
+            previous.parent.mkdir(parents=True)
+            previous.write_text(assemble_release.MARKER + "\n", encoding="utf-8")
+            index = root / assemble_release.CATALOG_INDEX
+            index.parent.mkdir(parents=True)
+            old_catalog = previous.relative_to(root).as_posix()
+            index.write_text(json.dumps({"entries": [{"catalog": old_catalog}]}), encoding="utf-8")
+            stacks, exports = self.package(root)
+            file = stacks["codex-astro-review"]["entries"][0]["exports"][1]
+            self.assertEqual(exports[file], reference.read_bytes())
+            with patch.object(assemble_release, "ROOT", root):
+                self.assertEqual(assemble_release.managed_orphans(set(exports) | {assemble_release.CATALOG_INDEX}), [old_catalog])
+
+    def test_filenames_are_portable_to_windows(self):
+        for segment in ("AUX.txt", "nul", "Com1.log", "LPT9", "notes."):
+            with self.subTest(segment=segment):
+                self.assertFalse(standalone_presets.portable_segment(segment))
+        self.assertTrue(standalone_presets.portable_segment("auxiliary.txt"))
+        with TemporaryDirectory() as folder:
+            root = Path(folder).resolve()
+            write_preset(root, "codex/astro/astro-collections.md", "aux", "rule")
+            with self.assertRaisesRegex(SystemExit, "generated install path"):
                 self.package(root)
 
 

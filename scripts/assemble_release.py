@@ -11,11 +11,13 @@ from __future__ import annotations
 import json
 import re
 import sys
+from collections.abc import Collection
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CREATED = "2026-11-11"
 MARKER = "<!-- native:start -->"
+CATALOG_INDEX = "release/original-2026-11/content-index.json"
 AUTHOR = {"name": "presets.dev", "github": "beel-collab"}
 TOOLS = ("cursor", "copilot", "claude", "windsurf", "cline", "codex", "antigravity")
 # Retired tool directory. Orphan cleanup deletes generated files still under this name.
@@ -769,10 +771,10 @@ def build() -> dict[str, str | bytes]:
                 files[exported["path"]] = body
             rows.append((spec, item))
     manifest = stacks_document(groups)
-    standalone = build_standalone(files, manifest["stacks"], emit_frontmatter)
+    standalone = build_standalone(files, manifest["stacks"], emit_frontmatter, obsolete_catalog_files(files.keys()))
     manifest["stacks"].extend(standalone)
     files["release/original-2026-11/stacks.json"] = json.dumps(manifest, indent=2) + "\n"
-    files["release/original-2026-11/content-index.json"] = json.dumps(content_index(groups), indent=2) + "\n"
+    files[CATALOG_INDEX] = json.dumps(content_index(groups), indent=2) + "\n"
     files["release/README.md"] = mapping_markdown(rows, standalone)
     return files
 
@@ -789,31 +791,33 @@ def native_body_from_catalog(catalog: str) -> str:
 KEEP_RELEASE = {"release/original-2026-11/retirement-map.json"}
 
 
+def obsolete_catalog_files(expected: Collection[str]) -> set[str]:
+    orphans: set[str] = set()
+    index = ROOT / CATALOG_INDEX
+    if index.is_file():
+        previous = json.loads(index.read_text(encoding="utf-8"))["entries"]
+        for entry in previous:
+            rel = entry["catalog"]
+            if rel in expected:
+                continue
+            path = ROOT / rel
+            if not path.is_relative_to(ROOT) or path.resolve() != path or not path.is_file():
+                continue
+            if MARKER in path.read_text(encoding="utf-8", errors="replace").splitlines():
+                orphans.add(rel)
+    return orphans
+
+
 def managed_orphans(expected: set[str]) -> list[str]:
-    orphans: list[str] = []
+    orphans = obsolete_catalog_files(expected)
     release = ROOT / "release"
     if release.is_dir():
         for path in release.rglob("*"):
             if path.is_file():
                 rel = path.relative_to(ROOT).as_posix()
                 if rel not in expected and rel not in KEEP_RELEASE:
-                    orphans.append(rel)
-    for tool in (*TOOLS, *RETIRED_TOOLS):
-        base = ROOT / tool
-        if not base.is_dir():
-            continue
-        for path in base.rglob("*"):
-            if not path.is_file():
-                continue
-            if path.suffix.lower() not in {".md", ".mdc"}:
-                continue
-            rel = path.relative_to(ROOT).as_posix()
-            if rel in expected:
-                continue
-            text = path.read_text(encoding="utf-8", errors="ignore")
-            if MARKER in text:
-                orphans.append(rel)
-    return sorted(set(orphans))
+                    orphans.add(rel)
+    return sorted(orphans)
 
 
 def remove_empty_dirs(start: Path) -> None:
@@ -825,6 +829,14 @@ def remove_empty_dirs(start: Path) -> None:
                 path.rmdir()
             except OSError:
                 pass
+
+
+def write_generated_file(rel: str, content: str | bytes) -> None:
+    path = ROOT / rel
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if path.is_symlink():
+        raise SystemExit(f"{rel}: generated exports must be regular files")
+    path.write_bytes(content.encode("utf-8") if isinstance(content, str) else content)
 
 
 def main() -> int:
@@ -850,15 +862,14 @@ def main() -> int:
         print(f"release matches: {len(files)} file(s), {len(files) - 2} generated content file(s)")
         return 0
     for rel, content in files.items():
-        path = ROOT / rel
-        path.parent.mkdir(parents=True, exist_ok=True)
-        if path.is_symlink():
-            raise SystemExit(f"{rel}: generated exports must be regular files")
-        path.write_bytes(content.encode("utf-8") if isinstance(content, str) else content)
+        if rel != CATALOG_INDEX:
+            write_generated_file(rel, content)
     for rel in orphans:
         path = ROOT / rel
         if path.is_file():
             path.unlink()
+    # Keep the previous catalog inventory available if cleanup is interrupted.
+    write_generated_file(CATALOG_INDEX, files[CATALOG_INDEX])
     remove_empty_dirs(ROOT / "release")
     for tool in (*TOOLS, *RETIRED_TOOLS):
         remove_empty_dirs(ROOT / tool)
