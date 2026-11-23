@@ -33,24 +33,52 @@ function children(root, folder) {
     }
 }
 
+/**
+ * The one place that maps a content path to its public identity.
+ * `<tool>/<topic>/<file>`, `claude/<folder>/<topic>/<file>`, or a skill's `.../<topic>/<name>/SKILL.md`.
+ * @param {string} sourcePath @param {Kind} [type] the registered type, when the release map names one
+ * @returns {Preset | null}
+ */
+export function describeCatalogPath(sourcePath, type) {
+    const parts = sourcePath.split("/");
+    const tool = tools.find((valid) => valid === parts[0]);
+    if (!tool || parts.some((part) => !part)) return null;
+    const folder = tool === "claude" ? claudeFolders.find((valid) => valid === parts[1]) ?? "" : "";
+    const topicIndex = folder ? 2 : 1;
+    const technology = parts[topicIndex];
+    const filename = parts.at(-1);
+    if (!technology || !filename || parts.some((part) => layout.supportDirectories.includes(part)) ||
+        layout.documentationFiles.includes(filename)) return null;
+
+    if (filename === "SKILL.md" && parts.length === topicIndex + 3) {
+        return { sourcePath, tool, technology, slug: parts[topicIndex + 1], category: categories[type ?? "skill"] };
+    }
+    if (parts.length !== topicIndex + 2) return null;
+    if (!filename.endsWith(".md") && (folder || !filename.endsWith(".mdc"))) return null;
+    const category = type ? categories[type] : folder || legacyCategory(filename, tool);
+    return { sourcePath, tool, technology, slug: fileSlug(filename, technology, !folder), category };
+}
+
 /** @param {string} root @param {Entry[]} entries @param {Iterable<string>} [removed] */
 export function readCatalog(root, entries, removed = []) {
-    const registered = new Map(entries.map(({ catalog, type }) => [catalog, categories[type]]));
+    const registered = new Map(entries.map(({ catalog, type }) => [catalog, type]));
     const obsolete = new Set(removed);
     /** @type {Map<string, Preset>} */
     const catalog = new Map();
 
-    /** @param {string} sourcePath @param {Tool} tool @param {Preset["category"]} category
-     * @param {string} technology @param {string} slug */
-    function add(sourcePath, tool, category, technology, slug) {
-        const parts = sourcePath.split("/");
-        if (obsolete.has(sourcePath) || parts.some((part) => layout.supportDirectories.includes(part)) ||
-            layout.documentationFiles.includes(parts.at(-1))) return;
-        catalog.set(sourcePath, { sourcePath, tool, technology, slug, category: registered.get(sourcePath) ?? category });
+    /** @param {string} sourcePath */
+    function add(sourcePath) {
+        if (obsolete.has(sourcePath) || catalog.has(sourcePath)) return;
+        const preset = describeCatalogPath(sourcePath, registered.get(sourcePath));
+        if (preset) catalog.set(sourcePath, preset);
+        else if (registered.has(sourcePath)) {
+            throw new Error(`${sourcePath}: expected a topic directory and a documented catalog file name`);
+        }
     }
 
     const claudeDirectories = new Set(children(root, "claude").filter((entry) => entry.isDirectory()).map((entry) => entry.name));
     for (const tool of tools) {
+        // Claude rules outside the agents/skills/instructions folders are published only through the release map.
         const folders = tool === "claude" ? claudeFolders.filter((folder) => claudeDirectories.has(folder)) : [""];
         for (const folder of folders) {
             const base = folder ? `${tool}/${folder}` : tool;
@@ -59,31 +87,15 @@ export function readCatalog(root, entries, removed = []) {
                 const dir = `${base}/${topic.name}`;
                 for (const child of children(root, dir)) {
                     const source = `${dir}/${child.name}`;
-                    if (child.isDirectory()) {
-                        if (children(root, source).some((file) => file.isFile() && file.name === "SKILL.md")) {
-                            add(`${source}/SKILL.md`, tool, "skills", topic.name, child.name);
-                        }
-                    } else if (child.isFile() && (child.name.endsWith(".md") || (!folder && child.name.endsWith(".mdc")))) {
-                        const category = folder || legacyCategory(child.name, tool);
-                        add(source, tool, category, topic.name, fileSlug(child.name, topic.name, !folder));
+                    if (child.isFile()) add(source);
+                    else if (child.isDirectory() && children(root, source).some((file) => file.isFile() && file.name === "SKILL.md")) {
+                        add(`${source}/SKILL.md`);
                     }
                 }
             }
         }
     }
-
-    for (const { catalog: source, type } of entries) {
-        if (catalog.has(source)) continue;
-        const parts = source.split("/");
-        const [tool, first] = parts;
-        const topicIndex = tool === "claude" && claudeFolders.some((folder) => folder === first) ? 2 : 1;
-        const minimumParts = topicIndex + (type === "skill" ? 3 : 2);
-        if (parts.length < minimumParts) throw new Error(`${source}: expected a topic directory`);
-        const tech = parts[topicIndex];
-        const slug = type === "skill" ? parts.at(-2) : fileSlug(parts.at(-1), tech, true);
-        if (!tools.some((valid) => valid === tool) || !tech || !slug) throw new Error(`Invalid catalog path: ${source}`);
-        add(source, /** @type {Tool} */ (tool), categories[type], tech, slug);
-    }
+    for (const { catalog: source } of entries) add(source);
     return [...catalog.values()];
 }
 
@@ -110,9 +122,14 @@ export function validateCatalog(catalog, redirects, contributions = []) {
         if (previous) throw new Error(`Public catalog ID ${id} conflicts with ${previous} and ${preset.sourcePath}`);
         ids.set(id, preset.sourcePath);
         bySource.set(preset.sourcePath, preset);
-        for (const route of catalogPaths(presetPath(preset))) {
-            if (Object.hasOwn(redirects, route)) {
-                throw new Error(`${preset.sourcePath}: public route ${route} is reserved by a permanent redirect. Choose a different path.`);
+        const detail = presetPath(preset);
+        if (Object.hasOwn(redirects, detail)) {
+            throw new Error(`${preset.sourcePath}: public route ${detail} is reserved by a permanent redirect. Choose a different file name.`);
+        }
+        for (const listing of catalogPaths(detail).slice(0, -1)) {
+            // A listing redirect only exists because the listing was once empty. Publishing into it retires the redirect.
+            if (Object.hasOwn(redirects, listing)) {
+                throw new Error(`${preset.sourcePath}: this preset brings back the listing ${listing}. Remove "${listing}" from website/path-redirects.json in the same change.`);
             }
         }
     }

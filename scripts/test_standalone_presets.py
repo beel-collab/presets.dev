@@ -222,6 +222,13 @@ class StandalonePresetsTest(TestCase):
             with self.assertRaisesRegex(SystemExit, r"public route /cursor/rules/angular/angular is reserved"):
                 self.package(root)
 
+    def test_contribution_to_a_redirected_listing_names_the_redirect_to_remove(self):
+        with TemporaryDirectory() as folder:
+            root = Path(folder).resolve()
+            write_preset(root, "cursor/astro/AGENTS.md", "cursor-astro-agent", "agent")
+            with self.assertRaisesRegex(SystemExit, r'brings back the listing /cursor/agents\. Remove "/cursor/agents"'):
+                self.package(root)
+
     def test_cleanup_only_removes_catalog_files_in_the_previous_index(self):
         with TemporaryDirectory() as folder:
             root = Path(folder).resolve()

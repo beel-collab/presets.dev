@@ -86,7 +86,7 @@ File names are lowercase, with hyphens. The filenames `SKILL.md`, `AGENTS.md`, a
 
 A preset name starts with its stack folder: `typescript-strict-null.mdc` in `cursor/typescript/`, or `typescript-test-writer/SKILL.md` for a skill. The site builds a preset's id from the tool, the type, and that name, without the stack folder, so `strict-null.mdc` in two stacks would collide. `AGENTS.md` and `CLAUDE.md` are exempt. Do not reuse a release name such as `typescript-rules` or `typescript-code-review`.
 
-Choose a path whose public URL is available. The release generator and website share the [permanent redirect map](website/path-redirects.json).
+Choose a path whose public URL is available. The release generator and website share the [permanent redirect map](website/path-redirects.json). A preset's own page can't reuse a redirected URL, so pick another file name if CI reports one. Listing pages are different: `/cursor/agents` or `/cursor/rules/java` redirect only because they were empty. If your preset brings one back, CI names the redirect to delete from that file in the same change.
 
 ## Frontmatter
 
