@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Verify original-release catalog counts and native install files.
 
-A stack marked complete in release/original-2026-11/stacks.json must contain
+A complete original stack in release/original-2026-11/stacks.json must contain
 exactly one standards file and one SKILL.md for each release tool. The full
 420 count applies when all 30 stacks are marked complete. This checkpoint
 enforces the same per-stack contract for every stack that is complete.
@@ -271,7 +271,11 @@ def main() -> int:
     if document.get("tools") != list(RELEASE_TOOLS):
         errors.append("manifest tools must be the seven release tools, including antigravity")
     schema = load_schema()
-    complete = [stack for stack in document.get("stacks", []) if stack.get("status") == "complete"]
+    stacks = document.get("stacks", [])
+    complete = [stack for stack in stacks if stack.get("kind") != "standalone" and stack.get("status") == "complete"]
+    standalone_catalog = {
+        row["catalog"] for stack in stacks if stack.get("kind") == "standalone" for row in stack["entries"]
+    }
     check_source_urls(complete, errors)
     check_retirement_routes(errors)
     check_content_index(errors)
@@ -348,7 +352,7 @@ def main() -> int:
     from lint_presets import catalog_files, loose_frontmatter
 
     for rel in catalog_files():
-        if rel in seen_catalog:
+        if rel in seen_catalog or rel in standalone_catalog:
             continue
         data = loose_frontmatter(rel)
         if isinstance(data, dict) and data.get("stack") in {stack["id"] for stack in complete}:

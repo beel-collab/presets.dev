@@ -9,5 +9,6 @@ Describe the preset or the docs change.
 - [ ] The `slug` matches the file path, and `id` is not already used.
 - [ ] Commits are signed off with `git commit -s` (Developer Certificate of Origin).
 - [ ] I tried the preset in the tool listed under `tested_with`.
+- [ ] For a rule, instructions file, or skill, I ran `python scripts/assemble_release.py` and included its generated files.
 
 A docs-only change can say so in the summary and leave the preset boxes unchecked.

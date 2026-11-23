@@ -28,9 +28,18 @@ Signed-off-by: Your Name <you@example.com>
 2. Move it to the path in the layout table below. Start the file name, or the skill folder name, with the stack folder: `cursor/typescript/typescript-strict-null.mdc`, not `cursor/typescript/strict-null.mdc`.
 3. Replace `id`, `slug`, `title`, `description`, `author`, `tools`, `tags`, and the body.
 4. Set `tested_with` to the tool build you actually tried.
-5. Open a pull request. The template has an originality checkbox. Tick it only when it is true.
+5. Install the CI dependencies with `python -m pip install -r requirements-ci.txt`, then run `python scripts/assemble_release.py`.
+6. Include the catalog file, the generated files under `release/<id>/native/`, and the updated release index and install map in your pull request. The template has an originality checkbox. Tick it only when it is true.
 
-A new preset shows on the site once it is merged. The `presets-dev` CLI installs only the release stacks in `release/original-2026-11/stacks.json`, so a preset outside a release stack is not installable with `npx presets-dev`.
+Once the PR merges, install a contributed rule, instructions file, or skill by its frontmatter `id`:
+
+```bash
+npx presets-dev add <id> --tool <tool>
+```
+
+The generator packages the preset for the tool named by its folder. The install command handles one preset, and the original stacks retain their whole-stack commands such as `npx presets-dev add nextjs --tool cursor`. Agent presets are distributed through the catalog.
+
+For standalone rules, use a YAML list in `globs` to scope Cursor, Copilot, Claude Code, or Cline. Cursor also accepts `alwaysApply`. The generator writes Devin rules with `trigger: model_decision`, and packages Codex and Antigravity instructions as sections to append. A skill carries its `references/`, `assets/`, and `scripts/` folders, so include everything the skill needs in the same PR.
 
 ## Fix or improve a release preset
 
@@ -109,7 +118,8 @@ Optional fields, when you need them:
 
 | Field | Use |
 | --- | --- |
-| `globs`, `alwaysApply` | Scoped Cursor `.mdc` rules. |
+| `globs` | Optional file patterns for standalone Cursor, Copilot, Claude Code, and Cline rules. |
+| `alwaysApply` | Optional Cursor `.mdc` flag. |
 | `libs` | Libraries the preset assumes. |
 | `model` | A model hint for an agent. |
 | `also_for` | Other tools the same text was tried on. |
@@ -351,8 +361,8 @@ GitHub Actions runs [`.github/workflows/ci.yml`](.github/workflows/ci.yml) on pu
 | Length | 40,000 characters for a changed preset or supporting file under a tool directory. `README.md` and `CONTRIBUTING.md` are exempt. |
 | Secret scan | Files added or modified in the pull request. Private keys and common live token shapes fail the check. A line that is clearly an example is ignored. |
 | DCO | Every non-merge commit in the pull request has `Signed-off-by` matching the commit author. |
-| Release counts | Each stack listed as complete in `release/original-2026-11/stacks.json` has 14 catalog entries: one standards file and one `SKILL.md` for each of the seven release tools, including `antigravity`. The index is not named `manifest.json` because that filename is gitignored. |
-| Native export | `scripts/assemble_release.py --check` rebuilds catalog files and native install files from `masters/` and fails on drift. |
+| Release counts | Each complete original stack in `release/original-2026-11/stacks.json` has one standards file and one `SKILL.md` for each of the seven release tools. Standalone entries carry their own install ID. |
+| Native export | `scripts/assemble_release.py --check` rebuilds the original catalog and all native install files, then checks for drift. |
 | Similarity | Release prose is compared with every other preset under the tool folders. A preset that shares a 40-word run with a release preset, or overlaps one very closely, fails the check. |
 | Next.js fixture | `node --test fixtures/nextjs/tenant-cache/policy.test.mjs` runs the decision table used by the Next.js audit skill. |
 

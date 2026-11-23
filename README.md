@@ -18,7 +18,7 @@ npx presets-dev add nextjs --tool cursor
 npx presets-dev add nextjs typescript --tool claude,codex --dry-run
 ```
 
-The CLI reads `release/original-2026-11/stacks.json` from this repository and writes each tool's native files. Without `--tool`, it detects tools from your project.
+The CLI reads `release/original-2026-11/stacks.json` from this repository and writes each tool's native files. Contributed rules, instructions, and skills are installable by their preset IDs. Without `--tool`, it detects tools from your project.
 
 To install by hand, copy the native file into the path named in `release/README.md`. Append Codex sections to `AGENTS.md` and Antigravity CLI sections to `GEMINI.md`. Do not replace a file the repo already has. Windsurf installs only the `.devin/` copy.
 
@@ -46,14 +46,15 @@ The clean-room rule, the frontmatter schema, and the starters are in [CONTRIBUTI
 
 `masters/` holds one standards file and one skill file for each of 30 stacks. `python scripts/assemble_release.py` writes 420 catalog entries (seven tools, two files each) and the native install files under `release/<stack>/native/`.
 
-The index of those entries is `release/original-2026-11/stacks.json`.
+The install index at `release/original-2026-11/stacks.json` includes the original stacks and standalone contributions.
 
 ## Contributing
 
 1. Read [CONTRIBUTING.md](CONTRIBUTING.md).
 2. Copy a starter from [`templates/`](templates/).
-3. Sign off every commit with `git commit -s`.
-4. Open a pull request. The template asks you to confirm the preset is original.
+3. Run the release assembler and include the generated install files and index.
+4. Sign off every commit with `git commit -s`.
+5. Open a pull request. The template asks you to confirm the preset is original.
 
 ## License
 

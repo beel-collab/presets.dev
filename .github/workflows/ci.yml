@@ -44,6 +44,7 @@ jobs:
       - name: Check original-release counts and native exports
         run: |
           python scripts/assemble_release.py --check
+          python scripts/test_standalone_presets.py
           python scripts/check_release_counts.py
           python scripts/check_similarity.py
           node --test fixtures/nextjs/tenant-cache/policy.test.mjs

@@ -9,7 +9,7 @@
     "codex",
     "antigravity"
   ],
-  "note": "Each complete stack has one standards file and one SKILL.md for every tool. Support files and native exports are not catalog entries. antigravity is Antigravity CLI, which replaced Gemini CLI for personal accounts. The index is stacks.json because manifest.json is gitignored.",
+  "note": "Each original stack has one standards file and one SKILL.md for every tool. A standalone entry installs one contributed preset. Support files and native exports are not catalog entries. antigravity is Antigravity CLI, which replaced Gemini CLI for personal accounts. The index is stacks.json because manifest.json is gitignored.",
   "stacks": [
     {
       "id": "nextjs",

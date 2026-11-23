@@ -49,7 +49,7 @@ def release_catalog_paths() -> set[str]:
     document = json.loads(MANIFEST.read_text(encoding="utf-8"))
     found: set[str] = set()
     for stack in document.get("stacks", []):
-        if stack.get("status") != "complete":
+        if stack.get("status") != "complete" or stack.get("kind") == "standalone":
             continue
         for row in stack.get("entries", []):
             found.add(row["catalog"])

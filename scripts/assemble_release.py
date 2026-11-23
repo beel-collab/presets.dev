@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build original-release catalog files and native install payloads.
+"""Build the original catalog and native install files, including contributions.
 
 Each stack lives in masters/<id>/ with stack.json, standards.md, and skill.md.
 Catalog frontmatter stays in the catalog file. Native exports rebuild the small
@@ -667,7 +667,7 @@ def content_index(groups: list[tuple[dict, list[dict]]]) -> dict:
     }
 
 
-def mapping_markdown(rows: list[tuple[dict, dict]]) -> str:
+def mapping_markdown(rows: list[tuple[dict, dict]], standalone: list[dict]) -> str:
     lines = [
         "# Native install map",
         "",
@@ -687,16 +687,23 @@ def mapping_markdown(rows: list[tuple[dict, dict]]) -> str:
             lines.append(
                 f"| {spec['id']} | {item['tool']} | {item['role']} | `{item['catalog_path']}` | `{exported['path']}` |"
             )
+    for stack in standalone:
+        item = stack["entries"][0]
+        for exported in item["exports"]:
+            lines.append(
+                f"| {stack['id']} | {item['tool']} | {item['role']} | `{item['catalog']}` | `{exported}` |"
+            )
     lines.append("")
     return "\n".join(lines)
 
 
-def stacks_document(groups: list[tuple[dict, list[dict]]]) -> dict:
+def stacks_document(groups: list[tuple[dict, list[dict]]], standalone: list[dict]) -> dict:
     return {
         "release": "original-2026-11",
         "tools": list(TOOLS),
         "note": (
-            "Each complete stack has one standards file and one SKILL.md for every tool. "
+            "Each original stack has one standards file and one SKILL.md for every tool. "
+            "A standalone entry installs one contributed preset. "
             "Support files and native exports are not catalog entries. "
             "antigravity is Antigravity CLI, which replaced Gemini CLI for personal accounts. "
             "The index is stacks.json because manifest.json is gitignored."
@@ -717,12 +724,14 @@ def stacks_document(groups: list[tuple[dict, list[dict]]]) -> dict:
                 ],
             }
             for spec, items in groups
-        ],
+        ] + standalone,
     }
 
 
-def build() -> dict[str, str]:
-    files: dict[str, str] = {}
+def build() -> dict[str, str | bytes]:
+    from standalone_presets import build_standalone
+
+    files: dict[str, str | bytes] = {}
     groups: list[tuple[dict, list[dict]]] = []
     rows: list[tuple[dict, dict]] = []
     seen_ids: set[str] = set()
@@ -759,9 +768,10 @@ def build() -> dict[str, str]:
                     raise SystemExit(f"{exported['path']}: two tools wrote different contents")
                 files[exported["path"]] = body
             rows.append((spec, item))
-    files["release/original-2026-11/stacks.json"] = json.dumps(stacks_document(groups), indent=2) + "\n"
+    standalone = build_standalone(files, seen_ids, seen_skills, emit_frontmatter)
+    files["release/original-2026-11/stacks.json"] = json.dumps(stacks_document(groups, standalone), indent=2) + "\n"
     files["release/original-2026-11/content-index.json"] = json.dumps(content_index(groups), indent=2) + "\n"
-    files["release/README.md"] = mapping_markdown(rows)
+    files["release/README.md"] = mapping_markdown(rows, standalone)
     return files
 
 
@@ -822,10 +832,13 @@ def main() -> int:
     mismatches: list[str] = []
     orphans = managed_orphans(expected)
     if check:
-        for rel, text in files.items():
+        for rel, content in files.items():
             path = ROOT / rel
-            current = path.read_text(encoding="utf-8") if path.is_file() else None
-            if current != text:
+            if not path.is_file() or path.is_symlink():
+                mismatches.append(rel)
+                continue
+            current = path.read_text(encoding="utf-8") if isinstance(content, str) else path.read_bytes()
+            if current != content:
                 mismatches.append(rel)
         if mismatches or orphans:
             print("release files drifted:")
@@ -834,10 +847,12 @@ def main() -> int:
             return 1
         print(f"release matches: {len(files)} file(s), {len(files) - 2} generated content file(s)")
         return 0
-    for rel, text in files.items():
+    for rel, content in files.items():
         path = ROOT / rel
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(text, encoding="utf-8")
+        if path.is_symlink():
+            raise SystemExit(f"{rel}: generated exports must be regular files")
+        path.write_bytes(content.encode("utf-8") if isinstance(content, str) else content)
     for rel in orphans:
         path = ROOT / rel
         if path.is_file():
