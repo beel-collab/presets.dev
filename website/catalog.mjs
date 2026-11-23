@@ -3,6 +3,7 @@ import { join } from "node:path";
 import matter from "gray-matter";
 import layout from "./catalog-layout.json" with { type: "json" };
 import { catalogPaths, presetId, presetPath } from "./catalog-identity.mjs";
+import { validateRedirectGraph } from "./redirect-graph.mjs";
 
 const tools = /** @type {const} */ (["copilot", "cursor", "windsurf", "antigravity", "cline", "codex", "claude"]);
 const claudeFolders = /** @type {const} */ (["agents", "skills", "instructions"]);
@@ -74,8 +75,11 @@ export function readCatalog(root, entries, removed = []) {
     for (const { catalog: source, type } of entries) {
         if (catalog.has(source)) continue;
         const parts = source.split("/");
-        const [tool, first, second] = parts;
-        const tech = tool === "claude" && claudeFolders.some((folder) => folder === first) ? second : first;
+        const [tool, first] = parts;
+        const topicIndex = tool === "claude" && claudeFolders.some((folder) => folder === first) ? 2 : 1;
+        const minimumParts = topicIndex + (type === "skill" ? 3 : 2);
+        if (parts.length < minimumParts) throw new Error(`${source}: expected a topic directory`);
+        const tech = parts[topicIndex];
         const slug = type === "skill" ? parts.at(-2) : fileSlug(parts.at(-1), tech, true);
         if (!tools.some((valid) => valid === tool) || !tech || !slug) throw new Error(`Invalid catalog path: ${source}`);
         add(source, /** @type {Tool} */ (tool), categories[type], tech, slug);
@@ -97,6 +101,7 @@ function fileSlug(filename, tech, useAgentTopic) {
 /** @param {Preset[]} catalog @param {Record<string, string>} redirects
  * @param {Entry[]} [contributions] */
 export function validateCatalog(catalog, redirects, contributions = []) {
+    validateRedirectGraph(redirects);
     const ids = new Map();
     const bySource = new Map();
     for (const preset of catalog) {

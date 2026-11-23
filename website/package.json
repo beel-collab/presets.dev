@@ -3,5 +3,10 @@
   "private": true,
   "dependencies": {
     "gray-matter": "4.0.3"
+  },
+  "overrides": {
+    "gray-matter": {
+      "js-yaml": "3.15.2"
+    }
   }
 }

@@ -40,11 +40,12 @@ def write_preset(root: Path, rel: str, preset_id: str, kind: str, **extra) -> Pa
 
 
 class StandalonePresetsTest(TestCase):
-    def package(self, root, originals=None):
+    def package(self, root, originals=None, extra_redirects=None):
         subprocess.run(["git", "init", "--quiet", str(root)], check=True)
         redirects = Path("website/path-redirects.json")
         (root / redirects.parent).mkdir(exist_ok=True)
-        (root / redirects).write_bytes((standalone_presets.ROOT / redirects).read_bytes())
+        base = json.loads((standalone_presets.ROOT / redirects).read_text(encoding="utf-8"))
+        (root / redirects).write_text(json.dumps({**base, **(extra_redirects or {})}), encoding="utf-8")
         exports = {}
         with (
             patch.object(lint_presets, "ROOT", root),
@@ -170,6 +171,38 @@ class StandalonePresetsTest(TestCase):
             preset.write_text(text, encoding="utf-8")
             with self.assertRaisesRegex(SystemExit, "cursor/astro/astro-review.mdc: .*duplicated mapping key"):
                 self.package(root)
+
+    def test_schema_is_applied_to_the_website_parsers_metadata(self):
+        with TemporaryDirectory() as folder:
+            root = Path(folder).resolve()
+            preset = write_preset(root, "cursor/astro/astro-notation.mdc", "cursor-astro-notation", "rule")
+            text = preset.read_text(encoding="utf-8").replace("tags:\n- astro", "tags: [1e3]")
+            preset.write_text(text, encoding="utf-8")
+            with self.assertRaisesRegex(SystemExit, "tags/0: 1000 is not of type 'string'"):
+                self.package(root)
+            text = text.replace("[1e3]", '["1e3"]').replace("'2026-11-23'", "2026-11-23")
+            preset.write_text(text, encoding="utf-8")
+            self.assertIn("cursor-astro-notation", self.package(root)[0])
+
+    def test_release_entry_requires_a_topic_directory(self):
+        with TemporaryDirectory() as folder:
+            root = Path(folder).resolve()
+            write_preset(root, "cursor/widget.mdc", "cursor-widget", "rule")
+            with self.assertRaisesRegex(SystemExit, "cursor/widget.mdc: expected a topic directory"):
+                self.package(root)
+
+    def test_content_check_rejects_redirect_cycles(self):
+        with TemporaryDirectory() as folder:
+            root = Path(folder).resolve()
+            redirects = {"/old-a": "/old-b", "/old-b": "/old-a"}
+            with self.assertRaisesRegex(SystemExit, "Redirect cycle"):
+                self.package(root, extra_redirects=redirects)
+
+    def test_checkout_case_collisions_check_files_and_parent_directories(self):
+        with self.assertRaisesRegex(SystemExit, "AGENTS.md.*agents.md.*differ only by case"):
+            standalone_presets.validate_path_case({"copilot/agents/AGENTS.md", "copilot/agents/agents.md"})
+        with self.assertRaisesRegex(SystemExit, "docs.*differ only by case"):
+            standalone_presets.validate_path_case({"codex/topic/skill/references/Docs/one.md", "codex/topic/skill/references/docs/two.md"})
 
     def test_retired_catalog_path_requires_a_fresh_filename(self):
         with TemporaryDirectory() as folder:

@@ -63,6 +63,17 @@ def portable_segment(segment: str) -> bool:
     return bool(SAFE_SEGMENT.fullmatch(segment) and not segment.endswith(".") and not WINDOWS_DEVICE.fullmatch(stem))
 
 
+def validate_path_case(paths: set[str]) -> None:
+    spellings: dict[str, str] = {}
+    for relative in sorted(paths):
+        path = Path(relative)
+        for entry in (path, *path.parents):
+            name = entry.as_posix()
+            previous = spellings.setdefault(name.casefold(), name)
+            if previous != name:
+                raise SystemExit(f"Checkout paths {previous!r} and {name!r} differ only by case")
+
+
 def install_target(export: str) -> str:
     # The CLI removes the release and tool prefix. Section exports retain
     # their ID here because the installer uses that ID to mark their sections.
@@ -71,7 +82,6 @@ def install_target(export: str) -> str:
 
 def skill_support(source: Path, target: str, eligible: set[str]) -> dict[str, bytes]:
     files = {}
-    names: dict[str, str] = {}
     prefix = source.relative_to(ROOT).as_posix() + "/"
     for rel in sorted(path for path in eligible if path.startswith(prefix)):
         relative = Path(rel[len(prefix):])
@@ -82,11 +92,6 @@ def skill_support(source: Path, target: str, eligible: set[str]) -> dict[str, by
             raise SystemExit(f"{rel}: use regular files with filenames that work on Windows, macOS and Linux")
         if not child.is_file():
             continue
-        for path in (relative, *relative.parents):
-            spelling = path.as_posix()
-            previous = names.setdefault(spelling.casefold(), spelling)
-            if previous != spelling:
-                raise SystemExit(f"{rel}: skill paths {previous!r} and {spelling!r} differ only by case")
         files[f"{target}/{relative.as_posix()}"] = child.read_bytes()
     return files
 
@@ -98,7 +103,7 @@ def retirement_paths() -> set[str]:
     return {row["old_file"] for row in json.loads(path.read_text(encoding="utf-8"))["entries"]}
 
 
-def validate_website_catalog(stacks: list[dict], obsolete: set[str], contributions: list[dict]) -> None:
+def validate_website_catalog(stacks: list[dict], obsolete: set[str], contributions: list[dict], schema: dict) -> None:
     payload = {
         "entries": [entry for stack in stacks for entry in stack["entries"]],
         "obsolete": sorted(obsolete),
@@ -112,6 +117,13 @@ def validate_website_catalog(stacks: list[dict], obsolete: set[str], contributio
         raise SystemExit("Install Node.js 22 or later to validate the website catalog.") from None
     if result.returncode:
         raise SystemExit(result.stderr.strip() or "Website catalog validation failed")
+    errors = [
+        error
+        for preset in json.loads(result.stdout)
+        for error in validate_data(preset["catalog"], preset["metadata"], schema, require_tool_dir=True)
+    ]
+    if errors:
+        raise SystemExit("Website frontmatter validation failed:\n" + "\n".join(errors))
 
 
 def build_standalone(
@@ -122,6 +134,8 @@ def build_standalone(
 ) -> list[dict]:
     listed = git("-C", str(ROOT), "ls-files", "--cached", "--others", "--exclude-standard", "-z", "--", *TOOLS)
     eligible = {rel for rel in listed.split("\0") if rel and not rel.endswith("/")}
+    present = {rel for rel in eligible - obsolete_catalog if (ROOT / rel).exists() or (ROOT / rel).is_symlink()}
+    validate_path_case(present | files.keys())
     candidates = sorted(rel for rel in eligible - files.keys() - obsolete_catalog if is_catalog(rel))
     schema = load_schema() if candidates else {}
     retired = retirement_paths() if candidates else set()
@@ -207,5 +221,5 @@ def build_standalone(
                 "exports": [export, *support],
             }],
         })
-    validate_website_catalog(originals + stacks, obsolete_catalog, contributions)
+    validate_website_catalog(originals + stacks, obsolete_catalog, contributions, schema)
     return stacks
