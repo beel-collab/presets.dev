@@ -244,15 +244,10 @@ def host_line(tool: str, spec: dict, role: str) -> str:
                 f"Conditional Cline rule for {product}. "
                 f"Install it under `.clinerules/` only."
             ),
-            "codex": (
-                f"Section to append to `AGENTS.md` for {product}. "
-                f"This is project guidance, not a custom agent."
-            ),
-            "antigravity": (
-                f"Section to append to `GEMINI.md` for {product}. "
-                f"Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. "
-                f"Do not put this same section in both files. Confirm with `/context`."
-            ),
+            # These sections are installed into the user's own AGENTS.md or
+            # GEMINI.md, where an install note would only be noise for the agent.
+            "codex": "",
+            "antigravity": "",
         }[tool]
     return {
         "cursor": (

@@ -1,7 +1,5 @@
 # Vue Antigravity CLI Rules: Script Setup, Composables and SSR
 
-Section to append to `GEMINI.md` for Vue. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
-
 ## Updated for Vue 3.5.45, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

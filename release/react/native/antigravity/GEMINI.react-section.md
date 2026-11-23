@@ -1,7 +1,5 @@
 # React Antigravity CLI Rules: Components, State and Effects
 
-Section to append to `GEMINI.md` for React. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
-
 ## Updated for React 19.3.1, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

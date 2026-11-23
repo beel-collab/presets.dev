@@ -1,7 +1,5 @@
 # Angular Antigravity CLI Rules: Standalone Components, Signals and Forms
 
-Section to append to `GEMINI.md` for Angular. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
-
 ## Updated for Angular 22.2.6, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

@@ -1,7 +1,5 @@
 # .NET Codex Instructions: Nullable Contracts, Async and Endpoints
 
-Section to append to `AGENTS.md` for .NET. This is project guidance, not a custom agent.
-
 ## Updated for .NET 10 LTS and .NET 11, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

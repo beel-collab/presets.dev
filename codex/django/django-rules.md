@@ -38,8 +38,6 @@ Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI,
 
 # Django Codex Instructions: ORM, Permissions and Migrations
 
-Section to append to `AGENTS.md` for Django. This is project guidance, not a custom agent.
-
 ## Updated for Django 6.1.3, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

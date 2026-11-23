@@ -39,8 +39,6 @@ Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI,
 
 # Supabase Antigravity CLI Rules: Auth, RLS and Typed Queries
 
-Section to append to `GEMINI.md` for Supabase. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
-
 ## Updated for supabase-js 2.119.0, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

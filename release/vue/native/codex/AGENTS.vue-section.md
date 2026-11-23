@@ -1,7 +1,5 @@
 # Vue Codex Instructions: Script Setup, Composables and SSR
 
-Section to append to `AGENTS.md` for Vue. This is project guidance, not a custom agent.
-
 ## Updated for Vue 3.5.45, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

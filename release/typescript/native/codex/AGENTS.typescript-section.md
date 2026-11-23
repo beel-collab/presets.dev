@@ -1,7 +1,5 @@
 # TypeScript Codex Instructions: Strict Types and Runtime Checks
 
-Section to append to `AGENTS.md` for TypeScript. This is project guidance, not a custom agent.
-
 ## Updated for TypeScript 7.0.2, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

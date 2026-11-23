@@ -38,8 +38,6 @@ Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI,
 
 # Prisma Antigravity CLI Rules: Schema, Migrations and Query Shape
 
-Section to append to `GEMINI.md` for Prisma. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
-
 ## Updated for Prisma 7.10.1 stable, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

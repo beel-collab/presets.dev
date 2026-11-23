@@ -38,8 +38,6 @@ Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI,
 
 # Prisma Codex Instructions: Schema, Migrations and Query Shape
 
-Section to append to `AGENTS.md` for Prisma. This is project guidance, not a custom agent.
-
 ## Updated for Prisma 7.10.1 stable, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

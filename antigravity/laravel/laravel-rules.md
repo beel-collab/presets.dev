@@ -38,8 +38,6 @@ Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI,
 
 # Laravel Antigravity CLI Rules: Requests, Policies and Eloquent
 
-Section to append to `GEMINI.md` for Laravel. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
-
 ## Updated for Laravel 13, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

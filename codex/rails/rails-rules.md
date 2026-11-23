@@ -38,8 +38,6 @@ Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI,
 
 # Rails Codex Instructions: Models, Strong Params and Jobs
 
-Section to append to `AGENTS.md` for Rails. This is project guidance, not a custom agent.
-
 ## Updated for Rails 8.1.4.1, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

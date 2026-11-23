@@ -1,7 +1,5 @@
 # Docker Codex Instructions: Images, Runtime Users and Build Secrets
 
-Section to append to `AGENTS.md` for Docker. This is project guidance, not a custom agent.
-
 ## Updated for Docker Engine 29, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

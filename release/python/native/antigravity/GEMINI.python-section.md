@@ -1,7 +1,5 @@
 # Python Antigravity CLI Rules: Environments, Types and pytest
 
-Section to append to `GEMINI.md` for Python. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
-
 ## Updated for uv 0.13.7 and Ruff 0.17.4, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

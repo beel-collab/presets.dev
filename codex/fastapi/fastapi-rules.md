@@ -38,8 +38,6 @@ Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI,
 
 # FastAPI Codex Instructions: Pydantic Models, Dependencies and Async
 
-Section to append to `AGENTS.md` for FastAPI. This is project guidance, not a custom agent.
-
 ## Updated for FastAPI 0.162.5, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

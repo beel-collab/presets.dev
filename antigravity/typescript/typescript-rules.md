@@ -38,8 +38,6 @@ Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI,
 
 # TypeScript Antigravity CLI Rules: Strict Types and Runtime Checks
 
-Section to append to `GEMINI.md` for TypeScript. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
-
 ## Updated for TypeScript 7.0.2, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

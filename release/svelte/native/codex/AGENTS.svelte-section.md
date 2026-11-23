@@ -1,7 +1,5 @@
 # Svelte Codex Instructions: Runes, Load Functions and SSR
 
-Section to append to `AGENTS.md` for Svelte. This is project guidance, not a custom agent.
-
 ## Updated for Svelte 5.57.3 and SvelteKit 3.2.0, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

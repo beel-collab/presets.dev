@@ -1,7 +1,5 @@
 # Spring Boot Codex Instructions: Injection, Transactions and Validation
 
-Section to append to `AGENTS.md` for Spring Boot. This is project guidance, not a custom agent.
-
 ## Updated for Spring Boot 4.1, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

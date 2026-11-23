@@ -1,7 +1,5 @@
 # MCP Codex Instructions: Tools, Schemas and Permissions
 
-Section to append to `AGENTS.md` for MCP. This is project guidance, not a custom agent.
-
 ## Updated for the 2026-07-28 MCP spec, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

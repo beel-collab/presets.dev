@@ -1,7 +1,5 @@
 # Laravel Codex Instructions: Requests, Policies and Eloquent
 
-Section to append to `AGENTS.md` for Laravel. This is project guidance, not a custom agent.
-
 ## Updated for Laravel 13, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

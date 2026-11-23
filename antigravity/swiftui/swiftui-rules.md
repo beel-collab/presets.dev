@@ -38,8 +38,6 @@ Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI,
 
 # SwiftUI Antigravity CLI Rules: State, Concurrency and Availability
 
-Section to append to `GEMINI.md` for SwiftUI. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
-
 ## Updated for Swift 6.4, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

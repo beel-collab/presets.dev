@@ -1,7 +1,5 @@
 # Terraform Codex Instructions: Providers, State and Plan Review
 
-Section to append to `AGENTS.md` for Terraform. This is project guidance, not a custom agent.
-
 ## Updated for Terraform 1.17, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

@@ -1,7 +1,5 @@
 # Next.js Codex Instructions: App Router, TypeScript and Server Actions
 
-Section to append to `AGENTS.md` for Next.js. This is project guidance, not a custom agent.
-
 ## Updated for Next.js 16.4.6, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

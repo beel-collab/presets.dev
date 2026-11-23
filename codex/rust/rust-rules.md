@@ -38,8 +38,6 @@ Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI,
 
 # Rust Codex Instructions: Ownership, Errors and Async
 
-Section to append to `AGENTS.md` for Rust. This is project guidance, not a custom agent.
-
 ## Updated for Rust 1.100.0, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

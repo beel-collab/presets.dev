@@ -1,7 +1,5 @@
 # Terraform Antigravity CLI Rules: Providers, State and Plan Review
 
-Section to append to `GEMINI.md` for Terraform. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
-
 ## Updated for Terraform 1.17, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

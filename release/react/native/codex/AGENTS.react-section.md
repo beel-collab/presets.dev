@@ -1,7 +1,5 @@
 # React Codex Instructions: Components, State and Effects
 
-Section to append to `AGENTS.md` for React. This is project guidance, not a custom agent.
-
 ## Updated for React 19.3.1, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

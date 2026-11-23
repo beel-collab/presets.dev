@@ -39,8 +39,6 @@ Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI,
 
 # Svelte Antigravity CLI Rules: Runes, Load Functions and SSR
 
-Section to append to `GEMINI.md` for Svelte. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
-
 ## Updated for Svelte 5.57.3 and SvelteKit 3.2.0, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 

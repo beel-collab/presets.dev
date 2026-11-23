@@ -38,8 +38,6 @@ Install one skill file per name. Cursor, GitHub Copilot, Codex, Antigravity CLI,
 
 # Node.js Antigravity CLI Rules: ESM, Cancellation and Streams
 
-Section to append to `GEMINI.md` for Node.js. Antigravity CLI loads every `GEMINI.md` and every `AGENTS.md` it finds. Do not put this same section in both files. Confirm with `/context`.
-
 ## Updated for Node.js 26.13.1 LTS, Nov 2026
 Do not upgrade dependencies or the framework version unless the task asks.
 
